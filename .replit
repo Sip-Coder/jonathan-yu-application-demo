@@ -1,6 +1,10 @@
 run = "npm run dev"
+modules = ["nodejs-20", "web"]
 
 [deployment]
 build = "npm run build"
 deploymentTarget = "static"
 publicDir = "dist"
+
+[nix]
+channel = "stable-25_05"
