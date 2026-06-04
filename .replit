@@ -1,0 +1,6 @@
+run = "npm run dev"
+
+[deployment]
+build = "npm run build"
+deploymentTarget = "static"
+publicDir = "dist"

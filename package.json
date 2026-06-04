@@ -1,0 +1,21 @@
+{
+  "name": "jonathan-yu-application-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync:portrait": "node ./scripts/sync-portrait-gallery.mjs",
+    "portrait:captions": "node ./scripts/create-portrait-caption-workbook.mjs",
+    "dev": "vite --host 0.0.0.0",
+    "dev:5198": "vite --host 127.0.0.1 --port 5198 --strictPort",
+    "serve:5198": "node ./scripts/serve.mjs",
+    "start:detached": "node ./scripts/start-dev.mjs",
+    "build": "vite build",
+    "validate:presentation": "node ./scripts/validate-presentation-site.mjs",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "vite": "^7.2.4"
+  },
+  "devDependencies": {}
+}

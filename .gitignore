@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.vite/
+.env
+.env.*
+*.log
+vite-dev*.log
+qa-screenshots/
+public/assets/portrait/Jonathan_Yu_Portrait_Caption_Workbook.docx
