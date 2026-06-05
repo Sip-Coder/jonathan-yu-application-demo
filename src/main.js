@@ -106,6 +106,19 @@ const presentationMoves = [
   }
 ];
 
+const docSlugByName = {
+  Resume: "resume",
+  "Cover Letter": "cover-letter",
+  "30-60-90": "30-60-90"
+};
+
+const docNameBySlug = Object.fromEntries(Object.entries(docSlugByName).map(([name, slug]) => [slug, name]));
+const selectedDocumentPanelId = "selected-packet-document-panel";
+
+function docTabId(name) {
+  return `packet-doc-tab-${docSlugByName[name] || "resume"}`;
+}
+
 const riskControls = [
   {
     risk: "Why AI without a formal AI degree?",
@@ -256,6 +269,57 @@ const codexProjectIndex = [
     category: "Document automation",
     evidence: "PowerShell-generated OpenXML workbook with statement checklist, property papers, money summary, LLC helper, formulas, and plain-language guidance.",
     roleValue: "Shows practical automation for professional handoff, structured records, and nontechnical user clarity."
+  }
+];
+
+const projectCaseStudies = [
+  {
+    title: "Sip Studies / Sipopedia",
+    signal: "Flagship AI education platform",
+    problem: "A deep beverage domain needed to become a usable learning product instead of scattered expertise, posts, spreadsheets, and one-off lessons.",
+    build: [
+      "Built React, TypeScript, Vite, Supabase, Stripe, and Edge Function surfaces across Learn, Taste, and Connect.",
+      "Created terminology workflows, tasting tools, maps, quizzes, paid access, and AI/news routing around repeatable learning.",
+      "Turned domain knowledge into visible product surfaces that a hiring team can inspect, question, and connect to customer enablement."
+    ],
+    evidence: ["69 migrations + 5 Edge Functions", "20,000 Sipopedia candidate rows", "Learn / Taste / Connect product lanes"],
+    interviewUse: "Use this as the main builder proof for Codex, AI Success, product deployment, and customer education roles."
+  },
+  {
+    title: "Work Efficient / Critical On Hand",
+    signal: "Field workflow and data translation",
+    problem: "Sales, inventory, incentive, and account data were useful only if they could be converted into weekly account actions.",
+    build: [
+      "Created local intake and analysis workflows for Critical On Hand, Gap Analysis, incentive decks, account opportunities, and item opportunities.",
+      "Framed messy source files into confidence tiers, exports, and operating decisions that support real field execution.",
+      "Connected the technical artifact to the way teams actually prioritize placements, displays, supplier conversations, and account support."
+    ],
+    evidence: ["45,542-row inventory reference file", "95,000 distribution points analyzed", "Weekly Critical On Hand workflow"],
+    interviewUse: "Use this when the conversation turns to adoption, KPI baselines, customer value, and practical enablement."
+  },
+  {
+    title: "Rose Quartz Massage",
+    signal: "Client launch and trust-sensitive UX",
+    problem: "A service business needed more than a pretty page: it needed service clarity, intake trust, launch readiness, and visible care standards.",
+    build: [
+      "Built a responsive Vite site with generated imagery, service menu, body-map intake, booking request flow, privacy content, and care standards.",
+      "Added journal content, SEO, sitemap tooling, and launch-readiness documentation so the client could operate the site after handoff.",
+      "Balanced visual polish with practical conversion, trust, and maintenance needs."
+    ],
+    evidence: ["36-article journal library", "Interactive session-map intake", "SEO and launch-readiness docs"],
+    interviewUse: "Use this to show client-facing judgment, implementation taste, and the ability to ship polished business experiences."
+  },
+  {
+    title: "AI Edu / Safe Router",
+    signal: "AI integration and guardrail thinking",
+    problem: "Education-facing AI work needed provider flexibility, safer frontend key handling, and clearer terminology workflows.",
+    build: [
+      "Built a Supabase Edge Function router pattern for OpenAI, Anthropic, and Google providers.",
+      "Kept provider logic server-side while supporting education content, admin workflow, and citation guidance.",
+      "Used the prototype to practice the same deployment and enablement questions that AI customers face."
+    ],
+    evidence: ["Supabase Edge Function ai-router", "OpenAI / Anthropic / Google provider path", "Citation guidance and admin workflow"],
+    interviewUse: "Use this when the role needs AI deployment literacy, security awareness, and practical implementation reasoning."
   }
 ];
 
@@ -416,10 +480,10 @@ const aarpWineWalkVideos = [
 
 const instagramVideos = [
   {
-    title: "Sip Studies Reel - DGcYlnWxP7M",
+    title: "Neutral White Blind Tasting",
     label: "Sip Studies Instagram",
     episodeLabel: "Instagram Reel",
-    theme: "Short-form education",
+    theme: "Blind tasting",
     publishedAt: "Latest embeddable reel",
     duration: "Reel",
     frame: "instagram",
@@ -429,7 +493,28 @@ const instagramVideos = [
     linkKind: "REEL",
     thumbnail:
       "https://media.bio.site/sites/0a155d48-b34b-4842-8d27-a6fc05f88d84/wkZTS43CMvdqGwVvyTVq9o.jpg",
-    summary: "A public @sip.studies reel from the Bio Site social grid, presented as a native Instagram video embed."
+    instagramCaption: [
+      "🌿✨ Neutral Whites & Bonus Wines Blind Tasting! 🍷🥂",
+      "",
+      "This weekend, we explored the refined world of neutral aromatic white wines, diving into classic styles. From the steely minerality of Chablis to the crisp Albariño, and a touch of Alsace Pinot Gris richness, each bottle showcased elegance, structure, and terroir-driven complexity.",
+      "",
+      "🍇 Tasted Wines:",
+      "✅ @maisonpiron Beaujolais Villages (Bonus!) 🍒",
+      "✅ Jadot Chablis - Saint Pierre 🏞️",
+      "✅ Martín Códax Albariño 🌊",
+      "✅ Pine Ridge Chenin Blanc-Viognier 🏖️",
+      "✅ Koeler-Kuprecht Kallstadler Riesling (Kabinett Trocken) 🍑",
+      "✅ Michele Thomas et Fils Sancerre 🍏",
+      "✅ Italo Cescon Pinot Grigio 🍐",
+      "✅ Hugel Pinot Gris Alsace 🍯",
+      "",
+      "👃🏼 Aromas & Tasting Notes: Bright citrus, green apple, crisp minerality, and a touch of floral elegance 🌼. These wines emphasize structure over perfume, making them a fun challenge for all!",
+      "",
+      "🔥 Big thank you to our Sip Studies Tasting Group! Join us as we refine our palates and prepare for the next level of wine appreciation!",
+      "",
+      "#SipStudies #BlindTasting #WineEducation #NeutralWhiteWines #WSET #CMS #WineTasting #SommelierTraining #MineralityMatters"
+    ].join("\n"),
+    summary: "Shows Sip Studies turning a neutral-white lineup into structured blind-tasting practice and public wine education."
   },
   {
     title: "Albarino/Alvarinho Tasting",
@@ -445,7 +530,14 @@ const instagramVideos = [
     linkKind: "REEL",
     thumbnail:
       "https://media.bio.site/sites/0a155d48-b34b-4842-8d27-a6fc05f88d84/W6ruSetdvEr5nRzmFZDwjc.jpg",
-    summary: "A short-form tasting clip centered on Albarino and Alvarinho as approachable wine-study material."
+    instagramCaption: [
+      "Albariño/Alvarinho Tasting!!!",
+      ".",
+      ".",
+      ".",
+      "#wine #winelover #winetastings #winewinewine #winestagram #winelife #wineoclock #win"
+    ].join("\n"),
+    summary: "Uses a focused varietal reel to make wine study approachable, repeatable, and easy to scan."
   },
   {
     title: "Lee's Beer and Tequila 2023",
@@ -461,13 +553,21 @@ const instagramVideos = [
     linkKind: "REEL",
     thumbnail:
       "https://media.bio.site/sites/0a155d48-b34b-4842-8d27-a6fc05f88d84/sN43wbYT5j8SSdcE3grapV.jpg",
-    summary: "A public event reel that shows Sip Studies connected to live beverage community moments."
+    instagramCaption: [
+      "Lee's Beer and Tequila 2023 🎉🎶🍻🍹",
+      "What an awesome weekend, who's ready for another great weekend?!?",
+      ".",
+      ".",
+      ".",
+      "Sip Studies"
+    ].join("\n"),
+    summary: "Shows the brand extending beyond classroom content into live beverage community moments."
   },
   {
-    title: "Blind Tastings",
+    title: "Madhouse Coffee Charity Drive",
     label: "Sip Studies Instagram",
     episodeLabel: "Instagram Reel",
-    theme: "Tasting practice",
+    theme: "Community support",
     publishedAt: "Latest embeddable reel",
     duration: "Reel",
     frame: "instagram",
@@ -477,7 +577,24 @@ const instagramVideos = [
     linkKind: "REEL",
     thumbnail:
       "https://media.bio.site/sites/0a155d48-b34b-4842-8d27-a6fc05f88d84/dNfmzhhspeKvHxBnf87pkk.jpg",
-    summary: "A blind-tasting reel that keeps the Sip Studies education proof focused on practical tasting reps."
+    instagramCaption: [
+      "🎁🫂 Charity Drive at Madhouse Coffee ☕🔥",
+      "",
+      "Join Sip Studies in collecting charity donations for the LA Fire Relief Fund 🚒🔥 at Madhouse Coffee from today until Saturday! Every small act of kindness adds up, and together, we can make a real difference.",
+      "",
+      "📍 Drop-off Location: Madhouse Coffee ☕",
+      "📅 Now - Saturday",
+      "🎥 All details in the video!",
+      "",
+      "Bring your donations and spread the love! Whether it's first aid and hygiene products, essentials, or support - every bit helps. Let's rally together!",
+      "",
+      "Net proceeds for charity merch will be matched,",
+      "Visit our website at:",
+      "https://SipStudies.com/shop/charity",
+      "",
+      "💙 Tag a friend who can help! #GiveBack #CharityDrive #LAFireRelief #SipStudies #CommunityStrong #MadhouseCoffee #HelpUsHelpOthers"
+    ].join("\n"),
+    summary: "Connects Sip Studies media to community support, local partnerships, and clear calls to action."
   }
 ];
 
@@ -680,11 +797,13 @@ const app = document.querySelector("#app");
 let selectedRole = roles[0];
 let selectedDoc = "Resume";
 let selectedMode = "resume";
+let focusMode = initialFocusMode();
 applyHashState();
 const originalHeaderPortraitFilename = "received_408407423126180.jpeg";
 let activePortraitIndex = originalPortraitIndex();
 let galleryTimer = null;
 let galleryOpen = false;
+let copyStatusTimer = null;
 
 const portraitRotationMs = 2000;
 
@@ -720,16 +839,24 @@ function hashParts() {
   return window.location.hash.replace(/^#\/?/u, "").split("/").filter(Boolean);
 }
 
+function initialFocusMode() {
+  return new URLSearchParams(window.location.search).get("focus") === "1";
+}
+
 function applyHashState() {
-  const [modeId, roleId] = hashParts();
+  const [modeId, roleId, docSlug] = hashParts();
   if (modes.some((mode) => mode.id === modeId)) selectedMode = modeId;
   if (roleId) selectedRole = roles.find((role) => role.id === roleId) || selectedRole;
+  selectedDoc = selectedMode === "application" ? docNameBySlug[docSlug] || "Resume" : "Resume";
 }
 
 function updateUrlState() {
-  const nextHash = `#${selectedMode}/${selectedRole.id}`;
+  const docPart = selectedMode === "application" && selectedDoc !== "Resume" ? `/${docSlugByName[selectedDoc]}` : "";
+  const nextHash = `#${selectedMode}/${selectedRole.id}${docPart}`;
   if (window.location.hash === nextHash) return;
-  window.history.replaceState(null, "", nextHash);
+  const url = new URL(window.location.href);
+  url.hash = nextHash;
+  window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
 }
 
 function docsFor(role) {
@@ -757,8 +884,21 @@ function artifactButton(label, href, kind = "PDF") {
   return `<a class="artifact-link" href="${href}" target="_blank" rel="noreferrer">${label} <span>${kind}</span></a>`;
 }
 
+function copyViewButton() {
+  return `<button class="artifact-link copy-view-link" data-copy-view type="button">Copy View <span>LINK</span></button>`;
+}
+
+function focusModeButton() {
+  return `<button class="artifact-link screen-focus-link" data-focus-mode type="button" aria-label="${focusMode ? "Exit screen-share focus mode" : "Enter screen-share focus mode"}" aria-pressed="${focusMode ? "true" : "false"}">${focusMode ? "Exit" : "Focus"}</button>`;
+}
+
+function copyBriefButton() {
+  return `<button class="brief-copy-button" data-copy-brief type="button" aria-label="Copy selected role interview brief">Copy role brief <span>TXT</span></button>`;
+}
+
 function navButton(mode) {
-  return `<button class="mode-button ${selectedMode === mode.id ? "is-active" : ""}" data-mode="${mode.id}" type="button">${mode.label}</button>`;
+  const active = selectedMode === mode.id;
+  return `<button class="mode-button ${active ? "is-active" : ""}" data-mode="${mode.id}" type="button" ${active ? 'aria-current="step"' : ""}>${mode.label}</button>`;
 }
 
 function roleButton(role) {
@@ -806,6 +946,263 @@ function linkCard(link) {
   `;
 }
 
+async function copyText(value) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(value);
+      return;
+    } catch {
+      // Fall back below for browsers that expose Clipboard API but deny this context.
+    }
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = value;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand("copy");
+  textarea.remove();
+  if (!copied) throw new Error("Copy command failed.");
+}
+
+function showCopyStatus(message) {
+  const status = document.querySelector("[data-copy-status]");
+  if (!status) return;
+
+  status.textContent = message;
+  status.classList.add("is-visible");
+  window.clearTimeout(copyStatusTimer);
+  copyStatusTimer = window.setTimeout(() => {
+    status.classList.remove("is-visible");
+  }, 2200);
+}
+
+function roleBriefSection(title, items) {
+  const values = items.filter(Boolean);
+  if (!values.length) return "";
+  return `${title}\n${values.map((item) => `- ${presentationText(item)}`).join("\n")}`;
+}
+
+function artifactUrl(pathname) {
+  return new URL(pathname, window.location.origin).href;
+}
+
+function roleBriefText(role = selectedRole) {
+  const docs = docsFor(role);
+  const activeMode = modes.find((mode) => mode.id === selectedMode) || modes[0];
+  const docLinks = [
+    `Master resume: ${artifactUrl(`${resumeBase}/JONATHAN_YU_SIP_STUDIES_COMBINED_RESUME_V4_CRITICAL_ON_HAND_2026-06-02.pdf`)}`,
+    `Role resume: ${artifactUrl(docs.Resume.pdf)}`,
+    `Cover letter: ${artifactUrl(docs["Cover Letter"].pdf)}`,
+    `30-60-90 plan: ${artifactUrl(docs["30-60-90"].pdf)}`
+  ];
+
+  return [
+    `Jonathan Yu - ${presentationText(role.title)} interview brief`,
+    `Current walkthrough step: ${presentationText(activeMode.label)}`,
+    `Shareable view: ${window.location.href}`,
+    "",
+    `Role pivot: ${presentationText(role.headline)}`,
+    `Fit summary: ${presentationText(role.fit)}`,
+    `Talk track: ${presentationText(role.talkTrack)}`,
+    roleBriefSection("Proof to lead with", role.proof?.slice(0, 4) || []),
+    roleBriefSection("Strengths to name", role.strengths?.slice(0, 4) || []),
+    roleBriefSection("Skills to surface", role.skills?.slice(0, 8) || []),
+    roleBriefSection("Documents to open", docLinks),
+    "",
+    "Suggested sequence",
+    "- Resume facts",
+    "- Built product proof",
+    "- Public teaching proof",
+    "- Role packet",
+    "- Hiring-team close"
+  ]
+    .filter((line) => line !== "")
+    .join("\n\n");
+}
+
+function currentModeIndex() {
+  return Math.max(
+    0,
+    modes.findIndex((mode) => mode.id === selectedMode)
+  );
+}
+
+function modeAtOffset(offset) {
+  const index = currentModeIndex();
+  return modes[(index + offset + modes.length) % modes.length];
+}
+
+function modeShortLabel(label) {
+  return label.replace(/^\d+\s*/u, "");
+}
+
+function goToMode(modeId, scroll = true) {
+  if (!modes.some((mode) => mode.id === modeId)) return;
+  selectedMode = modeId;
+  updateUrlState();
+  render();
+  if (scroll) window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function documentNamesForSelectedRole() {
+  return Object.keys(docsFor(selectedRole));
+}
+
+function documentAtOffset(offset) {
+  const names = documentNamesForSelectedRole();
+  const index = Math.max(0, names.indexOf(selectedDoc));
+  return names[(index + offset + names.length) % names.length];
+}
+
+function focusDocumentTab(name) {
+  window.requestAnimationFrame(() => {
+    const nextTab = Array.from(document.querySelectorAll("[data-doc-tab]")).find((button) => button.dataset.doc === name);
+    nextTab?.focus();
+  });
+}
+
+function selectDocument(name, focusTab = false) {
+  if (!documentNamesForSelectedRole().includes(name)) return;
+  selectedDoc = name;
+  updateUrlState();
+  render();
+  if (focusTab) focusDocumentTab(name);
+}
+
+function setFocusMode(nextFocusMode) {
+  focusMode = Boolean(nextFocusMode);
+  updateFocusModeUrl();
+  render();
+}
+
+function updateFocusModeUrl() {
+  const url = new URL(window.location.href);
+  if (focusMode) {
+    url.searchParams.set("focus", "1");
+  } else {
+    url.searchParams.delete("focus");
+  }
+  window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+}
+
+function setMetaContent(selector, content) {
+  const node = document.querySelector(selector);
+  if (node) node.setAttribute("content", content);
+}
+
+function currentViewTitle(activeMode) {
+  const parts = [modeShortLabel(activeMode.label)];
+  if (selectedMode === "application") parts.push(selectedDoc);
+  parts.push(selectedRole.title);
+  if (focusMode) parts.push("Focus");
+  parts.push("Jonathan Yu");
+  return parts.join(" | ");
+}
+
+function currentViewDescription(activeMode) {
+  const docContext = selectedMode === "application" ? ` Active packet document: ${selectedDoc}.` : "";
+  const focusContext = focusMode ? " Screen-share focus mode is active." : "";
+  return `${activeMode.summary} Selected role: ${selectedRole.title}.${docContext}${focusContext}`;
+}
+
+function updateDocumentMetadata(activeMode) {
+  const title = currentViewTitle(activeMode);
+  const description = currentViewDescription(activeMode);
+  document.title = title;
+  setMetaContent('meta[name="description"]', description);
+  setMetaContent('meta[property="og:title"]', title);
+  setMetaContent('meta[property="og:description"]', description);
+  setMetaContent('meta[name="twitter:title"]', title);
+  setMetaContent('meta[name="twitter:description"]', description);
+}
+
+function presenterCueFor(modeId) {
+  const roleTitle = selectedRole.title;
+  const cues = {
+    resume: {
+      label: "Opening move",
+      title: "Anchor the conversation in a real resume before expanding the proof.",
+      body: `Start with chronology, credentials, and measurable outcomes, then frame everything through ${roleTitle}.`
+    },
+    projects: {
+      label: "Portfolio move",
+      title: "Move from claims to shipped artifacts.",
+      body: "Show Codex-assisted builds as evidence of product judgment, workflow mapping, technical follow-through, and client-facing delivery."
+    },
+    education: {
+      label: "Communication move",
+      title: "Prove the ability to teach complicated material clearly.",
+      body: "Use playable videos, podcast work, writing, and GPT guides as public proof of explanation, trust, and audience pacing."
+    },
+    application: {
+      label: "Packet move",
+      title: "Turn the portfolio into the exact role conversation.",
+      body: "Open the selected resume, cover letter, or 30-60-90 plan when the interviewer wants concrete next-step material."
+    },
+    fit: {
+      label: "Closing move",
+      title: "Close with the role narrative and the strongest proof sequence.",
+      body: `Tie the transferable story back to ${roleTitle}, then ask what evidence would make the hiring decision easier.`
+    }
+  };
+
+  return cues[modeId] || cues.resume;
+}
+
+function presentationStepButton(mode, index) {
+  const active = mode.id === selectedMode;
+  return `
+    <button class="presentation-step ${active ? "is-active" : ""}" data-mode="${mode.id}" type="button" ${active ? 'aria-current="step"' : ""}>
+      <span>${String(index + 1).padStart(2, "0")}</span>
+      <strong>${modeShortLabel(mode.label)}</strong>
+    </button>
+  `;
+}
+
+function renderPresentationCommandCenter(activeMode) {
+  const cue = presenterCueFor(activeMode.id);
+  const previousMode = modeAtOffset(-1);
+  const nextMode = modeAtOffset(1);
+
+  return `
+    <section class="presentation-command" aria-label="Interview presentation controls">
+      <div class="presentation-path">
+        <div class="presentation-progress" role="list" aria-label="Walkthrough path">
+          ${modes.map(presentationStepButton).join("")}
+        </div>
+        <p>
+          <span>Interview flow</span>
+          <strong>Resume facts / built proof / public teaching / packet / close.</strong>
+        </p>
+      </div>
+      <div class="presentation-cue">
+        <span>${cue.label}</span>
+        <strong>${cue.title}</strong>
+        <p>${presentationText(cue.body)}</p>
+      </div>
+      <div class="presentation-next">
+        <span>Selected role</span>
+        <strong>${presentationText(selectedRole.title)}</strong>
+        <p>${presentationText(selectedRole.fit)}</p>
+        <div class="presentation-nav">
+          <button class="step-control" data-step-prev type="button" aria-label="Previous walkthrough section">Previous</button>
+          <b>${modeShortLabel(previousMode.label)} / ${modeShortLabel(nextMode.label)}</b>
+          <button class="step-control" data-step-next type="button" aria-label="Next walkthrough section">Next</button>
+        </div>
+        <div class="presentation-brief">
+          <span>Copyable role brief</span>
+          <p><b>${presentationText(selectedRole.headline)}</b>${presentationText(selectedRole.planTheme || selectedRole.strengths?.[0] || selectedRole.talkTrack)}</p>
+          ${copyBriefButton()}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function credentialBadge(badge) {
   const content = `
     ${
@@ -831,11 +1228,227 @@ function episodeEmbedUrl(episode) {
   return episode.embedUrl || youtubeEmbedUrl(episode.youtubeId);
 }
 
+function projectCaseStudyCard(study, index) {
+  return `
+    <article class="case-study-card">
+      <div class="case-study-number">${String(index + 1).padStart(2, "0")}</div>
+      <div class="case-study-main">
+        <span>${presentationText(study.signal)}</span>
+        <h4>${study.title}</h4>
+        <p>${presentationText(study.problem)}</p>
+        <div class="case-study-columns">
+          <div>
+            <b>Build</b>
+            <ul>${study.build.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
+          </div>
+          <div>
+            <b>Evidence</b>
+            <div class="case-study-evidence">${study.evidence.map((item) => `<em>${presentationText(item)}</em>`).join("")}</div>
+          </div>
+        </div>
+        <footer>
+          <b>Interview use</b>
+          <p>${presentationText(study.interviewUse)}</p>
+        </footer>
+      </div>
+    </article>
+  `;
+}
+
+function interviewAnswerCards(role) {
+  const strengths = role.strengths || [];
+  const proof = role.proof || [];
+
+  return [
+    {
+      label: "Opening answer",
+      question: "Tell me about yourself for this role.",
+      answer: `I am a ${role.headline}. For ${role.title}, I would focus the conversation on ${role.planTheme || role.fit}.`,
+      proof: strengths[0] || proof[0] || role.fit,
+      nextMode: "resume",
+      nextLabel: "Open Resume"
+    },
+    {
+      label: "Builder proof",
+      question: "What is the strongest evidence that you can do the work?",
+      answer: "Start with the shipped product artifacts: Sip Studies, Sipopedia, Critical On Hand, and the Codex-assisted project body. They show the work beyond a PDF.",
+      proof: proof[0] || strengths[0] || "Sip Studies, Sipopedia, and role-specific packet proof.",
+      nextMode: "projects",
+      nextLabel: "Open Projects"
+    },
+    {
+      label: "Translation risk",
+      question: "How does your background translate into this role?",
+      answer: riskControls[1].control,
+      proof: strengths[1] || proof[1] || role.talkTrack,
+      nextMode: "education",
+      nextLabel: "Open Media"
+    },
+    {
+      label: "First 90 days",
+      question: "How would you start if hired?",
+      answer: "Use the 30-60-90 plan as the operating answer: learn the customer workflow, build reusable enablement artifacts, measure adoption, and feed product signals back to the team.",
+      proof: role.planTheme || strengths[2] || proof[2] || role.fit,
+      nextMode: "application",
+      nextLabel: "Open Packet"
+    }
+  ];
+}
+
+function interviewAnswerCard(card, index) {
+  return `
+    <article class="answer-card">
+      <span>${String(index + 1).padStart(2, "0")} ${presentationText(card.label)}</span>
+      <h4>${presentationText(card.question)}</h4>
+      <p>${presentationText(card.answer)}</p>
+      <div class="answer-proof">
+        <b>Proof to name</b>
+        <p>${presentationText(card.proof)}</p>
+      </div>
+      <button class="answer-jump" data-mode="${card.nextMode}" type="button">${presentationText(card.nextLabel)}</button>
+    </article>
+  `;
+}
+
+function renderInterviewAnswerBoard() {
+  const cards = interviewAnswerCards(selectedRole);
+
+  return `
+    <section class="answer-board" aria-label="Live interview answer board">
+      <div class="answer-board-head">
+        <div>
+          <p class="eyebrow">Live interview answer board</p>
+          <h3>Keep the conversation anchored to the right proof.</h3>
+        </div>
+        <p>Each answer gives the short response, the evidence to name out loud, and the next tab to open when the interviewer asks for detail.</p>
+      </div>
+      <div class="answer-grid">
+        ${cards.map(interviewAnswerCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function proofMatrixRows(role) {
+  return [
+    {
+      label: "Role requirement",
+      focus: role.fit,
+      proof: role.strengths?.[0] || role.proof?.[0] || role.resumeSummary,
+      artifact: "Resume",
+      action: "Open Resume",
+      doc: "Resume"
+    },
+    {
+      label: "Narrative fit",
+      focus: role.coverFocus || role.resumeSummary,
+      proof: role.talkTrack || role.demoMove,
+      artifact: "Cover Letter",
+      action: "Open Cover Letter",
+      doc: "Cover Letter"
+    },
+    {
+      label: "First-quarter execution",
+      focus: role.planTheme || role.fit,
+      proof: role.strengths?.[1] || role.proof?.[1] || role.talkTrack,
+      artifact: "30-60-90 Plan",
+      action: "Open Plan",
+      doc: "30-60-90"
+    },
+    {
+      label: "Portfolio proof",
+      focus: "Shipped work that can be inspected and discussed beyond the packet.",
+      proof: role.proof?.[0] || role.strengths?.[0] || "Codex Projects, Sip Studies, Sipopedia, and Critical On Hand proof.",
+      artifact: "Codex Projects",
+      action: "Open Projects",
+      mode: "projects"
+    }
+  ];
+}
+
+function proofMatrixCard(row, index) {
+  const actionAttrs = row.doc ? `data-doc="${row.doc}"` : `data-mode="${row.mode}"`;
+  return `
+    <article class="proof-matrix-card">
+      <span>${String(index + 1).padStart(2, "0")} ${presentationText(row.label)}</span>
+      <h4>${presentationText(row.artifact)}</h4>
+      <p>${presentationText(row.focus)}</p>
+      <div>
+        <b>Evidence to cite</b>
+        <p>${presentationText(row.proof)}</p>
+      </div>
+      <button class="matrix-action" ${actionAttrs} type="button">${presentationText(row.action)}</button>
+    </article>
+  `;
+}
+
+function renderProofMatrix() {
+  const rows = proofMatrixRows(selectedRole);
+
+  return `
+    <section class="proof-matrix" aria-label="Role proof matrix">
+      <div class="proof-matrix-head">
+        <div>
+          <p class="eyebrow">Role proof matrix</p>
+          <h3>Map each hiring question to the artifact that answers it.</h3>
+        </div>
+        <p>This keeps the application tab from becoming a document shelf. The selected role defines the claim, the proof to cite, and the next file or tab to open.</p>
+      </div>
+      <div class="proof-matrix-grid">
+        ${rows.map(proofMatrixCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function selectedDocumentSummary(name) {
+  const summaries = {
+    Resume: "Use this when the interviewer wants the role-shaped version of the full resume facts.",
+    "Cover Letter": "Use this when the conversation turns to motivation, narrative fit, and why this role is the right transition.",
+    "30-60-90": "Use this when the interviewer asks how the first quarter would turn into discovery, artifacts, enablement, and measurable outcomes."
+  };
+
+  return summaries[name] || summaries.Resume;
+}
+
+function renderSelectedDocumentPanel(name, doc) {
+  return `
+    <article
+      class="selected-document-panel"
+      id="${selectedDocumentPanelId}"
+      role="tabpanel"
+      aria-labelledby="${docTabId(name)}"
+      tabindex="0"
+    >
+      <p class="eyebrow">Selected packet document</p>
+      <h3>${presentationText(name)}</h3>
+      <p>${presentationText(selectedDocumentSummary(name))}</p>
+      <div>
+        ${artifactButton("Open PDF", doc.pdf, "PDF")}
+        ${artifactButton("Open Word", doc.docx, "DOCX")}
+        ${artifactButton("Open Markdown", doc.md, "MD")}
+      </div>
+    </article>
+  `;
+}
+
 function mediaEpisodeCard(episode) {
   const linkLabel = episode.linkLabel || "Open on YouTube";
   const linkKind = episode.linkKind || "VIDEO";
   const href = episode.href || episode.youtubeUrl;
   const frame = episode.frame || "video";
+  const bodyCopy = episode.instagramCaption
+    ? `
+        <div class="episode-caption">
+          <span>Instagram description</span>
+          <p>${episode.instagramCaption}</p>
+        </div>
+        <div class="episode-takeaway">
+          <span>Portfolio takeaway</span>
+          <p>${episode.summary}</p>
+        </div>
+      `
+    : `<p>${episode.summary}</p>`;
 
   return `
     <article class="episode-card episode-card--${frame}">
@@ -855,7 +1468,7 @@ function mediaEpisodeCard(episode) {
           <em>${episode.publishedAt}</em>
         </div>
         <h3>${episode.title}</h3>
-        <p>${episode.summary}</p>
+        ${bodyCopy}
         <div class="episode-meta">
           <span>${episode.episodeLabel}</span>
           <span>${episode.theme}</span>
@@ -1050,17 +1663,22 @@ function renderResumeLensPanel() {
 }
 
 function companyMark(job) {
-  if (job.logo) {
-    const toneClass = job.logoTone === "dark" ? " is-dark" : "";
-    return `<img class="job-logo${toneClass}" src="${job.logo}" alt="${job.company} logo" />`;
-  }
-
   const initials = job.company
     .split(/\s+/)
     .filter(Boolean)
     .slice(0, 2)
     .map((word) => word[0])
     .join("");
+
+  if (job.logo) {
+    const toneClass = job.logoTone === "dark" ? " is-dark" : "";
+    return `
+      <span class="job-logo-wrap">
+        <img class="job-logo${toneClass}" src="${job.logo}" alt="${job.company} logo" onerror="this.hidden=true;this.nextElementSibling.hidden=false" />
+        <span class="company-emblem job-logo-fallback" hidden aria-hidden="true">${initials}</span>
+      </span>
+    `;
+  }
 
   return `<span class="company-emblem" aria-hidden="true">${initials}</span>`;
 }
@@ -1122,6 +1740,8 @@ function renderRoleFit() {
         ${signalGrades.map(gradeCard).join("")}
       </div>
     </section>
+
+    ${renderInterviewAnswerBoard()}
 
     <section class="executive-grid">
       <article class="evidence-chain">
@@ -1188,7 +1808,24 @@ function renderApplicationProof() {
     <section class="document-strip">
       <div class="doc-tabs" role="tablist" aria-label="Document preview">
         ${Object.keys(docs)
-          .map((name) => `<button class="doc-tab ${name === selectedDoc ? "is-active" : ""}" data-doc="${name}" type="button">${name}</button>`)
+          .map((name) => {
+            const isActive = name === selectedDoc;
+            return `
+              <button
+                class="doc-tab ${isActive ? "is-active" : ""}"
+                id="${docTabId(name)}"
+                data-doc="${name}"
+                data-doc-tab
+                type="button"
+                role="tab"
+                aria-selected="${isActive ? "true" : "false"}"
+                aria-controls="${selectedDocumentPanelId}"
+                tabindex="${isActive ? "0" : "-1"}"
+              >
+                ${name}
+              </button>
+            `;
+          })
           .join("")}
       </div>
       <div class="doc-actions">
@@ -1198,10 +1835,10 @@ function renderApplicationProof() {
       </div>
     </section>
 
+    ${renderProofMatrix()}
+
     <section class="preview-grid">
-      <div class="preview-frame">
-        <iframe title="${selectedDoc} preview for ${selectedRole.title}" src="${activeDoc.pdf}"></iframe>
-      </div>
+      ${renderSelectedDocumentPanel(selectedDoc, activeDoc)}
       <div class="proof-stack">
         <h3>Why the packet qualifies him</h3>
         <ul>${selectedRole.proof.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
@@ -1333,6 +1970,24 @@ function renderProjects() {
         <span>Client websites</span>
         <span>Data workflows</span>
         <span>Education products</span>
+      </div>
+    </section>
+    <section class="case-study-board" aria-label="Flagship Codex project case studies">
+      <div class="case-study-head">
+        <div>
+          <p class="eyebrow">Flagship case studies</p>
+          <h3>Lead with four stories a hiring team can actually discuss.</h3>
+          <p>These are the highest-signal project examples because each one connects a real problem, a concrete build, proof artifacts, and a specific interview use.</p>
+        </div>
+        <div class="case-study-selector" aria-label="Case study proof pattern">
+          <span>Problem</span>
+          <span>Build</span>
+          <span>Evidence</span>
+          <span>Interview use</span>
+        </div>
+      </div>
+      <div class="case-study-grid">
+        ${projectCaseStudies.map(projectCaseStudyCard).join("")}
       </div>
     </section>
     <section class="portfolio-grid" aria-label="Codex Projects portfolio">
@@ -1549,8 +2204,10 @@ function renderPortraitModal() {
 function render() {
   const activeMode = modes.find((mode) => mode.id === selectedMode);
   const headerPortrait = primaryPortrait();
+  updateDocumentMetadata(activeMode);
 
   app.innerHTML = `
+    <a class="skip-link" href="#presentation-content">Skip to presentation content</a>
     <main class="shell">
       <aside class="rail">
         <section class="identity-card" aria-label="Jonathan Yu profile">
@@ -1588,7 +2245,7 @@ function render() {
           ${roles.map(roleButton).join("")}
         </nav>
       </aside>
-      <section class="workspace">
+      <section class="workspace" id="presentation-content" tabindex="-1">
         <header class="topbar">
           <div>
             <p class="eyebrow">Client-facing resume presentation</p>
@@ -1599,14 +2256,20 @@ function render() {
             ${artifactButton("Master Resume", `${resumeBase}/JONATHAN_YU_SIP_STUDIES_COMBINED_RESUME_V4_CRITICAL_ON_HAND_2026-06-02.pdf`)}
             ${artifactButton("Role Resume", docsFor(selectedRole).Resume.pdf)}
             ${artifactButton("Role Cover Letter", docsFor(selectedRole)["Cover Letter"].pdf)}
+            ${artifactButton("Role 30-60-90", docsFor(selectedRole)["30-60-90"].pdf)}
+            ${copyViewButton()}
+            ${focusModeButton()}
           </div>
         </header>
+        ${renderPresentationCommandCenter(activeMode)}
         ${renderWorkspace()}
       </section>
     </main>
     ${renderPortraitModal()}
+    <div class="copy-status" data-copy-status role="status" aria-live="polite" aria-atomic="true"></div>
   `;
 
+  document.body.classList.toggle("is-focus-mode", focusMode);
   bindEvents();
   updateParallax();
   updatePortraitModal();
@@ -1633,11 +2296,16 @@ function bindEvents() {
 
   document.querySelectorAll("[data-mode]").forEach((button) => {
     button.addEventListener("click", () => {
-      selectedMode = button.dataset.mode;
-      updateUrlState();
-      render();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      goToMode(button.dataset.mode);
     });
+  });
+
+  document.querySelector("[data-step-prev]")?.addEventListener("click", () => {
+    goToMode(modeAtOffset(-1).id);
+  });
+
+  document.querySelector("[data-step-next]")?.addEventListener("click", () => {
+    goToMode(modeAtOffset(1).id);
   });
 
   document.querySelectorAll("[data-role]").forEach((button) => {
@@ -1651,9 +2319,69 @@ function bindEvents() {
 
   document.querySelectorAll("[data-doc]").forEach((button) => {
     button.addEventListener("click", () => {
-      selectedDoc = button.dataset.doc;
-      render();
+      selectDocument(button.dataset.doc);
     });
+  });
+
+  document.querySelectorAll("[data-doc-tab]").forEach((button) => {
+    button.addEventListener("keydown", (event) => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        event.stopPropagation();
+        selectDocument(documentAtOffset(event.key === "ArrowLeft" ? -1 : 1), true);
+      }
+
+      if (event.key === "Home" || event.key === "End") {
+        event.preventDefault();
+        event.stopPropagation();
+        const names = documentNamesForSelectedRole();
+        selectDocument(event.key === "Home" ? names[0] : names[names.length - 1], true);
+      }
+    });
+  });
+
+  document.querySelector("[data-copy-view]")?.addEventListener("click", async (event) => {
+    const button = event.currentTarget;
+    const original = button.innerHTML;
+    try {
+      await copyText(window.location.href);
+      showCopyStatus("View link copied.");
+      button.innerHTML = "Copied <span>LINK</span>";
+      window.setTimeout(() => {
+        button.innerHTML = original;
+      }, 1600);
+    } catch {
+      showCopyStatus("Copy failed.");
+      button.innerHTML = "Copy failed <span>LINK</span>";
+      window.setTimeout(() => {
+        button.innerHTML = original;
+      }, 1800);
+    }
+  });
+
+  document.querySelector("[data-copy-brief]")?.addEventListener("click", async (event) => {
+    const button = event.currentTarget;
+    const original = button.innerHTML;
+    try {
+      await copyText(roleBriefText(selectedRole));
+      showCopyStatus("Role brief copied.");
+      button.innerHTML = "Copied brief <span>TXT</span>";
+      window.setTimeout(() => {
+        button.innerHTML = original;
+      }, 1600);
+    } catch {
+      showCopyStatus("Copy failed.");
+      button.innerHTML = "Copy failed <span>TXT</span>";
+      window.setTimeout(() => {
+        button.innerHTML = original;
+      }, 1800);
+    }
+  });
+
+  document.querySelector("[data-focus-mode]")?.addEventListener("click", () => {
+    setFocusMode(!focusMode);
   });
 
 }
@@ -1723,8 +2451,16 @@ function closePortraitGallery() {
 }
 
 function updateParallax() {
+  const parallaxNodes = document.querySelectorAll("[data-parallax-depth]");
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
+    parallaxNodes.forEach((node) => {
+      node.style.transform = "none";
+    });
+    return;
+  }
+
   const scroll = window.scrollY || 0;
-  document.querySelectorAll("[data-parallax-depth]").forEach((node) => {
+  parallaxNodes.forEach((node) => {
     const depth = Number(node.dataset.parallaxDepth || 0);
     node.style.transform = `translate3d(0, ${scroll * depth}px, 0)`;
   });
@@ -1733,24 +2469,47 @@ function updateParallax() {
 window.addEventListener("scroll", updateParallax, { passive: true });
 window.addEventListener("hashchange", () => {
   applyHashState();
-  selectedDoc = "Resume";
   render();
 });
 document.addEventListener("keydown", (event) => {
-  if (!galleryOpen) return;
+  if (galleryOpen) {
+    if (event.key === "Escape") {
+      closePortraitGallery();
+    }
 
-  if (event.key === "Escape") {
-    closePortraitGallery();
+    if (event.key === "ArrowLeft") {
+      setPortraitIndex(activePortraitIndex - 1);
+      restartPortraitRotation();
+    }
+
+    if (event.key === "ArrowRight") {
+      setPortraitIndex(activePortraitIndex + 1);
+      restartPortraitRotation();
+    }
+
+    return;
   }
 
+  if (event.altKey || event.ctrlKey || event.metaKey) return;
+
   if (event.key === "ArrowLeft") {
-    setPortraitIndex(activePortraitIndex - 1);
-    restartPortraitRotation();
+    event.preventDefault();
+    goToMode(modeAtOffset(-1).id);
   }
 
   if (event.key === "ArrowRight") {
-    setPortraitIndex(activePortraitIndex + 1);
-    restartPortraitRotation();
+    event.preventDefault();
+    goToMode(modeAtOffset(1).id);
+  }
+
+  if (/^[1-5]$/u.test(event.key)) {
+    event.preventDefault();
+    goToMode(modes[Number(event.key) - 1].id);
+  }
+
+  if (event.key.toLowerCase() === "f") {
+    event.preventDefault();
+    setFocusMode(!focusMode);
   }
 });
 

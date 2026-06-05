@@ -44,6 +44,12 @@ npm.cmd run validate:presentation
 
 - Five walkthrough steps: Full Resume, Codex Projects, Podcast + Video, Application Proof, and Hiring Close.
 - Shareable section hashes for direct walkthrough links, such as `#resume/codex-deployment`, `#projects/codex-deployment`, and `#education/codex-deployment`.
+- Shareable packet-document hashes on Application Proof, such as `#application/codex-deployment/cover-letter` and `#application/codex-deployment/30-60-90`.
+- Dynamic browser titles and descriptions for shareable views, so copied links identify the active walkthrough step, selected role, packet document, and focus-mode state.
+- A copyable role brief in the interview command center that packages the selected role pivot, fit summary, talk track, proof points, strengths, skills, document links, and suggested walkthrough sequence.
+- Copy confirmations use an unobtrusive live status layer, so copied links and role briefs are confirmed without disrupting the presentation.
+- Persistent top-bar links for the master resume plus the selected role resume, cover letter, and 30-60-90 plan, so the full packet is reachable from any walkthrough step.
+- A screen-share focus mode, available from the top bar, the `F` key, or `?focus=1`, that hides the left rail while keeping the walkthrough controls and packet links visible.
 - Six OpenAI application targets as a position-focus selector, with each step reframed for the selected role.
 - A full, unabridged resume tab generated from the local `Raw Data/Jonathan_Yu_Resume_Master_Edit.xlsx` source workflow.
 - A presenter-lens panel inside Full Resume that tells the viewer what to notice for the selected position before moving into the rest of the portfolio.
@@ -51,7 +57,9 @@ npm.cmd run validate:presentation
 - A `Codex Projects` portfolio section grounded in `C:\codebase\sip_studies\actual`, with featured case studies plus a compact full project index for Sip Studies, Rose Quartz, Work Efficient, FinTech, Magic Academy, AI Edu, Biz Bookkeeper, Coffee Index, Tasting Journal, and Tax File Prep Excel.
 - A podcast/video education tab with embedded AI Winecast players, the latest four AARP Wine Walk Wednesdays videos, the latest four Sip Studies Instagram reels, thumbnails, playback controls, Substack, GPT guides, public channels, and community links.
 - Latest four article cards from each Sipopedia Flavor Blog tab: SipStudies.com Blog, Sip Studies Substack, and Daily Sip, with thumbnails for every card.
-- A role-specific application proof tab with local resume, cover letter, and 30-60-90 plan previews.
+- A role-specific application proof tab with local resume, cover letter, 30-60-90 plan links, and a proof matrix that maps hiring questions to the artifact that answers them.
+- A selected-document panel on Application Proof that keeps the active packet file actionable even when browser PDF previews are unavailable.
+- Accessible Application Proof document tabs with selected-state semantics and arrow/Home/End keyboard movement across Resume, Cover Letter, and 30-60-90.
 - A hiring-team close that frames the selected role narrative, strongest proof, and likely interview questions.
 - An avant-garde parallax hero presentation for client and hiring-team walkthroughs.
 - A signature-forward identity header with a portrait-ready frame and cream transparent Jonathan Yu signature mark.

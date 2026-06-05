@@ -1,0 +1,18 @@
+{
+  "name": "Jonathan Yu AI Product Builder Portfolio",
+  "short_name": "Jonathan Yu",
+  "description": "Interview-ready portfolio and resume presentation for AI product building, Codex projects, customer enablement, and public education proof.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#041824",
+  "theme_color": "#041824",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

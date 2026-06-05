@@ -41,7 +41,7 @@ const masterData = {
         "company": "Sip Studies",
         "role": "Founder, Product Lead, Beverage Education Platform Builder",
         "dates": "2024 - Present",
-        "logo": "/assets/logos/sip-studies-full-seal.png",
+        "logo": "/assets/logos/sip-studies-resume-logo.png",
         "logoTone": "dark",
         "links": [
           {
