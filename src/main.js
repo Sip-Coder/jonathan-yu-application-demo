@@ -198,6 +198,16 @@ const credentialBadges = [
   { label: "Cicerone Program Certified Beer Server", img: `${logoBase}/cicerone-certified-beer-server.jpg`, href: ciceroneCertifiedBeerServerUrl }
 ];
 
+const customCompanyLogos = new Map([
+  [
+    "Architecture, Design & Drafting Foundation",
+    {
+      src: `${logoBase}/architecture-design-drafting.svg`,
+      tone: "dark"
+    }
+  ]
+]);
+
 const codexProjects = [
   {
     title: "Sip Studies / Sipopedia",
@@ -1587,12 +1597,13 @@ function companyMark(job) {
     .slice(0, 2)
     .map((word) => word[0])
     .join("");
+  const logo = job.logo ? { src: job.logo, tone: job.logoTone } : customCompanyLogos.get(job.company);
 
-  if (job.logo) {
-    const toneClass = job.logoTone === "dark" ? " is-dark" : "";
+  if (logo?.src) {
+    const toneClass = logo.tone === "dark" ? " is-dark" : "";
     return `
       <span class="job-logo-wrap">
-        <img class="job-logo${toneClass}" src="${job.logo}" alt="${job.company} logo" onerror="this.hidden=true;this.nextElementSibling.hidden=false" />
+        <img class="job-logo${toneClass}" src="${logo.src}" alt="${job.company} logo" onerror="this.hidden=true;this.nextElementSibling.hidden=false" />
         <span class="company-emblem job-logo-fallback" hidden aria-hidden="true">${initials}</span>
       </span>
     `;

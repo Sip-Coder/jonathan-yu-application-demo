@@ -20,6 +20,7 @@ const portraitCaptionWorkbook = path.join(root, "public", "assets", "portrait", 
 const sakeLogoPath = path.join(root, "public", "assets", "logos", "wset-level-2-sake.png");
 const wsgCswsLogoPath = path.join(root, "public", "assets", "logos", "wsg-lustau-csws.png");
 const ciceroneBeerServerLogoPath = path.join(root, "public", "assets", "logos", "cicerone-certified-beer-server.jpg");
+const architectureDraftingLogoPath = path.join(root, "public", "assets", "logos", "architecture-design-drafting.svg");
 const workbookPath = path.join(workspaceRoot, "Raw Data", "Jonathan_Yu_Resume_Master_Edit.xlsx");
 
 const masterData = (await import(pathToFileURL(dataPath))).default;
@@ -245,6 +246,10 @@ check(styles.includes(".credential-text-link"), "Credential proof text link styl
 check(fs.existsSync(sakeLogoPath), "WSET Level 2 Sake logo asset is missing.");
 check(fs.existsSync(wsgCswsLogoPath), "WSG/Lustau CSWS logo asset is missing.");
 check(fs.existsSync(ciceroneBeerServerLogoPath), "Cicerone Certified Beer Server logo asset is missing.");
+check(fs.existsSync(architectureDraftingLogoPath), "Architecture/design/drafting logo asset is missing.");
+check(main.includes("const customCompanyLogos = new Map"), "Custom company logo mapping is missing.");
+check(main.includes("Architecture, Design & Drafting Foundation"), "Architecture/design/drafting job logo mapping is missing.");
+check(main.includes("architecture-design-drafting.svg"), "Architecture/design/drafting logo is not wired into the resume timeline.");
 check(
   /\.education-card img\s*\{[\s\S]*?filter:\s*brightness\(0\)\s*invert\(1\);/.test(styles),
   "Wentworth education logo should render as a light mark on the dark education card."
@@ -663,6 +668,7 @@ if (latestJs) {
     "cicerone-certified-beer-server.jpg",
     "The House of Lustau CSWS Online",
     "Cicerone Program Certified Beer Server",
+    "architecture-design-drafting.svg",
     "credential-text-link",
     "Skip to presentation content",
     "presentation-content"
