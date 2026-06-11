@@ -4,12 +4,14 @@ import portraitGallery from "./portrait-gallery.js";
 
 const base = "/documents/openai-2026-06-02";
 const resumeBase = "/documents/resume";
+const referencesBase = "/documents/references";
 const logoBase = "/assets/logos";
 const heroImages = {
   resume: "/assets/academy-realm.jpg",
   projects: "/assets/header/codex-projects-hero.png",
   education: "/assets/header/podcast-video-hero.png",
-  fit: "/assets/header/hiring-close-hero.png"
+  fit: "/assets/header/hiring-close-hero.png",
+  references: "/assets/header/codex-projects-hero.png"
 };
 
 const { roles, resume, proofPillars, evidenceChain } = masterData;
@@ -56,6 +58,11 @@ const modes = [
     id: "fit",
     label: "03 OpenAI Fit",
     summary: "OpenAI Fit: role facts, strongest proof, packet documents, and the final interview argument."
+  },
+  {
+    id: "references",
+    label: "04 References",
+    summary: "References: third-party PDFs, email excerpts, and source-backed proof that can support the final conversation."
   }
 ];
 
@@ -90,6 +97,43 @@ const presentationMoves = [
   {
     title: "OpenAI fit",
     body: "Close with the live job facts, the strongest match, and the three downloadable packet PDFs: resume, cover letter, and 30-60-90 plan."
+  },
+  {
+    title: "References fourth",
+    body: "Keep third-party proof one click past the final argument: reference PDFs, approved email excerpts, and source context."
+  }
+];
+
+const referenceArtifacts = [
+  {
+    id: "reference-pdf-slot",
+    type: "PDF",
+    title: "Reference PDF slot",
+    source: "Reference packet",
+    status: "Awaiting source artifact",
+    summary: "Signed letters, PDF exports, and scanned reference notes can live here once received.",
+    href: "",
+    evidence: ["Former manager or client", "Role-specific proof point", "Permission status"]
+  },
+  {
+    id: "reference-email-slot",
+    type: "Email",
+    title: "Email reference slot",
+    source: "Approved email excerpt",
+    status: "Awaiting approved excerpt",
+    summary: "Forwarded or pasted email references can be displayed as short source-backed excerpts.",
+    body: "Approved reference email text will display here after it is added to the reference artifact list.",
+    evidence: ["Sender", "Date", "Context"]
+  },
+  {
+    id: "reference-index",
+    type: "Index",
+    title: "Reference source index",
+    source: `${referencesBase}/README.md`,
+    status: "Ready for artifact drops",
+    summary: "A local source folder keeps PDFs, email exports, and display metadata together for review.",
+    href: `${referencesBase}/README.md`,
+    evidence: ["PDF drops", "Email exports", "Display notes"]
   }
 ];
 
@@ -1041,6 +1085,11 @@ function updateDocumentMetadata(activeMode) {
 
 function presenterCueFor(modeId) {
   const cues = {
+    references: {
+      label: "Reference proof",
+      title: "Third-party artifacts support the close.",
+      body: "Reference PDFs and approved email excerpts keep outside proof visible without crowding the resume, portfolio, or OpenAI Fit argument."
+    },
     fit: {
       label: "Recruiter takeaway",
       title: "The fit is adoption work, not a resume claim.",
@@ -1074,6 +1123,10 @@ function proofArcItems(role = selectedRole) {
     {
       label: "OpenAI fit",
       value: role.planTheme || role.talkTrack || role.fit
+    },
+    {
+      label: "References",
+      value: "Third-party PDFs, email excerpts, and source-backed notes can support the final discussion."
     }
   ];
 }
@@ -1086,7 +1139,7 @@ function renderPresentationCommandCenter(activeMode) {
       <div class="presentation-path">
         <p>
           <span>Review path</span>
-          <strong>Resume evidence / portfolio proof / OpenAI fit.</strong>
+          <strong>Resume evidence / portfolio proof / OpenAI fit / references.</strong>
         </p>
       </div>
       <div class="presentation-cue">
@@ -1976,6 +2029,73 @@ function renderPortfolioMediaProof() {
   `;
 }
 
+function referenceArtifactAction(artifact) {
+  if (!artifact.href) {
+    return `<span class="reference-state">${presentationText(artifact.status)}</span>`;
+  }
+
+  const actionLabel = artifact.type === "Index" ? "Open source index" : "Open reference";
+  return `<a class="artifact-link reference-artifact-action" href="${artifact.href}" target="_blank" rel="noreferrer">${actionLabel} <span>${presentationText(artifact.type)}</span></a>`;
+}
+
+function referenceArtifactPreview(artifact) {
+  if (artifact.href && artifact.type === "PDF") {
+    return `<iframe class="reference-preview" src="${artifact.href}" title="${presentationText(artifact.title)}"></iframe>`;
+  }
+
+  if (artifact.body) {
+    return `<blockquote class="reference-email">${presentationText(artifact.body)}</blockquote>`;
+  }
+
+  return `<div class="reference-empty">${presentationText(artifact.status)}</div>`;
+}
+
+function renderReferenceCard(artifact) {
+  return `
+    <article class="reference-card">
+      <div class="reference-card-head">
+        <span>${presentationText(artifact.type)}</span>
+        <strong>${presentationText(artifact.status)}</strong>
+      </div>
+      <h3>${presentationText(artifact.title)}</h3>
+      <p>${presentationText(artifact.summary)}</p>
+      <div class="reference-preview-wrap">
+        ${referenceArtifactPreview(artifact)}
+      </div>
+      <div class="reference-evidence">
+        ${artifact.evidence.map((item) => `<em>${presentationText(item)}</em>`).join("")}
+      </div>
+      <footer>
+        <b>${presentationText(artifact.source)}</b>
+        ${referenceArtifactAction(artifact)}
+      </footer>
+    </article>
+  `;
+}
+
+function renderReferences() {
+  return `
+    ${renderHero("References", "Keep third-party proof and forwarded reference emails one step past the OpenAI Fit argument.", heroImages.references)}
+    ${renderRoleContext()}
+    <section class="references-board" aria-label="Reference artifacts">
+      <div class="references-board-head">
+        <div>
+          <p class="eyebrow">Reference packet</p>
+          <h3>External proof without diluting the walkthrough.</h3>
+          <p>Use this step when the hiring team wants reference letters, source emails, or third-party proof after the fit conversation.</p>
+        </div>
+        <div class="reference-custody">
+          <b>Source standard</b>
+          <p>Every reference artifact should keep a clear source, permission status, and interview use.</p>
+        </div>
+      </div>
+      <div class="reference-grid">
+        ${referenceArtifacts.map(renderReferenceCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderRoleFit() {
   const docs = docsFor(selectedRole);
   const activeDoc = docs[selectedDoc];
@@ -2343,6 +2463,7 @@ function renderWorkspace() {
   if (selectedMode === "fit") return renderRoleFit();
   if (selectedMode === "resume") return renderFullResume();
   if (selectedMode === "projects") return renderProjects();
+  if (selectedMode === "references") return renderReferences();
   return renderFullResume();
 }
 

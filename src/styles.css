@@ -408,7 +408,7 @@ a {
 
 .mode-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -2222,7 +2222,9 @@ a {
 .answer-board,
 .answer-card,
 .proof-matrix,
-.proof-matrix-card {
+.proof-matrix-card,
+.references-board,
+.reference-card {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 253, 250, 0.94);
@@ -2233,7 +2235,9 @@ a {
 .answer-board-head h3,
 .answer-card h4,
 .proof-matrix-head h3,
-.proof-matrix-card h4 {
+.proof-matrix-card h4,
+.references-board-head h3,
+.reference-card h3 {
   margin: 7px 0 10px;
   color: var(--teal);
 }
@@ -2242,7 +2246,10 @@ a {
 .answer-board-head p,
 .answer-card p,
 .proof-matrix-head p,
-.proof-matrix-card p {
+.proof-matrix-card p,
+.references-board-head p,
+.reference-card p,
+.reference-custody p {
   color: var(--muted);
   line-height: 1.55;
 }
@@ -2251,7 +2258,9 @@ a {
 .answer-card span,
 .answer-proof b,
 .proof-matrix-card span,
-.proof-matrix-card b {
+.proof-matrix-card b,
+.reference-card-head span,
+.reference-card-head strong {
   display: block;
   color: var(--coral);
   font-size: 0.72rem;
@@ -2460,6 +2469,143 @@ a {
   color: var(--teal);
 }
 
+.references-board {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  background:
+    linear-gradient(135deg, rgba(237, 212, 168, 0.22), rgba(255, 253, 250, 0.94)),
+    var(--paper-2);
+}
+
+.references-board-head {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.52fr);
+  gap: 16px;
+  align-items: end;
+}
+
+.references-board-head h3 {
+  max-width: 820px;
+  font-size: clamp(1.55rem, 3vw, 3.2rem);
+  line-height: 1;
+}
+
+.references-board-head p:last-child {
+  margin: 0;
+}
+
+.reference-custody {
+  border-left: 5px solid var(--coral);
+  border-radius: 8px;
+  background: #f1e7d4;
+  padding: 12px;
+}
+
+.reference-custody b {
+  display: block;
+  color: var(--coral);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.reference-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.reference-card {
+  min-width: 0;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  border-top: 5px solid var(--gold);
+  padding: 14px;
+}
+
+.reference-card h3,
+.reference-card p {
+  margin: 0;
+}
+
+.reference-card-head,
+.reference-card footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.reference-card-head strong {
+  color: var(--teal);
+  text-align: right;
+}
+
+.reference-preview-wrap {
+  min-height: 190px;
+  overflow: hidden;
+  border: 1px solid rgba(129, 121, 133, 0.42);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(24, 85, 82, 0.08), rgba(237, 212, 168, 0.2)),
+    var(--paper-2);
+}
+
+.reference-preview {
+  display: block;
+  width: 100%;
+  min-height: 260px;
+  border: 0;
+  background: var(--white);
+}
+
+.reference-email,
+.reference-empty {
+  margin: 0;
+  min-height: 190px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.reference-email {
+  padding: 18px;
+  border-left: 5px solid var(--coral);
+  font-style: italic;
+}
+
+.reference-empty {
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  text-align: center;
+  font-weight: 850;
+}
+
+.reference-evidence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reference-evidence em,
+.reference-state {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(24, 85, 82, 0.08);
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 850;
+  padding: 7px 10px;
+}
+
+.reference-artifact-action {
+  width: fit-content;
+}
+
 .systems-map {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -2628,6 +2774,8 @@ a {
   .answer-grid,
   .proof-matrix-head,
   .proof-matrix-grid,
+  .references-board-head,
+  .reference-grid,
   .resume-grid,
   .systems-map,
   .media-panel {
@@ -2715,7 +2863,9 @@ a {
   .answer-board-head,
   .answer-grid,
   .proof-matrix-head,
-  .proof-matrix-grid {
+  .proof-matrix-grid,
+  .references-board-head,
+  .reference-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2897,6 +3047,8 @@ body {
 .answer-card,
 .proof-matrix,
 .proof-matrix-card,
+.references-board,
+.reference-card,
 .media-showcase,
 .episode-card,
 .podcast-audio-panel,
@@ -2964,6 +3116,8 @@ body {
 .answer-card h4,
 .proof-matrix-head h3,
 .proof-matrix-card h4,
+.references-board-head h3,
+.reference-card h3,
 .media-showcase h3,
 .episode-body h3,
 .podcast-audio-panel h3,
@@ -3023,6 +3177,9 @@ body {
 .answer-proof b,
 .proof-matrix-card span,
 .proof-matrix-card b,
+.reference-card-head span,
+.reference-card-head strong,
+.reference-custody b,
 .source-facts-grid b,
 .source-facts-list b,
 .resume-detail-card span,
@@ -3065,6 +3222,11 @@ body {
 .answer-card p,
 .proof-matrix-head p,
 .proof-matrix-card p,
+.references-board-head p,
+.reference-card p,
+.reference-custody p,
+.reference-email,
+.reference-empty,
 .media-showcase p,
 .episode-body p,
 .podcast-audio-panel p,
@@ -3154,6 +3316,10 @@ body {
 .case-study-card footer,
 .answer-proof,
 .proof-matrix-card div,
+.reference-custody,
+.reference-preview-wrap,
+.reference-evidence em,
+.reference-state,
 .episode-meta span,
 .project-bridge,
 .stack-lanes span,

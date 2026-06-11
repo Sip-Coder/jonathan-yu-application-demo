@@ -100,7 +100,8 @@ function latestAsset(ext) {
 const expectedModes = [
   "01 Resume",
   "02 Portfolio",
-  "03 OpenAI Fit"
+  "03 OpenAI Fit",
+  "04 References"
 ];
 
 let previousModeIndex = -1;
@@ -191,6 +192,14 @@ check(main.includes("Hiring manager"), "OpenAI Fit tab is missing the hiring man
 check(main.includes("Team member"), "OpenAI Fit tab is missing the team member lens.");
 check(main.includes("HR screen"), "OpenAI Fit tab is missing the HR lens.");
 check(main.includes("Supervisor"), "OpenAI Fit tab is missing the supervisor lens.");
+check(main.includes("const referenceArtifacts = ["), "References tab is missing the source artifact list.");
+check(main.includes("function renderReferences()"), "References tab is missing the renderer.");
+check(main.includes("function renderReferenceCard("), "References tab is missing artifact cards.");
+check(main.includes('if (selectedMode === "references") return renderReferences();'), "References mode is not wired into the workspace renderer.");
+check(main.includes("Reference PDF slot"), "References tab is missing the PDF reference slot.");
+check(main.includes("Email reference slot"), "References tab is missing the email reference slot.");
+check(styles.includes(".references-board"), "References tab styling is missing the board.");
+check(styles.includes(".reference-preview"), "References tab styling is missing preview support.");
 check(main.includes("function renderFullResume()"), "Missing Resume renderer.");
 check(main.includes("Resume reference"), "Resume tab is missing the source-view framing.");
 check(main.includes("function renderResumeDetailsDeck()"), "Resume tab is missing the requested resume details deck.");
@@ -295,7 +304,7 @@ check(!main.includes("presentation-command--linear"), "Presentation command cent
 check(!styles.includes(".presentation-command--fit"), "Styles should not keep an OpenAI Fit-only command layout.");
 check(!styles.includes(".presentation-command--linear"), "Styles should not keep a separate non-fit command layout.");
 check(main.includes("Review path"), "Presentation command center should frame the sequence as a recruiter review path.");
-check(main.includes("Resume evidence / portfolio proof / OpenAI fit."), "Presentation command center is missing the concise proof journey.");
+check(main.includes("Resume evidence / portfolio proof / OpenAI fit / references."), "Presentation command center is missing the concise proof journey.");
 [
   "Copy View",
   "Copyable role brief",
@@ -484,6 +493,7 @@ check(fs.existsSync(path.join(root, "scripts", "portrait-caption-xlsx.mjs")), "M
 check(fs.existsSync(portraitCaptionWorkbook), "Missing portrait caption Excel workbook.");
 check(readme.includes("Jonathan_Yu_Portrait_Captions.xlsx"), "README does not document the portrait caption Excel workbook.");
 check(readme.includes("Display Title - replaces filename"), "README does not document the portrait caption display-title column.");
+check(fileExists("public/documents/references/README.md"), "Missing references artifact index.");
 
 const roleDocKinds = ["Resume", "Cover_Letter", "30_60_90_Plan"];
 const roleDocFormats = ["pdf", "docx", "md"];
@@ -535,11 +545,13 @@ if (aiSuccessRole) {
 
 check(readme.includes("#fit/ai-success"), "README does not document the OpenAI Fit shareable hash.");
 check(readme.includes("#resume/ai-success"), "README does not document the Resume shareable hash.");
+check(readme.includes("#references/ai-success"), "README does not document the References shareable hash.");
+check(readme.includes("public/documents/references/"), "README does not document the References artifact folder.");
 check(readme.includes("#fit/ai-success/cover-letter"), "README does not document cover letter packet hashes.");
 check(readme.includes("#fit/ai-success/30-60-90"), "README does not document 30-60-90 packet hashes.");
 check(readme.includes("older `#application/...` links are normalized"), "README does not document legacy Application Proof hash normalization.");
 check(readme.includes("Dynamic browser titles and descriptions"), "README does not document dynamic browser metadata.");
-check(readme.includes("Resume, Portfolio, and OpenAI Fit"), "README does not document the three-step AI Success deck.");
+check(readme.includes("Resume, Portfolio, OpenAI Fit, and References"), "README does not document the four-step AI Success deck.");
 check(readme.includes("human-owned build process"), "README does not document the human-owned build process.");
 check(readme.includes("Parameter Golf-inspired review pattern"), "README does not document the Parameter Golf review pattern.");
 check(readme.includes("recruiter-facing proof arc"), "README does not document the recruiter-facing proof arc.");
@@ -610,9 +622,14 @@ if (latestJs) {
     "Active packet document:",
     "Review path",
     "Proof arc",
-    "Resume evidence / portfolio proof / OpenAI fit.",
+    "Resume evidence / portfolio proof / OpenAI fit / references.",
     "Focus",
     "Resume reference",
+    "Reference packet",
+    "Reference PDF slot",
+    "Email reference slot",
+    "Source standard",
+    "Approved reference email text",
     "WSET Level 2 Sake",
     "Wine Scholar Guild / Lustau",
     "Cicerone - Certified Beer Server L1",
@@ -659,6 +676,10 @@ if (latestCss) {
     ".gallery-pause",
     ".selected-document-panel",
     ".selected-document-panel:focus-visible",
+    ".references-board",
+    ".reference-grid",
+    ".reference-card",
+    ".reference-preview",
     ".credential-text-link",
     ".proof-matrix",
     ".skip-link",

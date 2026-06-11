@@ -1,6 +1,6 @@
 # Jonathan Yu Resume Walkthrough Site
 
-Vite presentation site for walking a client or hiring team through Jonathan Yu's Resume, Portfolio, and OpenAI Fit for the OpenAI AI Success Engineer - US Remote application.
+Vite presentation site for walking a client or hiring team through Jonathan Yu's Resume, Portfolio, OpenAI Fit, and References for the OpenAI AI Success Engineer - US Remote application.
 
 ## Run Locally
 
@@ -31,12 +31,12 @@ npm.cmd run validate:contrast
 
 ## What It Contains
 
-- Three walkthrough steps: Resume, Portfolio, and OpenAI Fit.
+- Four walkthrough steps: Resume, Portfolio, OpenAI Fit, and References.
 - The left rail is the only section navigation; the command center is context and proof only, not a second row of tab controls.
-- Shareable section hashes for direct walkthrough links, such as `#resume/ai-success`, `#projects/ai-success`, and `#fit/ai-success`; legacy `#education/...` links are normalized into Portfolio.
+- Shareable section hashes for direct walkthrough links, such as `#resume/ai-success`, `#projects/ai-success`, `#fit/ai-success`, and `#references/ai-success`; legacy `#education/...` links are normalized into Portfolio.
 - Shareable packet-document hashes on OpenAI Fit, such as `#fit/ai-success/cover-letter` and `#fit/ai-success/30-60-90`; older `#application/...` links are normalized into the Fit view.
 - Dynamic browser titles and descriptions for shareable views, so direct links identify the active walkthrough step, AI Success application focus, packet document, and focus-mode state.
-- A recruiter-facing proof arc in the stable command center, so Resume, Portfolio, and OpenAI Fit keep the same review path without duplicate section buttons.
+- A recruiter-facing proof arc in the stable command center, so Resume, Portfolio, OpenAI Fit, and References keep the same review path without duplicate section buttons.
 - Persistent top-bar links for the AI Success role resume, cover letter, and 30-60-90 plan PDFs, so the full packet is reachable from any walkthrough step.
 - A screen-share focus mode, available from the top bar, the `F` key, or `?focus=1`, that hides the left rail while keeping current-view context and packet links visible.
 - A single AI Success Engineer application focus in the recruiter-facing UI; generated data can still carry broader packet history without asking recruiters to switch between resumes.
@@ -52,6 +52,7 @@ npm.cmd run validate:contrast
 - An OpenAI Fit section with a 90-second closer, a fact-checked role-source panel for the current AI Success Engineer posting, OpenAI interview lenses for hiring manager/team/HR/supervisor, packet document tabs, role-proof map, and live interview answer board.
 - A selected-document panel on OpenAI Fit that keeps the active packet file actionable even when browser PDF previews are unavailable.
 - Accessible OpenAI Fit document tabs with selected-state semantics and arrow/Home/End keyboard movement across Resume, Cover Letter, and 30-60-90.
+- A References section after OpenAI Fit for third-party proof: linked PDFs, approved email excerpts, and source-context notes from `public/documents/references/`.
 - An avant-garde parallax hero presentation for client and hiring-team walkthroughs.
 - A signature-forward identity header with a portrait-ready frame and cream transparent Jonathan Yu signature mark.
 - Headshot upload convention: place the file at `public/assets/portrait/jonathan-yu-headshot.jpg`.
@@ -66,10 +67,10 @@ npm.cmd run validate:contrast
 - Local PDF/DOCX/Markdown links for each role resume, cover letter, and 30-60-90 plan.
 - Local V4 resume files.
 - Proof pillars for Sip Studies, Sipopedia, Critical On Hand, teaching, commercial outcomes, and generated application packets.
-- A local `validate:presentation` check for source workbook, AI Success default role, tab sequence, generated role data, project scope, role-source facts, packet PDF buttons, playable media support, Flavor Blog article sections, required documents, and built assets.
+- A local `validate:presentation` check for source workbook, AI Success default role, tab sequence, generated role data, project scope, role-source facts, packet PDF buttons, reference artifacts, playable media support, Flavor Blog article sections, required documents, and built assets.
 - A local `validate:contrast` check for dark-theme panel coverage and WCAG text/background token ratios, so newer cards do not regress into cream text on light panels.
 
-All static documents live under `public/documents/`, so the folder can be deployed as a standalone static site after `npm.cmd run build`.
+All static documents live under `public/documents/`, including reference PDFs and email exports under `public/documents/references/`, so the folder can be deployed as a standalone static site after `npm.cmd run build`.
 
 ## Presentation Research Notes
 
