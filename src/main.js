@@ -14,7 +14,7 @@ const heroImages = {
   references: "/assets/header/codex-projects-hero.png"
 };
 
-const { roles, resume, proofPillars, evidenceChain } = masterData;
+const { roles, resume } = masterData;
 const resumeSource = masterData.source;
 const primaryRoleId = "ai-success";
 const primaryRole = roles.find((role) => role.id === primaryRoleId) || roles[0];
@@ -47,22 +47,22 @@ const modes = [
   {
     id: "resume",
     label: "01 Resume",
-    summary: "Resume evidence: profile, experience, credentials, skills, market scale, and education."
+    summary: "Source-backed resume facts and credential proof."
   },
   {
     id: "projects",
     label: "02 Portfolio",
-    summary: "Portfolio proof: shipped products, public teaching, repo evidence, and AI-assisted product work."
+    summary: "Inspectable projects, media, and shipped work."
   },
   {
     id: "fit",
     label: "03 OpenAI Fit",
-    summary: "OpenAI Fit: role facts, strongest proof, packet documents, and the final interview argument."
+    summary: "Role-specific close, packet files, and interview proof."
   },
   {
     id: "references",
     label: "04 References",
-    summary: "References: third-party PDFs, email excerpts, and source-backed proof that can support the final conversation."
+    summary: "Third-party PDFs, emails, and source notes."
   }
 ];
 
@@ -83,25 +83,6 @@ const mediaLinks = [
   { label: "Tasting Group", handle: "WhatsApp community", href: "https://chat.whatsapp.com/BiHrIKzTYmm2O2ql7jk2DT" },
   { label: "Sip Studies Reels", handle: "Instagram video proof", href: "https://www.instagram.com/sip.studies/reel/DGwT3fXvRxt/" },
   { label: "2Knivez Reel", handle: "personal media proof", href: "https://www.instagram.com/2knivez/reel/DGw69y4RWGv/" }
-];
-
-const presentationMoves = [
-  {
-    title: "Resume first",
-    body: "Start with the role-shaped resume facts: profile, experience, credentials, skills, highlights, market scale, and focus plus education."
-  },
-  {
-    title: "Portfolio second",
-    body: "Move from claims into shipped products, client sites, prototypes, automation, data workflows, and public teaching proof."
-  },
-  {
-    title: "OpenAI fit",
-    body: "Close with the live job facts, the strongest match, and the three downloadable packet PDFs: resume, cover letter, and 30-60-90 plan."
-  },
-  {
-    title: "References fourth",
-    body: "Keep third-party proof one click past the final argument: reference PDFs, approved email excerpts, and source context."
-  }
 ];
 
 const referenceArtifacts = [
@@ -166,33 +147,6 @@ const riskControls = [
   {
     risk: "Is the founder scope focused enough?",
     control: "Show disciplined prioritization: artifact, evidence, verification, next decision. Keep the conversation anchored to the selected role."
-  }
-];
-
-const employerFacingPositioning = [
-  "I use AI-assisted product building to prototype customer workflows and validate product ideas.",
-  "My strength is translating complex domains into usable tools, curriculum, and adoption systems.",
-  "I can build enough to make ideas concrete, then communicate clearly with technical teams about constraints, risks, and next steps.",
-  "I keep a human-owned build process: problem framing, AI-assisted implementation, validation, documentation, and customer interpretation.",
-  "I am strongest where product, customer education, technical enablement, and adoption meet."
-];
-
-const aiBuildOwnership = [
-  {
-    label: "Base layer",
-    value: "Beverage, education, sales, and events become customer workflow translation, stakeholder trust, and adoption behavior."
-  },
-  {
-    label: "Build language",
-    value: "AI-assisted product building, agentic harnessing, workflow prototyping, customer education, technical enablement, and validated build process."
-  },
-  {
-    label: "Human judgment",
-    value: "I know where AI helps, where human judgment remains responsible, and how to build a workflow around that boundary."
-  },
-  {
-    label: "Review record",
-    value: "Every build should include what AI did and what Jonathan decided."
   }
 ];
 
@@ -1063,94 +1017,6 @@ function updateDocumentMetadata(activeMode) {
   setMetaContent('meta[name="twitter:description"]', description);
 }
 
-function presenterCueFor(modeId) {
-  const cues = {
-    references: {
-      label: "Reference proof",
-      title: "Third-party artifacts support the close.",
-      body: "Reference PDFs and approved email excerpts keep outside proof visible without crowding the resume, portfolio, or OpenAI Fit argument."
-    },
-    fit: {
-      label: "Recruiter takeaway",
-      title: "The fit is adoption work, not a resume claim.",
-      body: "The source facts and projects point to one outcome: customer workflow mapping, technical readiness, value realization, and product feedback."
-    },
-    resume: {
-      label: "Resume evidence",
-      title: "The chronology shows customer translation.",
-      body: "Sales, education, events, and product building establish the base for technical enablement and adoption."
-    },
-    projects: {
-      label: "Portfolio evidence",
-      title: "The projects make the resume inspectable.",
-      body: "Shipped products, public teaching, validation, and client-facing artifacts turn claims into reviewable proof."
-    }
-  };
-
-  return cues[modeId] || cues.resume;
-}
-
-function proofArcItems(role = selectedRole) {
-  return [
-    {
-      label: "Resume",
-      value: role.headline
-    },
-    {
-      label: "Portfolio",
-      value: role.proof?.[0] || role.strengths?.[0] || role.fit
-    },
-    {
-      label: "OpenAI fit",
-      value: role.planTheme || role.talkTrack || role.fit
-    },
-    {
-      label: "References",
-      value: "Third-party PDFs, email excerpts, and source-backed notes can support the final discussion."
-    }
-  ];
-}
-
-function renderPresentationCommandCenter(activeMode) {
-  const cue = presenterCueFor(activeMode.id);
-
-  return `
-    <section class="presentation-command" aria-label="Interview presentation status">
-      <div class="presentation-path">
-        <p>
-          <span>Review path</span>
-          <strong>Resume evidence / portfolio proof / OpenAI fit / references.</strong>
-        </p>
-      </div>
-      <div class="presentation-cue">
-        <span>${cue.label}</span>
-        <strong>${cue.title}</strong>
-        <p>${presentationText(cue.body)}</p>
-      </div>
-      <div class="presentation-next">
-        <span>Application focus</span>
-        <strong>${presentationText(selectedRole.title)}</strong>
-        <p>${presentationText(selectedRole.fit)}</p>
-        <div class="proof-arc" aria-label="Recruiter proof arc">
-          <span>Proof arc</span>
-          <div class="proof-arc-grid">
-            ${proofArcItems(selectedRole)
-              .map(
-                (item) => `
-                  <div>
-                    <b>${presentationText(item.label)}</b>
-                    <p>${presentationText(item.value)}</p>
-                  </div>
-                `
-              )
-              .join("")}
-          </div>
-        </div>
-      </div>
-    </section>
-  `;
-}
-
 function credentialBadge(badge) {
   const content = `
     ${
@@ -1244,79 +1110,6 @@ function projectCaseStudyCard(study, index) {
   `;
 }
 
-function interviewAnswerCards(role) {
-  const strengths = role.strengths || [];
-  const proof = role.proof || [];
-
-  return [
-    {
-      label: "Opening answer",
-      question: "Tell me about yourself for this role.",
-      answer: `I am a ${role.headline}. For ${role.title}, I would focus the conversation on ${role.planTheme || role.fit}.`,
-      proof: strengths[0] || proof[0] || role.fit,
-      reference: "Resume evidence"
-    },
-    {
-      label: "Portfolio proof",
-      question: "What is the strongest evidence that you can do the work?",
-      answer: "Start with the shipped product artifacts: Sip Studies, Sipopedia, Critical On Hand, and the Codex-assisted project body. They show the work beyond a PDF.",
-      proof: proof[0] || strengths[0] || "Sip Studies, Sipopedia, and role-specific packet proof.",
-      reference: "Portfolio proof"
-    },
-    {
-      label: "Translation risk",
-      question: "How does your background translate into this role?",
-      answer: riskControls[1].control,
-      proof: strengths[1] || proof[1] || role.talkTrack,
-      reference: "Portfolio proof"
-    },
-    {
-      label: "First 90 days",
-      question: "How would you start if hired?",
-      answer: "Use the 30-60-90 plan as the operating answer: learn the customer workflow, build reusable enablement artifacts, measure adoption, and feed product signals back to the team.",
-      proof: role.planTheme || strengths[2] || proof[2] || role.fit,
-      reference: "OpenAI Fit"
-    }
-  ];
-}
-
-function interviewAnswerCard(card, index) {
-  return `
-    <article class="answer-card">
-      <span>${String(index + 1).padStart(2, "0")} ${presentationText(card.label)}</span>
-      <h4>${presentationText(card.question)}</h4>
-      <p>${presentationText(card.answer)}</p>
-      <div class="answer-proof">
-        <b>Proof to name</b>
-        <p>${presentationText(card.proof)}</p>
-      </div>
-      <div class="answer-reference">
-        <b>Evidence section</b>
-        <span>${presentationText(card.reference)}</span>
-      </div>
-    </article>
-  `;
-}
-
-function renderInterviewAnswerBoard() {
-  const cards = interviewAnswerCards(selectedRole);
-
-  return `
-    <section class="answer-board" aria-label="Live interview answer board">
-      <div class="answer-board-head">
-        <div>
-          <p class="eyebrow">Live interview answer board</p>
-          <h3>Keep the conversation anchored to the right proof.</h3>
-        </div>
-        <p>Each answer gives the short response, the evidence to name out loud, and the next tab to open when the interviewer asks for detail.</p>
-      </div>
-      <div class="answer-grid">
-        ${cards.map(interviewAnswerCard).join("")}
-      </div>
-    </section>
-  `;
-}
-
 function timeboxCards(role) {
   return [
     {
@@ -1362,60 +1155,6 @@ function renderTimeboxedRead() {
                 <span>${card.mark}</span>
                 <h4>${presentationText(card.title)}</h4>
                 <p>${presentationText(card.body)}</p>
-                <b>${presentationText(card.proof)}</b>
-              </article>
-            `
-          )
-          .join("")}
-      </div>
-    </section>
-  `;
-}
-
-function interviewerLensCards(role) {
-  return [
-    {
-      label: "Hiring manager",
-      question: "Can he help customers adopt OpenAI faster?",
-      answer: role.resumeSummary,
-      proof: role.proof?.[0] || role.strengths?.[0]
-    },
-    {
-      label: "Team member",
-      question: "Will he be useful in the work, not just polished in the interview?",
-      answer: role.strengths?.[0] || role.fit,
-      proof: "Inspect the shipped products, validation scripts, public artifacts, and role-specific packet."
-    },
-    {
-      label: "HR screen",
-      question: "Is the career transition coherent and defensible?",
-      answer: role.headline,
-      proof: "10+ years customer-facing work, quantified commercial outcomes, teaching proof, and AI-enabled product building."
-    },
-    {
-      label: "Supervisor",
-      question: "Will he create leverage in the first quarter?",
-      answer: role.planTheme,
-      proof: role.strengths?.[1] || role.talkTrack
-    }
-  ];
-}
-
-function renderInterviewerLensPanel() {
-  return `
-    <section class="interviewer-lens-panel" aria-label="OpenAI interview panel lens">
-      <div class="interviewer-lens-head">
-        <p class="eyebrow">OpenAI interview lens</p>
-        <h3>Answer the room, not just the resume parser.</h3>
-      </div>
-      <div class="interviewer-lens-grid">
-        ${interviewerLensCards(selectedRole)
-          .map(
-            (card) => `
-              <article class="interviewer-lens-card">
-                <span>${presentationText(card.label)}</span>
-                <h4>${presentationText(card.question)}</h4>
-                <p>${presentationText(card.answer)}</p>
                 <b>${presentationText(card.proof)}</b>
               </article>
             `
@@ -1890,23 +1629,6 @@ function renderHero(title, subtitle, image = heroImages.resume, metricItems = he
   `;
 }
 
-function renderRoleContext() {
-  return `
-    <section class="role-context">
-      <div>
-        <p class="eyebrow">Resume pivot focus</p>
-        <h3>${selectedRole.title}</h3>
-        <p>${presentationText(selectedRole.coverFocus || selectedRole.resumeSummary || selectedRole.fit)}</p>
-      </div>
-      <div class="role-context-meta">
-        <span><b>Pivot</b>${presentationText(selectedRole.headline)}</span>
-        <span><b>Proof</b>${presentationText(selectedRole.strengths?.[0] || selectedRole.fit)}</span>
-        <span><b>Interview lens</b>${presentationText(selectedRole.planTheme || selectedRole.talkTrack)}</span>
-      </div>
-    </section>
-  `;
-}
-
 function renderAiSuccessSourceCheck() {
   return `
     <section class="source-check-panel" aria-label="AI Success Engineer source facts">
@@ -1925,35 +1647,6 @@ function renderAiSuccessSourceCheck() {
         <b>Role facts to mirror</b>
         <ul>${aiSuccessPostingFacts.roleFacts.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
         <div>${aiSuccessPostingFacts.successSignals.map((item) => `<em>${presentationText(item)}</em>`).join("")}</div>
-      </div>
-    </section>
-  `;
-}
-
-function renderAiBuildOwnership() {
-  return `
-    <section class="source-check-panel build-ownership-panel" aria-label="Human-owned AI build process">
-      <div>
-        <p class="eyebrow">Employer-facing positioning</p>
-        <h3>AI-assisted product building with human-owned judgment.</h3>
-        <p>I spent years teaching, selling, and operationalizing a complex domain. I then used AI-assisted product building to turn that domain into tools, curriculum, workflows, and proof. I can help a technology company turn powerful products into customer adoption, education, and measurable outcomes.</p>
-      </div>
-      <div class="source-facts-grid">
-        ${aiBuildOwnership
-          .map(
-            (item) => `
-              <span>
-                <b>${presentationText(item.label)}</b>
-                ${presentationText(item.value)}
-              </span>
-            `
-          )
-          .join("")}
-      </div>
-      <div class="source-facts-list">
-        <b>Language to use in the conversation</b>
-        <ul>${employerFacingPositioning.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
-        <div>${reviewableProjectStandard.map((item) => `<em>${presentationText(item)}</em>`).join("")}</div>
       </div>
     </section>
   `;
@@ -2062,8 +1755,7 @@ function renderReferenceCard(artifact) {
 
 function renderReferences() {
   return `
-    ${renderHero("References", "Keep third-party proof and forwarded reference emails one step past the OpenAI Fit argument.", heroImages.references)}
-    ${renderRoleContext()}
+    ${renderHero("References", "A clean place for approved third-party proof after the hiring argument is clear.", heroImages.references)}
     <section class="references-board" aria-label="Reference artifacts">
       <div class="references-board-head">
         <div>
@@ -2088,13 +1780,10 @@ function renderRoleFit() {
   const activeDoc = docs[selectedDoc];
 
   return `
-    ${renderHero("OpenAI Fit", "Close the walkthrough with the live AI Success Engineer requirements, strongest proof, and downloadable application packet.", heroImages.fit)}
-    ${renderRoleContext()}
+    ${renderHero("OpenAI Fit", "Role facts, strongest proof, and the packet files for the final hiring discussion.", heroImages.fit)}
     ${renderAiSuccessSourceCheck()}
-    ${renderAiBuildOwnership()}
     ${renderPacketPdfRail(selectedRole)}
     ${renderTimeboxedRead()}
-    ${renderInterviewerLensPanel()}
     <section class="document-strip document-strip--fit" aria-label="Role packet documents">
       <div class="doc-tabs" role="tablist" aria-label="Role packet documents">
         ${Object.keys(docs)
@@ -2132,17 +1821,12 @@ function renderRoleFit() {
       </div>
     </section>
     ${renderProofMatrix()}
-    ${renderInterviewAnswerBoard()}
   `;
 }
 
 function renderFullResume() {
   return `
-    ${renderHero("Resume reference", "Start here: the source-backed job history reframed for the AI Success Engineer application.", heroImages.resume)}
-    ${renderRoleContext()}
-    ${renderPacketPdfRail(selectedRole)}
-    ${renderResumeDetailsDeck()}
-    ${renderAiBuildOwnership()}
+    ${renderHero("Resume reference", "The source-backed chronology, credentials, and downloadable resume files.", heroImages.resume)}
     <section class="resume-head">
       <div>
         <p class="eyebrow">Resume reference view</p>
@@ -2157,22 +1841,8 @@ function renderFullResume() {
         ${artifactButton("Markdown", `${resumeBase}/JONATHAN_YU_SIP_STUDIES_COMBINED_RESUME_V4_CRITICAL_ON_HAND_2026-06-02.md`, "MD")}
       </div>
     </section>
+    ${renderResumeDetailsDeck()}
     ${renderResumeLensPanel()}
-
-    <section class="principle-board">
-      ${presentationMoves
-        .map(
-          (move, index) => `
-            <article class="principle-item">
-              <span>0${index + 1}</span>
-              <h3>${move.title}</h3>
-              <p>${move.body}</p>
-            </article>
-          `
-        )
-        .join("")}
-    </section>
-
     <section class="resume-grid">
       <aside class="resume-sidebar">
         <h3>Profile</h3>
@@ -2230,8 +1900,7 @@ function renderFullResume() {
 
 function renderProjects() {
   return `
-    ${renderHero("Portfolio proof", "Move from resume claims to shipped work: products, client sites, data tools, public teaching, and launch artifacts built with Codex and Replit support.", heroImages.projects)}
-    ${renderRoleContext()}
+    ${renderHero("Portfolio proof", "Inspectable products, project work, public teaching, and media proof.", heroImages.projects)}
     <section class="codex-projects-intro">
       <div>
         <p class="eyebrow">Portfolio lane</p>
@@ -2240,6 +1909,10 @@ function renderProjects() {
       </div>
       <div class="codex-projects-tags">
         <span>Codex-assisted builds</span>
+        <span>AI-assisted product building</span>
+        <span>Agentic harnessing</span>
+        <span>Workflow prototyping</span>
+        <span>Customer workflow translation</span>
         <span>Replit lineage</span>
         <span>Client websites</span>
         <span>Data workflows</span>
@@ -2312,33 +1985,8 @@ function renderProjects() {
       </div>
     </section>
 
-    <section class="proof-grid expanded" aria-label="Workbook proof pillars">
-      ${proofPillars
-        .map(
-          (pillar) => `
-            <article class="proof-card">
-              <span>${presentationText(pillar.metric)}</span>
-              <h3>${presentationText(pillar.title)}</h3>
-              <p>${presentationText(pillar.body)}</p>
-              <div>${pillar.tags.map((tag) => `<em>${presentationText(tag)}</em>`).join("")}</div>
-            </article>
-          `
-        )
-        .join("")}
-    </section>
-
     ${renderPortfolioMediaProof()}
     ${renderEducationMediaSections()}
-
-    <section class="asset-band">
-      <img src="/assets/sippy-guide.jpg" alt="Sippy guide character" />
-      <img src="/assets/roma-guide.jpg" alt="Roma guide character" />
-      <img src="/assets/hummin-coffee-02.jpg" alt="Hummin guide character" />
-      <div>
-        <h3>What Codex Projects is meant to prove</h3>
-        <p>The point is not that Jonathan has a generic personal site. The point is that he can turn messy domains into usable products, documents, workflows, media, and client-facing artifacts.</p>
-      </div>
-    </section>
   `;
 }
 
@@ -2530,7 +2178,6 @@ function render() {
             <p class="topbar-summary">${activeMode.summary}</p>
           </div>
         </header>
-        ${renderPresentationCommandCenter(activeMode)}
         ${renderWorkspace()}
       </section>
     </main>

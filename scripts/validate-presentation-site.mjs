@@ -144,11 +144,10 @@ check(stalePhraseHits.length === 0, `Generated data still contains tool/system p
 
 const requiredPositioningPhrases = [
   "AI-assisted product building",
-  "agentic harnessing",
-  "workflow prototyping",
-  "customer workflow translation",
-  "human-owned build process",
-  "what AI did",
+  "Agentic harnessing",
+  "Workflow prototyping",
+  "Customer workflow translation",
+  "What AI did",
   "What Jonathan decided",
   "problem, process, output, validation, limitations, role relevance",
   "Parameter Golf",
@@ -185,13 +184,29 @@ check(main.includes('education: "projects"'), "Old Teaching Proof hashes should 
 check(main.includes('portfolio: "projects"'), "Portfolio alias should map to the Portfolio route.");
 check(main.includes('if (modeId === "application") window.requestAnimationFrame(updateUrlState);'), "Legacy application hashes should be rewritten to Fit hashes after parsing.");
 check(main.includes("What a busy OpenAI panel should remember after the walkthrough."), "OpenAI Fit is missing the 90-second closing thesis.");
-check(main.includes("${renderPresentationCommandCenter(activeMode)}"), "Every deck step should render the presentation command center.");
 check(main.includes("function renderTimeboxedRead("), "OpenAI Fit tab is missing the timeboxed read renderer.");
-check(main.includes("function renderInterviewerLensPanel("), "OpenAI Fit tab is missing interviewer lenses.");
-check(main.includes("Hiring manager"), "OpenAI Fit tab is missing the hiring manager lens.");
-check(main.includes("Team member"), "OpenAI Fit tab is missing the team member lens.");
-check(main.includes("HR screen"), "OpenAI Fit tab is missing the HR lens.");
-check(main.includes("Supervisor"), "OpenAI Fit tab is missing the supervisor lens.");
+[
+  "renderPresentationCommandCenter",
+  "renderRoleContext",
+  "renderAiBuildOwnership",
+  "renderInterviewerLensPanel",
+  "renderInterviewAnswerBoard",
+  "presentationMoves",
+  "proofArcItems"
+].forEach((text) => {
+  check(!main.includes(text), `Redundant walkthrough helper should be removed: ${text}`);
+});
+[
+  ".presentation-command",
+  ".role-context",
+  ".interviewer-lens-panel",
+  ".answer-board",
+  ".principle-board",
+  ".asset-band",
+  ".proof-grid"
+].forEach((selector) => {
+  check(!styles.includes(selector), `Dead layout selector should be removed: ${selector}`);
+});
 check(main.includes("const referenceArtifacts = ["), "References tab is missing the source artifact list.");
 check(main.includes("function renderReferences()"), "References tab is missing the renderer.");
 check(main.includes("function renderReferenceCard("), "References tab is missing artifact cards.");
@@ -298,15 +313,15 @@ check(main.includes("function selectDocument("), "OpenAI Fit document tab select
 check(main.includes("function documentAtOffset("), "OpenAI Fit document tabs are missing arrow-key document navigation.");
 check(main.includes('event.key === "Home" || event.key === "End"'), "OpenAI Fit document tabs are missing Home/End keyboard navigation.");
 check(!main.includes("preview for ${selectedRole.title}"), "OpenAI Fit tab still embeds a brittle PDF preview iframe.");
-check(main.includes("function proofArcItems("), "Presentation command center is missing the recruiter proof arc data.");
-check(main.includes('aria-label="Recruiter proof arc"'), "Presentation command center is missing the recruiter proof arc.");
-check(!main.includes("showFitProofArc"), "Presentation command center should not switch layouts by active tab.");
-check(!main.includes("presentation-command--fit"), "Presentation command center should not use an OpenAI Fit-only layout modifier.");
-check(!main.includes("presentation-command--linear"), "Presentation command center should not use a separate non-fit layout modifier.");
-check(!styles.includes(".presentation-command--fit"), "Styles should not keep an OpenAI Fit-only command layout.");
-check(!styles.includes(".presentation-command--linear"), "Styles should not keep a separate non-fit command layout.");
-check(main.includes("Review path"), "Presentation command center should frame the sequence as a recruiter review path.");
-check(main.includes("Resume evidence / portfolio proof / OpenAI fit / references."), "Presentation command center is missing the concise proof journey.");
+check(!main.includes('aria-label="Recruiter proof arc"'), "Redundant global recruiter proof arc should stay removed.");
+[
+  "Source-backed resume facts and credential proof.",
+  "Inspectable projects, media, and shipped work.",
+  "Role-specific close, packet files, and interview proof.",
+  "Third-party PDFs, emails, and source notes."
+].forEach((text) => {
+  check(main.includes(text), `Lighter tab summary is missing: ${text}`);
+});
 [
   "Copy View",
   "Copyable role brief",
@@ -385,12 +400,9 @@ check(styles.includes("Sipopedia color system"), "Styles are missing the Sipoped
   "aspect-ratio: 9 / 13.85",
   ".article-card",
   ".skip-link",
-  ".proof-arc",
-  ".proof-arc-grid",
   ".rail-pdf-actions",
   ".is-focus-mode .rail",
   ".timebox-read",
-  ".interviewer-lens-panel",
   ".fit-packet-grid",
   "hiring-close-hero.png",
   ".gallery-pause",
@@ -403,14 +415,7 @@ check(styles.includes("Sipopedia color system"), "Styles are missing the Sipoped
   check(styles.includes(selector), `Styles are missing ${selector}.`);
 });
 
-check(
-  /\.presentation-command\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?box-shadow:\s*none;/.test(styles),
-  "Presentation command center should stay unframed around its individual panels."
-);
-check(
-  /\.presentation-command\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1\.15fr\)\s*minmax\(300px,\s*0\.85fr\);[\s\S]*?max-width:\s*none;/.test(styles),
-  "Presentation command center should use one stable two-column desktop layout across all tabs."
-);
+check(!styles.includes(".presentation-command"), "Presentation command center styling should stay removed.");
 check(!main.includes("presentationStepItem"), "Presentation command center should not render duplicate section-step cards.");
 check(!main.includes("presentation-progress"), "Presentation command center should not render a duplicate progress-card row.");
 check(!styles.includes(".presentation-step"), "Styles should not keep duplicate section-step card styling.");
@@ -601,14 +606,15 @@ if (latestJs) {
     "Resume details",
     "What a busy OpenAI panel should remember after the walkthrough.",
     "Ninety second OpenAI resume read",
-    "OpenAI interview panel lens",
     "Fact-checked role source",
-    "AI-assisted product building with human-owned judgment.",
+    "AI-assisted product building",
+    "Agentic harnessing",
+    "Workflow prototyping",
+    "Customer workflow translation",
     "OpenAI-style review pattern",
     "Make projects reviewable like constrained OpenAI submissions.",
     "What AI did",
     "What Jonathan decided",
-    "human-owned build process",
     "AI Success Engineer - US Remote",
     "$234K-$260K + equity",
     "Resume",
@@ -626,9 +632,10 @@ if (latestJs) {
     "Selected packet document",
     "Application focus:",
     "Active packet document:",
-    "Review path",
-    "Proof arc",
-    "Resume evidence / portfolio proof / OpenAI fit / references.",
+    "Source-backed resume facts and credential proof.",
+    "Inspectable projects, media, and shipped work.",
+    "Role-specific close, packet files, and interview proof.",
+    "Third-party PDFs, emails, and source notes.",
     "Focus",
     "Resume reference",
     "Reference packet",
@@ -641,14 +648,23 @@ if (latestJs) {
     "Cicerone - Certified Beer Server L1",
     "https://www.wsetglobal.com/qualifications/wset-level-2-award-in-sake/",
     "credential-text-link",
-    "Live interview answer board",
-    "Keep the conversation anchored to the right proof.",
     "Skip to presentation content",
     "presentation-content"
   ].forEach((text) => {
     check(builtJs.includes(text), `Built JS is missing presentation text: ${text}`);
   });
-  ["Application Proof", "Application proof packet", "Hiring-team close"].forEach((text) => {
+  [
+    "Application Proof",
+    "Application proof packet",
+    "Hiring-team close",
+    "OpenAI interview panel lens",
+    "AI-assisted product building with human-owned judgment.",
+    "Review path",
+    "Proof arc",
+    "Resume evidence / portfolio proof / OpenAI fit / references.",
+    "Live interview answer board",
+    "Keep the conversation anchored to the right proof."
+  ].forEach((text) => {
     check(!builtJs.includes(text), `Built JS still contains retired presentation text: ${text}`);
   });
   const builtForbiddenKeys = forbiddenSiteKeys.filter((key) => {
@@ -670,13 +686,9 @@ if (latestCss) {
     "clamp(420px,36vw,620px)",
     "aspect-ratio:9 / 13.85",
     ".article-card",
-    ".answer-board",
-    ".proof-arc",
-    ".proof-arc-grid",
     ".rail-pdf-actions",
     ".is-focus-mode .rail",
     ".timebox-read",
-    ".interviewer-lens-panel",
     ".fit-packet-grid",
     "hiring-close-hero.png",
     ".gallery-pause",

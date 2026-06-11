@@ -364,8 +364,7 @@ a {
 
 .identity-block p,
 .eyebrow,
-.priority,
-.proof-card span {
+.priority {
   margin: 0;
   text-transform: uppercase;
   font-size: 0.72rem;
@@ -507,129 +506,6 @@ a {
   margin: 7px 0 0;
   color: var(--muted);
   line-height: 1.5;
-}
-
-.presentation-command {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
-  gap: 12px;
-  align-items: stretch;
-  max-width: none;
-  padding: 0;
-  border: 0;
-  border-radius: 8px;
-  background: transparent;
-  box-shadow: none;
-}
-
-.presentation-path {
-  min-width: 0;
-  display: grid;
-  grid-column: 1;
-  grid-row: 1;
-  align-content: start;
-  gap: 8px;
-  border: 1px solid rgba(24, 85, 82, 0.14);
-  border-radius: 8px;
-  background: rgba(255, 253, 250, 0.72);
-  padding: 10px;
-}
-
-.presentation-path p {
-  min-width: 0;
-  margin: 0;
-  display: grid;
-  gap: 4px;
-  border-left: 4px solid var(--gold);
-  border-radius: 8px;
-  background: rgba(24, 85, 82, 0.08);
-  padding: 9px 10px;
-}
-
-.presentation-path p strong {
-  color: var(--teal);
-  font-size: 0.9rem;
-  line-height: 1.2;
-}
-
-.presentation-path p span,
-.presentation-cue span,
-.presentation-next span {
-  color: var(--coral);
-  font-size: 0.7rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.presentation-cue,
-.presentation-next {
-  min-width: 0;
-  display: grid;
-  align-content: start;
-  gap: 7px;
-  border: 1px solid rgba(24, 85, 82, 0.14);
-  border-radius: 8px;
-  background: rgba(255, 253, 250, 0.72);
-  padding: 11px;
-}
-
-.presentation-cue {
-  grid-column: 1;
-  grid-row: 2;
-  min-height: 182px;
-}
-
-.presentation-next {
-  grid-column: 2;
-  grid-row: 1 / 3;
-  grid-template-rows: auto auto minmax(0, 1fr);
-}
-
-.presentation-cue strong,
-.presentation-next strong {
-  color: var(--teal);
-  font-size: 1rem;
-  line-height: 1.18;
-}
-
-.presentation-cue p,
-.presentation-next p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.42;
-}
-
-.proof-arc {
-  display: grid;
-  gap: 8px;
-  margin-top: 3px;
-  padding-top: 9px;
-  border-top: 1px solid rgba(24, 85, 82, 0.14);
-}
-
-.proof-arc > span {
-  color: var(--coral);
-  font-size: 0.7rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.proof-arc-grid {
-  display: grid;
-  gap: 8px;
-}
-
-.proof-arc-grid div {
-  border-left: 4px solid var(--green);
-  border-radius: 8px;
-  background: rgba(24, 85, 82, 0.08);
-  padding: 9px 10px;
-}
-
-.proof-arc-grid b {
-  display: block;
-  color: var(--teal);
-  margin-bottom: 4px;
 }
 
 .parallax-hero {
@@ -793,7 +669,6 @@ a {
   background: #fff3dc;
 }
 
-.role-context,
 .selected-document-panel,
 .source-check-panel,
 .packet-pdf-rail,
@@ -801,58 +676,11 @@ a {
 .resume-detail-card,
 .portfolio-media-proof,
 .proof-stack,
-.proof-card,
-.portfolio-card,
-.asset-band {
+.portfolio-card {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 250, 240, 0.92);
   box-shadow: var(--shadow);
-}
-
-.role-context {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.92fr);
-  gap: 16px;
-  align-items: stretch;
-  padding: 18px;
-}
-
-.role-context h3 {
-  margin: 6px 0 8px;
-  color: var(--teal);
-  font-size: clamp(1.4rem, 2.8vw, 2.35rem);
-  line-height: 1;
-}
-
-.role-context p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.role-context-meta {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.role-context-meta span {
-  min-height: 92px;
-  display: grid;
-  align-content: center;
-  border-left: 5px solid var(--gold);
-  border-radius: 8px;
-  background: var(--white);
-  padding: 10px;
-  color: var(--muted);
-  line-height: 1.3;
-}
-
-.role-context-meta b {
-  display: block;
-  color: var(--teal);
-  margin-bottom: 5px;
 }
 
 .selected-document-panel,
@@ -1036,8 +864,7 @@ a {
     var(--paper-2);
 }
 
-.timebox-read,
-.interviewer-lens-panel {
+.timebox-read {
   display: grid;
   gap: 16px;
   padding: 22px;
@@ -1056,13 +883,11 @@ a {
   color: var(--paper);
 }
 
-.timebox-head,
-.interviewer-lens-head {
+.timebox-head {
   max-width: 920px;
 }
 
-.timebox-head h3,
-.interviewer-lens-head h3 {
+.timebox-head h3 {
   margin: 0;
   color: var(--teal);
   font-size: clamp(2rem, 4vw, 4.4rem);
@@ -1074,15 +899,13 @@ a {
   color: var(--muted);
 }
 
-.timebox-grid,
-.interviewer-lens-grid {
+.timebox-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 
-.timebox-card,
-.interviewer-lens-card {
+.timebox-card {
   min-height: 230px;
   display: grid;
   align-content: start;
@@ -1094,31 +917,27 @@ a {
   color: var(--paper);
 }
 
-.timebox-card span,
-.interviewer-lens-card span {
+.timebox-card span {
   color: var(--sky);
   font-size: 0.76rem;
   font-weight: 900;
   text-transform: uppercase;
 }
 
-.timebox-card h4,
-.interviewer-lens-card h4 {
+.timebox-card h4 {
   margin: 0;
   color: var(--cream);
   font-size: 1.25rem;
   line-height: 1.08;
 }
 
-.timebox-card p,
-.interviewer-lens-card p {
+.timebox-card p {
   margin: 0;
   color: rgba(255, 255, 255, 0.82);
   line-height: 1.45;
 }
 
-.timebox-card b,
-.interviewer-lens-card b {
+.timebox-card b {
   display: block;
   padding-top: 10px;
   border-top: 1px solid rgba(159, 218, 245, 0.28);
@@ -1144,9 +963,7 @@ a {
 .resume-details-head p,
 .portfolio-media-proof p,
 .resume-detail-card p,
-.resume-detail-card li,
-.proof-card p,
-.asset-band p {
+.resume-detail-card li {
   color: var(--muted);
   line-height: 1.55;
 }
@@ -1208,62 +1025,6 @@ a {
   background: #f1eadb;
   border-left: 4px solid var(--green);
   font-weight: 750;
-}
-
-.proof-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.proof-card {
-  padding: 16px;
-}
-
-.proof-card h3 {
-  margin: 8px 0;
-}
-
-.proof-card div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 12px;
-}
-
-.proof-card em {
-  font-style: normal;
-  font-size: 0.74rem;
-  font-weight: 800;
-  color: var(--teal);
-  background: #e6eee9;
-  border-radius: 999px;
-  padding: 5px 8px;
-}
-
-.asset-band {
-  display: grid;
-  grid-template-columns: 84px 84px 84px minmax(0, 1fr);
-  gap: 14px;
-  align-items: center;
-  padding: 16px;
-  margin-bottom: 18px;
-}
-
-.asset-band img {
-  width: 84px;
-  height: 108px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid var(--line);
-}
-
-.asset-band h3 {
-  margin: 0 0 6px;
-}
-
-.asset-band p {
-  margin: 0;
 }
 
 .link-grid {
@@ -1580,10 +1341,6 @@ a {
 
 .education-card h3 {
   margin: 4px 0 0;
-}
-
-.proof-grid.expanded {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .codex-projects-intro {
@@ -2228,9 +1985,6 @@ a {
   overflow-wrap: anywhere;
 }
 
-.principle-item,
-.answer-board,
-.answer-card,
 .proof-matrix,
 .proof-matrix-card,
 .references-board,
@@ -2241,9 +1995,6 @@ a {
   box-shadow: var(--shadow);
 }
 
-.principle-item h3,
-.answer-board-head h3,
-.answer-card h4,
 .proof-matrix-head h3,
 .proof-matrix-card h4,
 .references-board-head h3,
@@ -2252,9 +2003,6 @@ a {
   color: var(--teal);
 }
 
-.principle-item p,
-.answer-board-head p,
-.answer-card p,
 .proof-matrix-head p,
 .proof-matrix-card p,
 .references-board-head p,
@@ -2264,9 +2012,6 @@ a {
   line-height: 1.55;
 }
 
-.principle-item span,
-.answer-card span,
-.answer-proof b,
 .proof-matrix-card span,
 .proof-matrix-card b,
 .reference-card-head span,
@@ -2278,88 +2023,6 @@ a {
   text-transform: uppercase;
 }
 
-.principle-board {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.principle-item {
-  padding: 16px;
-  min-height: 210px;
-  background:
-    linear-gradient(180deg, rgba(237, 212, 168, 0.22), transparent 44%),
-    var(--paper-2);
-}
-
-.principle-item h3 {
-  font-size: 1.2rem;
-  line-height: 1.1;
-}
-
-.answer-board {
-  display: grid;
-  gap: 16px;
-  padding: 18px;
-  background:
-    linear-gradient(135deg, rgba(237, 212, 168, 0.2), rgba(255, 253, 250, 0.94)),
-    var(--paper-2);
-}
-
-.answer-board-head {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.72fr);
-  gap: 16px;
-  align-items: end;
-}
-
-.answer-board-head h3 {
-  max-width: 820px;
-  font-size: clamp(1.7rem, 3.4vw, 3.8rem);
-  line-height: 0.98;
-}
-
-.answer-board-head p:last-child {
-  margin: 0;
-}
-
-.answer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.answer-card {
-  min-width: 0;
-  min-height: 310px;
-  display: grid;
-  align-content: start;
-  gap: 10px;
-  border-top: 5px solid var(--gold);
-  padding: 14px;
-}
-
-.answer-card h4 {
-  margin-bottom: 0;
-  font-size: 1.08rem;
-  line-height: 1.15;
-}
-
-.answer-card p {
-  margin: 0;
-}
-
-.answer-proof {
-  display: grid;
-  gap: 5px;
-  margin-top: auto;
-  border-left: 5px solid var(--coral);
-  border-radius: 8px;
-  background: #f1e7d4;
-  padding: 10px;
-}
-
-.answer-reference,
 .matrix-reference {
   width: fit-content;
   min-height: 34px;
@@ -2370,26 +2033,6 @@ a {
   font-size: 0.78rem;
   font-weight: 900;
   padding: 7px 10px;
-}
-
-.answer-reference {
-  display: grid;
-  gap: 3px;
-}
-
-.answer-reference b,
-.answer-reference span {
-  display: block;
-}
-
-.answer-reference b {
-  color: var(--coral);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-}
-
-.answer-reference span {
-  color: var(--teal);
 }
 
 .proof-matrix {
@@ -2757,17 +2400,13 @@ a {
     padding: 0;
   }
 
-  .presentation-command,
-  .role-context,
   .source-check-panel,
   .packet-pdf-rail,
   .resume-details-grid,
   .portfolio-media-proof,
   .resume-lens-panel,
   .timebox-grid,
-  .interviewer-lens-grid,
   .fit-packet-grid,
-  .proof-grid,
   .codex-projects-intro,
   .case-study-head,
   .case-study-grid,
@@ -2779,9 +2418,6 @@ a {
   .article-grid,
   .education-grid,
   .parallax-hero,
-  .principle-board,
-  .answer-board-head,
-  .answer-grid,
   .proof-matrix-head,
   .proof-matrix-grid,
   .references-board-head,
@@ -2801,12 +2437,6 @@ a {
     position: static;
   }
 
-  .presentation-path,
-  .presentation-cue,
-  .presentation-next {
-    grid-column: auto;
-    grid-row: auto;
-  }
 }
 
 @media (max-width: 760px) {
@@ -2855,10 +2485,8 @@ a {
     flex: 0 1 auto;
   }
 
-  .role-context-meta,
   .resume-lens-grid,
   .timebox-grid,
-  .interviewer-lens-grid,
   .fit-packet-grid,
   .case-study-selector,
   .case-study-columns,
@@ -2869,9 +2497,6 @@ a {
   .job-links,
   .link-grid,
   .episode-kicker,
-  .principle-board,
-  .answer-board-head,
-  .answer-grid,
   .proof-matrix-head,
   .proof-matrix-grid,
   .references-board-head,
@@ -2930,21 +2555,11 @@ a {
     font-size: 2rem;
   }
 
-  .asset-band {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .asset-band div {
-    grid-column: 1 / -1;
-  }
-
-  .timebox-read,
-  .interviewer-lens-panel {
+  .timebox-read {
     padding: 16px;
   }
 
-  .timebox-card,
-  .interviewer-lens-card {
+  .timebox-card {
     min-height: 0;
   }
 
@@ -3031,7 +2646,6 @@ body {
 .identity-card,
 .identity-media,
 .parallax-hero,
-.role-context,
 .selected-document-panel,
 .source-check-panel,
 .packet-pdf-rail,
@@ -3039,15 +2653,11 @@ body {
 .resume-detail-card,
 .portfolio-media-proof,
 .proof-stack,
-.proof-card,
 .portfolio-card,
-.asset-band,
 .project-index-panel,
 .project-index-card,
 .timebox-read,
 .timebox-card,
-.interviewer-lens-panel,
-.interviewer-lens-card,
 .resume-head,
 .resume-lens-panel,
 .resume-lens-card,
@@ -3058,8 +2668,6 @@ body {
 .codex-projects-intro,
 .case-study-board,
 .case-study-card,
-.answer-board,
-.answer-card,
 .proof-matrix,
 .proof-matrix-card,
 .references-board,
@@ -3069,7 +2677,6 @@ body {
 .podcast-audio-panel,
 .article-collection,
 .article-card,
-.principle-item,
 .systems-map article,
 .media-panel {
   color: var(--sip-copy);
@@ -3113,11 +2720,8 @@ body {
 
 .topbar h2,
 .hero-copy h2,
-.role-context h3,
 .selected-document-panel h3,
 .proof-stack h3,
-.proof-card h3,
-.asset-band h3,
 .resume-head h2,
 .resume-lens-panel h3,
 .resume-sidebar h3,
@@ -3127,8 +2731,6 @@ body {
 .codex-projects-intro h3,
 .case-study-head h3,
 .case-study-main h4,
-.answer-board-head h3,
-.answer-card h4,
 .proof-matrix-head h3,
 .proof-matrix-card h4,
 .references-board-head h3,
@@ -3138,17 +2740,11 @@ body {
 .podcast-audio-panel h3,
 .article-collection-head h3,
 .article-body h4,
-.presentation-cue strong,
-.presentation-next strong,
-.proof-arc-grid b,
 .portfolio-card h3,
 .project-index-head h3,
 .project-index-card h4,
 .timebox-head h3,
 .timebox-card h4,
-.interviewer-lens-head h3,
-.interviewer-lens-card h4,
-.principle-item h3,
 .systems-map h3,
 .media-panel h3 {
   color: var(--sip-heading);
@@ -3166,11 +2762,9 @@ body {
 .identity-block p,
 .eyebrow,
 .priority,
-.proof-card span,
 .portfolio-card > span,
 .project-index-card span,
 .project-index-card footer,
-.principle-item span,
 .metric-card span,
 .resume-head span,
 .timeline-item span,
@@ -3179,17 +2773,11 @@ body {
 .education-card span,
 .artifact-link span,
 .episode-kicker span,
-.presentation-path p span,
-.presentation-cue span,
-.presentation-next span,
-.proof-arc > span,
 .case-study-main > span,
 .case-study-columns b,
 .case-study-review b,
 .case-study-ownership b,
 .case-study-card footer b,
-.answer-card span,
-.answer-proof b,
 .proof-matrix-card span,
 .proof-matrix-card b,
 .reference-card-head span,
@@ -3199,9 +2787,7 @@ body {
 .source-facts-list b,
 .resume-detail-card span,
 .timebox-card span,
-.interviewer-lens-card span,
-.timebox-card b,
-.interviewer-lens-card b {
+.timebox-card b {
   color: var(--sip-cyan);
 }
 
@@ -3209,10 +2795,7 @@ body {
 .topbar-summary,
 .hero-copy p:last-child,
 .metric-card p,
-.role-context p,
 .selected-document-panel p,
-.proof-card p,
-.asset-band p,
 .resume-sidebar p,
 .resume-sidebar li,
 .resume-story li,
@@ -3233,8 +2816,6 @@ body {
 .case-study-main li,
 .case-study-review p,
 .case-study-ownership p,
-.answer-board-head p,
-.answer-card p,
 .proof-matrix-head p,
 .proof-matrix-card p,
 .references-board-head p,
@@ -3247,17 +2828,12 @@ body {
 .podcast-audio-panel p,
 .article-collection-head p:last-child,
 .article-body p,
-.presentation-cue p,
-.presentation-next p,
-.proof-arc-grid p,
 .portfolio-card p,
 .portfolio-card li,
 .project-index-head p:last-child,
 .project-index-card p,
 .timebox-head p:last-child,
 .timebox-card p,
-.interviewer-lens-card p,
-.principle-item p,
 .media-panel p:last-child,
 .link-card span,
 .episode-kicker em {
@@ -3307,18 +2883,11 @@ body {
 }
 
 .metric-card,
-.presentation-path,
-.presentation-path p,
-.presentation-cue,
-.presentation-next,
-.proof-arc-grid div,
-.role-context-meta span,
 .source-facts-grid span,
 .source-facts-list,
 .source-facts-list em,
 .document-strip,
 .proof-stack li,
-.proof-card em,
 .resume-role-bridge,
 .link-card,
 .credential-badge,
@@ -3329,7 +2898,6 @@ body {
 .case-study-selector span,
 .case-study-evidence em,
 .case-study-card footer,
-.answer-proof,
 .proof-matrix-card div,
 .reference-custody,
 .reference-preview-wrap,
@@ -3347,16 +2915,12 @@ body {
 }
 
 .metric-card strong,
-.presentation-path p strong,
-.proof-arc-grid b,
-.role-context-meta b,
 .link-card strong,
 .credential-badge > span:not(.credential-mark),
 .timeline-item strong,
 .resume-lens-card strong,
 .project-bridge b,
 .project-index-card strong,
-.answer-card h4,
 .proof-matrix-card h4,
 .stack-lanes b,
 .portfolio-card footer {
