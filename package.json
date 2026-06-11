@@ -10,6 +10,7 @@
     "dev:5198": "vite --host 127.0.0.1 --port 5198 --strictPort",
     "serve:5198": "node ./scripts/serve.mjs",
     "start:detached": "node ./scripts/start-dev.mjs",
+    "sync:repo-previews": "node ./scripts/sync-repo-website-previews.mjs",
     "build": "vite build",
     "validate:presentation": "node ./scripts/validate-presentation-site.mjs",
     "validate:ai-success": "node ./scripts/validate-ai-success-submission.mjs",

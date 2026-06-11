@@ -266,6 +266,14 @@ check(main.includes("const repoWebsitePreviews = ["), "Portfolio tab is missing 
 check(main.includes("function renderRepoWebsitePreviews()"), "Portfolio tab is missing the GitHub repo website preview renderer.");
 check(main.includes("Website screen-in-screen"), "Portfolio tab is missing the website screen-in-screen section.");
 check(main.includes("https://sipopedia.com/"), "Portfolio website previews are missing the embeddable Sipopedia site.");
+[
+  "/repo-previews/rose-quartz/index.html",
+  "/repo-previews/coffee-index/index.html",
+  "/repo-previews/tasting-journal/index.html"
+].forEach((previewPath) => {
+  check(main.includes(previewPath), `Portfolio website previews are missing snapshot path: ${previewPath}`);
+  check(fileExists(path.join("public", previewPath.replace(/^\//u, ""))), `Missing repo website preview snapshot: ${previewPath}`);
+});
 check(main.includes("data-preview-fullscreen"), "Portfolio website previews are missing fullscreen controls.");
 check(main.includes("requestFullscreen"), "Portfolio website previews are missing Fullscreen API support.");
 check(main.includes("function renderPortfolioMediaProof()"), "Portfolio tab is missing public teaching/media proof.");
@@ -510,7 +518,9 @@ check(packageJson.scripts?.["sync:portrait"], "package.json is missing sync:port
 check(packageJson.scripts?.["portrait:captions"], "package.json is missing portrait:captions.");
 check(packageJson.scripts?.build, "package.json is missing build.");
 check(packageJson.scripts?.["validate:contrast"], "package.json is missing validate:contrast.");
+check(packageJson.scripts?.["sync:repo-previews"], "package.json is missing sync:repo-previews.");
 check(fs.existsSync(path.join(root, "scripts", "validate-contrast-system.mjs")), "Missing contrast-system validator.");
+check(fs.existsSync(path.join(root, "scripts", "sync-repo-website-previews.mjs")), "Missing repo website preview sync helper.");
 
 [
   "Jonathan Yu | AI Product Builder Portfolio",
@@ -683,6 +693,10 @@ if (latestJs) {
     "Website screen-in-screen",
     "Interactive website preview",
     "https://sipopedia.com/",
+    "/repo-previews/rose-quartz/index.html",
+    "/repo-previews/coffee-index/index.html",
+    "/repo-previews/tasting-journal/index.html",
+    "Static preview snapshot",
     "https://github.com/Sip-Coder/Sipopedia",
     "Full screen",
     "https://www.wsetglobal.com/qualifications/wset-level-2-award-in-sake/",

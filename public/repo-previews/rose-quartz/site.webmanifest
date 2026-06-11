@@ -1,0 +1,18 @@
+{
+  "name": "Rose Quartz Massage",
+  "short_name": "Rose Quartz",
+  "description": "Light-touch therapeutic massage, prenatal comfort, nervous-system support, and restorative care in Las Vegas.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#fbf8ef",
+  "theme_color": "#314b36",
+  "icons": [
+    {
+      "src": "/rose-quartz-logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

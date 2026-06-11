@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Add a production Sitemap line after the real domain is selected.
+# Example: Sitemap: https://example.com/sitemap.xml

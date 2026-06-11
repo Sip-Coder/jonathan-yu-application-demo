@@ -192,8 +192,7 @@ const customCompanyLogos = new Map([
   [
     "Architecture, Design & Drafting Foundation",
     {
-      src: `${logoBase}/architecture-design-drafting.svg`,
-      tone: "dark"
+      src: `${logoBase}/architecture-design-drafting.svg`
     }
   ]
 ]);
@@ -314,8 +313,10 @@ const repoWebsitePreviews = [
     label: "GitHub repo website",
     repo: "Rose-Quartz",
     repoHref: "https://github.com/Sip-Coder/Rose-Quartz",
-    status: "Repository proof",
-    summary: "Client launch website source is available on GitHub, with the responsive site, service flow, intake model, and launch package ready for review.",
+    siteHref: "/repo-previews/rose-quartz/index.html",
+    previewHref: "/repo-previews/rose-quartz/index.html",
+    status: "Static preview snapshot",
+    summary: "Client launch website source is on GitHub, with a same-origin snapshot here so recruiters can inspect the site even before a production domain is attached.",
     proof: ["Responsive Vite site", "Booking and intake flow", "Launch-readiness package"]
   },
   {
@@ -323,8 +324,10 @@ const repoWebsitePreviews = [
     label: "GitHub repo website",
     repo: "Coffee-Index",
     repoHref: "https://github.com/Sip-Coder/Coffee-Index",
-    status: "Repository proof",
-    summary: "Market-index website source is available on GitHub, with cost modeling, rankings, methodology, and public-facing data storytelling ready for review.",
+    siteHref: "/repo-previews/coffee-index/index.html",
+    previewHref: "/repo-previews/coffee-index/index.html",
+    status: "Static preview snapshot",
+    summary: "Market-index website source is on GitHub, with the built Vite output embedded as a quick interactive data-story preview.",
     proof: ["City-by-city cost model", "Methodology page", "Data-storytelling surface"]
   },
   {
@@ -332,8 +335,10 @@ const repoWebsitePreviews = [
     label: "GitHub repo app",
     repo: "Sip-Studies-Tasting-Journal",
     repoHref: "https://github.com/Sip-Coder/Sip-Studies-Tasting-Journal",
-    status: "Repo proof",
-    summary: "The GitHub homepage currently points to an unavailable Replit URL, so the card keeps the repo accessible until a working hosted app URL is restored.",
+    siteHref: "/repo-previews/tasting-journal/index.html",
+    previewHref: "/repo-previews/tasting-journal/index.html",
+    status: "Static app preview",
+    summary: "The app source is on GitHub, and the front-end build is embedded here for review. Backend-backed actions still belong in the live app environment.",
     proof: ["Authenticated tasting workflows", "Blind testing and analytics", "Replit lineage preserved"]
   }
 ];
@@ -1481,7 +1486,7 @@ function renderRepoWebsitePreviews() {
         <div>
           <p class="eyebrow">Website screen-in-screen</p>
           <h3>Let recruiters interact with the shipped web surfaces without hunting through repos.</h3>
-          <p>Sipopedia can run directly inside the portfolio preview. GitHub-backed projects without a working public host stay visible as repo cards with direct launch paths instead of blank frames.</p>
+          <p>Sipopedia runs from its public domain. Rose Quartz, Coffee Index, and Tasting Journal use same-origin static snapshots generated from their local build outputs, so every preview opens in a real frame instead of a blank placeholder.</p>
         </div>
         <a class="artifact-link" href="https://github.com/Sip-Coder" target="_blank" rel="noreferrer">Open GitHub profile <span>REPOS</span></a>
       </div>

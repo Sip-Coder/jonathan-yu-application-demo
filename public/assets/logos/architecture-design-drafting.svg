@@ -1,26 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-labelledby="title desc">
   <title id="title">Architecture, Design &amp; Drafting Foundation logo</title>
-  <desc id="desc">A custom blueprint-style architecture and drafting mark.</desc>
+  <desc id="desc">A custom architectural drafting mark with a roofline, set square, and AD initials.</desc>
   <defs>
-    <linearGradient id="blueprint" x1="24" x2="216" y1="20" y2="140" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#082f3a"/>
-      <stop offset="1" stop-color="#03161f"/>
+    <linearGradient id="paper" x1="20" x2="220" y1="12" y2="148" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff7df"/>
+      <stop offset="1" stop-color="#d8f4f2"/>
     </linearGradient>
-    <linearGradient id="edge" x1="40" x2="200" y1="26" y2="134" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff3cc"/>
-      <stop offset="0.56" stop-color="#9fdaf5"/>
-      <stop offset="1" stop-color="#78d6c6"/>
+    <linearGradient id="tealLine" x1="44" x2="194" y1="34" y2="124" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#063a43"/>
+      <stop offset="1" stop-color="#12706a"/>
     </linearGradient>
   </defs>
-  <rect width="240" height="160" rx="18" fill="url(#blueprint)"/>
-  <path d="M24 40h192M24 80h192M24 120h192M60 18v124M120 18v124M180 18v124" stroke="#9fdaf5" stroke-opacity=".14" stroke-width="2"/>
-  <path d="M42 124h156" stroke="#fff3cc" stroke-width="6" stroke-linecap="round"/>
-  <path d="M62 124V76l58-40 58 40v48" fill="none" stroke="url(#edge)" stroke-width="8" stroke-linejoin="round"/>
-  <path d="M88 124V88h64v36" fill="none" stroke="#fff3cc" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M104 124V98h32v26" fill="#9fdaf5" fill-opacity=".17" stroke="#9fdaf5" stroke-width="4"/>
-  <path d="M55 132 185 38" stroke="#78d6c6" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 9"/>
-  <circle cx="185" cy="38" r="8" fill="#fff3cc"/>
-  <circle cx="55" cy="132" r="8" fill="#fff3cc"/>
-  <path d="M120 40v84" stroke="#fff3cc" stroke-width="4" stroke-linecap="round"/>
-  <text x="120" y="146" text-anchor="middle" fill="#fff3cc" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" letter-spacing="1">ADD FOUNDATION</text>
+  <rect x="4" y="4" width="232" height="152" rx="22" fill="url(#paper)"/>
+  <path d="M28 42h184M28 80h184M28 118h184M64 24v112M120 24v112M176 24v112" stroke="#0a5662" stroke-opacity=".16" stroke-width="2"/>
+  <path d="M46 122h148" stroke="#063a43" stroke-width="7" stroke-linecap="round"/>
+  <path d="M62 122V75l58-37 58 37v47" fill="none" stroke="url(#tealLine)" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M91 122V91h58v31" fill="#fff7df" stroke="#063a43" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M102 116h36V98h-36z" fill="#9fe2dc" stroke="#12706a" stroke-width="4"/>
+  <path d="M63 130 191 37" stroke="#c49944" stroke-width="5" stroke-linecap="round"/>
+  <path d="M180 38h20v20" fill="none" stroke="#c49944" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="62" cy="130" r="7" fill="#c49944"/>
+  <text x="120" y="72" text-anchor="middle" fill="#063a43" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="900" letter-spacing="1">AD</text>
+  <text x="120" y="145" text-anchor="middle" fill="#063a43" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800">FOUNDATION</text>
 </svg>

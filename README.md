@@ -47,7 +47,7 @@ npm.cmd run validate:contrast
 - A Portfolio section grounded in `C:\codebase\sip_studies\actual`, with featured case studies plus a compact local Codex project index for Sip Studies, Rose Quartz, AI Edu, Coffee Index, and Tasting Journal.
 - Portfolio case studies are reviewable through problem, process, output, validation, limitations, role relevance, what AI did, and what Jonathan decided.
 - A Parameter Golf-inspired review pattern that treats each project like constrained, inspectable OpenAI-style evidence: artifact, score or validation, limitation, and decision record.
-- A Portfolio website screen-in-screen section for GitHub-backed repo websites, with an interactive Sipopedia iframe, a fullscreen preview control, GitHub repo links, and explicit fallbacks for sites that block framing or do not yet have a working hosted URL.
+- A Portfolio website screen-in-screen section for GitHub-backed repo websites, with an interactive Sipopedia iframe, same-origin static snapshots for Rose Quartz/Coffee Index/Tasting Journal, fullscreen preview controls, and GitHub repo links.
 - A full Portfolio media/reference archive for AI Winecast podcast videos, Spotify audio, AARP Wine Walk Wednesdays, Sip Studies YouTube, Sip Studies Instagram reels, Flavor Blog articles, Bio Site/public social links, GPT guides, and tasting-group references.
 - Latest four article cards from each Sipopedia Flavor Blog tab: SipStudies.com Blog, Sip Studies Substack, and Daily Sip, with thumbnails for every card.
 - An OpenAI Fit section with a 90-second closer, a fact-checked role-source panel for the current AI Success Engineer posting, OpenAI interview lenses for hiring manager/team/HR/supervisor, packet document tabs, role-proof map, and live interview answer board.

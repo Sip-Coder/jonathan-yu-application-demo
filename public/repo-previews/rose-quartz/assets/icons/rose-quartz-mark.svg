@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Rose Quartz Massage</title>
+  <rect width="64" height="64" rx="14" fill="#314b36"/>
+  <path d="M32 8c10.8 7.6 18 17 18 28.1C50 47 42 56 32 56S14 47 14 36.1C14 25 21.2 15.6 32 8Z" fill="#f4efe4" opacity=".18"/>
+  <path d="M32 8c10.8 7.6 18 17 18 28.1C50 47 42 56 32 56S14 47 14 36.1C14 25 21.2 15.6 32 8Z" fill="none" stroke="#fbf8ef" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M21 37c7.8-6.4 14.1-6.4 22 0M24.5 27.5c5-3.5 10-3.5 15 0M26 45c4.2 2 7.8 2 12 0" fill="none" stroke="#d2a85c" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="25" fill="none" stroke="#8bb8ad" stroke-width="1.5" opacity=".45"/>
+</svg>
