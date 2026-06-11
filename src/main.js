@@ -87,24 +87,14 @@ const mediaLinks = [
 
 const referenceArtifacts = [
   {
-    id: "reference-pdf-slot",
-    type: "PDF",
-    title: "Reference PDF slot",
-    source: "Reference packet",
-    status: "Awaiting source artifact",
-    summary: "Signed letters, PDF exports, and scanned reference notes can live here once received.",
-    href: "",
-    evidence: ["Former manager or client", "Role-specific proof point", "Permission status"]
-  },
-  {
-    id: "reference-email-slot",
-    type: "Email",
-    title: "Email reference slot",
-    source: "Approved email excerpt",
-    status: "Awaiting approved excerpt",
-    summary: "Forwarded or pasted email references can be displayed as short source-backed excerpts.",
-    body: "Approved reference email text will display here after it is added to the reference artifact list.",
-    evidence: ["Sender", "Date", "Context"]
+    id: "references-available-on-request",
+    type: "Reference",
+    title: "References available on request",
+    source: "Application references",
+    status: "Permissioned proof only",
+    summary: "No placeholder recommendations are shown on the public application page. Reference PDFs or email excerpts should appear here only after the source and permission status are clear.",
+    body: "References are available after direct request so every excerpt remains permissioned, source-backed, and current for the AI Success Engineer application.",
+    evidence: ["Permissioned source only", "Role-specific context", "No placeholder claims"]
   },
   {
     id: "reference-index",
@@ -294,6 +284,57 @@ const codexProjectIndex = [
     category: "Replit tasting app",
     evidence: "Multi-beverage tasting templates, blind testing, analytics, study recommendations, Replit OIDC auth, PostgreSQL, Drizzle, and shadcn/Radix UI.",
     roleValue: "Shows Replit lineage, authenticated product workflows, and beverage-domain form architecture."
+  }
+];
+
+const repoWebsitePreviews = [
+  {
+    title: "Sipopedia / Sip Studies",
+    label: "Interactive website preview",
+    repo: "Sipopedia",
+    repoHref: "https://github.com/Sip-Coder/Sipopedia",
+    siteHref: "https://sipopedia.com/",
+    previewHref: "https://sipopedia.com/",
+    status: "Live iframe",
+    summary: "The live learning platform is the highest-signal website preview: recruiters can click through the public product without leaving the portfolio.",
+    proof: ["Custom domain verified embeddable", "Learn / Taste / Connect product lanes", "GitHub-backed source repo"]
+  },
+  {
+    title: "Sip Studies public site",
+    label: "Linked website fallback",
+    repo: "Sipopedia",
+    repoHref: "https://github.com/Sip-Coder/Sipopedia",
+    siteHref: "https://sipstudies.com",
+    status: "Open in new tab",
+    summary: "The public brand site is linked beside the app preview. It sends same-origin frame protection, so it should open directly instead of pretending to be interactive here.",
+    proof: ["Public education home", "Brand and publishing surface", "Direct site link"]
+  },
+  {
+    title: "Rose Quartz Massage",
+    label: "GitHub repo website",
+    repo: "Rose-Quartz",
+    repoHref: "https://github.com/Sip-Coder/Rose-Quartz",
+    status: "Repository proof",
+    summary: "Client launch website source is available on GitHub, with the responsive site, service flow, intake model, and launch package ready for review.",
+    proof: ["Responsive Vite site", "Booking and intake flow", "Launch-readiness package"]
+  },
+  {
+    title: "Coffee Index",
+    label: "GitHub repo website",
+    repo: "Coffee-Index",
+    repoHref: "https://github.com/Sip-Coder/Coffee-Index",
+    status: "Repository proof",
+    summary: "Market-index website source is available on GitHub, with cost modeling, rankings, methodology, and public-facing data storytelling ready for review.",
+    proof: ["City-by-city cost model", "Methodology page", "Data-storytelling surface"]
+  },
+  {
+    title: "Sip Studies Tasting Journal",
+    label: "GitHub repo app",
+    repo: "Sip-Studies-Tasting-Journal",
+    repoHref: "https://github.com/Sip-Coder/Sip-Studies-Tasting-Journal",
+    status: "Repo proof",
+    summary: "The GitHub homepage currently points to an unavailable Replit URL, so the card keeps the repo accessible until a working hosted app URL is restored.",
+    proof: ["Authenticated tasting workflows", "Blind testing and analytics", "Replit lineage preserved"]
   }
 ];
 
@@ -1365,6 +1406,92 @@ function articleCollection(collection) {
   `;
 }
 
+function repoWebsiteActions(site) {
+  return `
+    <div class="website-preview-actions">
+      ${site.siteHref ? artifactButton("Open site", site.siteHref, "SITE") : ""}
+      ${artifactButton("Open GitHub repo", site.repoHref, "GITHUB")}
+    </div>
+  `;
+}
+
+function repoWebsiteFrame(site) {
+  if (!site.previewHref) {
+    return `
+      <div class="website-preview-screen website-preview-screen--linked">
+        <div class="website-browser-bar" aria-hidden="true">
+          <i></i><i></i><i></i>
+          <strong>${presentationText(site.repo)}</strong>
+        </div>
+        <div class="website-preview-placeholder">
+          <span>${presentationText(site.status)}</span>
+          <p>${presentationText(site.summary)}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="website-preview-screen" data-website-preview>
+      <div class="website-browser-bar">
+        <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
+        <strong>${presentationText(site.siteHref)}</strong>
+        <button
+          class="website-screen-button"
+          data-preview-fullscreen
+          data-preview-href="${site.siteHref}"
+          type="button"
+          aria-pressed="false"
+          aria-label="View ${presentationText(site.title)} preview full screen"
+        >Full screen</button>
+      </div>
+      <iframe
+        title="${presentationText(site.title)} interactive website preview"
+        src="${site.previewHref}"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allow="clipboard-write; fullscreen; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  `;
+}
+
+function repoWebsitePreviewCard(site, index) {
+  const featuredClass = index === 0 ? " is-featured" : "";
+  return `
+    <article class="website-preview-card${featuredClass}">
+      ${repoWebsiteFrame(site)}
+      <div class="website-preview-body">
+        <span>${presentationText(site.label)}</span>
+        <h4>${presentationText(site.title)}</h4>
+        <p>${presentationText(site.summary)}</p>
+        <div class="website-preview-status">${presentationText(site.status)}</div>
+        <ul>${site.proof.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
+        ${repoWebsiteActions(site)}
+      </div>
+    </article>
+  `;
+}
+
+function renderRepoWebsitePreviews() {
+  return `
+    <section class="website-preview-board" aria-label="Interactive GitHub repo website previews">
+      <div class="website-preview-head">
+        <div>
+          <p class="eyebrow">Website screen-in-screen</p>
+          <h3>Let recruiters interact with the shipped web surfaces without hunting through repos.</h3>
+          <p>Sipopedia can run directly inside the portfolio preview. GitHub-backed projects without a working public host stay visible as repo cards with direct launch paths instead of blank frames.</p>
+        </div>
+        <a class="artifact-link" href="https://github.com/Sip-Coder" target="_blank" rel="noreferrer">Open GitHub profile <span>REPOS</span></a>
+      </div>
+      <div class="website-preview-grid">
+        ${repoWebsitePreviews.map(repoWebsitePreviewCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function presentationText(value = "") {
   return value
     .replace(/\bthis demo\b/gi, "this walkthrough")
@@ -1631,7 +1758,7 @@ function renderHero(title, subtitle, image = heroImages.resume, metricItems = he
     <section class="${heroClass}" style="--hero-image:url('${image}')">
       <div class="hero-image" data-parallax-depth="-0.08"></div>
       <div class="hero-copy" data-parallax-depth="0.04">
-        <p class="eyebrow">Jonathan Yu resume walkthrough</p>
+        <p class="eyebrow">OpenAI AI Success application proof page</p>
         <h2>${title}</h2>
         <p>${subtitle}</p>
       </div>
@@ -1766,13 +1893,13 @@ function renderReferenceCard(artifact) {
 
 function renderReferences() {
   return `
-    ${renderHero("References", "A clean place for approved third-party proof after the hiring argument is clear.", heroImages.references)}
+    ${renderHero("References", "Reference handling for approved third-party proof without unfinished placeholders.", heroImages.references)}
     <section class="references-board" aria-label="Reference artifacts">
       <div class="references-board-head">
         <div>
-          <p class="eyebrow">Reference packet</p>
-          <h3>External proof without diluting the walkthrough.</h3>
-          <p>Use this step when the hiring team wants reference letters, source emails, or third-party proof after the fit conversation.</p>
+          <p class="eyebrow">References on request</p>
+          <h3>Keep third-party proof source-backed and permissioned.</h3>
+          <p>Use this step when the hiring team wants reference letters, source emails, or third-party proof after the AI Success fit conversation.</p>
         </div>
         <div class="reference-custody">
           <b>Source standard</b>
@@ -1996,6 +2123,7 @@ function renderProjects() {
       </div>
     </section>
 
+    ${renderRepoWebsitePreviews()}
     ${renderPortfolioMediaProof()}
     ${renderEducationMediaSections()}
   `;
@@ -2166,9 +2294,9 @@ function render() {
             <img class="signature-mark" src="/assets/signature-jonathan-yu-cream.png" alt="Jonathan Yu signature" />
           </div>
           <div class="identity-block">
-            <p>Resume Walkthrough</p>
+            <p>OpenAI AI Success application proof page</p>
             <h1>Jonathan Yu</h1>
-            <span>Founder-builder translating ambiguous domains into AI-enabled products, learning experiences, and client-ready proof.</span>
+            <span>AI Success Engineer candidate proof: adoption, workflow mapping, technical enablement, and measurable customer value.</span>
           </div>
           <div class="identity-thread" aria-label="Core proof themes">
             <span>Products</span>
@@ -2176,7 +2304,7 @@ function render() {
             <span>Adoption</span>
           </div>
         </section>
-        <nav class="mode-list" aria-label="Resume walkthrough sections">
+        <nav class="mode-list" aria-label="AI Success application proof sections">
           ${modes.map(navButton).join("")}
         </nav>
         ${railPacketButtons(selectedRole)}
@@ -2184,7 +2312,7 @@ function render() {
       <section class="workspace" id="presentation-content" tabindex="-1">
         <header class="topbar">
           <div>
-            <p class="eyebrow">Client-facing resume presentation</p>
+            <p class="eyebrow">OpenAI AI Success Engineer application proof page</p>
             <h2>${activeMode.label}</h2>
             <p class="topbar-summary">${activeMode.summary}</p>
           </div>
@@ -2255,6 +2383,45 @@ function bindEvents() {
     });
   });
 
+  document.querySelectorAll("[data-preview-fullscreen]").forEach((button) => {
+    button.addEventListener("click", () => {
+      toggleWebsitePreviewFullscreen(button);
+    });
+  });
+
+}
+
+async function toggleWebsitePreviewFullscreen(button) {
+  const preview = button.closest("[data-website-preview]");
+  if (!preview) return;
+
+  try {
+    if (document.fullscreenElement === preview) {
+      await document.exitFullscreen();
+      return;
+    }
+
+    if (preview.requestFullscreen) {
+      await preview.requestFullscreen();
+      return;
+    }
+  } catch {
+    // Fall back to the live site when browser fullscreen is unavailable.
+  }
+
+  if (button.dataset.previewHref) {
+    window.open(button.dataset.previewHref, "_blank", "noopener,noreferrer");
+  }
+}
+
+function updateWebsiteFullscreenControls() {
+  const activePreview = document.fullscreenElement;
+  document.querySelectorAll("[data-preview-fullscreen]").forEach((button) => {
+    const preview = button.closest("[data-website-preview]");
+    const active = Boolean(preview && activePreview === preview);
+    button.textContent = active ? "Exit full screen" : "Full screen";
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
 }
 
 function updatePortraitModal() {
@@ -2360,6 +2527,7 @@ window.addEventListener("hashchange", () => {
   applyHashState();
   render();
 });
+document.addEventListener("fullscreenchange", updateWebsiteFullscreenControls);
 document.addEventListener("keydown", (event) => {
   if (galleryOpen) {
     if (event.key === "Escape") {

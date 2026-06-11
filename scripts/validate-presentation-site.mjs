@@ -214,8 +214,12 @@ check(main.includes("const referenceArtifacts = ["), "References tab is missing 
 check(main.includes("function renderReferences()"), "References tab is missing the renderer.");
 check(main.includes("function renderReferenceCard("), "References tab is missing artifact cards.");
 check(main.includes('if (selectedMode === "references") return renderReferences();'), "References mode is not wired into the workspace renderer.");
-check(main.includes("Reference PDF slot"), "References tab is missing the PDF reference slot.");
-check(main.includes("Email reference slot"), "References tab is missing the email reference slot.");
+check(main.includes("References available on request"), "References tab should state that references are available on request.");
+check(main.includes("Permissioned proof only"), "References tab should avoid unfinished placeholder reference claims.");
+check(!main.includes("Reference PDF slot"), "References tab should not expose an empty PDF placeholder slot.");
+check(!main.includes("Email reference slot"), "References tab should not expose an empty email placeholder slot.");
+check(!main.includes("Awaiting source artifact"), "References tab should not expose awaiting-source placeholder copy.");
+check(!main.includes("Awaiting approved excerpt"), "References tab should not expose awaiting-excerpt placeholder copy.");
 check(styles.includes(".references-board"), "References tab styling is missing the board.");
 check(styles.includes(".reference-preview"), "References tab styling is missing preview support.");
 check(main.includes("function renderFullResume()"), "Missing Resume renderer.");
@@ -258,10 +262,19 @@ check(main.includes("Presenter lens"), "Resume tab is missing the presenter lens
 check(main.includes("resume-role-bridge"), "Resume tab is missing role-specific timeline bridges.");
 check(main.includes("function renderProjects()"), "Missing Codex Projects renderer.");
 check(main.includes("Full project scope from C:\\\\codebase\\\\sip_studies\\\\actual"), "Projects tab does not name the full Codex portfolio scope.");
+check(main.includes("const repoWebsitePreviews = ["), "Portfolio tab is missing GitHub repo website preview data.");
+check(main.includes("function renderRepoWebsitePreviews()"), "Portfolio tab is missing the GitHub repo website preview renderer.");
+check(main.includes("Website screen-in-screen"), "Portfolio tab is missing the website screen-in-screen section.");
+check(main.includes("https://sipopedia.com/"), "Portfolio website previews are missing the embeddable Sipopedia site.");
+check(main.includes("data-preview-fullscreen"), "Portfolio website previews are missing fullscreen controls.");
+check(main.includes("requestFullscreen"), "Portfolio website previews are missing Fullscreen API support.");
 check(main.includes("function renderPortfolioMediaProof()"), "Portfolio tab is missing public teaching/media proof.");
 check(main.includes("function renderEducationMediaSections()"), "Portfolio tab is missing the reusable full video/reference archive renderer.");
 const projectsRendererIndex = main.indexOf("function renderProjects()");
+const repoWebsitePreviewIndex = main.indexOf("${renderRepoWebsitePreviews()}", projectsRendererIndex);
 const portfolioMediaArchiveIndex = main.indexOf("${renderEducationMediaSections()}", projectsRendererIndex);
+check(repoWebsitePreviewIndex > projectsRendererIndex, "Portfolio tab should render the repo website previews.");
+check(repoWebsitePreviewIndex < portfolioMediaArchiveIndex, "Portfolio website previews should appear before the full video/reference archive.");
 check(portfolioMediaArchiveIndex > projectsRendererIndex, "Portfolio tab should render the full video outlet and reference archive.");
 check(main.includes("All video outlets and earlier public references live inside Portfolio."), "Portfolio tab is missing the full video/reference archive framing.");
 ["Sip-Studies", "Rose-Quartz", "Ai-Edu", "Coffee-Index", "Sip-Studies-Tasting-Journal"].forEach((folder) => {
@@ -426,6 +439,10 @@ check(styles.includes("Sipopedia color system"), "Styles are missing the Sipoped
   ".selected-document-panel",
   ".selected-document-panel:focus-visible",
   ".proof-matrix",
+  ".website-preview-board",
+  ".website-preview-screen",
+  ".website-preview-screen:fullscreen",
+  ".website-screen-button",
   "@media (prefers-reduced-motion: reduce)",
   "[data-parallax-depth]"
 ].forEach((selector) => {
@@ -440,16 +457,16 @@ check(!styles.includes(".presentation-progress"), "Styles should not keep duplic
 check(!styles.includes(".top-actions"), "Styles should not keep a retired topbar action row.");
 check(!styles.includes(".screen-focus-link"), "Styles should not keep visible focus-button styling.");
 check(
-  /\.mode-list\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\);/.test(styles),
-  "Section navigation should use one even 3-column row."
+  /\.mode-list\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\);/.test(styles),
+  "Section navigation should use full-width rows instead of shared columns."
 );
 check(
-  /\.rail-pdf-actions\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\);/.test(styles),
-  "Rail packet PDFs should use one even 3-column row."
+  /\.rail-pdf-actions\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\);/.test(styles),
+  "Rail packet PDFs should use full-width rows instead of shared columns."
 );
 check(
-  /\.packet-pdf-rail \.doc-actions\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\);/.test(styles),
-  "In-page packet PDF rail should use one even 3-column row."
+  /\.packet-pdf-rail \.doc-actions\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\);/.test(styles),
+  "In-page packet PDF rail should use full-width rows instead of shared columns."
 );
 check(
   /\.topbar\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\);/.test(styles),
@@ -590,6 +607,7 @@ check(readme.includes("Persistent top-bar links"), "README does not document per
 check(readme.includes("screen-share focus mode"), "README does not document focus mode.");
 check(readme.includes("`F` key"), "README does not document the focus mode keyboard shortcut.");
 check(readme.includes("?focus=1"), "README does not document the focus mode query parameter.");
+check(readme.includes("website screen-in-screen"), "README does not document Portfolio website previews.");
 check(readme.includes("90-second closer"), "README does not document the OpenAI Fit section.");
 check(readme.includes("role-proof map"), "README does not document the OpenAI Fit proof map.");
 check(readme.includes("selected-document panel"), "README does not document the selected-document panel.");
@@ -655,14 +673,18 @@ if (latestJs) {
     "Third-party PDFs, emails, and source notes.",
     "Focus",
     "Resume reference",
-    "Reference packet",
-    "Reference PDF slot",
-    "Email reference slot",
+    "References on request",
+    "References available on request",
+    "Permissioned proof only",
     "Source standard",
-    "Approved reference email text",
     "WSET Level 2 Sake",
     "Wine Scholar Guild / Lustau",
     "Cicerone - Certified Beer Server L1",
+    "Website screen-in-screen",
+    "Interactive website preview",
+    "https://sipopedia.com/",
+    "https://github.com/Sip-Coder/Sipopedia",
+    "Full screen",
     "https://www.wsetglobal.com/qualifications/wset-level-2-award-in-sake/",
     "wsg-lustau-csws.png",
     "cicerone-certified-beer-server.jpg",
@@ -722,6 +744,9 @@ if (latestCss) {
     ".reference-preview",
     ".credential-text-link",
     ".proof-matrix",
+    ".website-preview-board",
+    ".website-preview-screen",
+    ".website-screen-button",
     ".skip-link",
     "@media(prefers-reduced-motion:reduce)"
   ].forEach((text) => {

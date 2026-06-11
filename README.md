@@ -1,6 +1,6 @@
-# Jonathan Yu Resume Walkthrough Site
+# Jonathan Yu OpenAI AI Success Application Proof Site
 
-Vite presentation site for walking a client or hiring team through Jonathan Yu's Resume, Portfolio, OpenAI Fit, and References for the OpenAI AI Success Engineer - US Remote application.
+Vite presentation site for walking an OpenAI hiring team through Jonathan Yu's Resume, Portfolio, OpenAI Fit, and References for the AI Success Engineer - US Remote application.
 
 ## Run Locally
 
@@ -32,7 +32,7 @@ npm.cmd run validate:contrast
 ## What It Contains
 
 - Four walkthrough steps: Resume, Portfolio, OpenAI Fit, and References.
-- The left rail is the only section navigation; the command center is context and proof only, not a second row of tab controls.
+- The left rail is the only section navigation, with each walkthrough and packet block rendered as a full-width row instead of sharing a column row; the command center is context and proof only, not a second row of tab controls.
 - Shareable section hashes for direct walkthrough links, such as `#resume/ai-success`, `#projects/ai-success`, `#fit/ai-success`, and `#references/ai-success`; legacy `#education/...` links are normalized into Portfolio.
 - Shareable packet-document hashes on OpenAI Fit, such as `#fit/ai-success/cover-letter` and `#fit/ai-success/30-60-90`; older `#application/...` links are normalized into the Fit view.
 - Dynamic browser titles and descriptions for shareable views, so direct links identify the active walkthrough step, AI Success application focus, packet document, and focus-mode state.
@@ -47,12 +47,13 @@ npm.cmd run validate:contrast
 - A Portfolio section grounded in `C:\codebase\sip_studies\actual`, with featured case studies plus a compact local Codex project index for Sip Studies, Rose Quartz, AI Edu, Coffee Index, and Tasting Journal.
 - Portfolio case studies are reviewable through problem, process, output, validation, limitations, role relevance, what AI did, and what Jonathan decided.
 - A Parameter Golf-inspired review pattern that treats each project like constrained, inspectable OpenAI-style evidence: artifact, score or validation, limitation, and decision record.
+- A Portfolio website screen-in-screen section for GitHub-backed repo websites, with an interactive Sipopedia iframe, a fullscreen preview control, GitHub repo links, and explicit fallbacks for sites that block framing or do not yet have a working hosted URL.
 - A full Portfolio media/reference archive for AI Winecast podcast videos, Spotify audio, AARP Wine Walk Wednesdays, Sip Studies YouTube, Sip Studies Instagram reels, Flavor Blog articles, Bio Site/public social links, GPT guides, and tasting-group references.
 - Latest four article cards from each Sipopedia Flavor Blog tab: SipStudies.com Blog, Sip Studies Substack, and Daily Sip, with thumbnails for every card.
 - An OpenAI Fit section with a 90-second closer, a fact-checked role-source panel for the current AI Success Engineer posting, OpenAI interview lenses for hiring manager/team/HR/supervisor, packet document tabs, role-proof map, and live interview answer board.
 - A selected-document panel on OpenAI Fit that keeps the active packet file actionable even when browser PDF previews are unavailable.
 - Accessible OpenAI Fit document tabs with selected-state semantics and arrow/Home/End keyboard movement across Resume, Cover Letter, and 30-60-90.
-- A References section after OpenAI Fit for third-party proof: linked PDFs, approved email excerpts, and source-context notes from `public/documents/references/`.
+- A References section after OpenAI Fit for permissioned third-party proof, with no public placeholder recommendations; linked PDFs or approved email excerpts should be added only after source and permission status are clear.
 - An avant-garde parallax hero presentation for client and hiring-team walkthroughs.
 - A signature-forward identity header with a portrait-ready frame and cream transparent Jonathan Yu signature mark.
 - Headshot upload convention: place the file at `public/assets/portrait/jonathan-yu-headshot.jpg`.

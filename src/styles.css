@@ -407,13 +407,13 @@ a {
 
 .mode-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px;
 }
 
 .rail-pdf-actions {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px;
 }
 
@@ -786,7 +786,7 @@ a {
 
 .packet-pdf-rail .doc-actions {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   justify-content: stretch;
   align-items: stretch;
 }
@@ -1649,6 +1649,234 @@ a {
   font-weight: 850;
 }
 
+.website-preview-board {
+  display: grid;
+  gap: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(24, 85, 82, 0.12), rgba(255, 253, 250, 0.96)),
+    var(--paper-2);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.website-preview-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: end;
+}
+
+.website-preview-head h3 {
+  max-width: 860px;
+  margin: 6px 0 8px;
+  color: var(--teal);
+  font-size: clamp(1.7rem, 3.1vw, 3rem);
+  line-height: 0.98;
+}
+
+.website-preview-head p:last-child {
+  max-width: 900px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.website-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.website-preview-card {
+  min-width: 0;
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+
+.website-preview-card.is-featured {
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  align-items: stretch;
+}
+
+.website-preview-screen {
+  min-width: 0;
+  min-height: 310px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid rgba(5, 49, 59, 0.24);
+  border-radius: 8px;
+  background: #041824;
+}
+
+.website-preview-card.is-featured .website-preview-screen {
+  min-height: 460px;
+}
+
+.website-browser-bar {
+  min-width: 0;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 243, 204, 0.16);
+  background: linear-gradient(90deg, rgba(4, 24, 36, 0.96), rgba(13, 61, 65, 0.92));
+  padding: 8px 10px;
+}
+
+.website-browser-bar i {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--gold);
+  opacity: 0.88;
+}
+
+.website-browser-bar i:nth-child(2) {
+  background: var(--cyan);
+}
+
+.website-browser-bar i:nth-child(3) {
+  background: var(--cream);
+}
+
+.website-browser-bar strong {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  color: var(--paper);
+  font-size: 0.78rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.website-screen-button {
+  min-height: 32px;
+  border: 1px solid rgba(159, 218, 245, 0.4);
+  border-radius: 8px;
+  background: rgba(159, 218, 245, 0.12);
+  color: var(--paper);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 7px 10px;
+}
+
+.website-screen-button:hover,
+.website-screen-button:focus-visible {
+  border-color: rgba(255, 243, 204, 0.72);
+  background: rgba(255, 243, 204, 0.18);
+  outline: none;
+}
+
+.website-preview-screen iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 0;
+  background: #fff;
+}
+
+.website-preview-placeholder {
+  min-height: 260px;
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  background:
+    linear-gradient(135deg, rgba(159, 218, 245, 0.1), rgba(237, 212, 168, 0.12)),
+    #041824;
+  padding: 22px;
+}
+
+.website-preview-placeholder span {
+  color: var(--cream);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.website-preview-placeholder p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--paper);
+  line-height: 1.55;
+}
+
+.website-preview-body {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.website-preview-body > span {
+  color: var(--coral);
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.website-preview-body h4 {
+  margin: 0;
+  color: var(--teal);
+  font-size: 1.25rem;
+  line-height: 1.1;
+}
+
+.website-preview-body p,
+.website-preview-body li {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.website-preview-body ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.website-preview-status {
+  width: fit-content;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f1e7d4;
+  color: var(--teal);
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 7px 10px;
+}
+
+.website-preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.website-preview-screen:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  padding: 14px;
+}
+
+.website-preview-screen:fullscreen iframe {
+  min-height: 0;
+}
+
 .education-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2414,6 +2642,9 @@ a {
   .case-study-grid,
   .portfolio-grid,
   .project-index-grid,
+  .website-preview-head,
+  .website-preview-grid,
+  .website-preview-card.is-featured,
   .media-showcase,
   .episode-grid,
   .podcast-audio-panel,
@@ -2496,6 +2727,9 @@ a {
   .case-study-ownership,
   .article-grid,
   .project-index-grid,
+  .website-preview-head,
+  .website-preview-grid,
+  .website-preview-card.is-featured,
   .job-links,
   .link-grid,
   .episode-kicker,
@@ -2658,6 +2892,8 @@ body {
 .portfolio-card,
 .project-index-panel,
 .project-index-card,
+.website-preview-board,
+.website-preview-card,
 .timebox-read,
 .timebox-card,
 .resume-head,
@@ -2745,6 +2981,8 @@ body {
 .portfolio-card h3,
 .project-index-head h3,
 .project-index-card h4,
+.website-preview-head h3,
+.website-preview-body h4,
 .timebox-head h3,
 .timebox-card h4,
 .systems-map h3,
@@ -2767,6 +3005,8 @@ body {
 .portfolio-card > span,
 .project-index-card span,
 .project-index-card footer,
+.website-preview-body > span,
+.website-preview-status,
 .metric-card span,
 .resume-head span,
 .timeline-item span,
@@ -2834,6 +3074,9 @@ body {
 .portfolio-card li,
 .project-index-head p:last-child,
 .project-index-card p,
+.website-preview-head p:last-child,
+.website-preview-body p,
+.website-preview-body li,
 .timebox-head p:last-child,
 .timebox-card p,
 .media-panel p:last-child,
@@ -2906,6 +3149,7 @@ body {
 .reference-evidence em,
 .reference-state,
 .episode-meta span,
+.website-preview-status,
 .project-bridge,
 .stack-lanes span,
 .artifact-link,

@@ -10,11 +10,10 @@ Every role resume, cover letter, and 30-60-90 plan is rendered through the same 
 - 00_Results: ranked role-fit summary in PDF and Markdown.
 - 01-06 role folders: each includes a tailored resume, cover letter, and 30-60-90 plan in PDF, DOCX, and Markdown.
 
-## Submit First
-1. AI Deployment Engineer- Codex if remote is the priority.
-2. AI Success Engineer - US Remote as the broader adoption and customer-success remote option.
-3. Product Marketing Manager, Codex as the remote stretch option.
-4. Customer Education, Learning Experience & Curriculum Lead if San Francisco relocation becomes acceptable.
+## Current Submission Focus
+1. AI Success Engineer - US Remote is the active application target for the website and packet review.
+2. AI Deployment Engineer - Codex remains useful comparative context, but it should not be treated as the current submission target unless the site is retargeted.
+3. Product Marketing Manager, Codex and Customer Education, Learning Experience & Curriculum Lead are archive/stretch packet references only.
 
 ## Source Caveat
 These materials are tailored to the official postings checked on the generation date. Re-check OpenAI Careers before submitting because job pages can change.
