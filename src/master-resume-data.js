@@ -8,7 +8,7 @@ const masterData = {
     "headline": "Founder / Beverage Educator / Sales Consultant / AI Product Builder",
     "contact": "Las Vegas, NV | JonYu3@gmail.com | 617.637.0668 | SipStudies.com | Sipopedia.com",
     "profile": [
-      "Beverage educator and founder-builder combining 10+ years in wine and spirits sales, account analytics, formal credentials, architecture/design training, live-event production, and AI-enabled education technology. Built Sip Studies as a full-stack beverage learning platform and maintains weekly Critical On Hand gap-analysis workflows for POD gaps, inventory movement, sales velocity, incentives, and account opportunities."
+      "Beverage educator and founder-builder combining 10+ years in wine and spirits sales, account analytics, formal credentials, architecture/design training, live-event production, and AI-enabled education technology. Since 2022, has used OpenAI products to turn a nontraditional coding background into repo-driven product development, documentation, media, and design execution."
     ],
     "certs": [
       "MIT - AI: Implications for Business Strategy",
@@ -22,17 +22,11 @@ const masterData = {
       "Cicerone - Certified Beer Server L1"
     ],
     "skills": [
-      "Beverage education + curriculum",
-      "Wine, spirits, beer + hospitality sales",
-      "AI beverage/content products",
-      "React, TypeScript, Vite",
-      "Supabase, Stripe, Edge Functions",
-      "Distributor + supplier enablement",
-      "Live stream + VIP event operations",
-      "Architecture, AutoCAD + 3D modeling",
-      "Visual design + brand language",
-      "POD gap analysis + inventory movement",
-      "Data preservation + terminology"
+      "AI/Product: advanced prompting, durable goals/threads, repo-driven AI agents, Codex-assisted project development, OpenAI product fluency since 2022",
+      "OpenAI tools: ChatGPT, DALL-E, custom GPTs/GPT Store, Sora, Codex, image-generation workflows",
+      "Customer Enablement: workshops, training, curriculum, adoption planning, stakeholder communication",
+      "Analytics/Ops: POD gap analysis, inventory movement, sales velocity, account prioritization",
+      "Beverage: wine/spirits education, supplier enablement, formal credentials"
     ],
     "education": "Wentworth Institute of Technology - Bachelor of Science, Architecture",
     "educationLogo": "/assets/logos/wentworth-institute-technology.svg",
@@ -77,7 +71,7 @@ const masterData = {
           {
             "label": "Spotify",
             "handle": "AI Winecast",
-            "href": "https://open.spotify.com/user/AiWinecast"
+            "href": "https://open.spotify.com/show/2LSWrWDTlPOMgnZkGfUPE1"
           },
           {
             "label": "Sippy GPT",
@@ -86,7 +80,7 @@ const masterData = {
           }
         ],
         "bullets": [
-          "Built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.",
+          "Using AI-assisted, repo-driven workflows, built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.",
           "Created a 20,000-row Sipopedia terminology pipeline with citation/review metadata plus a media-rich learning asset base featuring Sippy, Roma, Hummin, maps, game scenes, academy realms, equipment visuals, and infographics.",
           "Developed AI/news routing, Daily Sip editorial automation, terminology workflows, paid-access architecture, validation scripts, and buyer-facing valuation/IP materials around a $4.5M strategic acquisition thesis."
         ]
@@ -174,26 +168,26 @@ const masterData = {
       "talkTrack": "I built this walkthrough as the same kind of adoption artifact I would build for Codex customers: clear workflow, role-specific evidence, reusable working examples, and fast pivots between technical and executive audiences.",
       "demoMove": "Start with the position-focus selector, open the Codex packet, then explain how the same pattern becomes a customer enablement presentation.",
       "headline": "Founder / AI Coding Workflow Builder / Technical Enablement Lead",
-      "resumeSummary": "Founder-builder with hands-on React, TypeScript, Supabase, Stripe, Edge Function, validation, and AI workflow experience. Built Sip Studies as a production-minded AI education platform and used AI-assisted development practices to move from product ideas to working products, documentation, and reviewable outputs. Strong fit for Codex deployment work that combines technical prototypes, workshops, customer workflow mapping, and practical adoption guidance.",
+      "resumeSummary": "Founder-builder with AI-assisted, repo-driven product development experience across advanced prompting, durable goals/threads, agent workflows, validation, documentation, and OpenAI product use since 2022. Built Sip Studies as a production-minded AI education platform and used AI-assisted development practices to move from product ideas to working products, documentation, and reviewable outputs. Strong fit for Codex deployment work that combines practical prototypes, workshops, customer workflow mapping, and adoption guidance.",
       "strengths": [
         "Built and iterated a full-stack application with AI/news routing, terminology workflows, paid access, validation scripts, and product documentation.",
-        "Uses AI-assisted coding and documentation workflows to turn ambiguous requirements into working examples, artifacts, and operational runbooks.",
+        "Uses advanced prompting, durable goals/threads, and repo-driven AI agent workflows to turn ambiguous requirements into working examples, artifacts, and operational runbooks.",
         "Can translate technical workflow changes into approachable training for non-technical, semi-technical, and technical audiences.",
         "Has customer-facing sales, enablement, and education experience across beverage, retail, distributor, and virtual learning contexts.",
         "Understands adoption as behavior change: workflow mapping, stakeholder trust, enablement, feedback, and measurable value."
       ],
       "skills": [
-        "AI coding workflows and prototyping",
+        "Advanced prompting and AI-assisted development workflows",
         "Technical workshops and enablement",
-        "React, TypeScript, Vite, Supabase",
-        "Edge Functions, Stripe, auth flows",
+        "Repo-driven product builds with AI guidance",
+        "AI-assisted implementation across auth, payments, and data workflows",
         "Workflow automation and validation scripts",
         "Technical writing, guides, and runbooks",
         "Customer discovery and adoption roadmaps",
         "Product feedback and field-pattern synthesis"
       ],
       "proof": [
-        "Built Sip Studies as a React, TypeScript, Vite, Supabase, Stripe, and Edge Function platform across learning, tasting, terminology, maps, AI/news, events, and paid access.",
+        "Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.",
         "Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.",
         "Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.",
         "Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.",
@@ -212,33 +206,43 @@ const masterData = {
       "talkTrack": "The Critical On Hand workflow shows how I already translate messy account, inventory, sales, and incentive data into action plans for a team.",
       "demoMove": "Show the account analytics proof first, then connect it to adoption planning and customer value realization.",
       "headline": "Founder / Technical Customer Enablement Lead / AI Adoption Builder",
-      "resumeSummary": "Customer-facing founder-builder with deep education, sales enablement, product implementation, and workflow adoption experience. Built Sip Studies as an AI-enabled learning and terminology platform while maintaining a decade-long record of customer, supplier, and stakeholder enablement in wine and spirits. Strong fit for AI Success work that requires technical-business translation, adoption planning, workshops, account health, and measurable value realization.",
+      "resumeSummary": "Customer-facing founder-builder with deep education, sales enablement, product implementation, and workflow adoption experience. Built Sip Studies as an AI-enabled learning and terminology platform while maintaining a decade-long record of customer, supplier, and stakeholder enablement in wine and spirits. Strong fit for AI Success work that requires customer workflow translation, technical-business translation, adoption planning, workshops, account health, and measurable value realization. Uses AI-assisted product building to prototype customer workflows and validate product ideas while keeping a human-owned build process: problem framing, AI-assisted implementation, validation, documentation, and customer interpretation.",
       "strengths": [
+        "Reframes beverage, education, sales, and events as the base layer for customer workflow translation, trust building, and adoption behavior.",
+        "Uses AI-assisted product building, agentic harnessing, and workflow prototyping to make ambiguous product ideas concrete and reviewable.",
+        "Keeps the boundary clear: AI accelerates implementation and exploration, while Jonathan owns the judgment, prompts, review, testing, documentation, customer interpretation, and final behavior.",
         "Combines hands-on technical product building with long-running customer-facing sales and education responsibilities.",
         "Can map ambiguous workflows into structured adoption plans, training materials, metrics, and operating rhythms.",
         "Has quantified business impact: 3,500+ placements and a $2.291M wine revenue lift at Lee's Liquor.",
-        "Built platform work touching auth, paid access, Supabase, Edge Functions, AI/news routing, validation, and documentation.",
+        "Built platform work touching auth, paid access, Supabase, Edge Functions, AI/news routing, validation, and documentation through AI-assisted development workflows.",
         "Experienced at making complex product concepts useful to executives, managers, customers, and learners."
       ],
       "skills": [
+        "Customer workflow translation",
+        "AI-assisted product building",
+        "Agentic harnessing and Codex-style workflow prototyping",
+        "Validated build process documentation",
+        "Technical enablement and customer education",
         "Customer adoption and value realization",
         "Technical enablement and configuration framing",
         "Workflow mapping and use-case validation",
         "Program management and stakeholder coordination",
         "KPI baselines and success metrics",
-        "React, TypeScript, Supabase, Stripe, Edge Functions",
+        "AI-assisted product development across web, auth, payments, and data workflows",
         "Executive and field communication",
         "Workshop design and internal enablement"
       ],
       "proof": [
-        "Built Sip Studies as a React, TypeScript, Vite, Supabase, Stripe, and Edge Function platform across learning, tasting, terminology, maps, AI/news, events, and paid access.",
+        "Every project can be discussed through problem, process, output, validation, limitations, and role relevance.",
+        "Build artifacts separate what AI did from what Jonathan decided.",
+        "Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.",
         "Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.",
         "Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.",
         "Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.",
         "Built and maintain weekly Critical On Hand / Gap Analysis workbooks to analyze customer POD gaps, on-hand inventory, days on hand, sales movement, incentives, and account opportunities."
       ],
-      "coverFocus": "The AI Success Engineer role matches the way I work: embed with a workflow, understand the real pain, design the adoption path, teach the workflow, measure the value, and feed product learnings back into the team.",
-      "planTheme": "Customer adoption roadmaps, technical readiness, account health, KPI baselines, enablement, and expansion signals."
+      "coverFocus": "The AI Success Engineer role matches the way I work: embed with a workflow, understand the real pain, design the adoption path, teach the workflow, measure the value, and feed product learnings back into the team. I use AI-assisted product building to prototype customer workflows and validate product ideas, then communicate the constraints, risks, and next steps clearly to technical and customer-facing teams.",
+      "planTheme": "Customer adoption roadmaps, technical readiness, account health, KPI baselines, enablement, expansion signals, human-owned build process, workflow prototyping, and validated customer artifacts."
     },
     {
       "id": "codex-pmm",
@@ -269,7 +273,7 @@ const masterData = {
         "Campaign impact and adoption metrics"
       ],
       "proof": [
-        "Built Sip Studies as a React, TypeScript, Vite, Supabase, Stripe, and Edge Function platform across learning, tasting, terminology, maps, AI/news, events, and paid access.",
+        "Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.",
         "Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.",
         "Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.",
         "Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.",
@@ -303,11 +307,11 @@ const masterData = {
         "Technical writing and plain-language instruction",
         "Customer and staff enablement",
         "Learning analytics and outcome framing",
-        "React, TypeScript, Supabase, Stripe, Edge Functions",
+        "AI-assisted product development across web, auth, payments, and data workflows",
         "Workshop facilitation and education program delivery"
       ],
       "proof": [
-        "Built Sip Studies as a React, TypeScript, Vite, Supabase, Stripe, and Edge Function platform across learning, tasting, terminology, maps, AI/news, events, and paid access.",
+        "Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.",
         "Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.",
         "Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.",
         "Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.",
@@ -345,7 +349,7 @@ const masterData = {
         "Measurable activation and sustained usage"
       ],
       "proof": [
-        "Built Sip Studies as a React, TypeScript, Vite, Supabase, Stripe, and Edge Function platform across learning, tasting, terminology, maps, AI/news, events, and paid access.",
+        "Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.",
         "Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.",
         "Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.",
         "Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.",
@@ -364,7 +368,7 @@ const masterData = {
       "talkTrack": "The founder story is the proof: I turn ambiguous problems into working products, artifacts, roadmaps, and reusable playbooks.",
       "demoMove": "Use the walkthrough to discuss product judgment: what to build, what to prove, and how to turn a customer blocker into a reusable product motion.",
       "headline": "Technical Founder / AI Product Builder / Customer Strategy Operator",
-      "resumeSummary": "Technical founder and product builder who turns ambiguous customer, education, and workflow needs into working products, documentation, and measurable outcomes. Built Sip Studies as an AI-enabled product ecosystem with React, TypeScript, Supabase, Stripe, Edge Functions, AI/news routing, terminology operations, and paid-access workflows. Strong stretch fit for deployed product work that requires technical fluency, customer trust, product judgment, and hands-on unblocking.",
+      "resumeSummary": "AI-assisted product builder who turns ambiguous customer, education, and workflow needs into working products, documentation, and measurable outcomes. Using repo-driven agent workflows, built Sip Studies as an AI-enabled product ecosystem across React, TypeScript, Supabase, Stripe, Edge Functions, AI/news routing, terminology operations, and paid-access workflows. Strong stretch fit for deployed product work that requires customer trust, product judgment, and hands-on unblocking.",
       "strengths": [
         "Operates across product strategy, implementation, documentation, customer education, and business-value framing.",
         "Built a multi-surface product ecosystem rather than a single static site, including auth/paywall, AI/news, terminology, maps, journals, and events.",
@@ -377,13 +381,13 @@ const masterData = {
         "Customer workflow discovery",
         "Product strategy and adoption planning",
         "Hands-on implementation and unblocking",
-        "React, TypeScript, Supabase, Stripe, Edge Functions",
+        "AI-assisted product development across web, auth, payments, and data workflows",
         "Executive communication and sales enablement",
         "Product feedback synthesis",
         "Ambiguous problem solving and ownership"
       ],
       "proof": [
-        "Built Sip Studies as a React, TypeScript, Vite, Supabase, Stripe, and Edge Function platform across learning, tasting, terminology, maps, AI/news, events, and paid access.",
+        "Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.",
         "Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.",
         "Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.",
         "Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.",
@@ -455,18 +459,17 @@ const masterData = {
     {
       "title": "Sip Studies",
       "metric": "69 Supabase migrations + 5 Edge Functions",
-      "body": "Built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.",
+      "body": "Using AI-assisted, repo-driven workflows, built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.",
       "tags": [
-        "AI beverage/content products",
-        "React, TypeScript, Vite",
-        "Supabase, Stripe, Edge Functions",
-        "Data preservation + terminology"
+        "AI/Product: advanced prompting, durable goals/threads, repo-driven AI agents, Codex-assisted project development, OpenAI product fluency since 2022",
+        "OpenAI tools: ChatGPT, DALL-E, custom GPTs/GPT Store, Sora, Codex, image-generation workflows",
+        "Customer Enablement: workshops, training, curriculum, adoption planning, stakeholder communication"
       ]
     },
     {
       "title": "Sipopedia",
       "metric": "20,000 Sipopedia candidate rows",
-      "body": "Built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.",
+      "body": "Using AI-assisted, repo-driven workflows, built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.",
       "tags": [
         "Curriculum",
         "Data ops",

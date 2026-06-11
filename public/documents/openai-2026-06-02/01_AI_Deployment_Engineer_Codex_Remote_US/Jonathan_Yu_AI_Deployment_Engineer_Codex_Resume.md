@@ -7,20 +7,21 @@ Las Vegas, NV | JonYu3@gmail.com | 617.637.0668 | SipStudies.com | Sipopedia.com
 Remote US preferred from Las Vegas; open to San Francisco travel or hybrid only for the right economic and career fit.
 
 ## Target Summary
-Founder-builder with hands-on React, TypeScript, Supabase, Stripe, Edge Function, validation, and AI workflow experience. Built Sip Studies as a production-minded AI education platform and used AI-assisted development practices to move from product ideas to working systems, documentation, and reviewable outputs. Strong fit for Codex deployment work that combines technical prototypes, workshops, customer workflow mapping, and practical adoption guidance.
+Founder-builder with AI-assisted, repo-driven product development experience across advanced prompting, durable goals/threads, agent workflows, validation, documentation, and OpenAI product use since 2022. Built Sip Studies as a production-minded AI education platform and used AI-assisted development practices to move from product ideas to working products, documentation, and reviewable outputs. Strong fit for Codex deployment work that combines practical prototypes, workshops, customer workflow mapping, and adoption guidance.
 
 ## Role-Aligned Strengths
 - Built and iterated a full-stack application with AI/news routing, terminology workflows, paid access, validation scripts, and product documentation.
-- Uses AI-assisted coding and documentation workflows to turn ambiguous requirements into demos, artifacts, and operational runbooks.
+- Uses advanced prompting, durable goals/threads, and repo-driven AI agent workflows to turn ambiguous requirements into working examples, artifacts, and operational runbooks.
 - Can translate technical workflow changes into approachable training for non-technical, semi-technical, and technical audiences.
 - Has customer-facing sales, enablement, and education experience across beverage, retail, distributor, and virtual learning contexts.
 - Understands adoption as behavior change: workflow mapping, stakeholder trust, enablement, feedback, and measurable value.
 
+
 ## Technical, Product, and Enablement Skills
-- AI coding workflows and prototyping
+- Advanced prompting and AI-assisted development workflows
 - Technical workshops and enablement
-- React, TypeScript, Vite, Supabase
-- Edge Functions, Stripe, auth flows
+- Repo-driven product builds with AI guidance
+- AI-assisted implementation across auth, payments, and data workflows
 - Workflow automation and validation scripts
 - Technical writing, guides, and runbooks
 - Customer discovery and adoption roadmaps
@@ -30,7 +31,7 @@ Founder-builder with hands-on React, TypeScript, Supabase, Stripe, Edge Function
 
 ### Sip Studies - Founder, Product Lead, Beverage Education Platform Builder
 2024 - Present
-- Built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.
+- Using AI-assisted, repo-driven workflows, built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.
 - Created a 20,000-row Sipopedia terminology pipeline with citation/review metadata plus a media-rich learning asset base featuring Sippy, Roma, Hummin, maps, game scenes, academy realms, equipment visuals, and infographics.
 - Developed AI/news routing, Daily Sip editorial automation, terminology workflows, paid-access architecture, validation scripts, and buyer-facing valuation/IP materials around a $4.5M strategic acquisition thesis.
 
@@ -85,7 +86,7 @@ Sep 2013 - Sep 2015
 - 3,500+ placements
 - $2.291M wine revenue lift
 - $4.5M strategic acquisition thesis
-- Built Sip Studies as a React, TypeScript, Vite, Supabase, Stripe, and Edge Function platform across learning, tasting, terminology, maps, AI/news, events, and paid access.
+- Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.
 - Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.
 - Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.
 - Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.

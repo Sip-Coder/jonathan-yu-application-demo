@@ -34,5 +34,6 @@ The first 90 days should prove three things: fast product fluency, useful custom
 - My work produces evidence: workshop feedback, adoption movement, content quality improvement, product feedback, or clearer stakeholder alignment.
 - I have built trust with the immediate team by being useful, precise, and willing to do the hands-on work.
 
+
 ## Source Posting
 https://openai.com/careers/product-marketing-manager-codex-remote-us/

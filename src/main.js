@@ -9,38 +9,53 @@ const heroImages = {
   resume: "/assets/academy-realm.jpg",
   projects: "/assets/header/codex-projects-hero.png",
   education: "/assets/header/podcast-video-hero.png",
-  application: "/assets/header/resume-still-life.png",
   fit: "/assets/header/hiring-close-hero.png"
 };
 
 const { roles, resume, proofPillars, evidenceChain } = masterData;
 const resumeSource = masterData.source;
+const primaryRoleId = "ai-success";
+const primaryRole = roles.find((role) => role.id === primaryRoleId) || roles[0];
+
+const aiSuccessPostingFacts = {
+  title: "AI Success Engineer - US Remote",
+  roleTeam: "AI Success",
+  roleLocation: "Remote - US",
+  payRange: "$234K-$260K + equity",
+  sourceUrl: "https://openai.com/careers/ai-success-engineer-us-remote-remote-us/",
+  verifiedDate: "2026-06-11",
+  roleFacts: [
+    "Primary post-sales point of contact for important customers.",
+    "Owns account health, adoption velocity, technical deployment, KPI baselines, and measurable value.",
+    "Maps workflows, validates use cases, leads configuration, and turns customer objectives into adoption roadmaps.",
+    "Needs OpenAI API, agentic platform, Codex, ChatGPT Enterprise, and integration-pattern fluency.",
+    "Partners with Sales, Solutions Architecture, Product, Engineering, and Research.",
+    "Facilitates workshops, champion building, internal enablement, post-deployment reporting, and expansion discovery."
+  ],
+  successSignals: [
+    "Technical readiness",
+    "Adoption roadmap",
+    "KPI baselines",
+    "Value realization",
+    "Field feedback"
+  ]
+};
 
 const modes = [
   {
     id: "resume",
-    label: "01 Full Resume",
-    summary: "Start with the conventional resume, then let the proof layers make the story specific."
+    label: "01 Resume",
+    summary: "Resume evidence: profile, experience, credentials, skills, market scale, and education."
   },
   {
     id: "projects",
-    label: "02 Codex Projects",
-    summary: "Shipped projects, repo evidence, and AI-assisted product work turn the resume into a body of work."
-  },
-  {
-    id: "education",
-    label: "03 Podcast + Video",
-    summary: "Public teaching, media, GPT guides, and community links show communication beyond the document."
-  },
-  {
-    id: "application",
-    label: "04 Application Proof",
-    summary: "Role-specific packets connect the master resume to tailored cover letters and 30-60-90 plans."
+    label: "02 Portfolio",
+    summary: "Portfolio proof: shipped products, public teaching, repo evidence, and AI-assisted product work."
   },
   {
     id: "fit",
-    label: "05 Hiring Close",
-    summary: "Close with the role narrative, the proof to emphasize, and the questions to answer directly."
+    label: "03 OpenAI Fit",
+    summary: "OpenAI Fit: role facts, strongest proof, packet documents, and the final interview argument."
   }
 ];
 
@@ -50,10 +65,9 @@ const publicLinks = [
   { label: "YouTube", handle: "@sipstudies", href: "https://youtube.com/@sipstudies" },
   { label: "Education YouTube", handle: "@jonyu836", href: "https://www.youtube.com/@jonyu836" },
   { label: "Instagram", handle: "@sip.studies", href: "https://www.instagram.com/sip.studies" },
-  { label: "Facebook", handle: "SipStudies", href: "https://www.facebook.com/SipStudies" },
   { label: "Threads", handle: "@sip.studies", href: "https://www.threads.net/@sip.studies" },
   { label: "Substack", handle: "sipstudies", href: "https://sipstudies.substack.com" },
-  { label: "Spotify", handle: "AI Winecast", href: "https://open.spotify.com/user/AiWinecast" }
+  { label: "Spotify", handle: "AI Winecast", href: "https://open.spotify.com/show/2LSWrWDTlPOMgnZkGfUPE1" }
 ];
 
 const mediaLinks = [
@@ -64,45 +78,18 @@ const mediaLinks = [
   { label: "2Knivez Reel", handle: "personal media proof", href: "https://www.instagram.com/2knivez/reel/DGw69y4RWGv/" }
 ];
 
-const signalGrades = [
-  {
-    label: "Resume pivot clarity",
-    value: "Clear",
-    detail: "Each selected position gets the same core resume translated into a clear role narrative for the hiring team."
-  },
-  {
-    label: "Proof depth",
-    value: "Strong",
-    detail: "Role packets, public channels, Codex Projects, product artifacts, and quantified field outcomes point to the same qualification story."
-  },
-  {
-    label: "AI builder credibility",
-    value: "Visible",
-    detail: "Strong self-built AI and product work today; formal security, Python, and TypeScript proof should keep compounding."
-  },
-  {
-    label: "Education leverage",
-    value: "High",
-    detail: "AARP teaching, credential stack, Sipopedia, curriculum writing, and adoption storytelling are the strongest bridge."
-  }
-];
-
 const presentationMoves = [
   {
     title: "Resume first",
-    body: "Start with the traditional resume so the viewer understands the person, chronology, credentials, and scope before seeing the extra proof."
+    body: "Start with the role-shaped resume facts: profile, experience, credentials, skills, highlights, market scale, and focus plus education."
   },
   {
-    title: "Projects second",
-    body: "Move from work history into Codex Projects: production platforms, client sites, prototypes, automation, and data tools built with Codex and Replit support."
+    title: "Portfolio second",
+    body: "Move from claims into shipped products, client sites, prototypes, automation, data workflows, and public teaching proof."
   },
   {
-    title: "Media third",
-    body: "Use podcast, YouTube, public channels, and GPT guides to show education, communication, and audience-facing credibility."
-  },
-  {
-    title: "Application close",
-    body: "End with the role-specific packet, interview proof sequence, and objections already framed for the exact position being discussed."
+    title: "OpenAI fit",
+    body: "Close with the live job facts, the strongest match, and the three downloadable packet PDFs: resume, cover letter, and 30-60-90 plan."
   }
 ];
 
@@ -130,13 +117,62 @@ const riskControls = [
   },
   {
     risk: "Where does the role-specific pivot land?",
-    control: "Make the sequence explicit: traditional resume evidence first, then Codex Projects, media, packet proof, and the selected role narrative."
+    control: "Make the sequence explicit: resume first, portfolio proof second, then OpenAI Fit with packet links and measured adoption language."
   },
   {
     risk: "Is the founder scope focused enough?",
     control: "Show disciplined prioritization: artifact, evidence, verification, next decision. Keep the conversation anchored to the selected role."
   }
 ];
+
+const employerFacingPositioning = [
+  "I use AI-assisted product building to prototype customer workflows and validate product ideas.",
+  "My strength is translating complex domains into usable tools, curriculum, and adoption systems.",
+  "I can build enough to make ideas concrete, then communicate clearly with technical teams about constraints, risks, and next steps.",
+  "I keep a human-owned build process: problem framing, AI-assisted implementation, validation, documentation, and customer interpretation.",
+  "I am strongest where product, customer education, technical enablement, and adoption meet."
+];
+
+const aiBuildOwnership = [
+  {
+    label: "Base layer",
+    value: "Beverage, education, sales, and events become customer workflow translation, stakeholder trust, and adoption behavior."
+  },
+  {
+    label: "Build language",
+    value: "AI-assisted product building, agentic harnessing, workflow prototyping, customer education, technical enablement, and validated build process."
+  },
+  {
+    label: "Human judgment",
+    value: "I know where AI helps, where human judgment remains responsible, and how to build a workflow around that boundary."
+  },
+  {
+    label: "Review record",
+    value: "Every build should include what AI did and what Jonathan decided."
+  }
+];
+
+const reviewableProjectStandard = [
+  "Discuss the problem, process, output, validation, limitations, and role relevance.",
+  "Show the prototype plus the reasoning, constraints, testing, and customer story.",
+  "Use Codex-style workflows to prototype, inspect, refactor, test, and document product changes.",
+  "Own the product judgment, prompts, review, testing, documentation, and final behavior."
+];
+
+const parameterGolfReviewPattern = {
+  title: "OpenAI-style review pattern",
+  sourceUrl: "https://github.com/openai/parameter-golf",
+  articleUrl: "https://openai.com/index/what-parameter-golf-taught-us/",
+  body:
+    "Parameter Golf makes a portable hiring pattern visible: fork a public problem, improve under constraints, submit reviewable work, include logs or scores, and make the reasoning inspectable. This portfolio applies that same pattern to customer workflow and adoption work.",
+  steps: [
+    "Fork or frame the real problem.",
+    "Improve the workflow under constraints.",
+    "Submit an artifact with evidence.",
+    "Include validation, limitations, and the decision log.",
+    "Make the work easy for technical and customer-facing reviewers to challenge."
+  ]
+};
 
 const credentialBadges = [
   { label: "MIT AI Strategy", img: `${logoBase}/mit-logo-red-cropped.png` },
@@ -166,35 +202,35 @@ const codexProjects = [
     bridge: "Shows client-facing judgment: convert a service business into a clear web experience with intake, trust, launch, and content operations."
   },
   {
-    title: "Work Efficient",
-    type: "Codex Project | Sales operations intake and ETL",
-    path: "C:\\codebase\\sip_studies\\actual\\Work-Efficient",
-    body: "Local upload website for rebuilding sales and inventory reports from source files, including Critical On Hand, Gap Analysis, incentive PowerPoints, account/item opportunity outputs, and confidence tiers.",
-    proof: ["Drag-and-drop source-file intake", "PPTX incentive parsing", "Account/item opportunity exports"],
-    bridge: "Shows workflow discovery and business value: turn messy field data into account actions, reports, and repeatable operating decisions."
+    title: "AI Edu / Safe Router",
+    type: "Codex Project | Safe AI education prototype",
+    path: "C:\\codebase\\sip_studies\\actual\\Ai-Edu",
+    body: "Supabase Edge Function router pattern for OpenAI, Anthropic, and Google providers with frontend-safe keys, terminology surfaces, admin workflow, and citation guidance.",
+    proof: ["ai-router Edge Function", "OpenAI / Anthropic / Google provider paths", "Citation guidance and admin workflow"],
+    bridge: "Shows AI integration literacy, safe configuration instincts, provider abstraction, and educational data operations."
   },
   {
-    title: "FinTech Local Analyzer",
-    type: "Codex Project | Local-first finance tool",
-    path: "C:\\codebase\\sip_studies\\actual\\FinTech",
-    body: "Streamlit finance app for personal and Sip Studies LLC analysis with KPI views, data ingestion, books, statements, AP/AR, finance coach, local SQLite storage, passcode lock, and encrypted sensitive fields.",
-    proof: ["CSV/XLSX/PDF/DOCX/TXT/MD intake", "P&L, balance sheet, and cash-flow exports", "Passcode-derived encryption at rest"],
-    bridge: "Shows practical care with private data, local-first workflows, financial reasoning, and analytical products that users can operate directly."
+    title: "Coffee Index",
+    type: "Codex Project | Market index story",
+    path: "C:\\codebase\\sip_studies\\actual\\Coffee-Index",
+    body: "Vite analytical page modeling solo espresso costs by city, rankings, regional averages, baseline index, and methodology narrative.",
+    proof: ["City-by-city cost modeling", "Regional averages", "Methodology narrative"],
+    bridge: "Shows fast data storytelling, methodology transparency, and public-facing analytical presentation."
   },
   {
-    title: "Magic Academy Platform",
-    type: "Codex Project | Full-stack course prototype",
-    path: "C:\\codebase\\sip_studies\\actual\\Armandos-Challenge",
-    body: "Vite React frontend plus Express backend for course publishing, JWT login, role-based access, admin course creation, lesson uploads, video/PDF delivery, and a mock premium subscription path.",
-    proof: ["Admin and student sample accounts", "Mock paywall ready for Stripe/webhooks", "Uploaded lesson-file handling"],
-    bridge: "Shows education-product range beyond beverage: roles, publishing, access control, premium lessons, and learner content delivery."
+    title: "Sip Studies Tasting Journal",
+    type: "Codex Project | Replit tasting app",
+    path: "C:\\codebase\\sip_studies\\actual\\Sip-Studies-Tasting-Journal",
+    body: "Multi-beverage tasting templates, blind testing, analytics, study recommendations, Replit OIDC auth, PostgreSQL, Drizzle, and shadcn/Radix UI.",
+    proof: ["Authenticated tasting workflows", "Blind-testing and analytics", "PostgreSQL / Drizzle lineage"],
+    bridge: "Shows practical learner workflow design, authenticated product surfaces, and beverage-domain form architecture."
   },
   {
     title: "Supporting prototypes",
     type: "Codex Project | Portfolio breadth",
     path: "C:\\codebase\\sip_studies\\actual",
-    body: "Additional repos show breadth across AI education, bookkeeping workspaces, coffee indexing, tasting-journal experiments, massage concepts, pet assets, tax prep, and workflow utilities.",
-    proof: ["Ai-Edu safe AI router", "Biz-Bookkeeper TypeScript workspace", "Coffee-Index and Tasting-Journal prototypes"],
+    body: "Additional local folders show breadth across AI education, market-index storytelling, tasting-journal experiments, game/interactive prototypes, and client-service launches.",
+    proof: ["Ai-Edu safe AI router", "Coffee-Index market story", "Sip-Studies-Tasting-Journal prototype"],
     bridge: "Shows range: Jonathan can explore a problem space quickly, preserve the learning, and carry useful patterns into the next build."
   }
 ];
@@ -215,39 +251,11 @@ const codexProjectIndex = [
     roleValue: "Client discovery, trust-sensitive UX, launch readiness, and business-facing web delivery."
   },
   {
-    title: "Work Efficient",
-    folder: "Work-Efficient",
-    category: "Sales operations workflow",
-    evidence: "Drag-and-drop intake, duplicate-safe file storage, PPTX incentive parsing, ETL analysis, confidence tiers, account/item opportunity exports.",
-    roleValue: "Transforms messy field data into repeatable operating decisions and measurable account actions."
-  },
-  {
-    title: "FinTech Local Analyzer",
-    folder: "FinTech",
-    category: "Local-first finance app",
-    evidence: "Streamlit app with finance views, ingestion, books, statements, AP/AR, finance coach, SQLite, passcode lock, and encrypted sensitive fields.",
-    roleValue: "Shows privacy-aware analytics, local data products, and practical financial workflow reasoning."
-  },
-  {
-    title: "Magic Academy Platform",
-    folder: "Armandos-Challenge",
-    category: "Full-stack course prototype",
-    evidence: "Vite React frontend, Express backend, JWT auth, role-based access, admin course creation, uploads, video/PDF delivery, mock subscription.",
-    roleValue: "Shows education-product range across access control, publishing, premium lessons, and learner content delivery."
-  },
-  {
     title: "AI Edu",
     folder: "Ai-Edu",
     category: "Safe AI education prototype",
     evidence: "Supabase Edge Function ai-router for OpenAI, Anthropic, and Google, frontend-safe keys, terminology page, admin workflow, and citation guidance.",
     roleValue: "Shows secure AI integration, provider abstraction, and educational data operations."
-  },
-  {
-    title: "Biz Bookkeeper",
-    folder: "Biz-Bookkeeper",
-    category: "TypeScript finance workspace",
-    evidence: "pnpm monorepo with Express 5, PostgreSQL, Drizzle ORM, Zod validation, OpenAPI spec, Orval codegen, and generated React Query client.",
-    roleValue: "Shows API contracts, typed data layers, generated clients, and multi-package architecture."
   },
   {
     title: "Coffee Index",
@@ -262,13 +270,6 @@ const codexProjectIndex = [
     category: "Replit tasting app",
     evidence: "Multi-beverage tasting templates, blind testing, analytics, study recommendations, Replit OIDC auth, PostgreSQL, Drizzle, and shadcn/Radix UI.",
     roleValue: "Shows Replit lineage, authenticated product workflows, and beverage-domain form architecture."
-  },
-  {
-    title: "Tax File Prep Excel",
-    folder: "Tax-File-Prep_Excel",
-    category: "Document automation",
-    evidence: "PowerShell-generated OpenXML workbook with statement checklist, property papers, money summary, LLC helper, formulas, and plain-language guidance.",
-    roleValue: "Shows practical automation for professional handoff, structured records, and nontechnical user clarity."
   }
 ];
 
@@ -283,6 +284,13 @@ const projectCaseStudies = [
       "Turned domain knowledge into visible product surfaces that a hiring team can inspect, question, and connect to customer enablement."
     ],
     evidence: ["69 migrations + 5 Edge Functions", "20,000 Sipopedia candidate rows", "Learn / Taste / Connect product lanes"],
+    process: "Framed the learning problem, used AI-assisted implementation to explore product paths, reviewed generated changes in the repo, then validated data, routes, documents, and user-facing behavior.",
+    output: "A reviewable education platform with Learn, Taste, and Connect surfaces, terminology operations, paid-access architecture, public media, and customer-facing learning artifacts.",
+    validation: "Builds, migration history, import-ready terminology structure, source metadata, public links, and validation scripts make the work inspectable.",
+    limitations: "The platform still needs deeper enterprise security review, production analytics hardening, and more formal user research before claiming large-scale deployment maturity.",
+    roleRelevance: "Mirrors AI Success work: workflow discovery, adoption design, technical enablement, product feedback, and measurable customer education.",
+    aiDid: "Helped draft implementation paths, refactors, content operations, image/media variants, validation scripts, and documentation options.",
+    jonathanDecided: "Set the product scope, learning model, source standards, validation threshold, customer story, and final behavior to keep the build accountable.",
     interviewUse: "Use this as the main builder proof for Codex, AI Success, product deployment, and customer education roles."
   },
   {
@@ -295,6 +303,13 @@ const projectCaseStudies = [
       "Connected the technical artifact to the way teams actually prioritize placements, displays, supplier conversations, and account support."
     ],
     evidence: ["45,542-row inventory reference file", "95,000 distribution points analyzed", "Weekly Critical On Hand workflow"],
+    process: "Translated sales, inventory, incentive, and account ambiguity into a repeatable workbook workflow with filters, confidence tiers, and action-ready exports.",
+    output: "Weekly execution priorities for placements, displays, supplier conversations, education, and account support.",
+    validation: "Business use, file checks, distribution-point scale, recurring weekly operation, and the $2.291M Lee's Liquor revenue lift anchor the claim.",
+    limitations: "The workflow is local and field-operations specific; it should be productized carefully before treating it like a scalable SaaS workflow.",
+    roleRelevance: "Direct AI Success bridge for KPI baselines, account health, workflow mapping, stakeholder alignment, and value-realization reporting.",
+    aiDid: "Helped inspect workbook logic, structure automation options, summarize data patterns, and draft handoff documentation.",
+    jonathanDecided: "Owned the field context, account prioritization logic, customer interpretation, and what counted as a useful weekly action.",
     interviewUse: "Use this when the conversation turns to adoption, KPI baselines, customer value, and practical enablement."
   },
   {
@@ -307,6 +322,13 @@ const projectCaseStudies = [
       "Balanced visual polish with practical conversion, trust, and maintenance needs."
     ],
     evidence: ["36-article journal library", "Interactive session-map intake", "SEO and launch-readiness docs"],
+    process: "Converted a local-service business need into a client-facing site, intake flow, care language, generated assets, and launch-readiness checks.",
+    output: "A polished public site with booking request flow, service clarity, body-map intake, privacy content, journal library, SEO, sitemap, and handoff docs.",
+    validation: "Launch checks, responsive testing, journal inventory, sitemap generation, and client-operability documentation support the handoff.",
+    limitations: "The strongest proof is launch readiness and client UX; deeper booking automation and production analytics would be the next maturity step.",
+    roleRelevance: "Shows customer empathy, workflow simplification, trust-sensitive UX, launch execution, and post-handoff enablement.",
+    aiDid: "Helped generate imagery, draft journal content, inspect site structure, and accelerate implementation revisions.",
+    jonathanDecided: "Owned the client promise, service language, intake boundaries, visual direction, and launch-readiness definition.",
     interviewUse: "Use this to show client-facing judgment, implementation taste, and the ability to ship polished business experiences."
   },
   {
@@ -319,6 +341,13 @@ const projectCaseStudies = [
       "Used the prototype to practice the same deployment and enablement questions that AI customers face."
     ],
     evidence: ["Supabase Edge Function ai-router", "OpenAI / Anthropic / Google provider path", "Citation guidance and admin workflow"],
+    process: "Started from education safety needs, moved provider logic server-side, and used the prototype to reason about citations, admin controls, and customer trust.",
+    output: "A provider-router prototype with OpenAI, Anthropic, and Google paths, safer frontend key handling, terminology/admin surfaces, and citation guidance.",
+    validation: "Supabase Edge Function structure, provider separation, frontend-safe key pattern, and documented citation/admin behavior make the prototype reviewable.",
+    limitations: "It is a safety-oriented prototype, not a complete enterprise AI governance platform; policy, audit, and monitoring depth would need expansion.",
+    roleRelevance: "Supports AI Success conversations about APIs, integration patterns, safe configuration, technical tradeoffs, and customer enablement.",
+    aiDid: "Helped compare provider routing options, draft guardrail language, and inspect implementation paths.",
+    jonathanDecided: "Owned the safe-router boundary, education use case, citation posture, and what needed to stay server-side.",
     interviewUse: "Use this when the role needs AI deployment literacy, security awareness, and practical implementation reasoning."
   }
 ];
@@ -682,7 +711,8 @@ const flavorBlogCollections = [
         href: "https://sipstudies.substack.com/p/austria",
         publishedAt: "Sep 6, 2025",
         summary: "by Sippy, your Vineyard Travel Guide",
-        thumbnail: "https://image.thum.io/get/width/1200/crop/675/noanimate/https%3A%2F%2Fsipstudies.substack.com%2Fp%2Faustria"
+        thumbnail:
+          "https://substackcdn.com/image/fetch/$s_!iWlT!,w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-video.s3.amazonaws.com%2Fvideo_upload%2Fpost%2F172541156%2F594996a6-659c-4c15-8a4e-572f1e627ea0%2Ftranscoded-1756785783.png"
       }
     ]
   },
@@ -724,25 +754,6 @@ const flavorBlogCollections = [
   }
 ];
 
-const applicationItems = [
-  {
-    title: "Role-specific resume",
-    body: "Uses the Master_Edit workbook as the durable source, then frames the same facts around the selected position."
-  },
-  {
-    title: "Cover letter",
-    body: "Carries the client-facing narrative: why this role, why this proof, and why the transition makes sense."
-  },
-  {
-    title: "30-60-90 plan",
-    body: "Turns the resume into first-quarter action: discovery, artifact delivery, stakeholder trust, and measurable outcomes."
-  },
-  {
-    title: "Resume pivot notes",
-    body: "Keeps the selected role narrative, proof sequence, and interview strategy in one reviewable artifact."
-  }
-];
-
 function proofMetric(label, value, detail, scale = 76) {
   return {
     label,
@@ -754,9 +765,6 @@ function proofMetric(label, value, detail, scale = 76) {
 }
 
 function heroMetricsFor(modeId, role = selectedRole) {
-  const docKinds = Object.keys(docsFor(role)).length;
-  const outputFormats = Object.values(docsFor(role)).reduce((total, doc) => total + Object.keys(doc).length, 0);
-
   const metricSets = {
     resume: [
       proofMetric("Career range", "10+", "Years across beverage sales, account analytics, education, live events, and AI-enabled product building.", 82),
@@ -776,12 +784,6 @@ function heroMetricsFor(modeId, role = selectedRole) {
       proofMetric("Education reach", "All 50", "AARP education was predominantly viewed in Colorado and spanned all 50 states.", 72),
       proofMetric("Publishing lanes", `${flavorBlogCollections.length}`, "SipStudies.com Blog, Substack, and Daily Sip carry written proof alongside video and audio.", 68)
     ],
-    application: [
-      proofMetric("Target roles", `${roles.length}`, "OpenAI role packets built from the same Master_Edit resume source.", 76),
-      proofMetric("Packet docs", `${docKinds}`, "Resume, cover letter, and 30-60-90 plan tuned to the selected position.", 70),
-      proofMetric("Output formats", `${outputFormats}`, "Each selected packet can be opened as PDF, Word, or Markdown.", 72),
-      proofMetric("Role proof", `${role.proof.length}`, "Selected-role proof bullets available in the interview packet.", 80)
-    ],
     fit: [
       proofMetric("Selected rank", `0${role.rank}`, "Position-focus rank for the current OpenAI target role.", 78),
       proofMetric("Strengths", `${role.strengths.length}`, "Role-aligned strengths ready for the hiring conversation.", 80),
@@ -794,7 +796,7 @@ function heroMetricsFor(modeId, role = selectedRole) {
 }
 
 const app = document.querySelector("#app");
-let selectedRole = roles[0];
+let selectedRole = primaryRole;
 let selectedDoc = "Resume";
 let selectedMode = "resume";
 let focusMode = initialFocusMode();
@@ -803,9 +805,9 @@ const originalHeaderPortraitFilename = "received_408407423126180.jpeg";
 let activePortraitIndex = originalPortraitIndex();
 let galleryTimer = null;
 let galleryOpen = false;
-let copyStatusTimer = null;
+let galleryPaused = false;
 
-const portraitRotationMs = 2000;
+const portraitRotationMs = 5000;
 
 function originalPortraitIndex() {
   return Math.max(
@@ -839,19 +841,34 @@ function hashParts() {
   return window.location.hash.replace(/^#\/?/u, "").split("/").filter(Boolean);
 }
 
+function isPacketMode() {
+  return selectedMode === "fit";
+}
+
+function normalizeModeId(modeId) {
+  const legacyModes = {
+    application: "fit",
+    education: "projects",
+    portfolio: "projects"
+  };
+  return legacyModes[modeId] || modeId;
+}
+
 function initialFocusMode() {
   return new URLSearchParams(window.location.search).get("focus") === "1";
 }
 
 function applyHashState() {
   const [modeId, roleId, docSlug] = hashParts();
-  if (modes.some((mode) => mode.id === modeId)) selectedMode = modeId;
+  const normalizedModeId = normalizeModeId(modeId);
+  if (modes.some((mode) => mode.id === normalizedModeId)) selectedMode = normalizedModeId;
   if (roleId) selectedRole = roles.find((role) => role.id === roleId) || selectedRole;
-  selectedDoc = selectedMode === "application" ? docNameBySlug[docSlug] || "Resume" : "Resume";
+  selectedDoc = isPacketMode() ? docNameBySlug[docSlug] || "Resume" : "Resume";
+  if (modeId === "application") window.requestAnimationFrame(updateUrlState);
 }
 
 function updateUrlState() {
-  const docPart = selectedMode === "application" && selectedDoc !== "Resume" ? `/${docSlugByName[selectedDoc]}` : "";
+  const docPart = isPacketMode() && selectedDoc !== "Resume" ? `/${docSlugByName[selectedDoc]}` : "";
   const nextHash = `#${selectedMode}/${selectedRole.id}${docPart}`;
   if (window.location.hash === nextHash) return;
   const url = new URL(window.location.href);
@@ -884,33 +901,19 @@ function artifactButton(label, href, kind = "PDF") {
   return `<a class="artifact-link" href="${href}" target="_blank" rel="noreferrer">${label} <span>${kind}</span></a>`;
 }
 
-function copyViewButton() {
-  return `<button class="artifact-link copy-view-link" data-copy-view type="button">Copy View <span>LINK</span></button>`;
-}
-
-function focusModeButton() {
-  return `<button class="artifact-link screen-focus-link" data-focus-mode type="button" aria-label="${focusMode ? "Exit screen-share focus mode" : "Enter screen-share focus mode"}" aria-pressed="${focusMode ? "true" : "false"}">${focusMode ? "Exit" : "Focus"}</button>`;
-}
-
-function copyBriefButton() {
-  return `<button class="brief-copy-button" data-copy-brief type="button" aria-label="Copy selected role interview brief">Copy role brief <span>TXT</span></button>`;
-}
-
 function navButton(mode) {
   const active = selectedMode === mode.id;
   return `<button class="mode-button ${active ? "is-active" : ""}" data-mode="${mode.id}" type="button" ${active ? 'aria-current="step"' : ""}>${mode.label}</button>`;
 }
 
-function roleButton(role) {
-  const active = role.id === selectedRole.id ? "is-active" : "";
+function railPacketButtons(role = selectedRole) {
+  const docs = docsFor(role);
   return `
-    <button class="role-button ${active}" data-role="${role.id}" type="button">
-      <span class="role-rank">0${role.rank}</span>
-      <span>
-        <strong>${role.title}</strong>
-        <small>${presentationText(role.headline)}</small>
-      </span>
-    </button>
+    <div class="rail-pdf-actions" aria-label="Download packet PDFs">
+      ${artifactButton("Resume", docs.Resume.pdf, "PDF")}
+      ${artifactButton("Cover Letter", docs["Cover Letter"].pdf, "PDF")}
+      ${artifactButton("30-60-90", docs["30-60-90"].pdf, "PDF")}
+    </div>
   `;
 }
 
@@ -927,16 +930,6 @@ function metricCard(metric) {
   `;
 }
 
-function gradeCard(grade) {
-  return `
-    <article class="grade-card">
-      <span>${presentationText(grade.label)}</span>
-      <strong>${grade.value}</strong>
-      <p>${presentationText(grade.detail)}</p>
-    </article>
-  `;
-}
-
 function linkCard(link) {
   return `
     <a class="link-card" href="${link.href}" target="_blank" rel="noreferrer">
@@ -944,96 +937,6 @@ function linkCard(link) {
       <strong>${presentationText(link.handle)}</strong>
     </a>
   `;
-}
-
-async function copyText(value) {
-  if (navigator.clipboard?.writeText) {
-    try {
-      await navigator.clipboard.writeText(value);
-      return;
-    } catch {
-      // Fall back below for browsers that expose Clipboard API but deny this context.
-    }
-  }
-
-  const textarea = document.createElement("textarea");
-  textarea.value = value;
-  textarea.setAttribute("readonly", "");
-  textarea.style.position = "fixed";
-  textarea.style.opacity = "0";
-  document.body.appendChild(textarea);
-  textarea.select();
-  const copied = document.execCommand("copy");
-  textarea.remove();
-  if (!copied) throw new Error("Copy command failed.");
-}
-
-function showCopyStatus(message) {
-  const status = document.querySelector("[data-copy-status]");
-  if (!status) return;
-
-  status.textContent = message;
-  status.classList.add("is-visible");
-  window.clearTimeout(copyStatusTimer);
-  copyStatusTimer = window.setTimeout(() => {
-    status.classList.remove("is-visible");
-  }, 2200);
-}
-
-function roleBriefSection(title, items) {
-  const values = items.filter(Boolean);
-  if (!values.length) return "";
-  return `${title}\n${values.map((item) => `- ${presentationText(item)}`).join("\n")}`;
-}
-
-function artifactUrl(pathname) {
-  return new URL(pathname, window.location.origin).href;
-}
-
-function roleBriefText(role = selectedRole) {
-  const docs = docsFor(role);
-  const activeMode = modes.find((mode) => mode.id === selectedMode) || modes[0];
-  const docLinks = [
-    `Master resume: ${artifactUrl(`${resumeBase}/JONATHAN_YU_SIP_STUDIES_COMBINED_RESUME_V4_CRITICAL_ON_HAND_2026-06-02.pdf`)}`,
-    `Role resume: ${artifactUrl(docs.Resume.pdf)}`,
-    `Cover letter: ${artifactUrl(docs["Cover Letter"].pdf)}`,
-    `30-60-90 plan: ${artifactUrl(docs["30-60-90"].pdf)}`
-  ];
-
-  return [
-    `Jonathan Yu - ${presentationText(role.title)} interview brief`,
-    `Current walkthrough step: ${presentationText(activeMode.label)}`,
-    `Shareable view: ${window.location.href}`,
-    "",
-    `Role pivot: ${presentationText(role.headline)}`,
-    `Fit summary: ${presentationText(role.fit)}`,
-    `Talk track: ${presentationText(role.talkTrack)}`,
-    roleBriefSection("Proof to lead with", role.proof?.slice(0, 4) || []),
-    roleBriefSection("Strengths to name", role.strengths?.slice(0, 4) || []),
-    roleBriefSection("Skills to surface", role.skills?.slice(0, 8) || []),
-    roleBriefSection("Documents to open", docLinks),
-    "",
-    "Suggested sequence",
-    "- Resume facts",
-    "- Built product proof",
-    "- Public teaching proof",
-    "- Role packet",
-    "- Hiring-team close"
-  ]
-    .filter((line) => line !== "")
-    .join("\n\n");
-}
-
-function currentModeIndex() {
-  return Math.max(
-    0,
-    modes.findIndex((mode) => mode.id === selectedMode)
-  );
-}
-
-function modeAtOffset(offset) {
-  const index = currentModeIndex();
-  return modes[(index + offset + modes.length) % modes.length];
 }
 
 function modeShortLabel(label) {
@@ -1096,7 +999,7 @@ function setMetaContent(selector, content) {
 
 function currentViewTitle(activeMode) {
   const parts = [modeShortLabel(activeMode.label)];
-  if (selectedMode === "application") parts.push(selectedDoc);
+  if (isPacketMode()) parts.push(selectedDoc);
   parts.push(selectedRole.title);
   if (focusMode) parts.push("Focus");
   parts.push("Jonathan Yu");
@@ -1104,9 +1007,9 @@ function currentViewTitle(activeMode) {
 }
 
 function currentViewDescription(activeMode) {
-  const docContext = selectedMode === "application" ? ` Active packet document: ${selectedDoc}.` : "";
+  const docContext = isPacketMode() ? ` Active packet document: ${selectedDoc}.` : "";
   const focusContext = focusMode ? " Screen-share focus mode is active." : "";
-  return `${activeMode.summary} Selected role: ${selectedRole.title}.${docContext}${focusContext}`;
+  return `${activeMode.summary} Application focus: ${selectedRole.title}.${docContext}${focusContext}`;
 }
 
 function updateDocumentMetadata(activeMode) {
@@ -1121,62 +1024,53 @@ function updateDocumentMetadata(activeMode) {
 }
 
 function presenterCueFor(modeId) {
-  const roleTitle = selectedRole.title;
   const cues = {
+    fit: {
+      label: "Recruiter takeaway",
+      title: "The fit is adoption work, not a resume claim.",
+      body: "The source facts and projects point to one outcome: customer workflow mapping, technical readiness, value realization, and product feedback."
+    },
     resume: {
-      label: "Opening move",
-      title: "Anchor the conversation in a real resume before expanding the proof.",
-      body: `Start with chronology, credentials, and measurable outcomes, then frame everything through ${roleTitle}.`
+      label: "Resume evidence",
+      title: "The chronology shows customer translation.",
+      body: "Sales, education, events, and product building establish the base for technical enablement and adoption."
     },
     projects: {
-      label: "Portfolio move",
-      title: "Move from claims to shipped artifacts.",
-      body: "Show Codex-assisted builds as evidence of product judgment, workflow mapping, technical follow-through, and client-facing delivery."
-    },
-    education: {
-      label: "Communication move",
-      title: "Prove the ability to teach complicated material clearly.",
-      body: "Use playable videos, podcast work, writing, and GPT guides as public proof of explanation, trust, and audience pacing."
-    },
-    application: {
-      label: "Packet move",
-      title: "Turn the portfolio into the exact role conversation.",
-      body: "Open the selected resume, cover letter, or 30-60-90 plan when the interviewer wants concrete next-step material."
-    },
-    fit: {
-      label: "Closing move",
-      title: "Close with the role narrative and the strongest proof sequence.",
-      body: `Tie the transferable story back to ${roleTitle}, then ask what evidence would make the hiring decision easier.`
+      label: "Portfolio evidence",
+      title: "The projects make the resume inspectable.",
+      body: "Shipped products, public teaching, validation, and client-facing artifacts turn claims into reviewable proof."
     }
   };
 
   return cues[modeId] || cues.resume;
 }
 
-function presentationStepButton(mode, index) {
-  const active = mode.id === selectedMode;
-  return `
-    <button class="presentation-step ${active ? "is-active" : ""}" data-mode="${mode.id}" type="button" ${active ? 'aria-current="step"' : ""}>
-      <span>${String(index + 1).padStart(2, "0")}</span>
-      <strong>${modeShortLabel(mode.label)}</strong>
-    </button>
-  `;
+function proofArcItems(role = selectedRole) {
+  return [
+    {
+      label: "Resume",
+      value: role.headline
+    },
+    {
+      label: "Portfolio",
+      value: role.proof?.[0] || role.strengths?.[0] || role.fit
+    },
+    {
+      label: "OpenAI fit",
+      value: role.planTheme || role.talkTrack || role.fit
+    }
+  ];
 }
 
 function renderPresentationCommandCenter(activeMode) {
   const cue = presenterCueFor(activeMode.id);
-  const previousMode = modeAtOffset(-1);
-  const nextMode = modeAtOffset(1);
 
   return `
-    <section class="presentation-command" aria-label="Interview presentation controls">
+    <section class="presentation-command" aria-label="Interview presentation status">
       <div class="presentation-path">
-        <div class="presentation-progress" role="list" aria-label="Walkthrough path">
-          ${modes.map(presentationStepButton).join("")}
-        </div>
         <p>
-          <span>Interview flow</span>
-          <strong>Resume facts / built proof / public teaching / packet / close.</strong>
+          <span>Review path</span>
+          <strong>Resume evidence / portfolio proof / OpenAI fit.</strong>
         </p>
       </div>
       <div class="presentation-cue">
@@ -1185,18 +1079,23 @@ function renderPresentationCommandCenter(activeMode) {
         <p>${presentationText(cue.body)}</p>
       </div>
       <div class="presentation-next">
-        <span>Selected role</span>
+        <span>Application focus</span>
         <strong>${presentationText(selectedRole.title)}</strong>
         <p>${presentationText(selectedRole.fit)}</p>
-        <div class="presentation-nav">
-          <button class="step-control" data-step-prev type="button" aria-label="Previous walkthrough section">Previous</button>
-          <b>${modeShortLabel(previousMode.label)} / ${modeShortLabel(nextMode.label)}</b>
-          <button class="step-control" data-step-next type="button" aria-label="Next walkthrough section">Next</button>
-        </div>
-        <div class="presentation-brief">
-          <span>Copyable role brief</span>
-          <p><b>${presentationText(selectedRole.headline)}</b>${presentationText(selectedRole.planTheme || selectedRole.strengths?.[0] || selectedRole.talkTrack)}</p>
-          ${copyBriefButton()}
+        <div class="proof-arc" aria-label="Recruiter proof arc">
+          <span>Proof arc</span>
+          <div class="proof-arc-grid">
+            ${proofArcItems(selectedRole)
+              .map(
+                (item) => `
+                  <div>
+                    <b>${presentationText(item.label)}</b>
+                    <p>${presentationText(item.value)}</p>
+                  </div>
+                `
+              )
+              .join("")}
+          </div>
         </div>
       </div>
     </section>
@@ -1229,6 +1128,14 @@ function episodeEmbedUrl(episode) {
 }
 
 function projectCaseStudyCard(study, index) {
+  const reviewRows = [
+    { label: "Process", value: study.process },
+    { label: "Output", value: study.output },
+    { label: "Validation", value: study.validation },
+    { label: "Limitations", value: study.limitations },
+    { label: "Role relevance", value: study.roleRelevance }
+  ].filter((row) => row.value);
+
   return `
     <article class="case-study-card">
       <div class="case-study-number">${String(index + 1).padStart(2, "0")}</div>
@@ -1244,6 +1151,28 @@ function projectCaseStudyCard(study, index) {
           <div>
             <b>Evidence</b>
             <div class="case-study-evidence">${study.evidence.map((item) => `<em>${presentationText(item)}</em>`).join("")}</div>
+          </div>
+        </div>
+        <div class="case-study-review">
+          ${reviewRows
+            .map(
+              (row) => `
+                <div>
+                  <b>${presentationText(row.label)}</b>
+                  <p>${presentationText(row.value)}</p>
+                </div>
+              `
+            )
+            .join("")}
+        </div>
+        <div class="case-study-ownership">
+          <div>
+            <b>What AI did</b>
+            <p>${presentationText(study.aiDid)}</p>
+          </div>
+          <div>
+            <b>What Jonathan decided</b>
+            <p>${presentationText(study.jonathanDecided)}</p>
           </div>
         </div>
         <footer>
@@ -1265,32 +1194,28 @@ function interviewAnswerCards(role) {
       question: "Tell me about yourself for this role.",
       answer: `I am a ${role.headline}. For ${role.title}, I would focus the conversation on ${role.planTheme || role.fit}.`,
       proof: strengths[0] || proof[0] || role.fit,
-      nextMode: "resume",
-      nextLabel: "Open Resume"
+      reference: "Resume evidence"
     },
     {
-      label: "Builder proof",
+      label: "Portfolio proof",
       question: "What is the strongest evidence that you can do the work?",
       answer: "Start with the shipped product artifacts: Sip Studies, Sipopedia, Critical On Hand, and the Codex-assisted project body. They show the work beyond a PDF.",
       proof: proof[0] || strengths[0] || "Sip Studies, Sipopedia, and role-specific packet proof.",
-      nextMode: "projects",
-      nextLabel: "Open Projects"
+      reference: "Portfolio proof"
     },
     {
       label: "Translation risk",
       question: "How does your background translate into this role?",
       answer: riskControls[1].control,
       proof: strengths[1] || proof[1] || role.talkTrack,
-      nextMode: "education",
-      nextLabel: "Open Media"
+      reference: "Portfolio proof"
     },
     {
       label: "First 90 days",
       question: "How would you start if hired?",
       answer: "Use the 30-60-90 plan as the operating answer: learn the customer workflow, build reusable enablement artifacts, measure adoption, and feed product signals back to the team.",
       proof: role.planTheme || strengths[2] || proof[2] || role.fit,
-      nextMode: "application",
-      nextLabel: "Open Packet"
+      reference: "OpenAI Fit"
     }
   ];
 }
@@ -1305,7 +1230,10 @@ function interviewAnswerCard(card, index) {
         <b>Proof to name</b>
         <p>${presentationText(card.proof)}</p>
       </div>
-      <button class="answer-jump" data-mode="${card.nextMode}" type="button">${presentationText(card.nextLabel)}</button>
+      <div class="answer-reference">
+        <b>Evidence section</b>
+        <span>${presentationText(card.reference)}</span>
+      </div>
     </article>
   `;
 }
@@ -1329,6 +1257,115 @@ function renderInterviewAnswerBoard() {
   `;
 }
 
+function timeboxCards(role) {
+  return [
+    {
+      mark: "0:00",
+      title: "Decision thesis",
+      body: role.headline,
+      proof: role.fit
+    },
+    {
+      mark: "0:30",
+      title: "Portfolio proof",
+      body: role.strengths?.[0] || role.proof?.[0] || role.resumeSummary,
+      proof: role.proof?.[0] || role.talkTrack
+    },
+    {
+      mark: "1:00",
+      title: "Adoption proof",
+      body: role.talkTrack,
+      proof: role.strengths?.[1] || role.planTheme
+    },
+    {
+      mark: "1:30",
+      title: "Packet evidence",
+      body: "The role resume, cover letter, and 30-60-90 plan support the same adoption story after the fit is clear.",
+      proof: role.planTheme || role.demoMove
+    }
+  ];
+}
+
+function renderTimeboxedRead() {
+  return `
+    <section class="timebox-read" aria-label="Ninety second OpenAI resume read">
+      <div class="timebox-head">
+        <p class="eyebrow">90-second closer</p>
+        <h3>What a busy OpenAI panel should remember after the walkthrough.</h3>
+        <p>The resume and portfolio have already shown the source facts. This closer compresses the hiring argument: why the AI Success pivot makes sense, which proof is strongest, and how the packet supports the decision.</p>
+      </div>
+      <div class="timebox-grid">
+        ${timeboxCards(selectedRole)
+          .map(
+            (card) => `
+              <article class="timebox-card">
+                <span>${card.mark}</span>
+                <h4>${presentationText(card.title)}</h4>
+                <p>${presentationText(card.body)}</p>
+                <b>${presentationText(card.proof)}</b>
+              </article>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+function interviewerLensCards(role) {
+  return [
+    {
+      label: "Hiring manager",
+      question: "Can he help customers adopt OpenAI faster?",
+      answer: role.resumeSummary,
+      proof: role.proof?.[0] || role.strengths?.[0]
+    },
+    {
+      label: "Team member",
+      question: "Will he be useful in the work, not just polished in the interview?",
+      answer: role.strengths?.[0] || role.fit,
+      proof: "Inspect the shipped products, validation scripts, public artifacts, and role-specific packet."
+    },
+    {
+      label: "HR screen",
+      question: "Is the career transition coherent and defensible?",
+      answer: role.headline,
+      proof: "10+ years customer-facing work, quantified commercial outcomes, teaching proof, and AI-enabled product building."
+    },
+    {
+      label: "Supervisor",
+      question: "Will he create leverage in the first quarter?",
+      answer: role.planTheme,
+      proof: role.strengths?.[1] || role.talkTrack
+    }
+  ];
+}
+
+function renderInterviewerLensPanel() {
+  return `
+    <section class="interviewer-lens-panel" aria-label="OpenAI interview panel lens">
+      <div class="interviewer-lens-head">
+        <p class="eyebrow">OpenAI interview lens</p>
+        <h3>Answer the room, not just the resume parser.</h3>
+      </div>
+      <div class="interviewer-lens-grid">
+        ${interviewerLensCards(selectedRole)
+          .map(
+            (card) => `
+              <article class="interviewer-lens-card">
+                <span>${presentationText(card.label)}</span>
+                <h4>${presentationText(card.question)}</h4>
+                <p>${presentationText(card.answer)}</p>
+                <b>${presentationText(card.proof)}</b>
+              </article>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
 function proofMatrixRows(role) {
   return [
     {
@@ -1336,7 +1373,7 @@ function proofMatrixRows(role) {
       focus: role.fit,
       proof: role.strengths?.[0] || role.proof?.[0] || role.resumeSummary,
       artifact: "Resume",
-      action: "Open Resume",
+      action: "Packet Resume",
       doc: "Resume"
     },
     {
@@ -1344,7 +1381,7 @@ function proofMatrixRows(role) {
       focus: role.coverFocus || role.resumeSummary,
       proof: role.talkTrack || role.demoMove,
       artifact: "Cover Letter",
-      action: "Open Cover Letter",
+      action: "Packet Cover Letter",
       doc: "Cover Letter"
     },
     {
@@ -1352,7 +1389,7 @@ function proofMatrixRows(role) {
       focus: role.planTheme || role.fit,
       proof: role.strengths?.[1] || role.proof?.[1] || role.talkTrack,
       artifact: "30-60-90 Plan",
-      action: "Open Plan",
+      action: "Packet Plan",
       doc: "30-60-90"
     },
     {
@@ -1360,14 +1397,16 @@ function proofMatrixRows(role) {
       focus: "Shipped work that can be inspected and discussed beyond the packet.",
       proof: role.proof?.[0] || role.strengths?.[0] || "Codex Projects, Sip Studies, Sipopedia, and Critical On Hand proof.",
       artifact: "Codex Projects",
-      action: "Open Projects",
-      mode: "projects"
+      action: "Portfolio proof"
     }
   ];
 }
 
 function proofMatrixCard(row, index) {
-  const actionAttrs = row.doc ? `data-doc="${row.doc}"` : `data-mode="${row.mode}"`;
+  const action = row.doc
+    ? `<button class="matrix-action" data-doc="${row.doc}" type="button">${presentationText(row.action)}</button>`
+    : `<span class="matrix-reference">${presentationText(row.action)}</span>`;
+
   return `
     <article class="proof-matrix-card">
       <span>${String(index + 1).padStart(2, "0")} ${presentationText(row.label)}</span>
@@ -1377,7 +1416,7 @@ function proofMatrixCard(row, index) {
         <b>Evidence to cite</b>
         <p>${presentationText(row.proof)}</p>
       </div>
-      <button class="matrix-action" ${actionAttrs} type="button">${presentationText(row.action)}</button>
+      ${action}
     </article>
   `;
 }
@@ -1386,13 +1425,13 @@ function renderProofMatrix() {
   const rows = proofMatrixRows(selectedRole);
 
   return `
-    <section class="proof-matrix" aria-label="Role proof matrix">
+    <section class="proof-matrix" aria-label="Role proof map">
       <div class="proof-matrix-head">
         <div>
-          <p class="eyebrow">Role proof matrix</p>
-          <h3>Map each hiring question to the artifact that answers it.</h3>
+          <p class="eyebrow">Role proof map</p>
+          <h3>Open the next artifact only when it helps the hiring decision.</h3>
         </div>
-        <p>This keeps the application tab from becoming a document shelf. The selected role defines the claim, the proof to cite, and the next file or tab to open.</p>
+        <p>The selected role defines the claim, the proof to cite, and the next file or tab to open. The packet supports the argument instead of becoming the argument.</p>
       </div>
       <div class="proof-matrix-grid">
         ${rows.map(proofMatrixCard).join("")}
@@ -1643,7 +1682,7 @@ function renderResumeLensPanel() {
       <div>
         <p class="eyebrow">Presenter lens</p>
         <h3>Read the resume through the ${selectedRole.title} conversation.</h3>
-        <p>This panel keeps the Full Resume tab from becoming a static archive. It tells the viewer what to notice first, where the pivot is strongest, and how to move from chronology into proof.</p>
+        <p>This panel keeps the resume from becoming a static archive. It tells the viewer what to notice before moving into the portfolio and OpenAI Fit.</p>
       </div>
       <div class="resume-lens-grid">
         ${resumeLensCards()
@@ -1653,6 +1692,86 @@ function renderResumeLensPanel() {
                 <span>${card.label}</span>
                 <strong>${card.title}</strong>
                 <p>${presentationText(card.body)}</p>
+              </article>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+function resumeDetailCards() {
+  const experienceHighlights = resume.experience
+    .map((job) => job.bullets?.[0])
+    .filter(Boolean)
+    .slice(0, 4);
+  const marketScale = [
+    "$2.291M wine revenue lift within Lee's Liquor",
+    "3,500+ placements expanded through Breakthru Beverage work",
+    "20,000 Sipopedia candidate rows with review/source metadata",
+    "69 Supabase migrations + 5 Edge Functions in the Sip Studies platform"
+  ];
+
+  return [
+    {
+      title: "Profile",
+      body: selectedRole.resumeSummary,
+      items: selectedRole.strengths?.slice(0, 3) || []
+    },
+    {
+      title: "Experience",
+      body: "Experience is framed around customer adoption, technical enablement, account analytics, education, and product implementation.",
+      items: experienceHighlights
+    },
+    {
+      title: "Certifications",
+      body: "The credential stack shows repeated yearly growth, disciplined study, and credibility in a complex knowledge domain.",
+      items: resume.certs.slice(0, 5)
+    },
+    {
+      title: "Skills",
+      body: "Skills are selected for AI Success work: workflow mapping, use-case validation, KPI baselines, technical enablement, and stakeholder communication.",
+      items: selectedRole.skills?.slice(0, 6) || resume.skills.slice(0, 6)
+    },
+    {
+      title: "Highlights",
+      body: "Top proof points connect each role to OpenAI's customer adoption, technical readiness, and value-realization needs.",
+      items: selectedRole.proof?.slice(0, 4) || []
+    },
+    {
+      title: "Market Scale",
+      body: "Scale points show that the work has moved real audiences, data, revenue, learning assets, and production-minded systems.",
+      items: marketScale
+    },
+    {
+      title: "Focus + Edu",
+      body: "The market advantage is the combination of AI product fluency, adult education, formal beverage credentials, architecture/design training, and customer-facing execution.",
+      items: [
+        resume.education,
+        "MIT AI Strategy plus wine, spirits, sake, beer, and sommelier credentials",
+        "AARP Wine Walk Wednesdays taught 50+ active adults through live and recorded sessions across all 50 states"
+      ]
+    }
+  ];
+}
+
+function renderResumeDetailsDeck() {
+  return `
+    <section class="resume-details-deck" aria-label="AI Success resume format details">
+      <div class="resume-details-head">
+        <p class="eyebrow">Resume details</p>
+        <h3>Format the resume around the AI Success hiring question.</h3>
+        <p>These cards translate the source resume into the exact review pattern for this application: profile, experience, certifications, skills, highlights, market scale, and focus plus education.</p>
+      </div>
+      <div class="resume-details-grid">
+        ${resumeDetailCards()
+          .map(
+            (card) => `
+              <article class="resume-detail-card">
+                <span>${presentationText(card.title)}</span>
+                <p>${presentationText(card.body)}</p>
+                <ul>${card.items.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
               </article>
             `
           )
@@ -1721,92 +1840,129 @@ function renderRoleContext() {
   `;
 }
 
-function renderRoleFit() {
+function renderAiSuccessSourceCheck() {
   return `
-    ${renderHero("Hiring-team close", "Close the walkthrough with the selected role narrative, the strongest proof, the direct questions to answer, and the documents to open in the conversation.", heroImages.fit)}
-    ${renderRoleContext()}
-    <section class="brief-layout">
-      <article class="signal-panel identity-signal">
-        <p class="eyebrow">Selected role narrative</p>
-        <h3>${presentationText(selectedRole.headline)}</h3>
-        <p>${presentationText(selectedRole.resumeSummary)}</p>
-        <div class="signal-actions">
-          ${artifactButton("Role Resume", docsFor(selectedRole).Resume.pdf)}
-          ${artifactButton("Cover Letter", docsFor(selectedRole)["Cover Letter"].pdf)}
-          ${artifactButton("30-60-90 Plan", docsFor(selectedRole)["30-60-90"].pdf)}
-        </div>
-      </article>
-      <div class="readiness-grid">
-        ${signalGrades.map(gradeCard).join("")}
+    <section class="source-check-panel" aria-label="AI Success Engineer source facts">
+      <div>
+        <p class="eyebrow">Fact-checked role source</p>
+        <h3>${aiSuccessPostingFacts.title}</h3>
+        <p>Verified against the live OpenAI careers page on ${aiSuccessPostingFacts.verifiedDate}. The closer should stay anchored to post-sales ownership, workflow mapping, technical readiness, adoption velocity, KPIs, and measurable customer value.</p>
+        <a class="artifact-link" href="${aiSuccessPostingFacts.sourceUrl}" target="_blank" rel="noreferrer">Open posting <span>OPENAI</span></a>
       </div>
-    </section>
-
-    ${renderInterviewAnswerBoard()}
-
-    <section class="executive-grid">
-      <article class="evidence-chain">
-        <p class="eyebrow">Strongest proof</p>
-        <h3>What to emphasize in the conversation</h3>
-        <div>
-          ${selectedRole.strengths
-            .slice(0, 5)
-            .map(
-              (item, index) => `
-                <span>
-                  <b>Point 0${index + 1}</b>
-                  <strong>${presentationText(item)}</strong>
-                  <em>Role-specific proof</em>
-                </span>
-              `
-            )
-            .join("")}
-        </div>
-      </article>
-      <article class="risk-register">
-        <p class="eyebrow">Interview questions</p>
-        <h3>How to answer the likely questions</h3>
-        <div class="risk-grid">
-          ${riskControls
-            .map(
-              (item) => `
-                <span>
-                  <b>${item.risk}</b>
-                  <small>${item.control}</small>
-                </span>
-              `
-            )
-            .join("")}
-        </div>
-      </article>
+      <div class="source-facts-grid">
+        <span><b>Team</b>${aiSuccessPostingFacts.roleTeam}</span>
+        <span><b>Location</b>${aiSuccessPostingFacts.roleLocation}</span>
+        <span><b>Compensation</b>${aiSuccessPostingFacts.payRange}</span>
+      </div>
+      <div class="source-facts-list">
+        <b>Role facts to mirror</b>
+        <ul>${aiSuccessPostingFacts.roleFacts.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
+        <div>${aiSuccessPostingFacts.successSignals.map((item) => `<em>${presentationText(item)}</em>`).join("")}</div>
+      </div>
     </section>
   `;
 }
 
-function renderApplicationProof() {
-  const docs = docsFor(selectedRole);
-  const activeDoc = docs[selectedDoc];
+function renderAiBuildOwnership() {
   return `
-    ${renderHero("Application proof packet", "The walkthrough closes with the selected role packet: resume, cover letter, 30-60-90 plan, resume pivot, and the exact interview proof sequence.", heroImages.application)}
-    ${renderRoleContext()}
-    <section class="role-panel">
-      <div class="role-summary">
-        <div class="priority">Resume pivot</div>
-        <h3>${presentationText(selectedRole.headline)}</h3>
-        <p>${presentationText(selectedRole.coverFocus || selectedRole.resumeSummary)}</p>
-        <div class="meta-grid">
-          <span><b>Core proof</b>${presentationText(selectedRole.strengths?.[0] || selectedRole.proof?.[0])}</span>
-          <span><b>Portfolio proof</b>${presentationText(selectedRole.proof?.[0] || selectedRole.fit)}</span>
-          <span><b>Presentation move</b>${presentationText(selectedRole.demoMove)}</span>
-        </div>
+    <section class="source-check-panel build-ownership-panel" aria-label="Human-owned AI build process">
+      <div>
+        <p class="eyebrow">Employer-facing positioning</p>
+        <h3>AI-assisted product building with human-owned judgment.</h3>
+        <p>I spent years teaching, selling, and operationalizing a complex domain. I then used AI-assisted product building to turn that domain into tools, curriculum, workflows, and proof. I can help a technology company turn powerful products into customer adoption, education, and measurable outcomes.</p>
       </div>
-      <div class="talk-card">
-        <span>Hiring-manager talk track</span>
-        <p>${presentationText(selectedRole.talkTrack)}</p>
+      <div class="source-facts-grid">
+        ${aiBuildOwnership
+          .map(
+            (item) => `
+              <span>
+                <b>${presentationText(item.label)}</b>
+                ${presentationText(item.value)}
+              </span>
+            `
+          )
+          .join("")}
+      </div>
+      <div class="source-facts-list">
+        <b>Language to use in the conversation</b>
+        <ul>${employerFacingPositioning.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
+        <div>${reviewableProjectStandard.map((item) => `<em>${presentationText(item)}</em>`).join("")}</div>
       </div>
     </section>
+  `;
+}
 
-    <section class="document-strip">
-      <div class="doc-tabs" role="tablist" aria-label="Document preview">
+function renderParameterGolfPattern() {
+  return `
+    <section class="source-check-panel parameter-golf-panel" aria-label="OpenAI-style reviewable project pattern">
+      <div>
+        <p class="eyebrow">${parameterGolfReviewPattern.title}</p>
+        <h3>Make projects reviewable like constrained OpenAI submissions.</h3>
+        <p>${presentationText(parameterGolfReviewPattern.body)}</p>
+        <a class="artifact-link" href="${parameterGolfReviewPattern.sourceUrl}" target="_blank" rel="noreferrer">Open Parameter Golf repo <span>GITHUB</span></a>
+        <a class="artifact-link" href="${parameterGolfReviewPattern.articleUrl}" target="_blank" rel="noreferrer">OpenAI writeup <span>OPENAI</span></a>
+      </div>
+      <div class="source-facts-list">
+        <b>Portable review pattern</b>
+        <ul>${parameterGolfReviewPattern.steps.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
+        <div>${reviewableProjectStandard.map((item) => `<em>${presentationText(item)}</em>`).join("")}</div>
+      </div>
+    </section>
+  `;
+}
+
+function renderPacketPdfRail(role = selectedRole) {
+  const docs = docsFor(role);
+  return `
+    <section class="packet-pdf-rail" aria-label="Downloadable application packet PDFs">
+      <div>
+        <p class="eyebrow">Download packet PDFs</p>
+        <h3>Resume, Cover Letter, and 30-60-90 Plan.</h3>
+        <p>Use these when the interviewer asks for the formal artifact behind the walkthrough.</p>
+      </div>
+      <div class="doc-actions">
+        ${artifactButton("Resume", docs.Resume.pdf, "PDF")}
+        ${artifactButton("Cover Letter", docs["Cover Letter"].pdf, "PDF")}
+        ${artifactButton("30-60-90", docs["30-60-90"].pdf, "PDF")}
+      </div>
+    </section>
+  `;
+}
+
+function renderPortfolioMediaProof() {
+  const teachingLinks = [
+    { label: "AARP Wine Walk Wednesdays", handle: "adult education proof", href: "https://www.youtube.com/@jonyu836/videos" },
+    { label: "AI Winecast", handle: "podcast/audio proof", href: "https://open.spotify.com/show/2LSWrWDTlPOMgnZkGfUPE1" },
+    { label: "Sip Studies Instagram", handle: "public media proof", href: "https://www.instagram.com/sip.studies/" },
+    { label: "Flavor Blog", handle: "writing/publishing proof", href: "https://sipopedia.com/#app/flavor-blog" }
+  ];
+
+  return `
+    <section class="portfolio-media-proof" aria-label="Public teaching and media portfolio proof">
+      <div>
+        <p class="eyebrow">Public teaching proof</p>
+        <h3>Education is part of the AI Success portfolio, not a separate detour.</h3>
+        <p>AI Success needs people who can explain new technology, pace adoption, build confidence, and turn complex material into useful behavior. These public channels support that claim.</p>
+      </div>
+      <div class="link-grid">${teachingLinks.map(linkCard).join("")}</div>
+    </section>
+  `;
+}
+
+function renderRoleFit() {
+  const docs = docsFor(selectedRole);
+  const activeDoc = docs[selectedDoc];
+
+  return `
+    ${renderHero("OpenAI Fit", "Close the walkthrough with the live AI Success Engineer requirements, strongest proof, and downloadable application packet.", heroImages.fit)}
+    ${renderRoleContext()}
+    ${renderAiSuccessSourceCheck()}
+    ${renderAiBuildOwnership()}
+    ${renderPacketPdfRail(selectedRole)}
+    ${renderTimeboxedRead()}
+    ${renderInterviewerLensPanel()}
+    <section class="document-strip document-strip--fit" aria-label="Role packet documents">
+      <div class="doc-tabs" role="tablist" aria-label="Role packet documents">
         ${Object.keys(docs)
           .map((name) => {
             const isActive = name === selectedDoc;
@@ -1834,44 +1990,28 @@ function renderApplicationProof() {
         ${artifactButton("Open Markdown", activeDoc.md, "MD")}
       </div>
     </section>
-
-    ${renderProofMatrix()}
-
-    <section class="preview-grid">
+    <section class="fit-packet-grid">
       ${renderSelectedDocumentPanel(selectedDoc, activeDoc)}
       <div class="proof-stack">
-        <h3>Why the packet qualifies him</h3>
+        <h3>Why the selected role makes sense</h3>
         <ul>${selectedRole.proof.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
-        <div class="demo-note">
-          <b>Interview proof sequence</b>
-          <p>Traditional resume, project artifact, public education proof, role packet, measurable outcome, next decision.</p>
-        </div>
       </div>
     </section>
-
-    <section class="principle-board">
-      ${applicationItems
-        .map(
-          (item, index) => `
-            <article class="principle-item">
-              <span>0${index + 1}</span>
-              <h3>${item.title}</h3>
-              <p>${item.body}</p>
-            </article>
-          `
-        )
-        .join("")}
-    </section>
+    ${renderProofMatrix()}
+    ${renderInterviewAnswerBoard()}
   `;
 }
 
 function renderFullResume() {
   return `
-    ${renderHero("Full resume presentation", "Begin with the conventional resume: full chronology, credentials, outcomes, public links, and source-backed experience before moving into portfolio proof.", heroImages.resume)}
+    ${renderHero("Resume reference", "Start here: the source-backed job history reframed for the AI Success Engineer application.", heroImages.resume)}
     ${renderRoleContext()}
+    ${renderPacketPdfRail(selectedRole)}
+    ${renderResumeDetailsDeck()}
+    ${renderAiBuildOwnership()}
     <section class="resume-head">
       <div>
-        <p class="eyebrow">Traditional resume source view</p>
+        <p class="eyebrow">Resume reference view</p>
         <h2>${resume.name}</h2>
         <strong>${resume.headline}</strong>
         <p>${resume.contact}</p>
@@ -1956,13 +2096,13 @@ function renderFullResume() {
 
 function renderProjects() {
   return `
-    ${renderHero("Codex Projects", "After the traditional resume, walk through the Codex and Replit-assisted body of work: products, client sites, data tools, prototypes, and launch artifacts.", heroImages.projects)}
+    ${renderHero("Portfolio proof", "Move from resume claims to shipped work: products, client sites, data tools, public teaching, and launch artifacts built with Codex and Replit support.", heroImages.projects)}
     ${renderRoleContext()}
     <section class="codex-projects-intro">
       <div>
-        <p class="eyebrow">Portfolio section</p>
-        <h3>Codex Projects is the proof layer between resume history and application fit.</h3>
-        <p>Each project is treated as a client-facing artifact: what was built, what evidence exists, and why the work matters for the selected position.</p>
+        <p class="eyebrow">Portfolio lane</p>
+        <h3>The portfolio is the proof layer between the resume and OpenAI fit.</h3>
+        <p>Each project is treated as a client-facing artifact: what was built, what evidence exists, and why the work matters for AI Success Engineer adoption work.</p>
       </div>
       <div class="codex-projects-tags">
         <span>Codex-assisted builds</span>
@@ -1972,18 +2112,21 @@ function renderProjects() {
         <span>Education products</span>
       </div>
     </section>
+    ${renderParameterGolfPattern()}
     <section class="case-study-board" aria-label="Flagship Codex project case studies">
       <div class="case-study-head">
         <div>
           <p class="eyebrow">Flagship case studies</p>
           <h3>Lead with four stories a hiring team can actually discuss.</h3>
-          <p>These are the highest-signal project examples because each one connects a real problem, a concrete build, proof artifacts, and a specific interview use.</p>
+          <p>These are the highest-signal project examples because each one connects a real problem, process, output, validation, limitations, role relevance, and a specific interview use.</p>
         </div>
         <div class="case-study-selector" aria-label="Case study proof pattern">
           <span>Problem</span>
-          <span>Build</span>
-          <span>Evidence</span>
-          <span>Interview use</span>
+          <span>Process</span>
+          <span>Output</span>
+          <span>Validation</span>
+          <span>Limitations</span>
+          <span>Role relevance</span>
         </div>
       </div>
       <div class="case-study-grid">
@@ -2050,6 +2193,9 @@ function renderProjects() {
         .join("")}
     </section>
 
+    ${renderPortfolioMediaProof()}
+    ${renderEducationMediaSections()}
+
     <section class="asset-band">
       <img src="/assets/sippy-guide.jpg" alt="Sippy guide character" />
       <img src="/assets/roma-guide.jpg" alt="Roma guide character" />
@@ -2062,15 +2208,13 @@ function renderProjects() {
   `;
 }
 
-function renderEducationMedia() {
+function renderEducationMediaSections() {
   return `
-    ${renderHero("Podcast and video education", "The third step shows the public teaching layer as playable media: podcast videos, YouTube lessons, GPT guides, writing, communities, and proof that complex topics can be explained clearly.", heroImages.education)}
-    ${renderRoleContext()}
     <section class="media-showcase">
       <div>
-        <p class="eyebrow">Playable episode library</p>
-        <h3>Podcast and YouTube episodes can be watched directly here.</h3>
-        <p>These cards use embedded YouTube players, so a client or hiring team can press play, pause, scrub, control volume, and fullscreen without leaving the resume walkthrough.</p>
+        <p class="eyebrow">Full video and reference archive</p>
+        <h3>All video outlets and earlier public references live inside Portfolio.</h3>
+        <p>Podcast videos, YouTube lessons, Spotify audio, Instagram reels, Flavor Blog articles, GPT guides, and Bio Site links are presented here so the portfolio reads as a complete body of public proof.</p>
       </div>
       <a class="artifact-link" href="https://open.spotify.com/show/2LSWrWDTlPOMgnZkGfUPE1" target="_blank" rel="noreferrer">AI Winecast on Spotify <span>AUDIO</span></a>
     </section>
@@ -2159,7 +2303,7 @@ function renderEducationMedia() {
         </div>
       </article>
       <article>
-        <p class="eyebrow">Selected role translation</p>
+        <p class="eyebrow">Application translation</p>
         <h3>${selectedRole.title}</h3>
         <p>${presentationText(selectedRole.talkTrack)}</p>
         <div class="tag-cloud">${selectedRole.skills.slice(0, 8).map((skill) => `<span>${presentationText(skill)}</span>`).join("")}</div>
@@ -2169,11 +2313,9 @@ function renderEducationMedia() {
 }
 
 function renderWorkspace() {
+  if (selectedMode === "fit") return renderRoleFit();
   if (selectedMode === "resume") return renderFullResume();
   if (selectedMode === "projects") return renderProjects();
-  if (selectedMode === "education") return renderEducationMedia();
-  if (selectedMode === "application") return renderApplicationProof();
-  if (selectedMode === "fit") return renderRoleFit();
   return renderFullResume();
 }
 
@@ -2193,6 +2335,9 @@ function renderPortraitModal() {
             <strong data-gallery-title>${photo.title}</strong>
             <span data-gallery-count>${galleryCountText()}</span>
             <p data-gallery-caption ${photo.caption ? "" : "hidden"}>${photo.caption}</p>
+            <button class="gallery-pause" data-gallery-pause type="button" aria-pressed="${galleryPaused ? "true" : "false"}" aria-label="${galleryPaused ? "Resume portrait rotation" : "Pause portrait rotation"}">
+              ${galleryPaused ? "Resume" : "Pause"}
+            </button>
           </figcaption>
         </figure>
         <button class="gallery-nav gallery-nav-next" data-gallery-next type="button" aria-label="Next portrait">›</button>
@@ -2240,10 +2385,7 @@ function render() {
         <nav class="mode-list" aria-label="Resume walkthrough sections">
           ${modes.map(navButton).join("")}
         </nav>
-        <p class="rail-label">Position focus</p>
-        <nav class="role-list" aria-label="Application targets">
-          ${roles.map(roleButton).join("")}
-        </nav>
+        ${railPacketButtons(selectedRole)}
       </aside>
       <section class="workspace" id="presentation-content" tabindex="-1">
         <header class="topbar">
@@ -2252,21 +2394,12 @@ function render() {
             <h2>${activeMode.label}</h2>
             <p class="topbar-summary">${activeMode.summary}</p>
           </div>
-          <div class="top-actions">
-            ${artifactButton("Master Resume", `${resumeBase}/JONATHAN_YU_SIP_STUDIES_COMBINED_RESUME_V4_CRITICAL_ON_HAND_2026-06-02.pdf`)}
-            ${artifactButton("Role Resume", docsFor(selectedRole).Resume.pdf)}
-            ${artifactButton("Role Cover Letter", docsFor(selectedRole)["Cover Letter"].pdf)}
-            ${artifactButton("Role 30-60-90", docsFor(selectedRole)["30-60-90"].pdf)}
-            ${copyViewButton()}
-            ${focusModeButton()}
-          </div>
         </header>
         ${renderPresentationCommandCenter(activeMode)}
         ${renderWorkspace()}
       </section>
     </main>
     ${renderPortraitModal()}
-    <div class="copy-status" data-copy-status role="status" aria-live="polite" aria-atomic="true"></div>
   `;
 
   document.body.classList.toggle("is-focus-mode", focusMode);
@@ -2294,26 +2427,13 @@ function bindEvents() {
     restartPortraitRotation();
   });
 
+  document.querySelector("[data-gallery-pause]")?.addEventListener("click", () => {
+    setPortraitRotationPaused(!galleryPaused);
+  });
+
   document.querySelectorAll("[data-mode]").forEach((button) => {
     button.addEventListener("click", () => {
       goToMode(button.dataset.mode);
-    });
-  });
-
-  document.querySelector("[data-step-prev]")?.addEventListener("click", () => {
-    goToMode(modeAtOffset(-1).id);
-  });
-
-  document.querySelector("[data-step-next]")?.addEventListener("click", () => {
-    goToMode(modeAtOffset(1).id);
-  });
-
-  document.querySelectorAll("[data-role]").forEach((button) => {
-    button.addEventListener("click", () => {
-      selectedRole = roles.find((role) => role.id === button.dataset.role);
-      selectedDoc = "Resume";
-      updateUrlState();
-      render();
     });
   });
 
@@ -2342,48 +2462,6 @@ function bindEvents() {
     });
   });
 
-  document.querySelector("[data-copy-view]")?.addEventListener("click", async (event) => {
-    const button = event.currentTarget;
-    const original = button.innerHTML;
-    try {
-      await copyText(window.location.href);
-      showCopyStatus("View link copied.");
-      button.innerHTML = "Copied <span>LINK</span>";
-      window.setTimeout(() => {
-        button.innerHTML = original;
-      }, 1600);
-    } catch {
-      showCopyStatus("Copy failed.");
-      button.innerHTML = "Copy failed <span>LINK</span>";
-      window.setTimeout(() => {
-        button.innerHTML = original;
-      }, 1800);
-    }
-  });
-
-  document.querySelector("[data-copy-brief]")?.addEventListener("click", async (event) => {
-    const button = event.currentTarget;
-    const original = button.innerHTML;
-    try {
-      await copyText(roleBriefText(selectedRole));
-      showCopyStatus("Role brief copied.");
-      button.innerHTML = "Copied brief <span>TXT</span>";
-      window.setTimeout(() => {
-        button.innerHTML = original;
-      }, 1600);
-    } catch {
-      showCopyStatus("Copy failed.");
-      button.innerHTML = "Copy failed <span>TXT</span>";
-      window.setTimeout(() => {
-        button.innerHTML = original;
-      }, 1800);
-    }
-  });
-
-  document.querySelector("[data-focus-mode]")?.addEventListener("click", () => {
-    setFocusMode(!focusMode);
-  });
-
 }
 
 function updatePortraitModal() {
@@ -2395,6 +2473,7 @@ function updatePortraitModal() {
   const title = modal.querySelector("[data-gallery-title]");
   const count = modal.querySelector("[data-gallery-count]");
   const caption = modal.querySelector("[data-gallery-caption]");
+  const pauseButton = modal.querySelector("[data-gallery-pause]");
 
   if (image) {
     image.src = photo.src;
@@ -2407,6 +2486,12 @@ function updatePortraitModal() {
   if (caption) {
     caption.textContent = photo.caption;
     caption.hidden = !photo.caption;
+  }
+
+  if (pauseButton) {
+    pauseButton.textContent = galleryPaused ? "Resume" : "Pause";
+    pauseButton.setAttribute("aria-pressed", galleryPaused ? "true" : "false");
+    pauseButton.setAttribute("aria-label", galleryPaused ? "Resume portrait rotation" : "Pause portrait rotation");
   }
 
   modal.hidden = !galleryOpen;
@@ -2434,12 +2519,23 @@ function stopPortraitRotation() {
 
 function restartPortraitRotation() {
   stopPortraitRotation();
-  startPortraitRotation();
+  if (!galleryPaused) startPortraitRotation();
+}
+
+function setPortraitRotationPaused(nextPaused) {
+  galleryPaused = Boolean(nextPaused);
+  if (galleryPaused) {
+    stopPortraitRotation();
+  } else {
+    startPortraitRotation();
+  }
+  updatePortraitModal();
 }
 
 function openPortraitGallery(index = activePortraitIndex) {
   if (!portraitGallery.length) return;
   galleryOpen = true;
+  galleryPaused = false;
   setPortraitIndex(index);
   startPortraitRotation();
 }
@@ -2491,21 +2587,6 @@ document.addEventListener("keydown", (event) => {
   }
 
   if (event.altKey || event.ctrlKey || event.metaKey) return;
-
-  if (event.key === "ArrowLeft") {
-    event.preventDefault();
-    goToMode(modeAtOffset(-1).id);
-  }
-
-  if (event.key === "ArrowRight") {
-    event.preventDefault();
-    goToMode(modeAtOffset(1).id);
-  }
-
-  if (/^[1-5]$/u.test(event.key)) {
-    event.preventDefault();
-    goToMode(modes[Number(event.key) - 1].id);
-  }
 
   if (event.key.toLowerCase() === "f") {
     event.preventDefault();

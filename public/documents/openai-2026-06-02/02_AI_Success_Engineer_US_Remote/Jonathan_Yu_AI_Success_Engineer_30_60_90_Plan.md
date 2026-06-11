@@ -6,7 +6,7 @@ Location: Remote - US
 Compensation: $234K-$260K + equity
 
 ## Operating Thesis
-Customer adoption roadmaps, technical readiness, account health, KPI baselines, enablement, and expansion signals.
+Customer adoption roadmaps, technical readiness, account health, KPI baselines, enablement, expansion signals, human-owned build process, workflow prototyping, and validated customer artifacts.
 
 The first 90 days should prove three things: fast product fluency, useful customer or learner empathy, and one repeatable operating asset that improves adoption beyond a single account or course.
 
@@ -33,6 +33,13 @@ The first 90 days should prove three things: fast product fluency, useful custom
 - I have shipped at least one artifact the team can reuse: a demo, template, pathway, checklist, playbook, messaging matrix, or account plan.
 - My work produces evidence: workshop feedback, adoption movement, content quality improvement, product feedback, or clearer stakeholder alignment.
 - I have built trust with the immediate team by being useful, precise, and willing to do the hands-on work.
+
+## Reviewable Build Pattern
+- For each customer-facing artifact, document the problem, process, output, validation, limitations, and role relevance.
+- Use Codex-style workflows to prototype, inspect, refactor, test, and document product changes.
+- Identify what AI accelerated, what Jonathan owned, what evidence was checked, and what limitation remains.
+- Treat the prototype plus reasoning, constraints, testing, and customer story as the actual signal.
+
 
 ## Source Posting
 https://openai.com/careers/ai-success-engineer-us-remote-remote-us/

@@ -27,7 +27,7 @@ Posting signals:
 
 Resume alignment:
 - Built and iterated a full-stack application with AI/news routing, terminology workflows, paid access, validation scripts, and product documentation.
-- Uses AI-assisted coding and documentation workflows to turn ambiguous requirements into demos, artifacts, and operational runbooks.
+- Uses advanced prompting, durable goals/threads, and repo-driven AI agent workflows to turn ambiguous requirements into working examples, artifacts, and operational runbooks.
 - Can translate technical workflow changes into approachable training for non-technical, semi-technical, and technical audiences.
 - Has customer-facing sales, enablement, and education experience across beverage, retail, distributor, and virtual learning contexts.
 
@@ -44,10 +44,10 @@ Posting signals:
 - The posting emphasizes technical relationship ownership, adoption roadmaps, workflow mapping, configuration, KPI definition, value realization, and customer enablement.
 
 Resume alignment:
+- Reframes beverage, education, sales, and events as the base layer for customer workflow translation, trust building, and adoption behavior.
+- Uses AI-assisted product building, agentic harnessing, and workflow prototyping to make ambiguous product ideas concrete and reviewable.
+- Keeps the boundary clear: AI accelerates implementation and exploration, while Jonathan owns the judgment, prompts, review, testing, documentation, customer interpretation, and final behavior.
 - Combines hands-on technical product building with long-running customer-facing sales and education responsibilities.
-- Can map ambiguous workflows into structured adoption plans, training materials, metrics, and operating rhythms.
-- Has quantified business impact: 3,500+ placements and a $2.291M wine revenue lift at Lee's Liquor.
-- Built platform systems touching auth, paid access, Supabase, Edge Functions, AI/news routing, validation, and documentation.
 
 ### 3. Product Marketing Manager, Codex
 Team: Marketing

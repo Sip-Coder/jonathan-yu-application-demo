@@ -1,10 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  buildCaptionRows,
+  captionWorkbookFilename,
+  writeCaptionWorkbook
+} from "./portrait-caption-xlsx.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const portraitDir = path.join(root, "public", "assets", "portrait");
 const outPath = path.join(portraitDir, "Jonathan_Yu_Portrait_Caption_Workbook.docx");
+const xlsxOutPath = path.join(portraitDir, captionWorkbookFilename);
 const imagePattern = /\.(jpe?g|png)$/i;
 const emuPerInch = 914400;
 const maxWidthEmu = 6.35 * emuPerInch;
@@ -359,3 +365,8 @@ const entries = [
 fs.writeFileSync(outPath, createZip(entries));
 console.log(`Wrote ${outPath}`);
 console.log(`Portrait photos included: ${photos.length}`);
+
+const captionRows = buildCaptionRows(portraitDir, xlsxOutPath);
+writeCaptionWorkbook(xlsxOutPath, captionRows);
+console.log(`Wrote ${xlsxOutPath}`);
+console.log(`Portrait caption rows: ${captionRows.length}`);

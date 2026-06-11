@@ -9,128 +9,128 @@ const portraitGallery = [
   },
   {
     "filename": "received_408407423126180.jpeg",
-    "title": "Original profile photo",
+    "title": "Giant's Causeway in County Antrim, North Ireland",
     "src": "/assets/portrait/received_408407423126180.jpeg",
-    "alt": "Jonathan Yu portrait photo: Original profile photo",
+    "alt": "Jonathan Yu portrait photo: Giant's Causeway in County Antrim, North Ireland",
     "caption": ""
   },
   {
     "filename": "20170506_204926.jpg",
-    "title": "20170506 204926",
+    "title": "Miguel Gil from Viñas Familia Gil and El Nido during Wine Spectator Grand Tour",
     "src": "/assets/portrait/20170506_204926.jpg",
-    "alt": "Jonathan Yu portrait photo: 20170506 204926",
+    "alt": "Jonathan Yu portrait photo: Miguel Gil from Viñas Familia Gil and El Nido during Wine Spectator Grand Tour",
     "caption": ""
   },
   {
     "filename": "20170913_032427_HDR.jpg",
-    "title": "20170913 032427 HDR",
+    "title": "2017 Tour of CVNE, Imperial, Viña Real, & Viñedos del Contino",
     "src": "/assets/portrait/20170913_032427_HDR.jpg",
-    "alt": "Jonathan Yu portrait photo: 20170913 032427 HDR",
+    "alt": "Jonathan Yu portrait photo: 2017 Tour of CVNE, Imperial, Viña Real, & Viñedos del Contino",
     "caption": ""
   },
   {
     "filename": "20170914_040618.jpg",
-    "title": "20170914 040618",
+    "title": "Maria José from R. Lopez de Heredia, the 3rd oldest winery in Spain",
     "src": "/assets/portrait/20170914_040618.jpg",
-    "alt": "Jonathan Yu portrait photo: 20170914 040618",
+    "alt": "Jonathan Yu portrait photo: Maria José from R. Lopez de Heredia, the 3rd oldest winery in Spain",
     "caption": ""
   },
   {
     "filename": "20190114_121757.jpg",
-    "title": "20190114 121757",
+    "title": "Jean-François Moueix of Chateau La Fleur-Pétrus, Dominus, Napanook, Othello, etc.",
     "src": "/assets/portrait/20190114_121757.jpg",
-    "alt": "Jonathan Yu portrait photo: 20190114 121757",
+    "alt": "Jonathan Yu portrait photo: Jean-François Moueix of Chateau La Fleur-Pétrus, Dominus, Napanook, Othello, etc.",
     "caption": ""
   },
   {
     "filename": "20190908_161542.jpg",
-    "title": "20190908 161542",
+    "title": "Profile",
     "src": "/assets/portrait/20190908_161542.jpg",
-    "alt": "Jonathan Yu portrait photo: 20190908 161542",
+    "alt": "Jonathan Yu portrait photo: Profile",
     "caption": ""
   },
   {
     "filename": "20230528_151007.jpg",
-    "title": "20230528 151007",
+    "title": "With my students before preshift tastings at Cleaver Steakhouse, Las Vegas",
     "src": "/assets/portrait/20230528_151007.jpg",
-    "alt": "Jonathan Yu portrait photo: 20230528 151007",
+    "alt": "Jonathan Yu portrait photo: With my students before preshift tastings at Cleaver Steakhouse, Las Vegas",
     "caption": ""
   },
   {
     "filename": "20240113_140625.jpg",
-    "title": "20240113 140625",
+    "title": "Alex Schulze, Andrew Cooper, and their colleague from 4 Oceans at UFC Apex",
     "src": "/assets/portrait/20240113_140625.jpg",
-    "alt": "Jonathan Yu portrait photo: 20240113 140625",
+    "alt": "Jonathan Yu portrait photo: Alex Schulze, Andrew Cooper, and their colleague from 4 Oceans at UFC Apex",
     "caption": ""
   },
   {
     "filename": "20240222_162818(0) - Copy.jpg",
-    "title": "20240222 162818(0) Copy",
+    "title": "Lawrence Lohr (COO) and Derek Sanderson of J. Lohr Vineyards",
     "src": "/assets/portrait/20240222_162818(0)%20-%20Copy.jpg",
-    "alt": "Jonathan Yu portrait photo: 20240222 162818(0) Copy",
+    "alt": "Jonathan Yu portrait photo: Lawrence Lohr (COO) and Derek Sanderson of J. Lohr Vineyards",
     "caption": ""
   },
   {
     "filename": "20240504_205617.jpg",
-    "title": "20240504 205617",
+    "title": "Working with winemakers at Wine Spectator Grand Tour",
     "src": "/assets/portrait/20240504_205617.jpg",
-    "alt": "Jonathan Yu portrait photo: 20240504 205617",
+    "alt": "Jonathan Yu portrait photo: Working with winemakers at Wine Spectator Grand Tour",
     "caption": ""
   },
   {
     "filename": "20250812_152701.jpg",
-    "title": "20250812 152701",
+    "title": "Breakthru Beverage team trip to J Lohr Vineyards",
     "src": "/assets/portrait/20250812_152701.jpg",
-    "alt": "Jonathan Yu portrait photo: 20250812 152701",
+    "alt": "Jonathan Yu portrait photo: Breakthru Beverage team trip to J Lohr Vineyards",
     "caption": ""
   },
   {
     "filename": "20250812_152829.jpg",
-    "title": "20250812 152829",
+    "title": "Kristen Barnhisel - White Winemaker of J Lohr Vineyards",
     "src": "/assets/portrait/20250812_152829.jpg",
-    "alt": "Jonathan Yu portrait photo: 20250812 152829",
+    "alt": "Jonathan Yu portrait photo: Kristen Barnhisel - White Winemaker of J Lohr Vineyards",
     "caption": ""
   },
   {
     "filename": "20250812_163704.jpg",
-    "title": "20250812 163704",
+    "title": "Jesus Ramirez - Vineyard Operations Manager of J Lohr Vineyards",
     "src": "/assets/portrait/20250812_163704.jpg",
-    "alt": "Jonathan Yu portrait photo: 20250812 163704",
+    "alt": "Jonathan Yu portrait photo: Jesus Ramirez - Vineyard Operations Manager of J Lohr Vineyards",
     "caption": ""
   },
   {
     "filename": "20250813_123554.jpg",
-    "title": "20250813 123554",
+    "title": "Steve Peck - VP of Winemaking of J Lohr Vineyards",
     "src": "/assets/portrait/20250813_123554.jpg",
-    "alt": "Jonathan Yu portrait photo: 20250813 123554",
+    "alt": "Jonathan Yu portrait photo: Steve Peck - VP of Winemaking of J Lohr Vineyards",
     "caption": ""
   },
   {
     "filename": "20250813_150248.jpg",
-    "title": "20250813 150248",
+    "title": "Johnny Perini - Paso Vineyard Manager of J Lohr Vineyards",
     "src": "/assets/portrait/20250813_150248.jpg",
-    "alt": "Jonathan Yu portrait photo: 20250813 150248",
+    "alt": "Jonathan Yu portrait photo: Johnny Perini - Paso Vineyard Manager of J Lohr Vineyards",
     "caption": ""
   },
   {
     "filename": "20250813_204107.jpg",
-    "title": "20250813 204107",
+    "title": "With Derek Sanderson & owner Jerry Lohr of J Lohr Vineyards.",
     "src": "/assets/portrait/20250813_204107.jpg",
-    "alt": "Jonathan Yu portrait photo: 20250813 204107",
+    "alt": "Jonathan Yu portrait photo: With Derek Sanderson & owner Jerry Lohr of J Lohr Vineyards.",
     "caption": ""
   },
   {
     "filename": "20250912_114144.jpg",
-    "title": "20250912 114144",
+    "title": "Carson Benham of Courtney Benham and Martin Ray Wineries",
     "src": "/assets/portrait/20250912_114144.jpg",
-    "alt": "Jonathan Yu portrait photo: 20250912 114144",
+    "alt": "Jonathan Yu portrait photo: Carson Benham of Courtney Benham and Martin Ray Wineries",
     "caption": ""
   },
   {
     "filename": "20250926_141449.jpg",
-    "title": "20250926 141449",
+    "title": "Joe Wagner of Caymus, Meiomi, Boen, Quilt and Threadcount",
     "src": "/assets/portrait/20250926_141449.jpg",
-    "alt": "Jonathan Yu portrait photo: 20250926 141449",
+    "alt": "Jonathan Yu portrait photo: Joe Wagner of Caymus, Meiomi, Boen, Quilt and Threadcount",
     "caption": ""
   }
 ];

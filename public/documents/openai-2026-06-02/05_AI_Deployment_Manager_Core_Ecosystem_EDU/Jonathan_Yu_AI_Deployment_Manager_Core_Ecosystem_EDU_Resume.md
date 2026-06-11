@@ -16,6 +16,7 @@ Educator, founder, and customer-enablement operator with a decade of training, s
 - Can facilitate workshops for non-technical, practitioner, and leadership audiences.
 - Brings field-tested sales enablement, training, and adoption experience from Breakthru and Total Wine.
 
+
 ## Technical, Product, and Enablement Skills
 - AI literacy and education adoption
 - Live workshops and leadership briefings
@@ -30,7 +31,7 @@ Educator, founder, and customer-enablement operator with a decade of training, s
 
 ### Sip Studies - Founder, Product Lead, Beverage Education Platform Builder
 2024 - Present
-- Built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.
+- Using AI-assisted, repo-driven workflows, built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.
 - Created a 20,000-row Sipopedia terminology pipeline with citation/review metadata plus a media-rich learning asset base featuring Sippy, Roma, Hummin, maps, game scenes, academy realms, equipment visuals, and infographics.
 - Developed AI/news routing, Daily Sip editorial automation, terminology workflows, paid-access architecture, validation scripts, and buyer-facing valuation/IP materials around a $4.5M strategic acquisition thesis.
 
@@ -85,7 +86,7 @@ Sep 2013 - Sep 2015
 - 3,500+ placements
 - $2.291M wine revenue lift
 - $4.5M strategic acquisition thesis
-- Built Sip Studies as a React, TypeScript, Vite, Supabase, Stripe, and Edge Function platform across learning, tasting, terminology, maps, AI/news, events, and paid access.
+- Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.
 - Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.
 - Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.
 - Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.
