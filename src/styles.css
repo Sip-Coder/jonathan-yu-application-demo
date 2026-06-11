@@ -648,6 +648,11 @@ a {
   padding: 28px;
 }
 
+.parallax-hero:not(.has-metrics) {
+  min-height: clamp(260px, 32vh, 360px);
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .hero-image {
   position: absolute;
   inset: -10% -4%;
@@ -675,6 +680,11 @@ a {
   font-size: clamp(2.3rem, 6vw, 5.4rem);
   line-height: 0.9;
   color: var(--paper);
+}
+
+.parallax-hero:not(.has-metrics) .hero-copy h2,
+.parallax-hero:not(.has-metrics) .hero-copy p:last-child {
+  max-width: 860px;
 }
 
 .hero-copy p:last-child {
@@ -2938,8 +2948,13 @@ a {
     min-height: 0;
   }
 
-  .parallax-hero {
+  .parallax-hero.has-metrics {
     min-height: 845px;
+    padding: 20px;
+  }
+
+  .parallax-hero:not(.has-metrics) {
+    min-height: 360px;
     padding: 20px;
   }
 

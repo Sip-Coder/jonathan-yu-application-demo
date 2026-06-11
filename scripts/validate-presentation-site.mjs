@@ -203,6 +203,8 @@ check(styles.includes(".reference-preview"), "References tab styling is missing 
 check(main.includes("function renderFullResume()"), "Missing Resume renderer.");
 check(main.includes("Resume reference"), "Resume tab is missing the source-view framing.");
 check(main.includes("function renderResumeDetailsDeck()"), "Resume tab is missing the requested resume details deck.");
+check(main.includes('if (modeId !== "resume") return [];'), "Hero proof metrics should only render on the Resume tab.");
+check(main.includes('const heroClass = metricItems.length ? "parallax-hero has-metrics" : "parallax-hero";'), "Hero should distinguish metric and non-metric layouts.");
 ["Profile", "Experience", "Certifications", "Skills", "Highlights", "Market Scale", "Focus + Edu"].forEach((label) => {
   check(main.includes(label), `Resume details deck is missing ${label}.`);
 });
@@ -445,11 +447,15 @@ check(
 );
 check(
   /\.hero-metrics\s*\{[\s\S]*?grid-template-rows:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\);/.test(styles),
-  "Hero metric cards should reserve four stable rows across tabs."
+  "Resume hero metric cards should reserve four stable rows."
 );
 check(
-  /@media\s*\(max-width:\s*760px\)[\s\S]*?\.parallax-hero\s*\{[\s\S]*?min-height:\s*845px;[\s\S]*?\.hero-copy\s*\{[\s\S]*?min-height:\s*210px;/.test(styles),
-  "Mobile hero should pin the copy area so metric cards start consistently across tabs."
+  /\.parallax-hero:not\(\.has-metrics\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\);/.test(styles),
+  "Non-resume heroes should collapse to a single-column layout without metric cards."
+);
+check(
+  /@media\s*\(max-width:\s*760px\)[\s\S]*?\.parallax-hero\.has-metrics\s*\{[\s\S]*?min-height:\s*845px;[\s\S]*?\.parallax-hero:not\(\.has-metrics\)\s*\{[\s\S]*?min-height:\s*360px;/.test(styles),
+  "Mobile hero should reserve tall spacing only when Resume metrics are present."
 );
 [
   "Skip to presentation content",

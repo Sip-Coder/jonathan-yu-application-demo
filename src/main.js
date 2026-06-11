@@ -824,35 +824,15 @@ function proofMetric(label, value, detail, scale = 76) {
   };
 }
 
-function heroMetricsFor(modeId, role = selectedRole) {
-  const metricSets = {
-    resume: [
-      proofMetric("Career range", "10+", "Years across beverage sales, account analytics, education, live events, and AI-enabled product building.", 82),
-      proofMetric("Commercial lift", "$2.291M", "Wine revenue increase at Lee's Liquor alongside 3,500+ expanded placements.", 88),
-      proofMetric("Founder platform", "20,000", "Sipopedia terminology pipeline rows with citation and review metadata.", 80),
-      proofMetric("Credential stack", `${resume.certs.length}`, "AI strategy, wine, spirits, sake, beer, and sommelier credentials represented in the resume.", 72)
-    ],
-    projects: [
-      proofMetric("Project index", `${codexProjectIndex.length}`, "Portfolio projects across education platforms, client sites, sales ops, finance tools, and prototypes.", 82),
-      proofMetric("Platform build", "69 + 5", "Supabase migrations plus Edge Functions in the Sip Studies production-platform proof.", 74),
-      proofMetric("Terminology data", "20,000", "Sipopedia candidate rows supporting structured education, review, and source-backed terminology.", 80),
-      proofMetric("Product lanes", "3", "Learn, Taste, and Connect surfaces across the Sip Studies workspace.", 70)
-    ],
-    education: [
-      proofMetric("Playable media", `${mediaEpisodes.length + aarpWineWalkVideos.length}`, "Embedded AI Winecast, tasting, and AARP videos can be watched directly in this tab.", 80),
-      proofMetric("Adult learners", "50+", "AARP Wine Walk Wednesdays served 50+ active adults through live and recorded sessions.", 76),
-      proofMetric("Education reach", "All 50", "AARP education was predominantly viewed in Colorado and spanned all 50 states.", 72),
-      proofMetric("Publishing lanes", `${flavorBlogCollections.length}`, "SipStudies.com Blog, Substack, and Daily Sip carry written proof alongside video and audio.", 68)
-    ],
-    fit: [
-      proofMetric("Selected rank", `0${role.rank}`, "Position-focus rank for the current OpenAI target role.", 78),
-      proofMetric("Strengths", `${role.strengths.length}`, "Role-aligned strengths ready for the hiring conversation.", 80),
-      proofMetric("Skill lens", `${Math.min(role.skills.length, 8)}`, "Skills surfaced in the selected role translation panel.", 72),
-      proofMetric("Proof points", `${role.proof.length}`, "Resume-backed examples to use when closing the interview story.", 82)
-    ]
-  };
+function heroMetricsFor(modeId) {
+  if (modeId !== "resume") return [];
 
-  return metricSets[modeId] || metricSets.resume;
+  return [
+    proofMetric("Career range", "10+", "Years across beverage sales, account analytics, education, live events, and AI-enabled product building.", 82),
+    proofMetric("Commercial lift", "$2.291M", "Wine revenue increase at Lee's Liquor alongside 3,500+ expanded placements.", 88),
+    proofMetric("Founder platform", "20,000", "Sipopedia terminology pipeline rows with citation and review metadata.", 80),
+    proofMetric("Credential stack", `${resume.certs.length}`, "AI strategy, wine, spirits, sake, beer, and sommelier credentials represented in the resume.", 72)
+  ];
 }
 
 const app = document.querySelector("#app");
@@ -1887,18 +1867,25 @@ function jobLinks(job) {
   return `<div class="job-links">${job.links.map(linkCard).join("")}</div>`;
 }
 
-function renderHero(title, subtitle, image = heroImages.resume, metricItems = heroMetricsFor(selectedMode, selectedRole)) {
+function renderHero(title, subtitle, image = heroImages.resume, metricItems = heroMetricsFor(selectedMode)) {
+  const heroClass = metricItems.length ? "parallax-hero has-metrics" : "parallax-hero";
+  const metricsMarkup = metricItems.length
+    ? `
+      <div class="hero-metrics" data-parallax-depth="0.02">
+        ${metricItems.map(metricCard).join("")}
+      </div>
+    `
+    : "";
+
   return `
-    <section class="parallax-hero" style="--hero-image:url('${image}')">
+    <section class="${heroClass}" style="--hero-image:url('${image}')">
       <div class="hero-image" data-parallax-depth="-0.08"></div>
       <div class="hero-copy" data-parallax-depth="0.04">
         <p class="eyebrow">Jonathan Yu resume walkthrough</p>
         <h2>${title}</h2>
         <p>${subtitle}</p>
       </div>
-      <div class="hero-metrics" data-parallax-depth="0.02">
-        ${metricItems.map(metricCard).join("")}
-      </div>
+      ${metricsMarkup}
     </section>
   `;
 }
