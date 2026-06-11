@@ -1337,6 +1337,8 @@ a {
   max-height: 58px;
   object-fit: contain;
   flex: 0 0 auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.96;
 }
 
 .education-card h3 {

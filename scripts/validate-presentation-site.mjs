@@ -245,6 +245,10 @@ check(styles.includes(".credential-text-link"), "Credential proof text link styl
 check(fs.existsSync(sakeLogoPath), "WSET Level 2 Sake logo asset is missing.");
 check(fs.existsSync(wsgCswsLogoPath), "WSG/Lustau CSWS logo asset is missing.");
 check(fs.existsSync(ciceroneBeerServerLogoPath), "Cicerone Certified Beer Server logo asset is missing.");
+check(
+  /\.education-card img\s*\{[\s\S]*?filter:\s*brightness\(0\)\s*invert\(1\);/.test(styles),
+  "Wentworth education logo should render as a light mark on the dark education card."
+);
 check(main.includes("Presenter lens"), "Resume tab is missing the presenter lens.");
 check(main.includes("resume-role-bridge"), "Resume tab is missing role-specific timeline bridges.");
 check(main.includes("function renderProjects()"), "Missing Codex Projects renderer.");
