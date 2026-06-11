@@ -1002,6 +1002,20 @@ a {
   line-height: 1.35;
 }
 
+.credential-text-link {
+  color: inherit;
+  font-weight: 850;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.credential-text-link:hover,
+.credential-text-link:focus-visible {
+  color: var(--coral);
+  outline: none;
+}
+
 .portfolio-media-proof {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1fr);

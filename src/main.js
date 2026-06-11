@@ -174,14 +174,30 @@ const parameterGolfReviewPattern = {
   ]
 };
 
+const wineScholarGuildCswsUrl = "https://www.winescholarguild.com/certifications/specialty-courses/certified-sherry-wine-specialist";
+const ciceroneCertifiedBeerServerUrl = "https://www.cicerone.org/us-en/certifications/certified-beer-server";
+const wsetLevel3WineUrl = "https://www.wsetglobal.com/qualifications/wset-level-3-award-in-wines/";
+const wsetLevel2SpiritsUrl = "https://www.wsetglobal.com/qualifications/wset-level-2-award-in-spirits/";
+const wsetLevel2SakeUrl = "https://www.wsetglobal.com/qualifications/wset-level-2-award-in-sake/";
+
+const certificationLinks = new Map([
+  ["WSET - Level 3 Wine", wsetLevel3WineUrl],
+  ["WSET - Level 2 Spirits", wsetLevel2SpiritsUrl],
+  ["WSET - Level 2 Sake", wsetLevel2SakeUrl],
+  ["Wine Scholar Guild / Lustau - CSWS", wineScholarGuildCswsUrl],
+  ["Cicerone - Certified Beer Server L1", ciceroneCertifiedBeerServerUrl]
+]);
+
 const credentialBadges = [
   { label: "MIT AI Strategy", img: `${logoBase}/mit-logo-red-cropped.png` },
   { label: "SWE Certified Wine Educator", img: `${logoBase}/swe-cwe.png`, href: "https://societyofwineeducators.org/education-certifications/" },
   { label: "SWE Certified Specialist of Spirits", img: `${logoBase}/swe-css.png`, href: "https://societyofwineeducators.org/education-certifications/" },
-  { label: "WSET Level 3 Wine", img: `${logoBase}/wset-level-3-wine.png`, href: "https://www.wsetglobal.com" },
-  { label: "WSET Level 2 Spirits", img: `${logoBase}/wset-level-2-spirits.png`, href: "https://www.wsetglobal.com" },
-  { label: "WSET Level 2 Sake", initials: "WSET", href: "https://www.wsetglobal.com" },
-  { label: "CMS Certified Sommelier L2", img: `${logoBase}/cms-level-2.png`, href: "https://www.mastersommeliers.org" }
+  { label: "WSET Level 3 Wine", img: `${logoBase}/wset-level-3-wine.png`, href: wsetLevel3WineUrl },
+  { label: "WSET Level 2 Spirits", img: `${logoBase}/wset-level-2-spirits.png`, href: wsetLevel2SpiritsUrl },
+  { label: "WSET Level 2 Sake", img: `${logoBase}/wset-level-2-sake.png`, href: wsetLevel2SakeUrl },
+  { label: "CMS Certified Sommelier L2", img: `${logoBase}/cms-level-2.png`, href: "https://www.mastersommeliers.org" },
+  { label: "WSG Certified Sherry Wine Specialist", initials: "WSG", href: wineScholarGuildCswsUrl },
+  { label: "Cicerone Certified Beer Server L1", initials: "CBS", href: ciceroneCertifiedBeerServerUrl }
 ];
 
 const codexProjects = [
@@ -1119,6 +1135,17 @@ function credentialBadge(badge) {
   return `<div class="credential-badge">${content}</div>`;
 }
 
+function credentialListItem(item) {
+  const label = presentationText(item);
+  const href = certificationLinks.get(item);
+
+  if (!href) {
+    return `<li>${label}</li>`;
+  }
+
+  return `<li><a class="credential-text-link" href="${href}" target="_blank" rel="noreferrer">${label}</a></li>`;
+}
+
 function youtubeEmbedUrl(videoId) {
   return `https://www.youtube.com/embed/${videoId}`;
 }
@@ -1727,7 +1754,7 @@ function resumeDetailCards() {
     {
       title: "Certifications",
       body: "The credential stack shows repeated yearly growth, disciplined study, and credibility in a complex knowledge domain.",
-      items: resume.certs.slice(0, 5)
+      items: resume.certs
     },
     {
       title: "Skills",
@@ -1771,7 +1798,7 @@ function renderResumeDetailsDeck() {
               <article class="resume-detail-card">
                 <span>${presentationText(card.title)}</span>
                 <p>${presentationText(card.body)}</p>
-                <ul>${card.items.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
+                <ul>${card.items.map(credentialListItem).join("")}</ul>
               </article>
             `
           )
@@ -2047,7 +2074,7 @@ function renderFullResume() {
         <div class="link-grid compact">${publicLinks.map(linkCard).join("")}</div>
         <h3>Credentials</h3>
         <div class="credential-grid">${credentialBadges.map(credentialBadge).join("")}</div>
-        <ul>${resume.certs.map((item) => `<li>${item}</li>`).join("")}</ul>
+        <ul>${resume.certs.map(credentialListItem).join("")}</ul>
         <h3>Skills</h3>
         <div class="tag-cloud">${resume.skills.map((item) => `<span>${presentationText(item)}</span>`).join("")}</div>
       </aside>
