@@ -18,6 +18,8 @@ const dataPath = path.join(root, "src", "master-resume-data.js");
 const portraitPath = path.join(root, "src", "portrait-gallery.js");
 const portraitCaptionWorkbook = path.join(root, "public", "assets", "portrait", "Jonathan_Yu_Portrait_Captions.xlsx");
 const sakeLogoPath = path.join(root, "public", "assets", "logos", "wset-level-2-sake.png");
+const wsgCswsLogoPath = path.join(root, "public", "assets", "logos", "wsg-lustau-csws.png");
+const ciceroneBeerServerLogoPath = path.join(root, "public", "assets", "logos", "cicerone-certified-beer-server.jpg");
 const workbookPath = path.join(workspaceRoot, "Raw Data", "Jonathan_Yu_Resume_Master_Edit.xlsx");
 
 const masterData = (await import(pathToFileURL(dataPath))).default;
@@ -231,12 +233,18 @@ check(main.includes('const heroClass = metricItems.length ? "parallax-hero has-m
   "https://www.wsetglobal.com/qualifications/wset-level-2-award-in-spirits/",
   "https://www.wsetglobal.com/qualifications/wset-level-2-award-in-sake/",
   "https://www.winescholarguild.com/certifications/specialty-courses/certified-sherry-wine-specialist",
-  "https://www.cicerone.org/us-en/certifications/certified-beer-server"
+  "https://www.cicerone.org/us-en/certifications/certified-beer-server",
+  "wsg-lustau-csws.png",
+  "cicerone-certified-beer-server.jpg",
+  "The House of Lustau CSWS Online",
+  "Cicerone Program Certified Beer Server"
 ].forEach((text) => {
   check(main.includes(text), `Credential proof links are missing ${text}.`);
 });
 check(styles.includes(".credential-text-link"), "Credential proof text link styling is missing.");
 check(fs.existsSync(sakeLogoPath), "WSET Level 2 Sake logo asset is missing.");
+check(fs.existsSync(wsgCswsLogoPath), "WSG/Lustau CSWS logo asset is missing.");
+check(fs.existsSync(ciceroneBeerServerLogoPath), "Cicerone Certified Beer Server logo asset is missing.");
 check(main.includes("Presenter lens"), "Resume tab is missing the presenter lens.");
 check(main.includes("resume-role-bridge"), "Resume tab is missing role-specific timeline bridges.");
 check(main.includes("function renderProjects()"), "Missing Codex Projects renderer.");
@@ -647,6 +655,10 @@ if (latestJs) {
     "Wine Scholar Guild / Lustau",
     "Cicerone - Certified Beer Server L1",
     "https://www.wsetglobal.com/qualifications/wset-level-2-award-in-sake/",
+    "wsg-lustau-csws.png",
+    "cicerone-certified-beer-server.jpg",
+    "The House of Lustau CSWS Online",
+    "Cicerone Program Certified Beer Server",
     "credential-text-link",
     "Skip to presentation content",
     "presentation-content"

@@ -194,8 +194,8 @@ const credentialBadges = [
   { label: "WSET Level 2 Spirits", img: `${logoBase}/wset-level-2-spirits.png`, href: wsetLevel2SpiritsUrl },
   { label: "WSET Level 2 Sake", img: `${logoBase}/wset-level-2-sake.png`, href: wsetLevel2SakeUrl },
   { label: "CMS Certified Sommelier L2", img: `${logoBase}/cms-level-2.png`, href: "https://www.mastersommeliers.org" },
-  { label: "WSG Certified Sherry Wine Specialist", initials: "WSG", href: wineScholarGuildCswsUrl },
-  { label: "Cicerone Certified Beer Server L1", initials: "CBS", href: ciceroneCertifiedBeerServerUrl }
+  { label: "The House of Lustau CSWS Online", img: `${logoBase}/wsg-lustau-csws.png`, href: wineScholarGuildCswsUrl },
+  { label: "Cicerone Program Certified Beer Server", img: `${logoBase}/cicerone-certified-beer-server.jpg`, href: ciceroneCertifiedBeerServerUrl }
 ];
 
 const codexProjects = [
