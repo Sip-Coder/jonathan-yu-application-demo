@@ -814,13 +814,13 @@ a {
 
 .resume-details-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
 }
 
 .resume-detail-card {
   min-width: 0;
-  min-height: 310px;
+  min-height: 0;
   display: grid;
   align-content: start;
   gap: 10px;
@@ -838,6 +838,11 @@ a {
   margin-bottom: 7px;
   color: var(--ink);
   line-height: 1.35;
+}
+
+.resume-detail-card p,
+.resume-detail-card ul {
+  max-width: 920px;
 }
 
 .credential-text-link {

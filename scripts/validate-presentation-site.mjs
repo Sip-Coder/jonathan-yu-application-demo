@@ -489,8 +489,12 @@ check(
   "The page should suppress accidental horizontal document scrolling."
 );
 check(
-  /\.resume-details-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(180px,\s*1fr\)\);/.test(styles),
-  "Resume detail cards should wrap inside the workspace instead of forcing a fixed seven-column row."
+  /\.resume-details-grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\);/.test(styles),
+  "Resume detail cards should stack as full-width rows instead of narrow columns."
+);
+check(
+  /\.resume-detail-card\s*\{[\s\S]*?min-height:\s*0;/.test(styles),
+  "Resume detail cards should not reserve column-height spacing after switching to stacked rows."
 );
 check(
   /\.hero-metrics\s*\{[\s\S]*?grid-template-rows:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\);/.test(styles),
