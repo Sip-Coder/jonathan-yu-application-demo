@@ -7,32 +7,31 @@ Las Vegas, NV | JonYu3@gmail.com | 617.637.0668 | SipStudies.com | Sipopedia.com
 Remote US preferred from Las Vegas; open to San Francisco travel or hybrid only for the right economic and career fit.
 
 ## Target Summary
-Customer-facing founder-builder with deep education, sales enablement, product implementation, and workflow adoption experience. Built Sip Studies as an AI-enabled learning and terminology platform while maintaining a decade-long record of customer, supplier, and stakeholder enablement in wine and spirits. Strong fit for AI Success work that requires customer workflow translation, technical-business translation, adoption planning, workshops, account health, and measurable value realization. Uses AI-assisted product building to prototype customer workflows and validate product ideas while keeping a human-owned build process: problem framing, AI-assisted implementation, validation, documentation, and customer interpretation.
+Customer-facing founder-builder with deep education, account analytics, sales enablement, and AI-assisted product implementation experience. Built Sip Studies as a practical AI-enabled learning and terminology product while maintaining a decade-long record of customer, supplier, and stakeholder enablement in wine and spirits. For AI Success, the through-line is translating messy workflows into adoption roadmaps, technical readiness plans, workshops, KPI baselines, and value-realization evidence.
 
 ## Role-Aligned Strengths
-- Reframes beverage, education, sales, and events as the base layer for customer workflow translation, trust building, and adoption behavior.
-- Uses AI-assisted product building, agentic harnessing, and workflow prototyping to make ambiguous product ideas concrete and reviewable.
-- Keeps the boundary clear: AI accelerates implementation and exploration, while Jonathan owns the judgment, prompts, review, testing, documentation, customer interpretation, and final behavior.
+- Translates account and customer workflows into adoption plans, readiness checklists, KPI baselines, and enablement artifacts.
+- Uses AI-assisted product building and repo-driven agent workflows to turn ambiguous use cases into reviewable prototypes, documentation, and operating checklists.
+- Keeps AI use honest: AI accelerates exploration and implementation while Jonathan owns problem framing, prompts, review, testing, documentation, customer interpretation, and final behavior.
 - Combines hands-on technical product building with long-running customer-facing sales and education responsibilities.
 - Can map ambiguous workflows into structured adoption plans, training materials, metrics, and operating rhythms.
 - Has quantified business impact: 3,500+ placements and a $2.291M wine revenue lift at Lee's Liquor.
 - Built platform work touching auth, paid access, Supabase, Edge Functions, AI/news routing, validation, and documentation through AI-assisted development workflows.
 - Experienced at making complex product concepts useful to executives, managers, customers, and learners.
 
-## Human-Owned AI Build Process
-- I use AI-assisted product building to prototype customer workflows and validate product ideas.
-- My build process is human-owned: problem framing, AI-assisted implementation, validation, documentation, and customer interpretation.
-- Every reviewable project should separate what AI did from what Jonathan decided.
-- Beverage, education, sales, and events are the base layer for customer workflow translation, not a detour from technical enablement.
-- The stronger claim is that I know where AI helps, where human judgment remains responsible, and how to build a workflow around that boundary.
+## AI-Assisted Build Method
+- I use AI-assisted product building to prototype workflows, clarify customer value, and turn ambiguous use cases into reviewable artifacts.
+- The human-owned build process stays explicit: problem framing, prompts, implementation review, validation, documentation, customer interpretation, and final behavior.
+- Every reviewable project should separate what AI accelerated from what Jonathan decided, tested, accepted, or rejected.
+- Beverage, education, sales, and events are the base layer for customer workflow translation, trust building, and adoption behavior.
 
 
 ## Technical, Product, and Enablement Skills
-- Customer workflow translation
-- AI-assisted product building
-- Agentic harnessing and Codex-style workflow prototyping
-- Validated build process documentation
-- Technical enablement and customer education
+- Post-sales workflow mapping and adoption roadmaps
+- Technical readiness and KPI/value-realization framing
+- OpenAI product fluency: API, agentic platform, Codex, ChatGPT Enterprise
+- AI-assisted product building and Codex-style workflow prototyping
+- Validated build-process documentation
 - Customer adoption and value realization
 - Technical enablement and configuration framing
 - Workflow mapping and use-case validation
@@ -94,17 +93,15 @@ Sep 2013 - Sep 2015
 ## Selected Proof Points
 - 69 Supabase migrations + 5 Edge Functions
 - 20,000 Sipopedia candidate rows
-- Auth, Stripe, AI/news + terminology pipelines
-- Monitored 3,800+ brands
 - Weekly Critical On Hand POD gap analysis tool
 - Analyzed 95,000 points of distribution in 23 stores
 - 3,500+ placements
 - $2.291M wine revenue lift
 - $4.5M strategic acquisition thesis
+- Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.
+- Every project can be discussed through problem, process, output, validation, limitations, and role relevance.
+- Build artifacts separate what AI did from what Jonathan decided.
 - Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.
 - Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.
 - Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.
-- Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.
 - Built and maintain weekly Critical On Hand / Gap Analysis workbooks to analyze customer POD gaps, on-hand inventory, days on hand, sales movement, incentives, and account opportunities.
-- Earned a Breakthru Beverage Sales Consultant Excellence Award, expanded 3,500+ placements, and increased wine revenue by $2.291M within Lee's Liquor.
-- Wrote wine-class curriculum, instructed customers, trained staff, managed premium wine sales, and supported cellar design at Total Wine & More.

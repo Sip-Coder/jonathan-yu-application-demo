@@ -13,49 +13,65 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 5 0 obj
-<<  /Length 6763 >>
+<<  /Length 6880 >>
 stream
 q
-0.973 0.957 0.918 rg
+0.986 0.976 0.944 rg
 0.00 0.00 612.00 792.00 re f
 Q
 q
-0.020 0.192 0.231 rg
-0.00 0.00 88.00 792.00 re f
+0.015 0.157 0.188 rg
+0.00 0.00 92.00 792.00 re f
+Q
+q
+0.953 0.933 0.875 rg
+92.00 714.00 520.00 78.00 re f
 Q
 q
 0.769 0.569 0.235 rg
-88.00 0.00 4.00 792.00 re f
+92.00 0.00 4.00 792.00 re f
 Q
 BT
 0.910 0.851 0.722 rg
-/F2 10.2 Tf
-18.00 745.80 Td
+/F2 10.4 Tf
+18.00 747.60 Td
 (JONATHAN) Tj
 ET
 BT
 0.910 0.851 0.722 rg
-/F2 15.0 Tf
-18.00 725.00 Td
+/F2 15.4 Tf
+18.00 725.60 Td
 (YU) Tj
 ET
 BT
 0.769 0.569 0.235 rg
-/F2 8.0 Tf
-18.00 696.00 Td
+/F2 8.2 Tf
+18.00 691.80 Td
 (OPENAI) Tj
 ET
 BT
 0.910 0.851 0.722 rg
 /F1 7.4 Tf
-18.00 683.60 Td
+18.00 679.60 Td
 (APPLICATION) Tj
 ET
 BT
 0.910 0.851 0.722 rg
 /F1 7.4 Tf
-18.00 670.60 Td
+18.00 666.60 Td
 (PACKET) Tj
+ET
+BT
+0.769 0.569 0.235 rg
+/F2 7.4 Tf
+18.00 630.60 Td
+(30-60-90 PLAN) Tj
+ET
+BT
+0.910 0.851 0.722 rg
+/F1 6.2 Tf
+18.00 615.80 Td
+(REVIEWED JUNE 12, 2026) Tj
 ET
 BT
 0.910 0.851 0.722 rg
@@ -64,370 +80,364 @@ BT
 (PAGE 1) Tj
 ET
 BT
-0.020 0.192 0.231 rg
-/F2 10.2 Tf
-112.00 750.80 Td
+0.015 0.157 0.188 rg
+/F2 10.4 Tf
+116.00 754.60 Td
 (Jonathan Yu) Tj
 ET
 BT
 0.325 0.412 0.435 rg
-/F1 8.6 Tf
-112.00 736.40 Td
+/F1 8.7 Tf
+116.00 740.30 Td
 (30-60-90 Plan | OpenAI application packet) Tj
 ET
 BT
+0.043 0.267 0.318 rg
+/F2 7.8 Tf
+116.00 728.20 Td
+(Deployed Product Manager, Codex) Tj
+ET
+BT
 0.325 0.412 0.435 rg
-/F1 7.5 Tf
-112.00 724.50 Td
+/F1 7.1 Tf
+116.00 716.90 Td
 (Las Vegas, NV | JonYu3@gmail.com | 617.637.0668 | SipStudies.com | Sipopedia.com) Tj
 ET
 q
 0.769 0.569 0.235 RG
 0.90 w
-112.00 720.00 m 558.00 720.00 l S
+116.00 712.00 m 558.00 712.00 l S
 Q
 BT
-0.020 0.192 0.231 rg
-/F2 20.0 Tf
-112.00 676.00 Td
+0.015 0.157 0.188 rg
+/F2 18.5 Tf
+116.00 669.50 Td
 (Jonathan Yu - 30-60-90 Plan) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.8 Tf
-112.00 652.60 Td
+116.00 646.22 Td
 (Target Role: Deployed Product Manager, Codex) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.8 Tf
-112.00 636.25 Td
+116.00 629.87 Td
 (Team: Codex - Engineering) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.8 Tf
-112.00 619.90 Td
+116.00 613.52 Td
 (Location: San Francisco) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.8 Tf
-112.00 603.56 Td
+116.00 597.18 Td
 (Compensation: $250K-$330K + equity) Tj
 ET
 BT
 0.043 0.267 0.318 rg
 /F2 11.3 Tf
-112.00 572.71 Td
+116.00 566.33 Td
 (OPERATING THESIS) Tj
 ET
 q
 0.713 0.788 0.784 RG
 0.65 w
-112.00 566.80 m 558.00 566.80 l S
+116.00 560.42 m 558.00 560.42 l S
 Q
 BT
 0.078 0.145 0.169 rg
 /F1 9.8 Tf
-112.00 556.00 Td
+116.00 549.62 Td
 (Strategic accounts, product expansion, customer blockers, technical workflow unblocking, and) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.8 Tf
-112.00 543.66 Td
+116.00 537.28 Td
 (Codex feedback to core product teams.) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.8 Tf
-112.00 522.31 Td
-(The first 90 days should prove three things: fast product fluency, useful customer or) Tj
+116.00 515.93 Td
+(The first 90 days should prove fast Codex fluency, credible workflow empathy, and one) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.8 Tf
-112.00 509.96 Td
-(learner empathy, and one repeatable operating asset that improves adoption beyond a single) Tj
+116.00 503.58 Td
+(reusable artifact that helps customers understand, adopt, or expand an AI-assisted) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.8 Tf
-112.00 497.61 Td
-(account or course.) Tj
+116.00 491.23 Td
+(development pattern.) Tj
 ET
 BT
 0.043 0.267 0.318 rg
 /F2 11.3 Tf
-112.00 466.76 Td
+116.00 460.38 Td
+(ROLE SIGNALS I AM PLANNING AROUND) Tj
+ET
+q
+0.713 0.788 0.784 RG
+0.65 w
+116.00 454.48 m 558.00 454.48 l S
+Q
+BT
+0.769 0.569 0.235 rg
+/F2 9.2 Tf
+122.00 444.28 Td
+(-) Tj
+ET
+BT
+0.078 0.145 0.169 rg
+/F1 9.2 Tf
+134.00 444.28 Td
+(OpenAI describes this role as the product counterpart to Deployment Engineers inside strategic) Tj
+ET
+BT
+0.078 0.145 0.169 rg
+/F1 9.2 Tf
+134.00 433.06 Td
+(customer accounts.) Tj
+ET
+BT
+0.769 0.569 0.235 rg
+/F2 9.2 Tf
+122.00 419.83 Td
+(-) Tj
+ET
+BT
+0.078 0.145 0.169 rg
+/F1 9.2 Tf
+134.00 419.83 Td
+(The posting emphasizes product expansion, customer trust, technical blockers, integrations,) Tj
+ET
+BT
+0.078 0.145 0.169 rg
+/F1 9.2 Tf
+134.00 408.61 Td
+(MCPs, tooling, hands-on unblocking, and technical-founder style product judgment.) Tj
+ET
+BT
+0.043 0.267 0.318 rg
+/F2 11.3 Tf
+116.00 380.28 Td
 (FIRST 30 DAYS - LEARN, MAP, AND SHIP A SMALL USEFUL ARTIFACT) Tj
 ET
 q
 0.713 0.788 0.784 RG
 0.65 w
-112.00 460.86 m 558.00 460.86 l S
+116.00 374.38 m 558.00 374.38 l S
 Q
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 450.66 Td
+122.00 364.18 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 450.66 Td
+134.00 364.18 Td
 (Learn Codex product strategy, deployment engineering motions, account segmentation, and the) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 439.44 Td
+134.00 352.96 Td
 (most common blockers in strategic customer adoption.) Tj
 ET
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 426.21 Td
+122.00 339.73 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 426.21 Td
+134.00 339.73 Td
 (Shadow Deployment Engineers and GTM teams across customer calls to understand executive goals,) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 414.99 Td
+134.00 328.51 Td
 (engineering pain, technical constraints, and expansion openings.) Tj
 ET
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 401.76 Td
+122.00 315.28 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 401.76 Td
+134.00 315.28 Td
 (Build a blocker taxonomy separating product gaps, integration issues, security concerns,) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 390.54 Td
+134.00 304.06 Td
 (workflow design, and change-management friction.) Tj
 ET
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 377.32 Td
+122.00 290.84 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 377.32 Td
+134.00 290.84 Td
 (Create one lightweight account map format that ties customer goals to product surfaces,) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 366.09 Td
+134.00 279.61 Td
 (deployment path, and next best unblock.) Tj
 ET
 BT
 0.043 0.267 0.318 rg
 /F2 11.3 Tf
-112.00 337.77 Td
+116.00 251.29 Td
 (DAYS 31-60 - PILOT, PACKAGE, AND MEASURE) Tj
 ET
 q
 0.713 0.788 0.784 RG
 0.65 w
-112.00 331.86 m 558.00 331.86 l S
+116.00 245.38 m 558.00 245.38 l S
 Q
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 321.66 Td
+122.00 235.18 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 321.66 Td
+134.00 235.18 Td
 (Partner on strategic accounts to identify deeper Codex deployment opportunities across teams,) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 310.44 Td
+134.00 223.96 Td
 (workflows, and integrations.) Tj
 ET
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 297.22 Td
+122.00 210.74 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 297.22 Td
+134.00 210.74 Td
 (Drive one hands-on unblock with a demo, prototype, MCP/tooling pattern, or workflow design) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 285.99 Td
+134.00 199.51 Td
 (that helps a customer move forward.) Tj
 ET
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 272.77 Td
+122.00 186.29 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 272.77 Td
+134.00 186.29 Td
 (Translate repeated customer blockers into clear product feedback and prioritization) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 261.54 Td
+134.00 175.06 Td
 (candidates.) Tj
 ET
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 248.32 Td
+122.00 161.84 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 248.32 Td
+134.00 161.84 Td
 (Create a shared account-growth artifact for Deployment Engineering, Product, Sales, and GTM) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 237.10 Td
+134.00 150.62 Td
 (alignment.) Tj
 ET
 BT
 0.043 0.267 0.318 rg
 /F2 11.3 Tf
-112.00 208.77 Td
+116.00 122.29 Td
 (DAYS 61-90 - SCALE THE PATTERN) Tj
 ET
 q
 0.713 0.788 0.784 RG
 0.65 w
-112.00 202.87 m 558.00 202.87 l S
+116.00 116.39 m 558.00 116.39 l S
 Q
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 192.67 Td
+122.00 106.19 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 192.67 Td
+134.00 106.19 Td
 (Own product-side execution for a strategic deployment motion, including expansion thesis,) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 181.44 Td
+134.00 94.96 Td
 (stakeholder plan, blocker log, and product-feedback path.) Tj
 ET
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 168.22 Td
+122.00 81.74 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 168.22 Td
+134.00 81.74 Td
 (Deliver a field-informed product opportunity memo that turns account evidence into roadmap) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 157.00 Td
+134.00 70.52 Td
 (insight.) Tj
-ET
-BT
-0.769 0.569 0.235 rg
-/F2 9.2 Tf
-118.00 143.77 Td
-(-) Tj
-ET
-BT
-0.078 0.145 0.169 rg
-/F1 9.2 Tf
-130.00 143.77 Td
-(Package a repeatable deployment play for a common Codex expansion path.) Tj
-ET
-BT
-0.769 0.569 0.235 rg
-/F2 9.2 Tf
-118.00 130.55 Td
-(-) Tj
-ET
-BT
-0.078 0.145 0.169 rg
-/F1 9.2 Tf
-130.00 130.55 Td
-(Become a trusted internal partner who can move between customer rooms, product decisions,) Tj
-ET
-BT
-0.078 0.145 0.169 rg
-/F1 9.2 Tf
-130.00 119.32 Td
-(technical details, and execution follow-through.) Tj
-ET
-BT
-0.043 0.267 0.318 rg
-/F2 11.3 Tf
-112.00 91.00 Td
-(HOW I WOULD MEASURE EARLY SUCCESS) Tj
-ET
-q
-0.713 0.788 0.784 RG
-0.65 w
-112.00 85.10 m 558.00 85.10 l S
-Q
-BT
-0.769 0.569 0.235 rg
-/F2 9.2 Tf
-118.00 74.90 Td
-(-) Tj
-ET
-BT
-0.078 0.145 0.169 rg
-/F1 9.2 Tf
-130.00 74.90 Td
-(I can clearly explain the role's priority product surfaces, customer or learner personas,) Tj
-ET
-BT
-0.078 0.145 0.169 rg
-/F1 9.2 Tf
-130.00 63.67 Td
-(adoption blockers, and internal handoff model.) Tj
 ET
 
 endstream
@@ -436,49 +446,65 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
 endobj
 7 0 obj
-<<  /Length 2155 >>
+<<  /Length 3573 >>
 stream
 q
-0.973 0.957 0.918 rg
+0.986 0.976 0.944 rg
 0.00 0.00 612.00 792.00 re f
 Q
 q
-0.020 0.192 0.231 rg
-0.00 0.00 88.00 792.00 re f
+0.015 0.157 0.188 rg
+0.00 0.00 92.00 792.00 re f
+Q
+q
+0.953 0.933 0.875 rg
+92.00 714.00 520.00 78.00 re f
 Q
 q
 0.769 0.569 0.235 rg
-88.00 0.00 4.00 792.00 re f
+92.00 0.00 4.00 792.00 re f
 Q
 BT
 0.910 0.851 0.722 rg
-/F2 10.2 Tf
-18.00 745.80 Td
+/F2 10.4 Tf
+18.00 747.60 Td
 (JONATHAN) Tj
 ET
 BT
 0.910 0.851 0.722 rg
-/F2 15.0 Tf
-18.00 725.00 Td
+/F2 15.4 Tf
+18.00 725.60 Td
 (YU) Tj
 ET
 BT
 0.769 0.569 0.235 rg
-/F2 8.0 Tf
-18.00 696.00 Td
+/F2 8.2 Tf
+18.00 691.80 Td
 (OPENAI) Tj
 ET
 BT
 0.910 0.851 0.722 rg
 /F1 7.4 Tf
-18.00 683.60 Td
+18.00 679.60 Td
 (APPLICATION) Tj
 ET
 BT
 0.910 0.851 0.722 rg
 /F1 7.4 Tf
-18.00 670.60 Td
+18.00 666.60 Td
 (PACKET) Tj
+ET
+BT
+0.769 0.569 0.235 rg
+/F2 7.4 Tf
+18.00 630.60 Td
+(30-60-90 PLAN) Tj
+ET
+BT
+0.910 0.851 0.722 rg
+/F1 6.2 Tf
+18.00 615.80 Td
+(REVIEWED JUNE 12, 2026) Tj
 ET
 BT
 0.910 0.851 0.722 rg
@@ -487,97 +513,168 @@ BT
 (PAGE 2) Tj
 ET
 BT
-0.020 0.192 0.231 rg
-/F2 10.2 Tf
-112.00 750.80 Td
+0.015 0.157 0.188 rg
+/F2 10.4 Tf
+116.00 754.60 Td
 (Jonathan Yu) Tj
 ET
 BT
 0.325 0.412 0.435 rg
-/F1 8.6 Tf
-112.00 736.40 Td
+/F1 8.7 Tf
+116.00 740.30 Td
 (30-60-90 Plan | OpenAI application packet) Tj
 ET
 BT
+0.043 0.267 0.318 rg
+/F2 7.8 Tf
+116.00 728.20 Td
+(Deployed Product Manager, Codex) Tj
+ET
+BT
 0.325 0.412 0.435 rg
-/F1 7.5 Tf
-112.00 724.50 Td
+/F1 7.1 Tf
+116.00 716.90 Td
 (Las Vegas, NV | JonYu3@gmail.com | 617.637.0668 | SipStudies.com | Sipopedia.com) Tj
 ET
 q
 0.769 0.569 0.235 RG
 0.90 w
-112.00 720.00 m 558.00 720.00 l S
+116.00 712.00 m 558.00 712.00 l S
 Q
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 694.80 Td
+122.00 686.80 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 694.80 Td
-(I have shipped at least one artifact the team can reuse: a demo, template, pathway, checklist,) Tj
-ET
-BT
-0.078 0.145 0.169 rg
-/F1 9.2 Tf
-130.00 683.58 Td
-(playbook, messaging matrix, or account plan.) Tj
+134.00 686.80 Td
+(Package a repeatable deployment play for a common Codex expansion path.) Tj
 ET
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 670.35 Td
+122.00 673.58 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 670.35 Td
+134.00 673.58 Td
+(Become a trusted internal partner who can move between customer rooms, product decisions,) Tj
+ET
+BT
+0.078 0.145 0.169 rg
+/F1 9.2 Tf
+134.00 662.35 Td
+(technical details, and execution follow-through.) Tj
+ET
+BT
+0.043 0.267 0.318 rg
+/F2 11.3 Tf
+116.00 634.03 Td
+(HOW I WOULD MEASURE EARLY SUCCESS) Tj
+ET
+q
+0.713 0.788 0.784 RG
+0.65 w
+116.00 628.12 m 558.00 628.12 l S
+Q
+BT
+0.769 0.569 0.235 rg
+/F2 9.2 Tf
+122.00 617.92 Td
+(-) Tj
+ET
+BT
+0.078 0.145 0.169 rg
+/F1 9.2 Tf
+134.00 617.92 Td
+(I can clearly explain the role's priority product surfaces, customer or learner personas,) Tj
+ET
+BT
+0.078 0.145 0.169 rg
+/F1 9.2 Tf
+134.00 606.70 Td
+(adoption blockers, and internal handoff model.) Tj
+ET
+BT
+0.769 0.569 0.235 rg
+/F2 9.2 Tf
+122.00 593.48 Td
+(-) Tj
+ET
+BT
+0.078 0.145 0.169 rg
+/F1 9.2 Tf
+134.00 593.48 Td
+(I have shipped at least one artifact the team can reuse: customer blocker brief, product) Tj
+ET
+BT
+0.078 0.145 0.169 rg
+/F1 9.2 Tf
+134.00 582.25 Td
+(opportunity memo, prototype, tooling pattern, account plan, or feedback loop.) Tj
+ET
+BT
+0.769 0.569 0.235 rg
+/F2 9.2 Tf
+122.00 569.03 Td
+(-) Tj
+ET
+BT
+0.078 0.145 0.169 rg
+/F1 9.2 Tf
+134.00 569.03 Td
 (My work produces evidence: workshop feedback, adoption movement, content quality improvement,) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 659.13 Td
+134.00 557.80 Td
 (product feedback, or clearer stakeholder alignment.) Tj
 ET
 BT
 0.769 0.569 0.235 rg
 /F2 9.2 Tf
-118.00 645.90 Td
+122.00 544.58 Td
 (-) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 645.90 Td
+134.00 544.58 Td
 (I have built trust with the immediate team by being useful, precise, and willing to do the) Tj
 ET
 BT
 0.078 0.145 0.169 rg
 /F1 9.2 Tf
-130.00 634.68 Td
+134.00 533.36 Td
 (hands-on work.) Tj
 ET
 BT
 0.043 0.267 0.318 rg
 /F2 11.3 Tf
-112.00 601.36 Td
-(SOURCE POSTING) Tj
+116.00 500.03 Td
+(SOURCE POSTING REVIEWED) Tj
 ET
 q
 0.713 0.788 0.784 RG
 0.65 w
-112.00 595.45 m 558.00 595.45 l S
+116.00 494.13 m 558.00 494.13 l S
 Q
 BT
 0.078 0.145 0.169 rg
 /F1 9.8 Tf
-112.00 584.65 Td
+116.00 483.33 Td
+(Reviewed June 12, 2026:) Tj
+ET
+BT
+0.078 0.145 0.169 rg
+/F1 9.8 Tf
+116.00 470.98 Td
 (https://openai.com/careers/deployed-product-manager-codex-san-francisco/) Tj
 ET
 
@@ -594,11 +691,11 @@ xref
 0000000127 00000 n 
 0000000197 00000 n 
 0000000272 00000 n 
-0000007088 00000 n 
-0000007224 00000 n 
-0000009432 00000 n 
+0000007205 00000 n 
+0000007341 00000 n 
+0000010967 00000 n 
 trailer
 << /Size 9 /Root 1 0 R >>
 startxref
-9568
+11103
 %%EOF

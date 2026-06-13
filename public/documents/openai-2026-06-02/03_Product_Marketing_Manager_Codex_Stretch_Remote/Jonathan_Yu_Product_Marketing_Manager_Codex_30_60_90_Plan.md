@@ -8,7 +8,11 @@ Compensation: $227K-$315K + equity
 ## Operating Thesis
 Codex positioning, developer workflow narratives, launch assets, sales enablement, and adoption measurement.
 
-The first 90 days should prove three things: fast product fluency, useful customer or learner empathy, and one repeatable operating asset that improves adoption beyond a single account or course.
+The first 90 days should prove fast Codex fluency, credible workflow empathy, and one reusable artifact that helps customers understand, adopt, or expand an AI-assisted development pattern.
+
+## Role Signals I Am Planning Around
+- OpenAI describes this role as driving adoption and growth for Codex through developer-facing positioning and launch work.
+- The posting emphasizes developer workflows, Codex messaging, launch content, technical narratives, sales enablement, developer research, and adoption metrics.
 
 ## First 30 Days - Learn, Map, and Ship a Small Useful Artifact
 - Learn current Codex positioning, launch history, developer segments, adoption metrics, competitive landscape, and Sales/Developer Experience needs.
@@ -30,10 +34,10 @@ The first 90 days should prove three things: fast product fluency, useful custom
 
 ## How I Would Measure Early Success
 - I can clearly explain the role's priority product surfaces, customer or learner personas, adoption blockers, and internal handoff model.
-- I have shipped at least one artifact the team can reuse: a demo, template, pathway, checklist, playbook, messaging matrix, or account plan.
+- I have shipped at least one artifact the team can reuse: messaging matrix, launch narrative, developer workflow story, sales enablement asset, FAQ, or adoption metric brief.
 - My work produces evidence: workshop feedback, adoption movement, content quality improvement, product feedback, or clearer stakeholder alignment.
 - I have built trust with the immediate team by being useful, precise, and willing to do the hands-on work.
 
 
-## Source Posting
-https://openai.com/careers/product-marketing-manager-codex-remote-us/
+## Source Posting Reviewed
+Reviewed June 12, 2026: https://openai.com/careers/product-marketing-manager-codex-remote-us/

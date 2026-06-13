@@ -79,17 +79,13 @@ Sep 2013 - Sep 2015
 ## Selected Proof Points
 - 69 Supabase migrations + 5 Edge Functions
 - 20,000 Sipopedia candidate rows
-- Auth, Stripe, AI/news + terminology pipelines
-- Monitored 3,800+ brands
 - Weekly Critical On Hand POD gap analysis tool
 - Analyzed 95,000 points of distribution in 23 stores
 - 3,500+ placements
 - $2.291M wine revenue lift
 - $4.5M strategic acquisition thesis
+- Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.
 - Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.
 - Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.
 - Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.
-- Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.
 - Built and maintain weekly Critical On Hand / Gap Analysis workbooks to analyze customer POD gaps, on-hand inventory, days on hand, sales movement, incentives, and account opportunities.
-- Earned a Breakthru Beverage Sales Consultant Excellence Award, expanded 3,500+ placements, and increased wine revenue by $2.291M within Lee's Liquor.
-- Wrote wine-class curriculum, instructed customers, trained staff, managed premium wine sales, and supported cellar design at Total Wine & More.

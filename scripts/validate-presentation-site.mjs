@@ -31,6 +31,7 @@ const styles = fs.readFileSync(stylesPath, "utf8");
 const readme = fs.readFileSync(readmePath, "utf8");
 const indexHtml = fs.readFileSync(indexPath, "utf8");
 const packageJson = JSON.parse(fs.readFileSync(packagePath, "utf8"));
+const mediaEpisodeCardSource = main.match(/function mediaEpisodeCard[\s\S]*?function articleCard/u)?.[0] || "";
 
 const failures = [];
 
@@ -150,9 +151,9 @@ const requiredPositioningPhrases = [
   "Agentic harnessing",
   "Workflow prototyping",
   "Customer workflow translation",
-  "What AI did",
-  "What Jonathan decided",
-  "problem, process, output, validation, limitations, role relevance",
+  "Codex project detail",
+  "Role bridge for",
+  "problem, process, output, validation, limitations, and role relevance",
   "Parameter Golf",
   "OpenAI-style review pattern"
 ];
@@ -261,59 +262,110 @@ check(
 check(main.includes("Presenter lens"), "Resume tab is missing the presenter lens.");
 check(main.includes("resume-role-bridge"), "Resume tab is missing role-specific timeline bridges.");
 check(main.includes("function renderProjects()"), "Missing Codex Projects renderer.");
-check(main.includes("Full project scope from C:\\\\codebase\\\\sip_studies\\\\actual"), "Projects tab does not name the full Codex portfolio scope.");
 check(main.includes("const repoWebsitePreviews = ["), "Portfolio tab is missing GitHub repo website preview data.");
 check(main.includes("function renderRepoWebsitePreviews()"), "Portfolio tab is missing the GitHub repo website preview renderer.");
-check(main.includes("Website screen-in-screen"), "Portfolio tab is missing the website screen-in-screen section.");
-check(main.includes("https://sipopedia.com/"), "Portfolio website previews are missing the embeddable Sipopedia site.");
+check(main.includes("Codex Projects"), "Portfolio tab is missing the renamed Codex Projects section.");
+check(!main.includes("Flagship case studies"), "Portfolio tab still renders the removed Flagship case studies section.");
+check(!main.includes("Full project scope from"), "Portfolio tab still renders the removed Full project scope section.");
+check(!main.includes("aria-label=\"Codex Projects portfolio\""), "Portfolio tab still renders the old standalone Codex Projects grid.");
+check(main.includes("function repoWebsiteProjectDetail"), "Portfolio website previews are missing embedded Codex project details.");
+check(main.includes("https://sipopedia.com/#app/starter"), "Portfolio website previews should open Sipopedia on the Launch Pad preview.");
 [
   "/repo-previews/rose-quartz/index.html",
-  "/repo-previews/coffee-index/index.html",
-  "/repo-previews/tasting-journal/index.html"
+  "/repo-previews/coffee-index/index.html"
 ].forEach((previewPath) => {
   check(main.includes(previewPath), `Portfolio website previews are missing snapshot path: ${previewPath}`);
   check(fileExists(path.join("public", previewPath.replace(/^\//u, ""))), `Missing repo website preview snapshot: ${previewPath}`);
 });
+[
+  "https://tasting-journal.replit.app/",
+  "https://zen-noise.replit.app/"
+].forEach((previewUrl) => {
+  check(main.includes(previewUrl), `Portfolio website previews are missing live preview URL: ${previewUrl}`);
+});
+check(main.includes("Zen Noise"), "Portfolio website previews are missing Zen Noise.");
+check(main.includes("Codex Project | Replit focus app"), "Portfolio website previews are missing the Zen Noise Codex project detail.");
+check(main.includes("Role bridge for ${selectedRole.title}"), "Portfolio website previews are missing project role bridges.");
+check(main.includes("Live Replit iframe"), "Portfolio website previews are missing live Replit framing.");
 check(main.includes("data-preview-fullscreen"), "Portfolio website previews are missing fullscreen controls.");
 check(main.includes("requestFullscreen"), "Portfolio website previews are missing Fullscreen API support.");
-check(main.includes("function renderPortfolioMediaProof()"), "Portfolio tab is missing public teaching/media proof.");
-check(main.includes("function renderEducationMediaSections()"), "Portfolio tab is missing the reusable full video/reference archive renderer.");
+check(main.includes("function renderPortfolioMediaProof()"), "Portfolio tab is missing ChatGPT/Dall-e media proof.");
+check(main.includes("ChatGPT & Dall-e Projects"), "Portfolio tab is missing the renamed ChatGPT & Dall-e Projects block.");
+check(main.includes("function renderSoraProjects()"), "Portfolio tab is missing the Sora Projects renderer.");
+check(main.includes("const soraProjectVideos = ["), "Portfolio tab is missing the Sora project media scaffold.");
+check(main.includes("function renderEducationMediaSections()"), "Portfolio tab is missing the reusable media section renderer.");
 const projectsRendererIndex = main.indexOf("function renderProjects()");
 const repoWebsitePreviewIndex = main.indexOf("${renderRepoWebsitePreviews()}", projectsRendererIndex);
+const soraProjectsIndex = main.indexOf("${renderSoraProjects()}", projectsRendererIndex);
+const chatGptMediaProofIndex = main.indexOf("${renderPortfolioMediaProof()}", projectsRendererIndex);
 const portfolioMediaArchiveIndex = main.indexOf("${renderEducationMediaSections()}", projectsRendererIndex);
 check(repoWebsitePreviewIndex > projectsRendererIndex, "Portfolio tab should render the repo website previews.");
-check(repoWebsitePreviewIndex < portfolioMediaArchiveIndex, "Portfolio website previews should appear before the full video/reference archive.");
-check(portfolioMediaArchiveIndex > projectsRendererIndex, "Portfolio tab should render the full video outlet and reference archive.");
-check(main.includes("All video outlets and earlier public references live inside Portfolio."), "Portfolio tab is missing the full video/reference archive framing.");
-["Sip-Studies", "Rose-Quartz", "Ai-Edu", "Coffee-Index", "Sip-Studies-Tasting-Journal"].forEach((folder) => {
-  check(main.includes(`folder: "${folder}"`), `Projects tab is missing Codex project index folder ${folder}.`);
+check(repoWebsitePreviewIndex < soraProjectsIndex, "Portfolio website previews should appear before Sora Projects.");
+check(soraProjectsIndex < chatGptMediaProofIndex, "Sora Projects should appear before ChatGPT & Dall-e Projects.");
+check(chatGptMediaProofIndex < portfolioMediaArchiveIndex, "ChatGPT & Dall-e Projects should introduce the media sections.");
+check(portfolioMediaArchiveIndex > projectsRendererIndex, "Portfolio tab should render the media sections.");
+check(!main.includes("Full video and reference archive"), "Portfolio tab still renders the removed full video/reference archive copy block.");
+check(!main.includes("All video outlets and earlier public references live inside Portfolio."), "Portfolio tab still renders the removed full video/reference archive framing.");
+[
+  "C:\\\\codebase\\\\sip_studies\\\\actual\\\\Sip-Studies",
+  "C:\\\\codebase\\\\sip_studies\\\\actual\\\\Rose-Quartz",
+  "C:\\\\codebase\\\\sip_studies\\\\actual\\\\Coffee-Index",
+  "C:\\\\codebase\\\\sip_studies\\\\actual\\\\Sip-Studies-Tasting-Journal",
+  "Zen-Noise.Replit.app"
+].forEach((projectPath) => {
+  check(main.includes(projectPath), `Embedded Codex project detail is missing ${projectPath}.`);
 });
 check(main.includes("youtubeEmbedUrl"), "Podcast/video tab is missing YouTube embed support.");
-check(main.includes("open.spotify.com/embed/show"), "Podcast/video tab is missing Spotify embed support.");
+check(main.includes("open.spotify.com/embed/episode/5f9GpwIY7hC5IzZVYFc0Pt"), "Podcast/video tab is missing the requested Spotify episode embed.");
 check(main.includes("const aarpWineWalkVideos"), "Podcast/video tab is missing AARP Wine Walk Wednesdays data.");
-check(main.includes("const instagramVideos"), "Podcast/video tab is missing Sip Studies Instagram reel data.");
-check(main.includes("instagramCaption"), "Sip Studies Instagram reels are missing source description text.");
+check(main.includes("const sipStudiesInstagramVideos"), "Podcast/video tab is missing Sip Studies Instagram reel data.");
+check(main.includes("const sommSupportInstagramVideos"), "Podcast/video tab is missing Somm Support Instagram reel data.");
 check(main.includes("Portfolio takeaway"), "Sip Studies Instagram reels are missing the portfolio-side takeaway copy.");
+check(!main.includes("instagramCaption"), "Sip Studies Instagram reels should not keep source Instagram description fields.");
+check(!main.includes("Instagram description"), "Sip Studies Instagram reels should not render Instagram description labels.");
+check(main.includes("function loadEpisodeEmbed"), "Video cards should create embeds only after the viewer asks to load them.");
+check(mediaEpisodeCardSource.includes("data-episode-load"), "Video cards should render a load control instead of immediate iframes.");
+check(!mediaEpisodeCardSource.includes("<iframe"), "Video cards should not pre-render YouTube or Instagram iframes during scroll.");
+check(mediaEpisodeCardSource.includes("const thumbStyle = episode.thumbnail"), "Video cards should omit missing thumbnail URLs.");
+check(mediaEpisodeCardSource.includes("episode-preview-video"), "Local Sora videos should show a first-frame preview before loading controls.");
+check(main.includes('button.dataset.episodeFrame === "video-file"'), "Sora upload scaffold should support local video files.");
+check(styles.includes(".episode-player video"), "Loaded local video files should share the episode-player sizing rules.");
+check(styles.includes("video:not([data-episode-preview])"), "Loaded videos should be styled separately from local preview thumbnails.");
+check(styles.includes(".episode-preview-video"), "Local video thumbnails should use a dedicated preview video layer.");
+check(styles.includes("bottom: 10px"), "Video load controls should sit over thumbnails without covering the full preview.");
+check(styles.includes(".episode-player--video-file"), "Sora local video files should use the vertical reel-style frame.");
+check(styles.includes("var(--episode-thumb, linear-gradient"), "Episode cards should provide a thumbnail fallback for local videos.");
 check(main.includes('frame: "instagram"'), "Sip Studies Instagram reels are missing the vertical Instagram frame marker.");
-check(main.includes('scrolling="no"'), "Sip Studies Instagram embeds are missing scrollbar suppression.");
-check(main.includes("episode-grid--instagram"), "Sip Studies Instagram reels are missing the desktop two-column grid hook.");
+check(main.includes('setAttribute("scrolling", "no")'), "Sip Studies Instagram embeds are missing scrollbar suppression.");
+check(main.includes("episode-grid--instagram"), "Sip Studies Instagram reels are missing the Instagram grid hook.");
+check(main.includes("episode-grid--video-row"), "Vertical video sections are missing the compact four-across row hook.");
+check(/\.episode-grid--video-row\s*\{[\s\S]*?grid-template-columns:\s*repeat\(4, minmax\(0, 1fr\)\)/u.test(styles), "Vertical Instagram and Sora video sections should use one compact four-card row on desktop.");
 check(!main.includes("https://www.instagram.com/sip.studies/reel/DGwT3fXvRxt/embed"), "Instagram data still includes the browser-blocked Pinot Grigio/Syrah username-qualified embed URL.");
 check(!main.includes("https://www.instagram.com/sip.studies/reel/DGO8bRFRpj2/embed"), "Instagram data still includes the browser-blocked Sip and Describe username-qualified embed URL.");
-["Neutral Whites & Bonus Wines Blind Tasting", "Albariño/Alvarinho Tasting!!!", "Lee's Beer and Tequila 2023", "Charity Drive at Madhouse Coffee"].forEach((caption) => {
-  check(main.includes(caption), `Sip Studies Instagram reel source descriptions are missing ${caption}.`);
-});
 check(main.includes("const flavorBlogCollections"), "Podcast/video tab is missing Flavor Blog article collections.");
 check(!main.includes("image.thum.io"), "Flavor Blog article thumbnails should not use the broken thum.io screenshot proxy.");
+["Ai Winecast - J Lohr Vineyards & Wines", "Ai Winecast - 002 Cabernet Sauvignon", "Tasting Winecast - 005", "Ai Winecast - Episode 003"].forEach((title) => {
+  check(main.includes(title), `AI Winecast video section is missing ${title}.`);
+});
+check(main.includes("Welcome to Sip Studies | AI Winecast 000: Our Mission & Philosophy"), "Spotify podcast section is missing the requested launch episode title.");
+["22.08.46", "22.08.48", "22.08.50", "22.08.53"].forEach((stamp, index) => {
+  const videoPath = `public/media/sora-projects/WhatsApp Video 2026-06-12 at ${stamp}.mp4`;
+  check(main.includes(`WhatsApp%20Video%202026-06-12%20at%20${stamp}.mp4`), `Sora Projects section is missing video ${index + 1}.`);
+  check(fileExists(videoPath), `Missing Sora video asset: ${videoPath}`);
+});
 ["Aromatic Treasures", "Summertime Wines", "Classic Burgundy", "Everything Sparkling"].forEach((title) => {
   check(main.includes(title), `AARP Wine Walk Wednesdays section is missing ${title}.`);
 });
-["DGcYlnWxP7M", "DFuLhCVRDIU", "DFisS-QyRzE", "DFdKYo7RMBC"].forEach((shortcode) => {
+["DOFDY98Dtrg", "DHUh3JlS7Ko", "DGw69y4RWGv", "DGO8bRFRpj2"].forEach((shortcode) => {
   check(main.includes(`https://www.instagram.com/reel/${shortcode}/embed`), `Sip Studies Instagram reel section is missing working embed ${shortcode}.`);
+});
+["DFuLhCVRDIU", "DFisS-QyRzE", "DE8OCR7SgZE", "DEyt0Ioxmw4"].forEach((shortcode) => {
+  check(main.includes(`https://www.instagram.com/reel/${shortcode}/embed`), `Somm Support Instagram reel section is missing working embed ${shortcode}.`);
 });
 ["SipStudies.com Blog", "Sip Studies Substack", "Daily Sip"].forEach((title) => {
   check(main.includes(title), `Flavor Blog collections are missing ${title}.`);
 });
-["https://i.ytimg.com/vi/", "media.bio.site/sites", "images.squarespace-cdn.com", "substackcdn.com", "https://sipopedia.com/daily-sip/"].forEach((host) => {
+["https://i.ytimg.com/vi/", "https://www.instagram.com/reel/", "images.squarespace-cdn.com", "substackcdn.com", "https://sipopedia.com/daily-sip/"].forEach((host) => {
   check(main.includes(host), `Media/article collections are missing thumbnail source ${host}.`);
 });
 check(!main.includes("function renderApplicationProof()"), "Standalone Application Proof renderer should be retired.");
@@ -414,11 +466,10 @@ check(main.includes("Application focus:"), "Dynamic metadata should describe the
 [
   "Sip-Studies",
   "Rose-Quartz",
-  "Ai-Edu",
   "Coffee-Index",
   "Sip-Studies-Tasting-Journal"
 ].forEach((folder) => {
-  check(main.includes(folder), `Codex Projects index is missing ${folder}.`);
+  check(main.includes(folder), `Embedded Codex project detail is missing local project folder ${folder}.`);
   check(fs.existsSync(path.join(actualRoot, folder)), `Referenced Codex project folder does not exist: ${path.join(actualRoot, folder)}`);
 });
 
@@ -430,10 +481,12 @@ check(styles.includes("Sipopedia color system"), "Styles are missing the Sipoped
   ".resume-lens-panel",
   ".episode-player",
   ".episode-grid--instagram",
+  ".episode-grid--video-row",
   ".episode-player--instagram",
-  ".episode-caption",
+  ".episode-preview-video",
+  ".episode-load-button",
   ".episode-takeaway",
-  "white-space: pre-line",
+  "contain: paint",
   "clamp(420px, 36vw, 620px)",
   "aspect-ratio: 9 / 13.85",
   ".article-card",
@@ -621,7 +674,7 @@ check(readme.includes("Persistent top-bar links"), "README does not document per
 check(readme.includes("screen-share focus mode"), "README does not document focus mode.");
 check(readme.includes("`F` key"), "README does not document the focus mode keyboard shortcut.");
 check(readme.includes("?focus=1"), "README does not document the focus mode query parameter.");
-check(readme.includes("website screen-in-screen"), "README does not document Portfolio website previews.");
+check(readme.includes("Codex Projects section"), "README does not document Portfolio Codex Projects previews.");
 check(readme.includes("90-second closer"), "README does not document the OpenAI Fit section.");
 check(readme.includes("role-proof map"), "README does not document the OpenAI Fit proof map.");
 check(readme.includes("selected-document panel"), "README does not document the selected-document panel.");
@@ -662,8 +715,8 @@ if (latestJs) {
     "Customer workflow translation",
     "OpenAI-style review pattern",
     "Make projects reviewable like constrained OpenAI submissions.",
-    "What AI did",
-    "What Jonathan decided",
+    "Codex project detail",
+    "Role bridge for",
     "AI Success Engineer - US Remote",
     "$234K-$260K + equity",
     "Resume",
@@ -694,13 +747,19 @@ if (latestJs) {
     "WSET Level 2 Sake",
     "Wine Scholar Guild / Lustau",
     "Cicerone - Certified Beer Server L1",
-    "Website screen-in-screen",
-    "Interactive website preview",
-    "https://sipopedia.com/",
+    "Codex Projects",
+    "Codex Project | Replit focus app",
+    "Role bridge for",
+    "Live product website",
+    "https://sipopedia.com/#app/starter",
+    "Launch Pad preview entry",
     "/repo-previews/rose-quartz/index.html",
     "/repo-previews/coffee-index/index.html",
-    "/repo-previews/tasting-journal/index.html",
+    "https://tasting-journal.replit.app/",
+    "https://zen-noise.replit.app/",
+    "Zen Noise",
     "Static preview snapshot",
+    "Live Replit iframe",
     "https://github.com/Sip-Coder/Sipopedia",
     "Full screen",
     "https://www.wsetglobal.com/qualifications/wset-level-2-award-in-sake/",
@@ -744,7 +803,11 @@ if (latestCss) {
     ".resume-lens-panel",
     ".episode-player",
     ".episode-grid--instagram",
+    ".episode-grid--video-row",
     ".episode-player--instagram",
+    ".episode-preview-video",
+    ".episode-load-button",
+    "contain:paint",
     "clamp(420px,36vw,620px)",
     "aspect-ratio:9 / 13.85",
     ".article-card",

@@ -159,8 +159,56 @@ const masterData = {
   },
   "roles": [
     {
-      "id": "codex-deployment",
+      "id": "ai-success",
       "rank": 1,
+      "folder": "02_AI_Success_Engineer_US_Remote",
+      "prefix": "Jonathan_Yu_AI_Success_Engineer",
+      "title": "AI Success Engineer",
+      "fit": "Adoption roadmaps, KPI framing, workflow mapping, technical-business translation, and customer enablement.",
+      "talkTrack": "The Critical On Hand workflow shows how I translate messy account, inventory, sales, and incentive data into adoption decisions, stakeholder action, and value evidence.",
+      "demoMove": "Start with account analytics, then connect it to AI Success motions: workflow mapping, technical readiness, KPI baselines, adoption velocity, and value realization.",
+      "headline": "Founder / Technical Customer Enablement Lead / AI Adoption Builder",
+      "resumeSummary": "Customer-facing founder-builder with deep education, account analytics, sales enablement, and AI-assisted product implementation experience. Built Sip Studies as a practical AI-enabled learning and terminology product while maintaining a decade-long record of customer, supplier, and stakeholder enablement in wine and spirits. For AI Success, the through-line is translating messy workflows into adoption roadmaps, technical readiness plans, workshops, KPI baselines, and value-realization evidence.",
+      "strengths": [
+        "Translates account and customer workflows into adoption plans, readiness checklists, KPI baselines, and enablement artifacts.",
+        "Uses AI-assisted product building and repo-driven agent workflows to turn ambiguous use cases into reviewable prototypes, documentation, and operating checklists.",
+        "Keeps AI use honest: AI accelerates exploration and implementation while Jonathan owns problem framing, prompts, review, testing, documentation, customer interpretation, and final behavior.",
+        "Combines hands-on technical product building with long-running customer-facing sales and education responsibilities.",
+        "Can map ambiguous workflows into structured adoption plans, training materials, metrics, and operating rhythms.",
+        "Has quantified business impact: 3,500+ placements and a $2.291M wine revenue lift at Lee's Liquor.",
+        "Built platform work touching auth, paid access, Supabase, Edge Functions, AI/news routing, validation, and documentation through AI-assisted development workflows.",
+        "Experienced at making complex product concepts useful to executives, managers, customers, and learners."
+      ],
+      "skills": [
+        "Post-sales workflow mapping and adoption roadmaps",
+        "Technical readiness and KPI/value-realization framing",
+        "OpenAI product fluency: API, agentic platform, Codex, ChatGPT Enterprise",
+        "AI-assisted product building and Codex-style workflow prototyping",
+        "Validated build-process documentation",
+        "Customer adoption and value realization",
+        "Technical enablement and configuration framing",
+        "Workflow mapping and use-case validation",
+        "Program management and stakeholder coordination",
+        "KPI baselines and success metrics",
+        "AI-assisted product development across web, auth, payments, and data workflows",
+        "Executive and field communication",
+        "Workshop design and internal enablement"
+      ],
+      "proof": [
+        "Every project can be discussed through problem, process, output, validation, limitations, and role relevance.",
+        "Build artifacts separate what AI did from what Jonathan decided.",
+        "Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.",
+        "Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.",
+        "Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.",
+        "Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.",
+        "Built and maintain weekly Critical On Hand / Gap Analysis workbooks to analyze customer POD gaps, on-hand inventory, days on hand, sales movement, incentives, and account opportunities."
+      ],
+      "coverFocus": "The AI Success Engineer role matches the way I work: embed with the customer workflow, identify the real blocker, build the adoption path, teach the pattern, measure value, and return field learning to the product team. The current posting asks for post-sales technical relationship ownership, account health, adoption velocity, workflow mapping, KPI definition, and value realization; that is the bridge between my account-analytics background and my AI-assisted product work.",
+      "planTheme": "Post-sales technical relationship ownership, account health, adoption velocity, workflow mapping, technical readiness, OpenAI product fluency, KPI baselines, value-realization reporting, and reusable customer enablement assets."
+    },
+    {
+      "id": "codex-deployment",
+      "rank": 2,
       "folder": "01_AI_Deployment_Engineer_Codex_Remote_US",
       "prefix": "Jonathan_Yu_AI_Deployment_Engineer_Codex",
       "title": "AI Deployment Engineer - Codex",
@@ -195,54 +243,6 @@ const masterData = {
       ],
       "coverFocus": "I am most interested in the remote Codex Deployment Engineer role because it blends hands-on building, customer workflow mapping, technical workshops, and practical adoption of AI coding tools.",
       "planTheme": "Codex working examples, customer SDLC mapping, workflow automations, technical enablement, and product-feedback loops."
-    },
-    {
-      "id": "ai-success",
-      "rank": 2,
-      "folder": "02_AI_Success_Engineer_US_Remote",
-      "prefix": "Jonathan_Yu_AI_Success_Engineer",
-      "title": "AI Success Engineer",
-      "fit": "Adoption roadmaps, KPI framing, workflow mapping, technical-business translation, and customer enablement.",
-      "talkTrack": "The Critical On Hand workflow shows how I already translate messy account, inventory, sales, and incentive data into action plans for a team.",
-      "demoMove": "Show the account analytics proof first, then connect it to adoption planning and customer value realization.",
-      "headline": "Founder / Technical Customer Enablement Lead / AI Adoption Builder",
-      "resumeSummary": "Customer-facing founder-builder with deep education, sales enablement, product implementation, and workflow adoption experience. Built Sip Studies as an AI-enabled learning and terminology platform while maintaining a decade-long record of customer, supplier, and stakeholder enablement in wine and spirits. Strong fit for AI Success work that requires customer workflow translation, technical-business translation, adoption planning, workshops, account health, and measurable value realization. Uses AI-assisted product building to prototype customer workflows and validate product ideas while keeping a human-owned build process: problem framing, AI-assisted implementation, validation, documentation, and customer interpretation.",
-      "strengths": [
-        "Reframes beverage, education, sales, and events as the base layer for customer workflow translation, trust building, and adoption behavior.",
-        "Uses AI-assisted product building, agentic harnessing, and workflow prototyping to make ambiguous product ideas concrete and reviewable.",
-        "Keeps the boundary clear: AI accelerates implementation and exploration, while Jonathan owns the judgment, prompts, review, testing, documentation, customer interpretation, and final behavior.",
-        "Combines hands-on technical product building with long-running customer-facing sales and education responsibilities.",
-        "Can map ambiguous workflows into structured adoption plans, training materials, metrics, and operating rhythms.",
-        "Has quantified business impact: 3,500+ placements and a $2.291M wine revenue lift at Lee's Liquor.",
-        "Built platform work touching auth, paid access, Supabase, Edge Functions, AI/news routing, validation, and documentation through AI-assisted development workflows.",
-        "Experienced at making complex product concepts useful to executives, managers, customers, and learners."
-      ],
-      "skills": [
-        "Customer workflow translation",
-        "AI-assisted product building",
-        "Agentic harnessing and Codex-style workflow prototyping",
-        "Validated build process documentation",
-        "Technical enablement and customer education",
-        "Customer adoption and value realization",
-        "Technical enablement and configuration framing",
-        "Workflow mapping and use-case validation",
-        "Program management and stakeholder coordination",
-        "KPI baselines and success metrics",
-        "AI-assisted product development across web, auth, payments, and data workflows",
-        "Executive and field communication",
-        "Workshop design and internal enablement"
-      ],
-      "proof": [
-        "Every project can be discussed through problem, process, output, validation, limitations, and role relevance.",
-        "Build artifacts separate what AI did from what Jonathan decided.",
-        "Using AI-assisted, repo-driven workflows, built Sip Studies across React, TypeScript, Vite, Supabase, Stripe, Edge Functions, learning tools, terminology, maps, AI/news routing, events, and paid access.",
-        "Created a 20,000-row Sipopedia terminology pipeline with review metadata, citations, source links, batch IDs, and import-ready structure.",
-        "Developed AI/news routing, Daily Sip editorial automation, validation scripts, product documentation, and buyer-facing IP/valuation materials.",
-        "Led Wine Walk Wednesdays for AARP Colorado, teaching 50+ active adults through live and recorded virtual wine education across all 50 states.",
-        "Built and maintain weekly Critical On Hand / Gap Analysis workbooks to analyze customer POD gaps, on-hand inventory, days on hand, sales movement, incentives, and account opportunities."
-      ],
-      "coverFocus": "The AI Success Engineer role matches the way I work: embed with a workflow, understand the real pain, design the adoption path, teach the workflow, measure the value, and feed product learnings back into the team. I use AI-assisted product building to prototype customer workflows and validate product ideas, then communicate the constraints, risks, and next steps clearly to technical and customer-facing teams.",
-      "planTheme": "Customer adoption roadmaps, technical readiness, account health, KPI baselines, enablement, expansion signals, human-owned build process, workflow prototyping, and validated customer artifacts."
     },
     {
       "id": "codex-pmm",

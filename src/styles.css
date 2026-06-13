@@ -1690,13 +1690,15 @@ a {
 
 .website-preview-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: 1fr;
+  gap: 18px;
 }
 
 .website-preview-card {
   min-width: 0;
   display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  align-items: stretch;
   gap: 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -1706,14 +1708,12 @@ a {
 }
 
 .website-preview-card.is-featured {
-  grid-column: 1 / -1;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  align-items: stretch;
+  grid-column: auto;
 }
 
 .website-preview-screen {
   min-width: 0;
-  min-height: 310px;
+  min-height: 440px;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   overflow: hidden;
@@ -1871,6 +1871,43 @@ a {
   margin-top: auto;
 }
 
+.website-project-detail {
+  display: grid;
+  gap: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(237, 212, 168, 0.18);
+  padding: 12px;
+}
+
+.website-project-detail span {
+  color: var(--coral);
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.website-project-detail p,
+.website-project-detail li {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.website-project-detail ul {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding-left: 1.05rem;
+}
+
+.website-project-detail footer {
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
 .website-preview-screen:fullscreen {
   width: 100vw;
   height: 100vh;
@@ -1927,6 +1964,41 @@ a {
   align-items: start;
 }
 
+.episode-grid--video-row {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+
+.episode-grid--video-row .episode-player--instagram,
+.episode-grid--video-row .episode-player--video-file {
+  width: 100%;
+}
+
+.episode-grid--video-row .episode-body {
+  padding: 12px;
+}
+
+.episode-grid--video-row .episode-body h3 {
+  font-size: 1.04rem;
+  line-height: 1.12;
+}
+
+.episode-grid--video-row .episode-body p {
+  font-size: 0.92rem;
+}
+
+.episode-grid--video-row .episode-kicker {
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.episode-grid--video-row .episode-meta span {
+  font-size: 0.68rem;
+  padding: 5px 8px;
+}
+
 .episode-card {
   min-width: 0;
   overflow: hidden;
@@ -1937,33 +2009,95 @@ a {
 }
 
 .episode-player {
+  position: relative;
+  isolation: isolate;
+  contain: paint;
   width: 100%;
   aspect-ratio: 16 / 9;
+  overflow: hidden;
   background:
     linear-gradient(180deg, rgba(15, 31, 29, 0.1), rgba(15, 31, 29, 0.45)),
-    var(--episode-thumb),
+    var(--episode-thumb, linear-gradient(145deg, rgba(4, 24, 36, 0.98), rgba(15, 70, 72, 0.78))),
     #0f1f1d;
   background-size: cover;
   background-position: center;
 }
 
-.episode-player--instagram {
+.episode-player--instagram,
+.episode-player--video-file {
   width: min(100%, clamp(420px, 36vw, 620px));
   aspect-ratio: 9 / 13.85;
   margin: 0 auto;
-  overflow: hidden;
   background-color: #fff;
 }
 
-.episode-player iframe {
+.episode-player.is-loaded {
+  background: #0f1f1d;
+}
+
+.episode-player iframe,
+.episode-player video:not([data-episode-preview]) {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   display: block;
   width: 100%;
   height: 100%;
   border: 0;
+  background: #0f1f1d;
+}
+
+.episode-preview-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  background: #0f1f1d;
+  pointer-events: none;
 }
 
 .episode-player--instagram iframe {
   overflow: hidden;
+}
+
+.episode-load-button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  z-index: 3;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 38px;
+  border: 1px solid rgba(255, 253, 250, 0.52);
+  border-radius: 999px;
+  background: rgba(4, 24, 36, 0.84);
+  color: var(--paper);
+  cursor: pointer;
+  font-weight: 950;
+  box-shadow: 0 14px 30px rgba(2, 13, 31, 0.34);
+}
+
+.episode-load-button span {
+  padding: 0 10px;
+}
+
+.episode-load-button:hover,
+.episode-load-button:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--teal);
+}
+
+.episode-load-button:hover span,
+.episode-load-button:focus-visible span {
+  color: var(--teal);
 }
 
 .episode-body {
@@ -2005,25 +2139,17 @@ a {
   line-height: 1.5;
 }
 
-.episode-caption,
 .episode-takeaway {
   display: grid;
   gap: 6px;
 }
 
-.episode-caption span,
 .episode-takeaway span {
   color: var(--coral);
   font-size: 0.7rem;
   font-weight: 850;
   letter-spacing: 0;
   text-transform: uppercase;
-}
-
-.episode-caption p {
-  font-size: 0.9rem;
-  line-height: 1.45;
-  white-space: pre-line;
 }
 
 .episode-takeaway p {
@@ -2649,7 +2775,7 @@ a {
   .project-index-grid,
   .website-preview-head,
   .website-preview-grid,
-  .website-preview-card.is-featured,
+  .website-preview-card,
   .media-showcase,
   .episode-grid,
   .podcast-audio-panel,
@@ -2669,6 +2795,18 @@ a {
   .link-grid,
   .job-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .episode-grid--video-row {
+    grid-template-columns: repeat(4, minmax(170px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+  }
+
+  .episode-grid--video-row .episode-card {
+    scroll-snap-align: start;
   }
 
   .resume-sidebar {
@@ -2734,7 +2872,7 @@ a {
   .project-index-grid,
   .website-preview-head,
   .website-preview-grid,
-  .website-preview-card.is-featured,
+  .website-preview-card,
   .job-links,
   .link-grid,
   .episode-kicker,
@@ -2759,6 +2897,11 @@ a {
 
   .signature-mark {
     width: min(220px, 84%);
+  }
+
+  .episode-grid--video-row {
+    grid-template-columns: repeat(4, minmax(145px, 1fr));
+    gap: 10px;
   }
 
   .portrait-wrap {
@@ -3011,6 +3154,7 @@ body {
 .project-index-card span,
 .project-index-card footer,
 .website-preview-body > span,
+.website-project-detail span,
 .website-preview-status,
 .metric-card span,
 .resume-head span,
@@ -3082,6 +3226,8 @@ body {
 .website-preview-head p:last-child,
 .website-preview-body p,
 .website-preview-body li,
+.website-project-detail p,
+.website-project-detail li,
 .timebox-head p:last-child,
 .timebox-card p,
 .media-panel p:last-child,

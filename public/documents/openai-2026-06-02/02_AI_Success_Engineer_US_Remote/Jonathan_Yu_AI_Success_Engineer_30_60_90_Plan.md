@@ -6,9 +6,13 @@ Location: Remote - US
 Compensation: $234K-$260K + equity
 
 ## Operating Thesis
-Customer adoption roadmaps, technical readiness, account health, KPI baselines, enablement, expansion signals, human-owned build process, workflow prototyping, and validated customer artifacts.
+Post-sales technical relationship ownership, account health, adoption velocity, workflow mapping, technical readiness, OpenAI product fluency, KPI baselines, value-realization reporting, and reusable customer enablement assets.
 
-The first 90 days should prove three things: fast product fluency, useful customer or learner empathy, and one repeatable operating asset that improves adoption beyond a single account or course.
+The first 90 days should prove fast OpenAI product fluency, credible post-sales customer ownership, and one reusable adoption asset that improves account health beyond a single engagement.
+
+## Role Signals I Am Planning Around
+- OpenAI describes this role as the primary post-sales point of contact for important customers.
+- The posting emphasizes technical relationship ownership, account health, adoption velocity, workflow mapping, configuration, OpenAI product fluency, KPI definition, value realization, and customer enablement.
 
 ## First 30 Days - Learn, Map, and Ship a Small Useful Artifact
 - Learn OpenAI's AI Success playbooks, account-health signals, product surfaces, and escalation paths with Solutions, Product, and Research.
@@ -30,16 +34,16 @@ The first 90 days should prove three things: fast product fluency, useful custom
 
 ## How I Would Measure Early Success
 - I can clearly explain the role's priority product surfaces, customer or learner personas, adoption blockers, and internal handoff model.
-- I have shipped at least one artifact the team can reuse: a demo, template, pathway, checklist, playbook, messaging matrix, or account plan.
+- I have shipped at least one artifact the team can reuse: use-case intake, readiness checklist, account-health view, workshop plan, value-realization report, or customer enablement playbook.
 - My work produces evidence: workshop feedback, adoption movement, content quality improvement, product feedback, or clearer stakeholder alignment.
 - I have built trust with the immediate team by being useful, precise, and willing to do the hands-on work.
 
-## Reviewable Build Pattern
+## Human-Owned Build Pattern
 - For each customer-facing artifact, document the problem, process, output, validation, limitations, and role relevance.
-- Use Codex-style workflows to prototype, inspect, refactor, test, and document product changes.
-- Identify what AI accelerated, what Jonathan owned, what evidence was checked, and what limitation remains.
-- Treat the prototype plus reasoning, constraints, testing, and customer story as the actual signal.
+- Use Codex-style workflows to prototype, inspect, refactor, test, and document product or enablement changes.
+- Make the human-owned build process explicit: what AI accelerated, what Jonathan owned, what evidence was checked, and what limitation remains.
+- Treat the artifact plus reasoning, constraints, testing, and customer story as the actual signal.
 
 
-## Source Posting
-https://openai.com/careers/ai-success-engineer-us-remote-remote-us/
+## Source Posting Reviewed
+Reviewed June 12, 2026: https://openai.com/careers/ai-success-engineer-us-remote-remote-us/

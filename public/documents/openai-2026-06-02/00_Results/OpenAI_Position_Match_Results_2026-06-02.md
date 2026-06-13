@@ -1,19 +1,37 @@
 # OpenAI Application Target Results
 
 Prepared for: Jonathan Yu
-Prepared: June 2, 2026
+Reviewed and polished: June 12, 2026
 Las Vegas, NV | JonYu3@gmail.com | 617.637.0668 | SipStudies.com | Sipopedia.com
 
 ## Recommendation
-Best application priority with remote work as a major condition: AI Deployment Engineer- Codex.
-Second remote priority: AI Success Engineer - US Remote.
-Strongest non-remote qualification match: Customer Education, Learning Experience & Curriculum Lead.
+Current submission focus: AI Success Engineer - US Remote.
+Use AI Deployment Engineer - Codex as the closest comparative technical-deployment packet and next remote path.
+Keep Product Marketing Manager, Codex and Customer Education packets as stretch/archive references unless the target changes.
 
-The application packets below preserve both paths: a remote-first route that protects Las Vegas stability, and a non-remote route only if the role economics and career upside justify San Francisco.
+The packet family now centers the AI Success submission while preserving adjacent OpenAI paths for comparison, follow-up applications, and role-specific talking points.
 
 ## Ranked Application Targets
 
-### 1. AI Deployment Engineer - Codex
+### 1. AI Success Engineer
+Team: AI Success
+Location: Remote - US
+Compensation: $234K-$260K + equity
+Posting: https://openai.com/careers/ai-success-engineer-us-remote-remote-us/
+
+Strong remote option; good match for adoption, customer enablement, KPI framing, and technical-business translation, with enterprise technical depth as the main stretch.
+
+Posting signals:
+- OpenAI describes this role as the primary post-sales point of contact for important customers.
+- The posting emphasizes technical relationship ownership, account health, adoption velocity, workflow mapping, configuration, OpenAI product fluency, KPI definition, value realization, and customer enablement.
+
+Resume alignment:
+- Translates account and customer workflows into adoption plans, readiness checklists, KPI baselines, and enablement artifacts.
+- Uses AI-assisted product building and repo-driven agent workflows to turn ambiguous use cases into reviewable prototypes, documentation, and operating checklists.
+- Keeps AI use honest: AI accelerates exploration and implementation while Jonathan owns problem framing, prompts, review, testing, documentation, customer interpretation, and final behavior.
+- Combines hands-on technical product building with long-running customer-facing sales and education responsibilities.
+
+### 2. AI Deployment Engineer - Codex
 Team: Technical Success
 Location: Remote - US
 Compensation: $197K-$278K + equity
@@ -30,24 +48,6 @@ Resume alignment:
 - Uses advanced prompting, durable goals/threads, and repo-driven AI agent workflows to turn ambiguous requirements into working examples, artifacts, and operational runbooks.
 - Can translate technical workflow changes into approachable training for non-technical, semi-technical, and technical audiences.
 - Has customer-facing sales, enablement, and education experience across beverage, retail, distributor, and virtual learning contexts.
-
-### 2. AI Success Engineer
-Team: AI Success
-Location: Remote - US
-Compensation: $234K-$260K + equity
-Posting: https://openai.com/careers/ai-success-engineer-us-remote-remote-us/
-
-Strong remote option; good match for adoption, customer enablement, KPI framing, and technical-business translation, with enterprise technical depth as the main stretch.
-
-Posting signals:
-- OpenAI describes this role as the primary post-sales point of contact for important customers.
-- The posting emphasizes technical relationship ownership, adoption roadmaps, workflow mapping, configuration, KPI definition, value realization, and customer enablement.
-
-Resume alignment:
-- Reframes beverage, education, sales, and events as the base layer for customer workflow translation, trust building, and adoption behavior.
-- Uses AI-assisted product building, agentic harnessing, and workflow prototyping to make ambiguous product ideas concrete and reviewable.
-- Keeps the boundary clear: AI accelerates implementation and exploration, while Jonathan owns the judgment, prompts, review, testing, documentation, customer interpretation, and final behavior.
-- Combines hands-on technical product building with long-running customer-facing sales and education responsibilities.
 
 ### 3. Product Marketing Manager, Codex
 Team: Marketing
@@ -128,6 +128,7 @@ Each role folder contains:
 - 30-60-90 plan in PDF, DOCX, and Markdown
 
 ## Notes
-- The Product Marketing Manager, Codex packet is included as a remote stretch option, but it has the largest formal requirement gap because the posting asks for deep technical product marketing or developer marketing tenure.
+- The AI Success packet should lead current submission review because it matches remote status, post-sales ownership, workflow mapping, technical readiness, adoption velocity, KPIs, and value realization.
+- The AI Deployment Engineer and Deployed Product Manager packets are useful comparative proof for Codex, hands-on workflows, product feedback, and technical-customer storytelling.
+- The Product Marketing Manager, Codex packet remains a remote stretch because the posting asks for deep technical product marketing or developer marketing tenure.
 - The Customer Education and EDU Deployment Manager packets should emphasize curriculum, live teaching, assessment, credentialing, AI literacy, and adoption operations if location becomes workable.
-- The AI Deployment Engineer, AI Success Engineer, and Deployed Product Manager packets should emphasize technical workflow mapping, AI-assisted building, product fluency, customer enablement, account analytics, and measurable adoption.

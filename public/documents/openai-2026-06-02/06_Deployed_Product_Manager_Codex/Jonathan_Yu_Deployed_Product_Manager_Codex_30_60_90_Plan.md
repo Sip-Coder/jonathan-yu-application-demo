@@ -8,7 +8,11 @@ Compensation: $250K-$330K + equity
 ## Operating Thesis
 Strategic accounts, product expansion, customer blockers, technical workflow unblocking, and Codex feedback to core product teams.
 
-The first 90 days should prove three things: fast product fluency, useful customer or learner empathy, and one repeatable operating asset that improves adoption beyond a single account or course.
+The first 90 days should prove fast Codex fluency, credible workflow empathy, and one reusable artifact that helps customers understand, adopt, or expand an AI-assisted development pattern.
+
+## Role Signals I Am Planning Around
+- OpenAI describes this role as the product counterpart to Deployment Engineers inside strategic customer accounts.
+- The posting emphasizes product expansion, customer trust, technical blockers, integrations, MCPs, tooling, hands-on unblocking, and technical-founder style product judgment.
 
 ## First 30 Days - Learn, Map, and Ship a Small Useful Artifact
 - Learn Codex product strategy, deployment engineering motions, account segmentation, and the most common blockers in strategic customer adoption.
@@ -30,10 +34,10 @@ The first 90 days should prove three things: fast product fluency, useful custom
 
 ## How I Would Measure Early Success
 - I can clearly explain the role's priority product surfaces, customer or learner personas, adoption blockers, and internal handoff model.
-- I have shipped at least one artifact the team can reuse: a demo, template, pathway, checklist, playbook, messaging matrix, or account plan.
+- I have shipped at least one artifact the team can reuse: customer blocker brief, product opportunity memo, prototype, tooling pattern, account plan, or feedback loop.
 - My work produces evidence: workshop feedback, adoption movement, content quality improvement, product feedback, or clearer stakeholder alignment.
 - I have built trust with the immediate team by being useful, precise, and willing to do the hands-on work.
 
 
-## Source Posting
-https://openai.com/careers/deployed-product-manager-codex-san-francisco/
+## Source Posting Reviewed
+Reviewed June 12, 2026: https://openai.com/careers/deployed-product-manager-codex-san-francisco/

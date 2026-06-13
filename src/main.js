@@ -10,8 +10,8 @@ const heroImages = {
   resume: "/assets/academy-realm.jpg",
   projects: "/assets/header/codex-projects-hero.png",
   education: "/assets/header/podcast-video-hero.png",
-  fit: "/assets/header/hiring-close-hero.png",
-  references: "/assets/header/codex-projects-hero.png"
+  fit: "/assets/header/codex-projects-hero.png",
+  references: "/assets/header/hiring-close-hero.png"
 };
 
 const { roles, resume } = masterData;
@@ -239,6 +239,14 @@ const codexProjects = [
     bridge: "Shows practical learner workflow design, authenticated product surfaces, and beverage-domain form architecture."
   },
   {
+    title: "Zen Noise",
+    type: "Codex Project | Replit focus app",
+    path: "Zen-Noise.Replit.app",
+    body: "Ambient focus app shipped as a standalone Replit surface, showing quick product shaping around mood, focus, and simple interactive utility.",
+    proof: ["Live Replit app surface", "Ambient focus experience", "Standalone product prototype"],
+    bridge: "Shows the lighter prototype side: Jonathan can turn a small product idea into a usable web surface that is easy to inspect."
+  },
+  {
     title: "Supporting prototypes",
     type: "Codex Project | Portfolio breadth",
     path: "C:\\codebase\\sip_studies\\actual",
@@ -248,70 +256,36 @@ const codexProjects = [
   }
 ];
 
-const codexProjectIndex = [
-  {
-    title: "Sip Studies / Sipopedia",
-    folder: "Sip-Studies",
-    category: "Production education platform",
-    evidence: "React/TypeScript, Supabase auth/content, Stripe checkout, Edge Functions, terminology automation, Learn/Taste/Connect surfaces.",
-    roleValue: "End-to-end product ownership, customer education, AI workflow design, and production-minded implementation."
-  },
-  {
-    title: "Rose Quartz Massage",
-    folder: "Rose-Quartz",
-    category: "Client launch website",
-    evidence: "Responsive Vite site, generated imagery, service menu, body-map intake, booking flow, care/privacy standards, journal, SEO, sitemap, launch docs.",
-    roleValue: "Client discovery, trust-sensitive UX, launch readiness, and business-facing web delivery."
-  },
-  {
-    title: "AI Edu",
-    folder: "Ai-Edu",
-    category: "Safe AI education prototype",
-    evidence: "Supabase Edge Function ai-router for OpenAI, Anthropic, and Google, frontend-safe keys, terminology page, admin workflow, and citation guidance.",
-    roleValue: "Shows secure AI integration, provider abstraction, and educational data operations."
-  },
-  {
-    title: "Coffee Index",
-    folder: "Coffee-Index",
-    category: "Market index story",
-    evidence: "Vite analytical page modeling solo espresso costs by city, rankings, regional averages, baseline index, and methodology narrative.",
-    roleValue: "Shows fast data storytelling and public-facing analytical presentation."
-  },
-  {
-    title: "Sip Studies Tasting Journal",
-    folder: "Sip-Studies-Tasting-Journal",
-    category: "Replit tasting app",
-    evidence: "Multi-beverage tasting templates, blind testing, analytics, study recommendations, Replit OIDC auth, PostgreSQL, Drizzle, and shadcn/Radix UI.",
-    roleValue: "Shows Replit lineage, authenticated product workflows, and beverage-domain form architecture."
-  }
-];
-
 const repoWebsitePreviews = [
   {
-    title: "Sipopedia / Sip Studies",
-    label: "Interactive website preview",
-    repo: "Sipopedia",
+    title: "Sipopedia.com",
+    label: "Live product website",
+    repo: "Sipopedia.com",
+    projectTitle: "Sip Studies / Sipopedia",
     repoHref: "https://github.com/Sip-Coder/Sipopedia",
-    siteHref: "https://sipopedia.com/",
-    previewHref: "https://sipopedia.com/",
+    siteHref: "https://sipopedia.com/#app/starter",
+    previewHref: "https://sipopedia.com/#app/starter",
     status: "Live iframe",
-    summary: "The live learning platform is the highest-signal website preview: recruiters can click through the public product without leaving the portfolio.",
-    proof: ["Custom domain verified embeddable", "Learn / Taste / Connect product lanes", "GitHub-backed source repo"]
+    summary: "The live learning platform now opens on the Launch Pad preview, giving recruiters a front-door view into the product surfaces that normally sit behind auth.",
+    proof: ["Launch Pad preview entry", "Learn / Taste / Connect product lanes", "GitHub-backed source repo"]
   },
   {
-    title: "Sip Studies public site",
-    label: "Linked website fallback",
-    repo: "Sipopedia",
-    repoHref: "https://github.com/Sip-Coder/Sipopedia",
-    siteHref: "https://sipstudies.com",
-    status: "Open in new tab",
-    summary: "The public brand site is linked beside the app preview. It sends same-origin frame protection, so it should open directly instead of pretending to be interactive here.",
-    proof: ["Public education home", "Brand and publishing surface", "Direct site link"]
+    title: "Tasting Journal",
+    label: "Live Replit app",
+    repo: "Tasting-Journal.replit.app",
+    projectTitle: "Sip Studies Tasting Journal",
+    repoHref: "https://github.com/Sip-Coder/Sip-Studies-Tasting-Journal",
+    siteHref: "https://tasting-journal.replit.app/",
+    previewHref: "https://tasting-journal.replit.app/",
+    status: "Live Replit iframe",
+    summary: "The beverage tasting app appears at the same scale as Sipopedia, with the live Replit surface available for journal workflows and authenticated product review.",
+    proof: ["Live Replit app surface", "Authenticated tasting workflows", "Blind testing and analytics lineage"]
   },
   {
     title: "Rose Quartz Massage",
     label: "GitHub repo website",
     repo: "Rose-Quartz",
+    projectTitle: "Rose Quartz Massage",
     repoHref: "https://github.com/Sip-Coder/Rose-Quartz",
     siteHref: "/repo-previews/rose-quartz/index.html",
     previewHref: "/repo-previews/rose-quartz/index.html",
@@ -323,6 +297,7 @@ const repoWebsitePreviews = [
     title: "Coffee Index",
     label: "GitHub repo website",
     repo: "Coffee-Index",
+    projectTitle: "Coffee Index",
     repoHref: "https://github.com/Sip-Coder/Coffee-Index",
     siteHref: "/repo-previews/coffee-index/index.html",
     previewHref: "/repo-previews/coffee-index/index.html",
@@ -331,15 +306,16 @@ const repoWebsitePreviews = [
     proof: ["City-by-city cost model", "Methodology page", "Data-storytelling surface"]
   },
   {
-    title: "Sip Studies Tasting Journal",
-    label: "GitHub repo app",
-    repo: "Sip-Studies-Tasting-Journal",
-    repoHref: "https://github.com/Sip-Coder/Sip-Studies-Tasting-Journal",
-    siteHref: "/repo-previews/tasting-journal/index.html",
-    previewHref: "/repo-previews/tasting-journal/index.html",
-    status: "Static app preview",
-    summary: "The app source is on GitHub, and the front-end build is embedded here for review. Backend-backed actions still belong in the live app environment.",
-    proof: ["Authenticated tasting workflows", "Blind testing and analytics", "Replit lineage preserved"]
+    title: "Zen Noise",
+    label: "Live Replit app",
+    repo: "Zen-Noise.Replit.app",
+    projectTitle: "Zen Noise",
+    repoHref: "https://github.com/Sip-Coder/Zen-Noise",
+    siteHref: "https://zen-noise.replit.app/",
+    previewHref: "https://zen-noise.replit.app/",
+    status: "Live Replit iframe",
+    summary: "The ambient focus tool is embedded as a live screen-in-screen surface, showing another shipped app experience rather than a static placeholder.",
+    proof: ["Live Replit app surface", "Ambient focus experience", "Shipped standalone prototype"]
   }
 ];
 
@@ -447,22 +423,21 @@ const educationSignals = [
 
 const mediaEpisodes = [
   {
-    title: "Ai Winecast - 002 Cabernet Franc",
-    label: "Podcast video episode",
-    episodeLabel: "Episode 002",
-    theme: "Cabernet Franc",
-    publishedAt: "Jul 23, 2025",
-    youtubeId: "BobLilSXXgM",
-    youtubeUrl: "https://youtu.be/BobLilSXXgM",
-    thumbnail:
-      "https://images.squarespace-cdn.com/content/v1/60ebc279dcf3287a46adfe4e/c3190f4e-539e-4c22-a84b-8424e088ca46/Ai+Winecast+-+002+Cabernet+Franc.jpg",
+    title: "Ai Winecast - J Lohr Vineyards & Wines",
+    label: "AI Winecast video episode",
+    episodeLabel: "Winery feature",
+    theme: "J Lohr Vineyards",
+    publishedAt: "2025",
+    youtubeId: "zm2ECFtViXA",
+    youtubeUrl: "https://youtu.be/zm2ECFtViXA",
+    thumbnail: "https://i.ytimg.com/vi/zm2ECFtViXA/hqdefault.jpg",
     summary:
-      "Cabernet Franc as a Bordeaux parent grape, blending partner, and source of lifted red fruit, herbs, and structure."
+      "A winery-profile episode translating J. Lohr's vineyard and wine story into accessible AI-assisted beverage education."
   },
   {
-    title: "Ai Winecast - 001 Cabernet Sauvignon",
-    label: "Podcast video episode",
-    episodeLabel: "Episode 001",
+    title: "Ai Winecast - 002 Cabernet Sauvignon",
+    label: "AI Winecast video episode",
+    episodeLabel: "Episode 002",
     theme: "Cabernet Sauvignon",
     publishedAt: "Jul 21, 2025",
     youtubeId: "yVHuAHuAAVE",
@@ -473,20 +448,7 @@ const mediaEpisodes = [
       "Cabernet Sauvignon's origin, viticulture, thick skins, tannin structure, and classic Bordeaux expression."
   },
   {
-    title: "NEW AI Winecast 000: Our Mission & Philosophy",
-    label: "Podcast video episode",
-    episodeLabel: "Episode 000",
-    theme: "Mission and Philosophy",
-    publishedAt: "Jul 19, 2025",
-    youtubeId: "Yaps0nSaeO0",
-    youtubeUrl: "https://youtu.be/Yaps0nSaeO0",
-    thumbnail:
-      "https://images.squarespace-cdn.com/content/v1/60ebc279dcf3287a46adfe4e/a1cc2398-4f42-4db5-b82d-5a9e2c7497bf/Ai+Winecast+-+000+Philosophy.png",
-    summary:
-      "The launch episode introducing Sip Studies, Sippy, AI-assisted wine education, community impact, and the Learn, Engage, Teach model."
-  },
-  {
-    title: "Tasting Winecast - Episode 005",
+    title: "Tasting Winecast - 005",
     label: "YouTube education episode",
     episodeLabel: "Episode 005",
     theme: "Tasting Method",
@@ -499,21 +461,8 @@ const mediaEpisodes = [
       "A tasting-focused bridge between visual wine education and structured sensory practice."
   },
   {
-    title: "Tasting Winecast - Episode 004",
-    label: "YouTube education episode",
-    episodeLabel: "Episode 004",
-    theme: "Tasting Drill",
-    publishedAt: "Jul 14, 2025",
-    youtubeId: "8HAjXibHMEw",
-    youtubeUrl: "https://youtu.be/8HAjXibHMEw",
-    thumbnail:
-      "https://images.squarespace-cdn.com/content/v1/60ebc279dcf3287a46adfe4e/ef942ae4-1e1d-4ac8-a90c-0de814e7c94e/004+Tasting.png",
-    summary:
-      "A tasting-practice archive for reinforcing structured beverage observation and conclusion-building."
-  },
-  {
     title: "Ai Winecast - Episode 003",
-    label: "Podcast video episode",
+    label: "AI Winecast video episode",
     episodeLabel: "Episode 003",
     theme: "AI Wine Education",
     publishedAt: "Jul 12, 2025",
@@ -523,6 +472,61 @@ const mediaEpisodes = [
       "https://images.squarespace-cdn.com/content/v1/60ebc279dcf3287a46adfe4e/7a2518fe-4db7-46cc-a859-f25c2ac2969f/003+Ai.png",
     summary:
       "An early AI Winecast entry focused on building AI-assisted beverage education into a repeatable learning format."
+  }
+];
+
+const soraProjectVideos = [
+  {
+    title: "Sora Project 01",
+    label: "Sora Projects",
+    episodeLabel: "Local video",
+    theme: "AI video generation",
+    publishedAt: "Sora upload",
+    duration: "Video",
+    frame: "video-file",
+    videoSrc: "/media/sora-projects/WhatsApp%20Video%202026-06-12%20at%2022.08.46.mp4",
+    summary: "A reviewable AI-generated motion sample staged as public visual proof inside the portfolio.",
+    linkLabel: "Open video file",
+    linkKind: "MP4"
+  },
+  {
+    title: "Sora Project 02",
+    label: "Sora Projects",
+    episodeLabel: "Local video",
+    theme: "AI video generation",
+    publishedAt: "Sora upload",
+    duration: "Video",
+    frame: "video-file",
+    videoSrc: "/media/sora-projects/WhatsApp%20Video%202026-06-12%20at%2022.08.48.mp4",
+    summary: "A second Sora video card using the same click-to-load presentation pattern as the reel sections.",
+    linkLabel: "Open video file",
+    linkKind: "MP4"
+  },
+  {
+    title: "Sora Project 03",
+    label: "Sora Projects",
+    episodeLabel: "Local video",
+    theme: "AI video generation",
+    publishedAt: "Sora upload",
+    duration: "Video",
+    frame: "video-file",
+    videoSrc: "/media/sora-projects/WhatsApp%20Video%202026-06-12%20at%2022.08.50.mp4",
+    summary: "A compact visual-generation proof point that can be opened directly or played inline on demand.",
+    linkLabel: "Open video file",
+    linkKind: "MP4"
+  },
+  {
+    title: "Sora Project 04",
+    label: "Sora Projects",
+    episodeLabel: "Local video",
+    theme: "AI video generation",
+    publishedAt: "Sora upload",
+    duration: "Video",
+    frame: "video-file",
+    videoSrc: "/media/sora-projects/WhatsApp%20Video%202026-06-12%20at%2022.08.53.mp4",
+    summary: "The fourth Sora upload completes the section as a four-card visual proof set.",
+    linkLabel: "Open video file",
+    linkKind: "MP4"
   }
 ];
 
@@ -577,132 +581,138 @@ const aarpWineWalkVideos = [
   }
 ];
 
-const instagramVideos = [
+const sipStudiesInstagramVideos = [
   {
-    title: "Neutral White Blind Tasting",
+    title: "Sip Studies Instagram Reel 01",
     label: "Sip Studies Instagram",
     episodeLabel: "Instagram Reel",
-    theme: "Blind tasting",
-    publishedAt: "Latest embeddable reel",
+    theme: "Short-form education",
+    publishedAt: "Instagram reel",
     duration: "Reel",
     frame: "instagram",
-    embedUrl: "https://www.instagram.com/reel/DGcYlnWxP7M/embed",
-    href: "https://www.instagram.com/sip.studies/reel/DGcYlnWxP7M/",
+    embedUrl: "https://www.instagram.com/reel/DOFDY98Dtrg/embed",
+    href: "https://www.instagram.com/reel/DOFDY98Dtrg/?igsh=MWZ2eTJoNGY4NGZseQ==",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail:
-      "https://media.bio.site/sites/0a155d48-b34b-4842-8d27-a6fc05f88d84/wkZTS43CMvdqGwVvyTVq9o.jpg",
-    instagramCaption: [
-      "🌿✨ Neutral Whites & Bonus Wines Blind Tasting! 🍷🥂",
-      "",
-      "This weekend, we explored the refined world of neutral aromatic white wines, diving into classic styles. From the steely minerality of Chablis to the crisp Albariño, and a touch of Alsace Pinot Gris richness, each bottle showcased elegance, structure, and terroir-driven complexity.",
-      "",
-      "🍇 Tasted Wines:",
-      "✅ @maisonpiron Beaujolais Villages (Bonus!) 🍒",
-      "✅ Jadot Chablis - Saint Pierre 🏞️",
-      "✅ Martín Códax Albariño 🌊",
-      "✅ Pine Ridge Chenin Blanc-Viognier 🏖️",
-      "✅ Koeler-Kuprecht Kallstadler Riesling (Kabinett Trocken) 🍑",
-      "✅ Michele Thomas et Fils Sancerre 🍏",
-      "✅ Italo Cescon Pinot Grigio 🍐",
-      "✅ Hugel Pinot Gris Alsace 🍯",
-      "",
-      "👃🏼 Aromas & Tasting Notes: Bright citrus, green apple, crisp minerality, and a touch of floral elegance 🌼. These wines emphasize structure over perfume, making them a fun challenge for all!",
-      "",
-      "🔥 Big thank you to our Sip Studies Tasting Group! Join us as we refine our palates and prepare for the next level of wine appreciation!",
-      "",
-      "#SipStudies #BlindTasting #WineEducation #NeutralWhiteWines #WSET #CMS #WineTasting #SommelierTraining #MineralityMatters"
-    ].join("\n"),
-    summary: "Shows Sip Studies turning a neutral-white lineup into structured blind-tasting practice and public wine education."
+    thumbnail: "https://www.instagram.com/reel/DOFDY98Dtrg/media/?size=l",
+    summary: "Shows Sip Studies using short-form social video as public, reviewable beverage education."
   },
   {
-    title: "Albarino/Alvarinho Tasting",
+    title: "Sip Studies Instagram Reel 02",
     label: "Sip Studies Instagram",
     episodeLabel: "Instagram Reel",
-    theme: "Wine tasting",
-    publishedAt: "Latest embeddable reel",
+    theme: "Short-form education",
+    publishedAt: "Instagram reel",
+    duration: "Reel",
+    frame: "instagram",
+    embedUrl: "https://www.instagram.com/reel/DHUh3JlS7Ko/embed",
+    href: "https://www.instagram.com/reel/DHUh3JlS7Ko/?igsh=ZmgybWx6cXR4Mzk1",
+    linkLabel: "Open on Instagram",
+    linkKind: "REEL",
+    thumbnail: "https://www.instagram.com/reel/DHUh3JlS7Ko/media/?size=l",
+    summary: "Connects Sip Studies audience-building to concise public teaching and repeatable learning prompts."
+  },
+  {
+    title: "Sip Studies Instagram Reel 03",
+    label: "Sip Studies Instagram",
+    episodeLabel: "Instagram Reel",
+    theme: "Short-form education",
+    publishedAt: "Instagram reel",
+    duration: "Reel",
+    frame: "instagram",
+    embedUrl: "https://www.instagram.com/reel/DGw69y4RWGv/embed",
+    href: "https://www.instagram.com/reel/DGw69y4RWGv/?igsh=MXc5M2wwNDJhZjkxeQ==",
+    linkLabel: "Open on Instagram",
+    linkKind: "REEL",
+    thumbnail: "https://www.instagram.com/reel/DGw69y4RWGv/media/?size=l",
+    summary: "Extends the portfolio beyond static documents into a visible cadence of public social content."
+  },
+  {
+    title: "Sip Studies Instagram Reel 04",
+    label: "Sip Studies Instagram",
+    episodeLabel: "Instagram Reel",
+    theme: "Short-form education",
+    publishedAt: "Instagram reel",
+    duration: "Reel",
+    frame: "instagram",
+    embedUrl: "https://www.instagram.com/reel/DGO8bRFRpj2/embed",
+    href: "https://www.instagram.com/reel/DGO8bRFRpj2/?igsh=emg2ZXBtbXdlODQz",
+    linkLabel: "Open on Instagram",
+    linkKind: "REEL",
+    thumbnail: "https://www.instagram.com/reel/DGO8bRFRpj2/media/?size=l",
+    summary: "Turns beverage education into a lightweight, shareable proof point for public audience engagement."
+  }
+];
+
+const sommSupportInstagramVideos = [
+  {
+    title: "Somm Support Instagram Reel 01",
+    label: "Somm Support Instagram",
+    episodeLabel: "Instagram Reel",
+    theme: "Somm support media",
+    publishedAt: "Instagram reel",
     duration: "Reel",
     frame: "instagram",
     embedUrl: "https://www.instagram.com/reel/DFuLhCVRDIU/embed",
-    href: "https://www.instagram.com/sip.studies/reel/DFuLhCVRDIU/",
+    href: "https://www.instagram.com/reel/DFuLhCVRDIU/?igsh=MTNtbnBsMHFqMGEyaA==",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail:
-      "https://media.bio.site/sites/0a155d48-b34b-4842-8d27-a6fc05f88d84/W6ruSetdvEr5nRzmFZDwjc.jpg",
-    instagramCaption: [
-      "Albariño/Alvarinho Tasting!!!",
-      ".",
-      ".",
-      ".",
-      "#wine #winelover #winetastings #winewinewine #winestagram #winelife #wineoclock #win"
-    ].join("\n"),
-    summary: "Uses a focused varietal reel to make wine study approachable, repeatable, and easy to scan."
+    thumbnail: "https://www.instagram.com/reel/DFuLhCVRDIU/media/?size=l",
+    summary: "Shows short-form support content as a practical companion to beverage study and certification work."
   },
   {
-    title: "Lee's Beer and Tequila 2023",
-    label: "Sip Studies Instagram",
+    title: "Somm Support Instagram Reel 02",
+    label: "Somm Support Instagram",
     episodeLabel: "Instagram Reel",
-    theme: "Event media",
-    publishedAt: "Latest embeddable reel",
+    theme: "Somm support media",
+    publishedAt: "Instagram reel",
     duration: "Reel",
     frame: "instagram",
     embedUrl: "https://www.instagram.com/reel/DFisS-QyRzE/embed",
-    href: "https://www.instagram.com/sip.studies/reel/DFisS-QyRzE/",
+    href: "https://www.instagram.com/reel/DFisS-QyRzE/?igsh=MW1sZXVvcGg0cTlo",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail:
-      "https://media.bio.site/sites/0a155d48-b34b-4842-8d27-a6fc05f88d84/sN43wbYT5j8SSdcE3grapV.jpg",
-    instagramCaption: [
-      "Lee's Beer and Tequila 2023 🎉🎶🍻🍹",
-      "What an awesome weekend, who's ready for another great weekend?!?",
-      ".",
-      ".",
-      ".",
-      "Sip Studies"
-    ].join("\n"),
-    summary: "Shows the brand extending beyond classroom content into live beverage community moments."
+    thumbnail: "https://www.instagram.com/reel/DFisS-QyRzE/media/?size=l",
+    summary: "Adds social proof that beverage-learning support can be presented in concise, reviewable formats."
   },
   {
-    title: "Madhouse Coffee Charity Drive",
-    label: "Sip Studies Instagram",
+    title: "Somm Support Instagram Reel 03",
+    label: "Somm Support Instagram",
     episodeLabel: "Instagram Reel",
-    theme: "Community support",
-    publishedAt: "Latest embeddable reel",
+    theme: "Somm support media",
+    publishedAt: "Instagram reel",
     duration: "Reel",
     frame: "instagram",
-    embedUrl: "https://www.instagram.com/reel/DFdKYo7RMBC/embed",
-    href: "https://www.instagram.com/sip.studies/reel/DFdKYo7RMBC/",
+    embedUrl: "https://www.instagram.com/reel/DE8OCR7SgZE/embed",
+    href: "https://www.instagram.com/reel/DE8OCR7SgZE/?igsh=MXJudm11b3BlZ2l4aQ==",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail:
-      "https://media.bio.site/sites/0a155d48-b34b-4842-8d27-a6fc05f88d84/dNfmzhhspeKvHxBnf87pkk.jpg",
-    instagramCaption: [
-      "🎁🫂 Charity Drive at Madhouse Coffee ☕🔥",
-      "",
-      "Join Sip Studies in collecting charity donations for the LA Fire Relief Fund 🚒🔥 at Madhouse Coffee from today until Saturday! Every small act of kindness adds up, and together, we can make a real difference.",
-      "",
-      "📍 Drop-off Location: Madhouse Coffee ☕",
-      "📅 Now - Saturday",
-      "🎥 All details in the video!",
-      "",
-      "Bring your donations and spread the love! Whether it's first aid and hygiene products, essentials, or support - every bit helps. Let's rally together!",
-      "",
-      "Net proceeds for charity merch will be matched,",
-      "Visit our website at:",
-      "https://SipStudies.com/shop/charity",
-      "",
-      "💙 Tag a friend who can help! #GiveBack #CharityDrive #LAFireRelief #SipStudies #CommunityStrong #MadhouseCoffee #HelpUsHelpOthers"
-    ].join("\n"),
-    summary: "Connects Sip Studies media to community support, local partnerships, and clear calls to action."
+    thumbnail: "https://www.instagram.com/reel/DE8OCR7SgZE/media/?size=l",
+    summary: "Keeps the support brand visible as public-facing learning evidence instead of private-only work."
+  },
+  {
+    title: "Somm Support Instagram Reel 04",
+    label: "Somm Support Instagram",
+    episodeLabel: "Instagram Reel",
+    theme: "Somm support media",
+    publishedAt: "Instagram reel",
+    duration: "Reel",
+    frame: "instagram",
+    embedUrl: "https://www.instagram.com/reel/DEyt0Ioxmw4/embed",
+    href: "https://www.instagram.com/reel/DEyt0Ioxmw4/?igsh=NTNjM3VtY3ByZ2N0",
+    linkLabel: "Open on Instagram",
+    linkKind: "REEL",
+    thumbnail: "https://www.instagram.com/reel/DEyt0Ioxmw4/media/?size=l",
+    summary: "Rounds out the support media set with a fourth reel in the same playable portfolio card format."
   }
 ];
 
 const podcastAudio = {
-  title: "AI Winecast",
-  embedUrl: "https://open.spotify.com/embed/show/2LSWrWDTlPOMgnZkGfUPE1?utm_source=generator",
-  href: "https://open.spotify.com/show/2LSWrWDTlPOMgnZkGfUPE1",
+  title: "Welcome to Sip Studies | AI Winecast 000: Our Mission & Philosophy",
+  embedUrl: "https://open.spotify.com/embed/episode/5f9GpwIY7hC5IzZVYFc0Pt?utm_source=generator",
+  href: "https://open.spotify.com/episode/5f9GpwIY7hC5IzZVYFc0Pt",
   body:
-    "Audio-side proof that the education work is not just written or visual. The podcast format shows voice, pacing, explanation, and repeatable topic framing."
+    "The single launch audio episode for the AI Winecast mission, philosophy, voice, pacing, and repeatable topic framing."
 };
 
 const flavorBlogCollections = [
@@ -1106,6 +1116,7 @@ function youtubeEmbedUrl(videoId) {
 }
 
 function episodeEmbedUrl(episode) {
+  if (episode.videoSrc) return episode.videoSrc;
   return episode.embedUrl || youtubeEmbedUrl(episode.youtubeId);
 }
 
@@ -1327,16 +1338,18 @@ function renderSelectedDocumentPanel(name, doc) {
 }
 
 function mediaEpisodeCard(episode) {
-  const linkLabel = episode.linkLabel || "Open on YouTube";
-  const linkKind = episode.linkKind || "VIDEO";
-  const href = episode.href || episode.youtubeUrl;
+  const linkLabel = episode.linkLabel || (episode.videoSrc ? "Open video file" : "Open on YouTube");
+  const linkKind = episode.linkKind || (episode.videoSrc ? "VIDEO FILE" : "VIDEO");
+  const href = episode.href || episode.videoSrc || episode.youtubeUrl;
   const frame = episode.frame || "video";
-  const bodyCopy = episode.instagramCaption
+  const embedSrc = episodeEmbedUrl(episode);
+  const loadLabel = frame === "instagram" ? "Load reel" : "Load video";
+  const thumbStyle = episode.thumbnail ? ` style="--episode-thumb:url('${episode.thumbnail}')"` : "";
+  const previewMedia = frame === "video-file"
+    ? `<video class="episode-preview-video" data-episode-preview src="${attributeText(embedSrc)}#t=0.1" muted preload="metadata" playsinline aria-hidden="true" tabindex="-1"></video>`
+    : "";
+  const bodyCopy = frame === "instagram" || frame === "video-file"
     ? `
-        <div class="episode-caption">
-          <span>Instagram description</span>
-          <p>${episode.instagramCaption}</p>
-        </div>
         <div class="episode-takeaway">
           <span>Portfolio takeaway</span>
           <p>${episode.summary}</p>
@@ -1346,15 +1359,19 @@ function mediaEpisodeCard(episode) {
 
   return `
     <article class="episode-card episode-card--${frame}">
-      <div class="episode-player episode-player--${frame}" style="--episode-thumb:url('${episode.thumbnail}')">
-        <iframe
-          title="${episode.title}"
-          src="${episodeEmbedUrl(episode)}"
-          loading="lazy"
-          ${frame === "instagram" ? 'scrolling="no"' : ""}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+      <div class="episode-player episode-player--${frame}"${thumbStyle} data-episode-player>
+        ${previewMedia}
+        <button
+          class="episode-load-button"
+          data-episode-load
+          data-episode-src="${attributeText(embedSrc)}"
+          data-episode-title="${attributeText(episode.title)}"
+          data-episode-frame="${frame}"
+          type="button"
+          aria-label="${loadLabel} for ${attributeText(episode.title)}"
+        >
+          <span>${loadLabel}</span>
+        </button>
       </div>
       <div class="episode-body">
         <div class="episode-kicker">
@@ -1412,10 +1429,29 @@ function articleCollection(collection) {
 }
 
 function repoWebsiteActions(site) {
+  const repoLink = site.repoHref ? artifactButton(site.repoActionLabel || "Open GitHub repo", site.repoHref, site.repoKind || "GITHUB") : "";
   return `
     <div class="website-preview-actions">
       ${site.siteHref ? artifactButton("Open site", site.siteHref, "SITE") : ""}
-      ${artifactButton("Open GitHub repo", site.repoHref, "GITHUB")}
+      ${repoLink}
+    </div>
+  `;
+}
+
+function repoWebsiteProjectDetail(site) {
+  const project = codexProjects.find((item) => item.title === site.projectTitle);
+  if (!project) return "";
+
+  return `
+    <div class="website-project-detail">
+      <span>${presentationText(project.type)}</span>
+      <p>${presentationText(project.body)}</p>
+      <ul>${project.proof.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
+      <div class="project-bridge">
+        <b>Role bridge for ${selectedRole.title}</b>
+        <p>${presentationText(project.bridge)}</p>
+      </div>
+      <footer>${presentationText(project.path)}</footer>
     </div>
   `;
 }
@@ -1462,10 +1498,9 @@ function repoWebsiteFrame(site) {
   `;
 }
 
-function repoWebsitePreviewCard(site, index) {
-  const featuredClass = index === 0 ? " is-featured" : "";
+function repoWebsitePreviewCard(site) {
   return `
-    <article class="website-preview-card${featuredClass}">
+    <article class="website-preview-card">
       ${repoWebsiteFrame(site)}
       <div class="website-preview-body">
         <span>${presentationText(site.label)}</span>
@@ -1473,6 +1508,7 @@ function repoWebsitePreviewCard(site, index) {
         <p>${presentationText(site.summary)}</p>
         <div class="website-preview-status">${presentationText(site.status)}</div>
         <ul>${site.proof.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
+        ${repoWebsiteProjectDetail(site)}
         ${repoWebsiteActions(site)}
       </div>
     </article>
@@ -1481,12 +1517,12 @@ function repoWebsitePreviewCard(site, index) {
 
 function renderRepoWebsitePreviews() {
   return `
-    <section class="website-preview-board" aria-label="Interactive GitHub repo website previews">
+    <section class="website-preview-board" aria-label="Codex project website previews">
       <div class="website-preview-head">
         <div>
-          <p class="eyebrow">Website screen-in-screen</p>
-          <h3>Let recruiters interact with the shipped web surfaces without hunting through repos.</h3>
-          <p>Sipopedia runs from its public domain. Rose Quartz, Coffee Index, and Tasting Journal use same-origin static snapshots generated from their local build outputs, so every preview opens in a real frame instead of a blank placeholder.</p>
+          <p class="eyebrow">Codex Projects</p>
+          <h3>Let recruiters interact with shipped web surfaces and read the build proof in one place.</h3>
+          <p>Each project keeps the Sipopedia-style screen-in-screen layout, then folds in the Codex project detail, role bridge, proof points, fullscreen control, and direct launch links.</p>
         </div>
         <a class="artifact-link" href="https://github.com/Sip-Coder" target="_blank" rel="noreferrer">Open GitHub profile <span>REPOS</span></a>
       </div>
@@ -1531,6 +1567,14 @@ function presentationText(value = "") {
     .replace(/\bsystems-thinking\b/gi, "structured-thinking")
     .replace(/\bdemo\b/g, "presentation")
     .replace(/\bDemo\b/g, "Presentation");
+}
+
+function attributeText(value = "") {
+  return presentationText(String(value))
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
 
 function resumeRoleBridge(job) {
@@ -1835,20 +1879,39 @@ function renderPacketPdfRail(role = selectedRole) {
 function renderPortfolioMediaProof() {
   const teachingLinks = [
     { label: "AARP Wine Walk Wednesdays", handle: "adult education proof", href: "https://www.youtube.com/@jonyu836/videos" },
-    { label: "AI Winecast", handle: "podcast/audio proof", href: "https://open.spotify.com/show/2LSWrWDTlPOMgnZkGfUPE1" },
+    { label: "AI Winecast", handle: "podcast/audio proof", href: "https://open.spotify.com/episode/5f9GpwIY7hC5IzZVYFc0Pt" },
     { label: "Sip Studies Instagram", handle: "public media proof", href: "https://www.instagram.com/sip.studies/" },
     { label: "Flavor Blog", handle: "writing/publishing proof", href: "https://sipopedia.com/#app/flavor-blog" }
   ];
 
   return `
-    <section class="portfolio-media-proof" aria-label="Public teaching and media portfolio proof">
+    <section class="portfolio-media-proof" aria-label="ChatGPT and Dall-e portfolio proof">
       <div>
-        <p class="eyebrow">Public teaching proof</p>
-        <h3>Education is part of the AI Success portfolio, not a separate detour.</h3>
-        <p>AI Success needs people who can explain new technology, pace adoption, build confidence, and turn complex material into useful behavior. These public channels support that claim.</p>
+        <p class="eyebrow">ChatGPT & Dall-e Projects</p>
+        <h3>Public media proof for AI-assisted education, storytelling, and adoption work.</h3>
+        <p>These channels show the same operating pattern from the product work: turn ambiguous material into useful, reviewable outputs that an audience can understand quickly.</p>
       </div>
       <div class="link-grid">${teachingLinks.map(linkCard).join("")}</div>
     </section>
+  `;
+}
+
+function renderSoraProjects() {
+  return `
+    <section class="media-showcase media-showcase--sora" aria-label="Sora Projects">
+      <div>
+        <p class="eyebrow">Sora Projects</p>
+        <h3>Visual-generation projects sit between Codex builds and ChatGPT/Dall-e media proof.</h3>
+        <p>Four Sora project videos are reserved here as a focused visual proof set, using the same playable card pattern as the reel sections once the media is ready.</p>
+      </div>
+    </section>
+    ${
+      soraProjectVideos.length
+        ? `<section class="episode-grid episode-grid--instagram episode-grid--video-row" aria-label="Sora project videos">
+            ${soraProjectVideos.map(mediaEpisodeCard).join("")}
+          </section>`
+        : ""
+    }
   `;
 }
 
@@ -2063,72 +2126,8 @@ function renderProjects() {
       </div>
     </section>
     ${renderParameterGolfPattern()}
-    <section class="case-study-board" aria-label="Flagship Codex project case studies">
-      <div class="case-study-head">
-        <div>
-          <p class="eyebrow">Flagship case studies</p>
-          <h3>Lead with four stories a hiring team can actually discuss.</h3>
-          <p>These are the highest-signal project examples because each one connects a real problem, process, output, validation, limitations, role relevance, and a specific interview use.</p>
-        </div>
-        <div class="case-study-selector" aria-label="Case study proof pattern">
-          <span>Problem</span>
-          <span>Process</span>
-          <span>Output</span>
-          <span>Validation</span>
-          <span>Limitations</span>
-          <span>Role relevance</span>
-        </div>
-      </div>
-      <div class="case-study-grid">
-        ${projectCaseStudies.map(projectCaseStudyCard).join("")}
-      </div>
-    </section>
-    <section class="portfolio-grid" aria-label="Codex Projects portfolio">
-      ${codexProjects
-        .map(
-          (project) => `
-            <article class="portfolio-card">
-              <span>${presentationText(project.type)}</span>
-              <h3>${project.title}</h3>
-              <p>${presentationText(project.body)}</p>
-              <ul>${project.proof.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
-              <div class="project-bridge">
-                <b>Role bridge for ${selectedRole.title}</b>
-                <p>${presentationText(project.bridge)}</p>
-              </div>
-              <footer>${project.path}</footer>
-            </article>
-          `
-        )
-        .join("")}
-    </section>
-
-    <section class="project-index-panel" aria-label="Full Codex project index">
-      <div class="project-index-head">
-        <p class="eyebrow">Full project scope from C:\\codebase\\sip_studies\\actual</p>
-        <h3>The broader portfolio shows repeated product translation across domains.</h3>
-        <p>Featured cards carry the interview narrative. This index gives the hiring team the full breadth behind that narrative without turning the walkthrough into a file browser.</p>
-      </div>
-      <div class="project-index-grid">
-        ${codexProjectIndex
-          .map(
-            (project) => `
-              <article class="project-index-card">
-                <div>
-                  <span>${presentationText(project.category)}</span>
-                  <h4>${project.title}</h4>
-                  <p>${presentationText(project.evidence)}</p>
-                </div>
-                <strong>${presentationText(project.roleValue)}</strong>
-                <footer>${project.folder}</footer>
-              </article>
-            `
-          )
-          .join("")}
-      </div>
-    </section>
-
     ${renderRepoWebsitePreviews()}
+    ${renderSoraProjects()}
     ${renderPortfolioMediaProof()}
     ${renderEducationMediaSections()}
   `;
@@ -2138,11 +2137,11 @@ function renderEducationMediaSections() {
   return `
     <section class="media-showcase">
       <div>
-        <p class="eyebrow">Full video and reference archive</p>
-        <h3>All video outlets and earlier public references live inside Portfolio.</h3>
-        <p>Podcast videos, YouTube lessons, Spotify audio, Instagram reels, Flavor Blog articles, GPT guides, and Bio Site links are presented here so the portfolio reads as a complete body of public proof.</p>
+        <p class="eyebrow">AI Winecast</p>
+        <h3>Four video episodes show AI-assisted beverage education in public.</h3>
+        <p>These videos keep the portfolio focused on finished, watchable proof: winery storytelling, Cabernet Sauvignon education, tasting practice, and the early AI Winecast format.</p>
       </div>
-      <a class="artifact-link" href="https://open.spotify.com/show/2LSWrWDTlPOMgnZkGfUPE1" target="_blank" rel="noreferrer">AI Winecast on Spotify <span>AUDIO</span></a>
+      <a class="artifact-link" href="https://www.youtube.com/@sipstudies" target="_blank" rel="noreferrer">Open Sip Studies YouTube <span>VIDEO</span></a>
     </section>
     <section class="episode-grid" aria-label="Playable podcast and YouTube episodes">
       ${mediaEpisodes.map(mediaEpisodeCard).join("")}
@@ -2175,13 +2174,24 @@ function renderEducationMediaSections() {
     <section class="media-showcase">
       <div>
         <p class="eyebrow">Sip Studies Instagram</p>
-        <h3>Latest four Sip Studies reels can be played in the same card format.</h3>
+        <h3>Four Sip Studies reels can be played in the same card format.</h3>
         <p>These use Instagram embeds with the same thumbnail-backed episode cards as the YouTube sections, so the viewer can play, pause, control, and open each reel from one education tab.</p>
       </div>
       <a class="artifact-link" href="https://www.instagram.com/sip.studies/" target="_blank" rel="noreferrer">Open @sip.studies <span>REELS</span></a>
     </section>
-    <section class="episode-grid episode-grid--instagram" aria-label="Latest Sip Studies Instagram reels">
-      ${instagramVideos.map(mediaEpisodeCard).join("")}
+    <section class="episode-grid episode-grid--instagram episode-grid--video-row" aria-label="Latest Sip Studies Instagram reels">
+      ${sipStudiesInstagramVideos.map(mediaEpisodeCard).join("")}
+    </section>
+    <section class="media-showcase">
+      <div>
+        <p class="eyebrow">Somm Support Instagram</p>
+        <h3>Four Somm Support reels extend the public education proof.</h3>
+        <p>These cards separate the support-brand reels from Sip Studies, while keeping the same playable media treatment and portfolio takeaway format.</p>
+      </div>
+      <a class="artifact-link" href="https://www.instagram.com/somm.support/" target="_blank" rel="noreferrer">Open Somm Support <span>REELS</span></a>
+    </section>
+    <section class="episode-grid episode-grid--instagram episode-grid--video-row" aria-label="Somm Support Instagram reels">
+      ${sommSupportInstagramVideos.map(mediaEpisodeCard).join("")}
     </section>
     <section class="media-showcase">
       <div>
@@ -2394,6 +2404,47 @@ function bindEvents() {
     });
   });
 
+  document.querySelectorAll("[data-episode-load]").forEach((button) => {
+    button.addEventListener("click", () => {
+      loadEpisodeEmbed(button);
+    });
+  });
+
+}
+
+function loadEpisodeEmbed(button) {
+  const player = button.closest("[data-episode-player]");
+  if (!player || player.querySelector("iframe, video:not([data-episode-preview])")) return;
+
+  if (button.dataset.episodeFrame === "video-file") {
+    const video = document.createElement("video");
+    video.src = button.dataset.episodeSrc || "";
+    video.title = button.dataset.episodeTitle || "Media player";
+    video.controls = true;
+    video.preload = "metadata";
+    video.playsInline = true;
+    player.classList.add("is-loaded");
+    player.querySelector("[data-episode-preview]")?.remove();
+    player.appendChild(video);
+    button.remove();
+    return;
+  }
+
+  const iframe = document.createElement("iframe");
+  iframe.title = button.dataset.episodeTitle || "Media player";
+  iframe.src = button.dataset.episodeSrc || "";
+  iframe.loading = "eager";
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share";
+  iframe.allowFullscreen = true;
+
+  if (button.dataset.episodeFrame === "instagram") {
+    iframe.setAttribute("scrolling", "no");
+  }
+
+  player.classList.add("is-loaded");
+  player.querySelector("[data-episode-preview]")?.remove();
+  player.appendChild(iframe);
+  button.remove();
 }
 
 async function toggleWebsitePreviewFullscreen(button) {

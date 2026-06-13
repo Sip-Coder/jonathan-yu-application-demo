@@ -44,11 +44,11 @@ npm.cmd run validate:contrast
 - A presenter-lens panel inside Resume that tells the viewer what to notice before moving into Portfolio and OpenAI Fit.
 - Role-specific relevance notes inside each Resume timeline entry, so the same resume reads differently for the selected position without changing the workbook facts.
 - Employer-facing AI positioning that describes AI-assisted product building, agentic harnessing, workflow prototyping, customer workflow translation, technical enablement, and a human-owned build process.
-- A Portfolio section grounded in `C:\codebase\sip_studies\actual`, with featured case studies plus a compact local Codex project index for Sip Studies, Rose Quartz, AI Edu, Coffee Index, and Tasting Journal.
-- Portfolio case studies are reviewable through problem, process, output, validation, limitations, role relevance, what AI did, and what Jonathan decided.
+- A Portfolio section grounded in `C:\codebase\sip_studies\actual`, with Codex project proof blended directly into each interactive website preview.
 - A Parameter Golf-inspired review pattern that treats each project like constrained, inspectable OpenAI-style evidence: artifact, score or validation, limitation, and decision record.
-- A Portfolio website screen-in-screen section for GitHub-backed repo websites, with an interactive Sipopedia iframe, same-origin static snapshots for Rose Quartz/Coffee Index/Tasting Journal, fullscreen preview controls, and GitHub repo links.
-- A full Portfolio media/reference archive for AI Winecast podcast videos, Spotify audio, AARP Wine Walk Wednesdays, Sip Studies YouTube, Sip Studies Instagram reels, Flavor Blog articles, Bio Site/public social links, GPT guides, and tasting-group references.
+- A Codex Projects section for shipped repo websites, with equal Sipopedia-style blocks for Sipopedia.com, Tasting Journal, Rose Quartz Massage, Coffee Index, and Zen Noise, plus embedded Codex project details, fullscreen preview controls, and direct launch links.
+- A focused Portfolio media proof flow: Codex projects, Sora project placeholders, ChatGPT & Dall-e project proof, AI Winecast videos, one Spotify launch episode, AARP Wine Walk Wednesdays, Sip Studies reels, Somm Support reels, Flavor Blog articles, and public channel links.
+- Sora project video uploads are staged under `public/media/sora-projects/` before being wired into the Portfolio page.
 - Latest four article cards from each Sipopedia Flavor Blog tab: SipStudies.com Blog, Sip Studies Substack, and Daily Sip, with thumbnails for every card.
 - An OpenAI Fit section with a 90-second closer, a fact-checked role-source panel for the current AI Success Engineer posting, OpenAI interview lenses for hiring manager/team/HR/supervisor, packet document tabs, role-proof map, and live interview answer board.
 - A selected-document panel on OpenAI Fit that keeps the active packet file actionable even when browser PDF previews are unavailable.

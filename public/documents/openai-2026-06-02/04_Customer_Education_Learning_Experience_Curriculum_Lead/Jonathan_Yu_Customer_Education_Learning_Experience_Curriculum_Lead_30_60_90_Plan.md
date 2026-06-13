@@ -8,7 +8,11 @@ Compensation: $207K-$230K + equity
 ## Operating Thesis
 AI-native learning pathways, curriculum standards, badging structure, analytics, and scalable course operations.
 
-The first 90 days should prove three things: fast product fluency, useful customer or learner empathy, and one repeatable operating asset that improves adoption beyond a single account or course.
+The first 90 days should prove fast product fluency, useful customer or learner empathy, and one reusable operating asset that improves adoption beyond a single engagement.
+
+## Role Signals I Am Planning Around
+- OpenAI describes this role as owning strategy and execution for enterprise learning pathways and curriculum.
+- The posting emphasizes curriculum writing, assessments, credential structure, AI-assisted course production, analytics, and alignment with Product and Technical Success.
 
 ## First 30 Days - Learn, Map, and Ship a Small Useful Artifact
 - Map current Customer Education pathways, learner personas, high-priority product surfaces, and field feedback from Technical Success.
@@ -30,10 +34,10 @@ The first 90 days should prove three things: fast product fluency, useful custom
 
 ## How I Would Measure Early Success
 - I can clearly explain the role's priority product surfaces, customer or learner personas, adoption blockers, and internal handoff model.
-- I have shipped at least one artifact the team can reuse: a demo, template, pathway, checklist, playbook, messaging matrix, or account plan.
+- I have shipped at least one artifact the team can reuse: learning pathway, rubric, course template, assessment model, credential map, or QA checklist.
 - My work produces evidence: workshop feedback, adoption movement, content quality improvement, product feedback, or clearer stakeholder alignment.
 - I have built trust with the immediate team by being useful, precise, and willing to do the hands-on work.
 
 
-## Source Posting
-https://openai.com/careers/customer-education-learning-experience-and-curriculum-lead-san-francisco/
+## Source Posting Reviewed
+Reviewed June 12, 2026: https://openai.com/careers/customer-education-learning-experience-and-curriculum-lead-san-francisco/

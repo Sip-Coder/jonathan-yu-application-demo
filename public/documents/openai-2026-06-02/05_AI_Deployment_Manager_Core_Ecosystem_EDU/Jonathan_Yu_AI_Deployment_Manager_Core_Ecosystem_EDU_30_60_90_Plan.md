@@ -8,7 +8,11 @@ Compensation: $162K-$230K + equity
 ## Operating Thesis
 EDU adoption framework, campus AI literacy, workshops, enablement playbooks, activation, and feedback to Product.
 
-The first 90 days should prove three things: fast product fluency, useful customer or learner empathy, and one repeatable operating asset that improves adoption beyond a single account or course.
+The first 90 days should prove fast product fluency, useful customer or learner empathy, and one reusable operating asset that improves adoption beyond a single engagement.
+
+## Role Signals I Am Planning Around
+- OpenAI describes this as a specialist post-sales enablement role for educational institutions.
+- The posting emphasizes AI literacy, campus-wide adoption, live workshops, adoption interventions, enablement assets, playbooks, and product feedback loops.
 
 ## First 30 Days - Learn, Map, and Ship a Small Useful Artifact
 - Learn the current EDU customer journey, institution personas, adoption framework, product surfaces, and handoff points with Sales and AI Success.
@@ -30,10 +34,10 @@ The first 90 days should prove three things: fast product fluency, useful custom
 
 ## How I Would Measure Early Success
 - I can clearly explain the role's priority product surfaces, customer or learner personas, adoption blockers, and internal handoff model.
-- I have shipped at least one artifact the team can reuse: a demo, template, pathway, checklist, playbook, messaging matrix, or account plan.
+- I have shipped at least one artifact the team can reuse: campus adoption pathway, workshop plan, enablement playbook, leadership briefing, or product-feedback summary.
 - My work produces evidence: workshop feedback, adoption movement, content quality improvement, product feedback, or clearer stakeholder alignment.
 - I have built trust with the immediate team by being useful, precise, and willing to do the hands-on work.
 
 
-## Source Posting
-https://openai.com/careers/ai-deployment-manager-core-ecosystem-edu-san-francisco/
+## Source Posting Reviewed
+Reviewed June 12, 2026: https://openai.com/careers/ai-deployment-manager-core-ecosystem-edu-san-francisco/
