@@ -74,7 +74,7 @@ const publicLinks = [
   { label: "Instagram", handle: "@sip.studies", href: "https://www.instagram.com/sip.studies" },
   { label: "Threads", handle: "@sip.studies", href: "https://www.threads.net/@sip.studies" },
   { label: "Substack", handle: "sipstudies", href: "https://sipstudies.substack.com" },
-  { label: "Spotify", handle: "AI Winecast", href: "https://open.spotify.com/show/2LSWrWDTlPOMgnZkGfUPE1" }
+  { label: "Spotify", handle: "Sippy's Beverage Blog", href: "https://open.spotify.com/show/1p8kpZbP02yeEx5bM2xg1e" }
 ];
 
 const mediaLinks = [
@@ -240,11 +240,11 @@ const codexProjects = [
   },
   {
     title: "Zen Noise",
-    type: "Codex Project | Replit focus app",
+    type: "Codex Project | Replit soundscape app",
     path: "Zen-Noise.Replit.app",
-    body: "Ambient focus app shipped as a standalone Replit surface, showing quick product shaping around mood, focus, and simple interactive utility.",
-    proof: ["Live Replit app surface", "Ambient focus experience", "Standalone product prototype"],
-    bridge: "Shows the lighter prototype side: Jonathan can turn a small product idea into a usable web surface that is easy to inspect."
+    body: "Replit-origin ambient focus app with brown noise, recorded ambient layers, Web Audio playback, layer modulation, a focus timer, preset shuffle workflows, shareable mix links, and saved local mixes that persist on-device.",
+    proof: ["Brown-noise and recorded ambient-layer controls", "Preset shuffle, share links, and focus timer", "Saved local mixes with no-data-collection footer"],
+    bridge: "Shows product iteration beyond a prototype: Jonathan turned a focus-noise idea into a durable, user-controlled workflow with local persistence, linkable states, and inspectable production behavior."
   },
   {
     title: "Supporting prototypes",
@@ -312,10 +312,10 @@ const repoWebsitePreviews = [
     projectTitle: "Zen Noise",
     repoHref: "https://github.com/Sip-Coder/Zen-Noise",
     siteHref: "https://zen-noise.replit.app/",
-    previewHref: "https://zen-noise.replit.app/",
-    status: "Live Replit iframe",
-    summary: "The ambient focus tool is embedded as a live screen-in-screen surface, showing another shipped app experience rather than a static placeholder.",
-    proof: ["Live Replit app surface", "Ambient focus experience", "Shipped standalone prototype"]
+    previewHref: "/repo-previews/zen-noise/index.html",
+    status: "Latest Replit build snapshot",
+    summary: "Reviewed against the live Replit deploy on June 14, 2026. The same-origin preview uses the latest Zen Noise production build so the soundscape workflow shows reliably here, while the direct button still opens the live Replit app.",
+    proof: ["Brown noise plus recorded ambient layers", "Preset shuffle, shareable links, and focus timer", "Saved local mixes and no-data-collection footer"]
   }
 ];
 
@@ -410,8 +410,8 @@ const educationSignals = [
     link: publicLinks.find((link) => link.label === "YouTube")
   },
   {
-    title: "AI Winecast",
-    body: "Podcast/audio channel that extends the resume into repeatable education, audience engagement, and AI-assisted beverage storytelling.",
+    title: "Sippy's Beverage Blog",
+    body: "Podcast/audio channel that turns the Flavor Blog and Sippy voice into repeatable beverage education, audience engagement, and AI-assisted storytelling.",
     link: publicLinks.find((link) => link.label === "Spotify")
   },
   {
@@ -594,7 +594,7 @@ const sipStudiesInstagramVideos = [
     href: "https://www.instagram.com/reel/DOFDY98Dtrg/?igsh=MWZ2eTJoNGY4NGZseQ==",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail: "https://www.instagram.com/reel/DOFDY98Dtrg/media/?size=l",
+    thumbnail: "/media/instagram-posters/sip-studies-01.jpg",
     summary: "Shows Sip Studies using short-form social video as public, reviewable beverage education."
   },
   {
@@ -609,7 +609,7 @@ const sipStudiesInstagramVideos = [
     href: "https://www.instagram.com/reel/DHUh3JlS7Ko/?igsh=ZmgybWx6cXR4Mzk1",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail: "https://www.instagram.com/reel/DHUh3JlS7Ko/media/?size=l",
+    thumbnail: "/media/instagram-posters/sip-studies-02.jpg",
     summary: "Connects Sip Studies audience-building to concise public teaching and repeatable learning prompts."
   },
   {
@@ -624,7 +624,7 @@ const sipStudiesInstagramVideos = [
     href: "https://www.instagram.com/reel/DGw69y4RWGv/?igsh=MXc5M2wwNDJhZjkxeQ==",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail: "https://www.instagram.com/reel/DGw69y4RWGv/media/?size=l",
+    thumbnail: "/media/instagram-posters/sip-studies-03.jpg",
     summary: "Extends the portfolio beyond static documents into a visible cadence of public social content."
   },
   {
@@ -639,7 +639,7 @@ const sipStudiesInstagramVideos = [
     href: "https://www.instagram.com/reel/DGO8bRFRpj2/?igsh=emg2ZXBtbXdlODQz",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail: "https://www.instagram.com/reel/DGO8bRFRpj2/media/?size=l",
+    thumbnail: "/media/instagram-posters/sip-studies-04.jpg",
     summary: "Turns beverage education into a lightweight, shareable proof point for public audience engagement."
   }
 ];
@@ -657,7 +657,7 @@ const sommSupportInstagramVideos = [
     href: "https://www.instagram.com/reel/DFuLhCVRDIU/?igsh=MTNtbnBsMHFqMGEyaA==",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail: "https://www.instagram.com/reel/DFuLhCVRDIU/media/?size=l",
+    thumbnail: "/media/instagram-posters/somm-support-01.jpg",
     summary: "Shows short-form support content as a practical companion to beverage study and certification work."
   },
   {
@@ -672,7 +672,7 @@ const sommSupportInstagramVideos = [
     href: "https://www.instagram.com/reel/DFisS-QyRzE/?igsh=MW1sZXVvcGg0cTlo",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail: "https://www.instagram.com/reel/DFisS-QyRzE/media/?size=l",
+    thumbnail: "/media/instagram-posters/somm-support-02.jpg",
     summary: "Adds social proof that beverage-learning support can be presented in concise, reviewable formats."
   },
   {
@@ -687,7 +687,7 @@ const sommSupportInstagramVideos = [
     href: "https://www.instagram.com/reel/DE8OCR7SgZE/?igsh=MXJudm11b3BlZ2l4aQ==",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail: "https://www.instagram.com/reel/DE8OCR7SgZE/media/?size=l",
+    thumbnail: "/media/instagram-posters/somm-support-03.jpg",
     summary: "Keeps the support brand visible as public-facing learning evidence instead of private-only work."
   },
   {
@@ -702,17 +702,17 @@ const sommSupportInstagramVideos = [
     href: "https://www.instagram.com/reel/DEyt0Ioxmw4/?igsh=NTNjM3VtY3ByZ2N0",
     linkLabel: "Open on Instagram",
     linkKind: "REEL",
-    thumbnail: "https://www.instagram.com/reel/DEyt0Ioxmw4/media/?size=l",
+    thumbnail: "/media/instagram-posters/somm-support-04.jpg",
     summary: "Rounds out the support media set with a fourth reel in the same playable portfolio card format."
   }
 ];
 
 const podcastAudio = {
-  title: "Welcome to Sip Studies | AI Winecast 000: Our Mission & Philosophy",
-  embedUrl: "https://open.spotify.com/embed/episode/5f9GpwIY7hC5IzZVYFc0Pt?utm_source=generator",
-  href: "https://open.spotify.com/episode/5f9GpwIY7hC5IzZVYFc0Pt",
+  title: "Sippy's Beverage Blog - By Sip Studies",
+  embedUrl: "https://open.spotify.com/embed/show/1p8kpZbP02yeEx5bM2xg1e?utm_source=generator",
+  href: "https://open.spotify.com/show/1p8kpZbP02yeEx5bM2xg1e",
   body:
-    "The single launch audio episode for the AI Winecast mission, philosophy, voice, pacing, and repeatable topic framing."
+    "The current Spotify podcast home for Sippy's Beverage Blog, connecting the written Flavor Blog to a playable audio feed under the Sip Studies account."
 };
 
 const flavorBlogCollections = [
@@ -1879,7 +1879,7 @@ function renderPacketPdfRail(role = selectedRole) {
 function renderPortfolioMediaProof() {
   const teachingLinks = [
     { label: "AARP Wine Walk Wednesdays", handle: "adult education proof", href: "https://www.youtube.com/@jonyu836/videos" },
-    { label: "AI Winecast", handle: "podcast/audio proof", href: "https://open.spotify.com/episode/5f9GpwIY7hC5IzZVYFc0Pt" },
+    { label: "Sippy's Beverage Blog", handle: "podcast/audio proof", href: "https://open.spotify.com/show/1p8kpZbP02yeEx5bM2xg1e" },
     { label: "Sip Studies Instagram", handle: "public media proof", href: "https://www.instagram.com/sip.studies/" },
     { label: "Flavor Blog", handle: "writing/publishing proof", href: "https://sipopedia.com/#app/flavor-blog" }
   ];
@@ -2217,22 +2217,13 @@ function renderEducationMediaSections() {
         .join("")}
     </section>
 
-    <section class="media-panel">
-      <div>
-        <p class="eyebrow">Public proof beyond the PDF</p>
-        <h3>Open these when the conversation shifts from resume to audience trust</h3>
-        <p>These links show Jonathan teaching, publishing, experimenting with GPT guides, and building a public education footprint around Sip Studies.</p>
-      </div>
-      <div class="link-grid">${[...publicLinks, ...mediaLinks].map(linkCard).join("")}</div>
-    </section>
-
     <section class="systems-map">
       <article>
         <p class="eyebrow">Education stack</p>
         <h3>How the media supports the role story</h3>
         <div class="stack-lanes">
           <span>Live and recorded adult education</span>
-          <span>Podcast/audio storytelling through AI Winecast</span>
+          <span>Podcast/audio storytelling through Sippy's Beverage Blog</span>
           <span>YouTube channels for public teaching proof</span>
           <span>Substack, social posts, and reels for publishing cadence</span>
           <span>Custom GPT guides for interactive learning support</span>

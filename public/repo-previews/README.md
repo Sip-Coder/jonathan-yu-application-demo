@@ -12,5 +12,6 @@ Source build folders:
 - `C:\codebase\sip_studies\actual\Rose-Quartz\dist`
 - `C:\codebase\sip_studies\actual\Coffee-Index\dist`
 - `C:\codebase\sip_studies\actual\Sip-Studies-Tasting-Journal\dist\public`
+- `C:\codebase\sip_studies\actual\Zen-Noise\dist\public`
 
 The sync rewrites root-relative asset paths so the snapshots can run from `/repo-previews/<slug>/` inside iframes.

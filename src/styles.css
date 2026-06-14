@@ -2201,7 +2201,7 @@ a {
 .podcast-audio-panel iframe {
   display: block;
   width: 100%;
-  min-height: 232px;
+  min-height: 352px;
   border: 0;
   border-radius: 8px;
 }
@@ -2712,29 +2712,6 @@ a {
   margin: 12px 0 10px;
 }
 
-.media-panel {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
-  gap: 16px;
-  align-items: start;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--paper-2);
-  box-shadow: var(--shadow);
-  padding: 18px;
-}
-
-.media-panel h3 {
-  margin: 5px 0 8px;
-  color: var(--teal);
-}
-
-.media-panel p:last-child {
-  color: var(--muted);
-  line-height: 1.55;
-  margin-bottom: 0;
-}
-
 @media (max-width: 1100px) {
   .shell {
     grid-template-columns: minmax(0, 1fr);
@@ -2787,8 +2764,7 @@ a {
   .references-board-head,
   .reference-grid,
   .resume-grid,
-  .systems-map,
-  .media-panel {
+  .systems-map {
     grid-template-columns: 1fr;
   }
 
@@ -3063,8 +3039,7 @@ body {
 .podcast-audio-panel,
 .article-collection,
 .article-card,
-.systems-map article,
-.media-panel {
+.systems-map article {
   color: var(--sip-copy);
   border-color: var(--sip-border);
   background:
@@ -3133,8 +3108,7 @@ body {
 .website-preview-body h4,
 .timebox-head h3,
 .timebox-card h4,
-.systems-map h3,
-.media-panel h3 {
+.systems-map h3 {
   color: var(--sip-heading);
   text-shadow: 0 0 18px rgba(159, 218, 245, 0.12);
 }
@@ -3230,7 +3204,6 @@ body {
 .website-project-detail li,
 .timebox-head p:last-child,
 .timebox-card p,
-.media-panel p:last-child,
 .link-card span,
 .episode-kicker em {
   color: var(--sip-copy-muted);

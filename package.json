@@ -15,6 +15,8 @@
     "validate:presentation": "node ./scripts/validate-presentation-site.mjs",
     "validate:ai-success": "node ./scripts/validate-ai-success-submission.mjs",
     "validate:contrast": "node ./scripts/validate-contrast-system.mjs",
+    "validate:runtime": "node ./scripts/validate-runtime-site.mjs",
+    "doctor": "npm run build && npm run validate:presentation && npm run validate:contrast && npm run validate:ai-success && npm run start:detached && npm run validate:runtime",
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {

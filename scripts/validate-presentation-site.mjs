@@ -272,19 +272,49 @@ check(main.includes("function repoWebsiteProjectDetail"), "Portfolio website pre
 check(main.includes("https://sipopedia.com/#app/starter"), "Portfolio website previews should open Sipopedia on the Launch Pad preview.");
 [
   "/repo-previews/rose-quartz/index.html",
-  "/repo-previews/coffee-index/index.html"
+  "/repo-previews/coffee-index/index.html",
+  "/repo-previews/zen-noise/index.html"
 ].forEach((previewPath) => {
   check(main.includes(previewPath), `Portfolio website previews are missing snapshot path: ${previewPath}`);
   check(fileExists(path.join("public", previewPath.replace(/^\//u, ""))), `Missing repo website preview snapshot: ${previewPath}`);
 });
 [
-  "https://tasting-journal.replit.app/",
-  "https://zen-noise.replit.app/"
+  "https://tasting-journal.replit.app/"
 ].forEach((previewUrl) => {
   check(main.includes(previewUrl), `Portfolio website previews are missing live preview URL: ${previewUrl}`);
 });
+check(main.includes("https://zen-noise.replit.app/"), "Portfolio website previews should keep the live Zen Noise app launch link.");
+check(main.includes("same-origin preview uses the latest Zen Noise production build"), "Zen Noise preview should explain why it uses a same-origin snapshot.");
 check(main.includes("Zen Noise"), "Portfolio website previews are missing Zen Noise.");
-check(main.includes("Codex Project | Replit focus app"), "Portfolio website previews are missing the Zen Noise Codex project detail.");
+check(main.includes("Codex Project | Replit soundscape app"), "Portfolio website previews are missing the Zen Noise Codex project detail.");
+check(main.includes("Reviewed against the live Replit deploy on June 14, 2026"), "Zen Noise preview should record the current live-review date.");
+check(main.includes("brown noise"), "Zen Noise portfolio proof should mention brown noise.");
+check(main.includes("recorded ambient layers"), "Zen Noise portfolio proof should mention recorded ambient layers.");
+check(main.includes("layer modulation"), "Zen Noise portfolio proof should mention layer modulation.");
+check(main.includes("focus timer"), "Zen Noise portfolio proof should mention the focus timer.");
+check(main.includes("shareable mix links"), "Zen Noise portfolio proof should mention shareable mix links.");
+check(main.includes("saved local mixes"), "Zen Noise portfolio proof should mention saved local mixes.");
+check(main.includes("no-data-collection footer"), "Zen Noise portfolio proof should mention the no-data-collection footer.");
+const zenNoisePreviewRoot = path.join(root, "public", "repo-previews", "zen-noise");
+const zenNoisePreviewHtmlPath = path.join(zenNoisePreviewRoot, "index.html");
+const zenNoisePreviewAssetsRoot = path.join(zenNoisePreviewRoot, "assets");
+const zenNoisePreviewHtml = fs.existsSync(zenNoisePreviewHtmlPath) ? fs.readFileSync(zenNoisePreviewHtmlPath, "utf8") : "";
+const zenNoisePreviewScriptPath = fs.existsSync(zenNoisePreviewAssetsRoot)
+  ? fs.readdirSync(zenNoisePreviewAssetsRoot).find((file) => /^index-.*\.js$/u.test(file))
+  : "";
+const zenNoisePreviewScript = zenNoisePreviewScriptPath
+  ? fs.readFileSync(path.join(zenNoisePreviewAssetsRoot, zenNoisePreviewScriptPath), "utf8")
+  : "";
+check(zenNoisePreviewHtml.includes("index-ChwhL1yJ.js"), "Zen Noise preview should reference the June 14, 2026 live JavaScript asset.");
+check(zenNoisePreviewHtml.includes("index-tHp4M5Vz.css"), "Zen Noise preview should reference the June 14, 2026 live CSS asset.");
+check(zenNoisePreviewHtml.includes("zen-noise-preview-service-worker-disabled"), "Zen Noise preview should disable copied service worker registration.");
+check(!zenNoisePreviewHtml.includes("navigator.serviceWorker.register('/sw.js')"), "Zen Noise preview should not register the parent site's service worker path.");
+check(zenNoisePreviewScript.includes("zen-noise-preview-route-patch"), "Zen Noise preview should patch the client router so embedded subpaths do not render 404.");
+check(zenNoisePreviewScript.includes("Brown Noise"), "Zen Noise preview script should include the redeployed Brown Noise control.");
+check(zenNoisePreviewScript.includes("Ambient Layers"), "Zen Noise preview script should include the redeployed Ambient Layers control.");
+check(zenNoisePreviewScript.includes("layer-modulation-panel"), "Zen Noise preview script should include the redeployed layer modulation panel.");
+check(zenNoisePreviewScript.includes("Generated locally"), "Zen Noise preview script should include the local-generation footer.");
+check(zenNoisePreviewScript.includes("No data collection"), "Zen Noise preview script should include the privacy footer.");
 check(main.includes("Role bridge for ${selectedRole.title}"), "Portfolio website previews are missing project role bridges.");
 check(main.includes("Live Replit iframe"), "Portfolio website previews are missing live Replit framing.");
 check(main.includes("data-preview-fullscreen"), "Portfolio website previews are missing fullscreen controls.");
@@ -294,6 +324,9 @@ check(main.includes("ChatGPT & Dall-e Projects"), "Portfolio tab is missing the 
 check(main.includes("function renderSoraProjects()"), "Portfolio tab is missing the Sora Projects renderer.");
 check(main.includes("const soraProjectVideos = ["), "Portfolio tab is missing the Sora project media scaffold.");
 check(main.includes("function renderEducationMediaSections()"), "Portfolio tab is missing the reusable media section renderer.");
+check(!main.includes("Public proof beyond the PDF"), "Portfolio tab still renders the removed public-proof-beyond-PDF block.");
+check(!main.includes("Open these when the conversation shifts from resume to audience trust"), "Portfolio tab still renders the removed audience-trust link block.");
+check(!styles.includes(".media-panel"), "Styles still include the removed public-proof-beyond-PDF media panel.");
 const projectsRendererIndex = main.indexOf("function renderProjects()");
 const repoWebsitePreviewIndex = main.indexOf("${renderRepoWebsitePreviews()}", projectsRendererIndex);
 const soraProjectsIndex = main.indexOf("${renderSoraProjects()}", projectsRendererIndex);
@@ -316,7 +349,9 @@ check(!main.includes("All video outlets and earlier public references live insid
   check(main.includes(projectPath), `Embedded Codex project detail is missing ${projectPath}.`);
 });
 check(main.includes("youtubeEmbedUrl"), "Podcast/video tab is missing YouTube embed support.");
-check(main.includes("open.spotify.com/embed/episode/5f9GpwIY7hC5IzZVYFc0Pt"), "Podcast/video tab is missing the requested Spotify episode embed.");
+check(main.includes("open.spotify.com/embed/show/1p8kpZbP02yeEx5bM2xg1e"), "Podcast/video tab is missing the Sippy's Beverage Blog Spotify show embed.");
+check(main.includes("https://open.spotify.com/show/1p8kpZbP02yeEx5bM2xg1e"), "Podcast/video tab is missing the Sippy's Beverage Blog Spotify show link.");
+check(!main.includes("open.spotify.com/embed/episode/5f9GpwIY7hC5IzZVYFc0Pt"), "Podcast/video tab still embeds the old AI Winecast launch episode.");
 check(main.includes("const aarpWineWalkVideos"), "Podcast/video tab is missing AARP Wine Walk Wednesdays data.");
 check(main.includes("const sipStudiesInstagramVideos"), "Podcast/video tab is missing Sip Studies Instagram reel data.");
 check(main.includes("const sommSupportInstagramVideos"), "Podcast/video tab is missing Somm Support Instagram reel data.");
@@ -340,6 +375,20 @@ check(main.includes('setAttribute("scrolling", "no")'), "Sip Studies Instagram e
 check(main.includes("episode-grid--instagram"), "Sip Studies Instagram reels are missing the Instagram grid hook.");
 check(main.includes("episode-grid--video-row"), "Vertical video sections are missing the compact four-across row hook.");
 check(/\.episode-grid--video-row\s*\{[\s\S]*?grid-template-columns:\s*repeat\(4, minmax\(0, 1fr\)\)/u.test(styles), "Vertical Instagram and Sora video sections should use one compact four-card row on desktop.");
+check(!main.includes("/media/?size=l"), "Instagram reel thumbnails still use the broken Instagram media endpoint.");
+[
+  "sip-studies-01.jpg",
+  "sip-studies-02.jpg",
+  "sip-studies-03.jpg",
+  "sip-studies-04.jpg",
+  "somm-support-01.jpg",
+  "somm-support-02.jpg",
+  "somm-support-03.jpg",
+  "somm-support-04.jpg"
+].forEach((poster) => {
+  check(main.includes(`/media/instagram-posters/${poster}`), `Instagram reel data is missing local poster ${poster}.`);
+  check(fileExists(`public/media/instagram-posters/${poster}`), `Missing Instagram poster asset: ${poster}`);
+});
 check(!main.includes("https://www.instagram.com/sip.studies/reel/DGwT3fXvRxt/embed"), "Instagram data still includes the browser-blocked Pinot Grigio/Syrah username-qualified embed URL.");
 check(!main.includes("https://www.instagram.com/sip.studies/reel/DGO8bRFRpj2/embed"), "Instagram data still includes the browser-blocked Sip and Describe username-qualified embed URL.");
 check(main.includes("const flavorBlogCollections"), "Podcast/video tab is missing Flavor Blog article collections.");
@@ -347,7 +396,8 @@ check(!main.includes("image.thum.io"), "Flavor Blog article thumbnails should no
 ["Ai Winecast - J Lohr Vineyards & Wines", "Ai Winecast - 002 Cabernet Sauvignon", "Tasting Winecast - 005", "Ai Winecast - Episode 003"].forEach((title) => {
   check(main.includes(title), `AI Winecast video section is missing ${title}.`);
 });
-check(main.includes("Welcome to Sip Studies | AI Winecast 000: Our Mission & Philosophy"), "Spotify podcast section is missing the requested launch episode title.");
+check(main.includes("Sippy's Beverage Blog - By Sip Studies"), "Spotify podcast section is missing the Sippy's Beverage Blog show title.");
+check(styles.includes("min-height: 352px"), "Spotify show embed should use the normal-height show player.");
 ["22.08.46", "22.08.48", "22.08.50", "22.08.53"].forEach((stamp, index) => {
   const videoPath = `public/media/sora-projects/WhatsApp Video 2026-06-12 at ${stamp}.mp4`;
   check(main.includes(`WhatsApp%20Video%202026-06-12%20at%20${stamp}.mp4`), `Sora Projects section is missing video ${index + 1}.`);
@@ -748,18 +798,27 @@ if (latestJs) {
     "Wine Scholar Guild / Lustau",
     "Cicerone - Certified Beer Server L1",
     "Codex Projects",
-    "Codex Project | Replit focus app",
+    "Codex Project | Replit soundscape app",
+    "brown noise",
+    "recorded ambient layers",
+    "layer modulation",
+    "focus timer",
+    "shareable mix links",
+    "saved local mixes",
+    "no-data-collection footer",
     "Role bridge for",
     "Live product website",
     "https://sipopedia.com/#app/starter",
     "Launch Pad preview entry",
     "/repo-previews/rose-quartz/index.html",
     "/repo-previews/coffee-index/index.html",
+    "/repo-previews/zen-noise/index.html",
     "https://tasting-journal.replit.app/",
     "https://zen-noise.replit.app/",
     "Zen Noise",
-    "Static preview snapshot",
-    "Live Replit iframe",
+    "Latest Replit build snapshot",
+    "Reviewed against the live Replit deploy on June 14, 2026",
+    "same-origin preview uses the latest Zen Noise production build",
     "https://github.com/Sip-Coder/Sipopedia",
     "Full screen",
     "https://www.wsetglobal.com/qualifications/wset-level-2-award-in-sake/",

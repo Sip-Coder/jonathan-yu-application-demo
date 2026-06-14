@@ -29,6 +29,14 @@ npm.cmd run validate:presentation
 npm.cmd run validate:contrast
 ```
 
+Run the full local doctor check when the page refuses to connect, shows stale content, or a preview/thumbnail looks broken:
+
+```powershell
+npm.cmd run doctor
+```
+
+The doctor command builds the site, runs the static validators, starts or reuses `http://127.0.0.1:5198/`, and then opens a headless Chrome runtime check against the Portfolio and Zen Noise preview. If `127.0.0.1 refused to connect`, the local Vite server is not reachable; run `npm.cmd run start:detached`, then `npm.cmd run validate:runtime`. If a repo preview shows a 404, run `npm.cmd run sync:repo-previews`, then rerun `npm.cmd run doctor`.
+
 ## What It Contains
 
 - Four walkthrough steps: Resume, Portfolio, OpenAI Fit, and References.
@@ -46,8 +54,9 @@ npm.cmd run validate:contrast
 - Employer-facing AI positioning that describes AI-assisted product building, agentic harnessing, workflow prototyping, customer workflow translation, technical enablement, and a human-owned build process.
 - A Portfolio section grounded in `C:\codebase\sip_studies\actual`, with Codex project proof blended directly into each interactive website preview.
 - A Parameter Golf-inspired review pattern that treats each project like constrained, inspectable OpenAI-style evidence: artifact, score or validation, limitation, and decision record.
-- A Codex Projects section for shipped repo websites, with equal Sipopedia-style blocks for Sipopedia.com, Tasting Journal, Rose Quartz Massage, Coffee Index, and Zen Noise, plus embedded Codex project details, fullscreen preview controls, and direct launch links.
-- A focused Portfolio media proof flow: Codex projects, Sora project placeholders, ChatGPT & Dall-e project proof, AI Winecast videos, one Spotify launch episode, AARP Wine Walk Wednesdays, Sip Studies reels, Somm Support reels, Flavor Blog articles, and public channel links.
+- A Codex Projects section for shipped repo websites, with equal Sipopedia-style blocks for Sipopedia.com, Tasting Journal, Rose Quartz Massage, Coffee Index, and Zen Noise, plus embedded Codex project details, fullscreen preview controls, direct launch links, and same-origin snapshots where live embeds are brittle.
+- Zen Noise is described as a Replit-origin ambient focus app with brown noise, recorded ambient layers, Web Audio playback, layer modulation, focus timer, preset/shuffle/shareable mixes, saved local mixes, and a no-data-collection footer.
+- A focused Portfolio media proof flow: Codex projects, Sora project placeholders, ChatGPT & Dall-e project proof, AI Winecast videos, the Sippy's Beverage Blog Spotify show, AARP Wine Walk Wednesdays, Sip Studies reels, Somm Support reels, Flavor Blog articles, and public channel links.
 - Sora project video uploads are staged under `public/media/sora-projects/` before being wired into the Portfolio page.
 - Latest four article cards from each Sipopedia Flavor Blog tab: SipStudies.com Blog, Sip Studies Substack, and Daily Sip, with thumbnails for every card.
 - An OpenAI Fit section with a 90-second closer, a fact-checked role-source panel for the current AI Success Engineer posting, OpenAI interview lenses for hiring manager/team/HR/supervisor, packet document tabs, role-proof map, and live interview answer board.

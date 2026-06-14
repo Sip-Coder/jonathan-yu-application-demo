@@ -26,6 +26,10 @@ const previews = [
   {
     slug: "tasting-journal",
     source: path.join(actualRoot, "Sip-Studies-Tasting-Journal", "dist", "public")
+  },
+  {
+    slug: "zen-noise",
+    source: path.join(actualRoot, "Zen-Noise", "dist", "public")
   }
 ];
 
@@ -82,6 +86,35 @@ function rewriteDirectory(directory) {
   });
 }
 
+function patchZenNoisePreview(directory) {
+  const indexPath = path.join(directory, "index.html");
+  const html = fs.readFileSync(indexPath, "utf8");
+  const htmlWithoutServiceWorker = html.replace(
+    /\s*<script>\s*if \('serviceWorker' in navigator\) \{[\s\S]*?\}\s*<\/script>/u,
+    "\n    <!-- zen-noise-preview-service-worker-disabled -->"
+  );
+  fs.writeFileSync(indexPath, htmlWithoutServiceWorker);
+
+  const assetsDirectory = path.join(directory, "assets");
+  const scriptFile = fs.readdirSync(assetsDirectory).find((file) => /^index-.*\.js$/u.test(file));
+  if (!scriptFile) {
+    throw new Error(`Could not find Zen Noise preview script in ${assetsDirectory}`);
+  }
+
+  const scriptPath = path.join(assetsDirectory, scriptFile);
+  const script = fs.readFileSync(scriptPath, "utf8");
+  const patched = script.replace(
+    /function ([A-Za-z0-9_$]+)\(\)\{return ([A-Za-z0-9_$]+)\.jsxs\(([A-Za-z0-9_$]+),\{children:\[\2\.jsx\(([A-Za-z0-9_$]+),\{path:"\/",component:([A-Za-z0-9_$]+)\}\),\2\.jsx\(\4,\{component:([A-Za-z0-9_$]+)\}\)\]\}\)\}/u,
+    "/* zen-noise-preview-route-patch */function $1(){return $2.jsx($5,{})}"
+  );
+
+  if (patched === script) {
+    throw new Error(`Could not patch Zen Noise preview router in ${scriptPath}`);
+  }
+
+  fs.writeFileSync(scriptPath, patched);
+}
+
 function writeReadme() {
   const readme = [
     "# Repo Website Previews",
@@ -98,6 +131,7 @@ function writeReadme() {
     "- `C:\\codebase\\sip_studies\\actual\\Rose-Quartz\\dist`",
     "- `C:\\codebase\\sip_studies\\actual\\Coffee-Index\\dist`",
     "- `C:\\codebase\\sip_studies\\actual\\Sip-Studies-Tasting-Journal\\dist\\public`",
+    "- `C:\\codebase\\sip_studies\\actual\\Zen-Noise\\dist\\public`",
     "",
     "The sync rewrites root-relative asset paths so the snapshots can run from `/repo-previews/<slug>/` inside iframes."
   ].join("\n");
@@ -116,6 +150,9 @@ previews.forEach((preview) => {
   const destination = path.join(outputRoot, preview.slug);
   copyDirectory(preview.source, destination);
   rewriteDirectory(destination);
+  if (preview.slug === "zen-noise") {
+    patchZenNoisePreview(destination);
+  }
   console.log(`Synced ${preview.slug} from ${preview.source}`);
 });
 

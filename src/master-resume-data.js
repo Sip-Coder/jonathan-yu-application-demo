@@ -70,8 +70,8 @@ const masterData = {
           },
           {
             "label": "Spotify",
-            "handle": "AI Winecast",
-            "href": "https://open.spotify.com/show/2LSWrWDTlPOMgnZkGfUPE1"
+            "handle": "Sippy's Beverage Blog",
+            "href": "https://open.spotify.com/show/1p8kpZbP02yeEx5bM2xg1e"
           },
           {
             "label": "Sippy GPT",
