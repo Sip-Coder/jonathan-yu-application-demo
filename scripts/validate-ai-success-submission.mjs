@@ -102,11 +102,19 @@ check(main.includes('$234K-$260K + equity'), "Site should expose the verified AI
 });
 
 [
-  "OpenAI AI Success application proof page",
+  "Jonathan Yu application portfolio",
   "AI Success Engineer candidate proof",
+  "Years across beverage sales, account analytics, education, and live events.",
+  "Years Of AI Usage",
+  "WamboArt.ai in 2021",
+  "ChatGPT 3.5 in December 2022",
+  "Established Sip Studies on January 15th, 2024",
+  "Replit and then Codex revolutionized working abilities in 2026",
   "References available on request",
   "Permissioned proof only",
-  "References on request"
+  "References on request",
+  "UFC 324 customer satisfaction proof",
+  "Sanitized public summary"
 ].forEach((phrase) => {
   check(main.includes(phrase), `Submission page is missing application-ready text: ${phrase}`);
 });
@@ -134,7 +142,9 @@ check(indexHtml.includes("OpenAI AI Success Engineer application proof page"), "
 check(packetReadme.includes("Current Submission Focus"), "Packet README should name the current submission focus.");
 check(packetReadme.includes("AI Success Engineer - US Remote is the active application target"), "Packet README should put AI Success first.");
 check(!packetReadme.includes("## Submit First"), "Packet README should not keep stale Submit First ordering.");
-check(referencesReadme.includes("Avoid invented or paraphrased recommendations"), "References index should preserve source-backed reference rules.");
+check(referencesReadme.includes("Do not put raw `.msg` files"), "References index should prohibit raw private email artifacts.");
+check(referencesReadme.includes("Keep originals in `Raw Data/Resume References/`"), "References index should preserve private source archive guidance.");
+check(referencesReadme.includes("neutral privacy-safe summary"), "References index should preserve source-backed privacy-safe summary rules.");
 
 if (aiSuccessRole) {
   const docs = expectedDocPaths(aiSuccessRole);

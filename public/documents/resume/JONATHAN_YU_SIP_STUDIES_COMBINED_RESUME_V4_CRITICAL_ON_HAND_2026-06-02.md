@@ -4,7 +4,7 @@
 Las Vegas, NV | JonYu3@gmail.com | 617.637.0668 | SipStudies.com | Sipopedia.com
 
 ## Profile
-Beverage educator and founder-builder combining 10+ years in wine and spirits sales, account analytics, formal credentials, architecture/design training, live-event production, and AI-enabled education technology. Built Sip Studies as a full-stack beverage learning platform and maintains weekly Critical On Hand gap-analysis workflows for POD gaps, inventory movement, sales velocity, incentives, and account opportunities.
+Beverage educator and founder-builder combining 10+ years in wine and spirits sales, account analytics, formal credentials, architecture/design training, live-event production, and AI-enabled education technology. Since 2022, has used OpenAI products to turn a nontraditional coding background into repo-driven product development, documentation, media, and design execution.
 
 ## Certifications
 - MIT - AI: Implications for Business Strategy
@@ -18,17 +18,11 @@ Beverage educator and founder-builder combining 10+ years in wine and spirits sa
 - Cicerone - Certified Beer Server L1
 
 ## Skills
-- Beverage education + curriculum
-- Wine, spirits, beer + hospitality sales
-- AI beverage/content systems
-- React, TypeScript, Vite
-- Supabase, Stripe, Edge Functions
-- Distributor + supplier enablement
-- Live stream + VIP event operations
-- Architecture, AutoCAD + 3D modeling
-- Visual design + brand systems
-- POD gap analysis + inventory movement
-- Data preservation + terminology
+- AI/Product: advanced prompting, durable goals/threads, repo-driven AI agents, Codex-assisted project development, OpenAI product fluency since 2022
+- OpenAI tools: ChatGPT, DALL-E, custom GPTs/GPT Store, Sora, Codex, image-generation workflows
+- Customer Enablement: workshops, training, curriculum, adoption planning, stakeholder communication
+- Analytics/Ops: POD gap analysis, inventory movement, sales velocity, account prioritization
+- Beverage: wine/spirits education, supplier enablement, formal credentials
 
 ## Focus Areas
 - AI beverage solutions
@@ -48,7 +42,7 @@ Beverage educator and founder-builder combining 10+ years in wine and spirits sa
 
 ### Sip Studies - Founder, Product Lead, Beverage Education Platform Builder
 *2024 - Present*
-- Built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.
+- Using AI-assisted, repo-driven workflows, built a React/TypeScript, Vite, Supabase, Stripe, and Edge Function workspace across Learn, Taste, and Connect: Sip Academy, Sipopedia, Beverage Quiz, Maps, Flavor Wheel, Tasting Journal, Beverage News, AI Winecast, and Somm Events.
 - Created a 20,000-row Sipopedia terminology pipeline with citation/review metadata plus a media-rich learning asset base featuring Sippy, Roma, Hummin, maps, game scenes, academy realms, equipment visuals, and infographics.
 - Developed AI/news routing, Daily Sip editorial automation, terminology workflows, paid-access architecture, validation scripts, and buyer-facing valuation/IP materials around a $4.5M strategic acquisition thesis.
 

@@ -150,6 +150,7 @@ async function startHeadlessChrome() {
     [
       "--headless=new",
       "--disable-gpu",
+      "--disable-extensions",
       "--no-first-run",
       "--no-default-browser-check",
       `--user-data-dir=${profileDir}`,
@@ -165,13 +166,18 @@ async function startHeadlessChrome() {
 
   const portFile = path.join(profileDir, "DevToolsActivePort");
   const startedAt = Date.now();
+  let launcherExitCode = null;
+  child.once("exit", (code) => {
+    launcherExitCode = code;
+  });
+
   while (!fs.existsSync(portFile)) {
-    if (child.exitCode !== null) {
-      throw new Error(`Chrome exited before opening DevTools, exit code ${child.exitCode}.`);
-    }
     if (Date.now() - startedAt > 10_000) {
-      child.kill("SIGKILL");
-      throw new Error("Chrome did not expose a DevTools port within 10 seconds.");
+      if (child.exitCode === null) {
+        child.kill("SIGKILL");
+      }
+      const exitDetail = launcherExitCode === null ? "" : ` Launcher exit code: ${launcherExitCode}.`;
+      throw new Error(`Chrome did not expose a DevTools port within 10 seconds.${exitDetail}`);
     }
     await sleep(100);
   }
@@ -230,13 +236,31 @@ async function connectCdp(webSocketUrl) {
   };
 }
 
+function selectPageTarget(targets) {
+  const pageTarget = targets.find((target) => {
+    const targetUrl = target.url || "";
+    return (
+      target.type === "page" &&
+      target.webSocketDebuggerUrl &&
+      !targetUrl.startsWith("chrome-extension://") &&
+      !targetUrl.startsWith("devtools://")
+    );
+  });
+
+  if (!pageTarget) {
+    const targetSummary = targets
+      .map((target) => `${target.type || "unknown"} ${target.url || target.title || "untitled"}`)
+      .join("; ");
+    throw new Error(`Chrome did not provide a real page DevTools target. Targets: ${targetSummary}`);
+  }
+
+  return pageTarget;
+}
+
 async function createBrowserPage() {
   const chrome = await startHeadlessChrome();
   const targets = await (await fetchWithTimeout(`${chrome.endpoint}/json/list`)).json();
-  const pageTarget = targets.find((target) => target.type === "page") || targets[0];
-  if (!pageTarget?.webSocketDebuggerUrl) {
-    throw new Error("Chrome did not provide a page DevTools target.");
-  }
+  const pageTarget = selectPageTarget(targets);
 
   const client = await connectCdp(pageTarget.webSocketDebuggerUrl);
   const sameOriginIssues = [];
@@ -326,6 +350,18 @@ async function navigateAndWait(client, targetUrl, readyExpression, label) {
   failures.push(`Chrome did not render ${label} within 10 seconds at ${targetUrl}.`);
 }
 
+async function waitForExpression(client, expression, label, timeoutMs = 10_000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const ready = await evaluateJson(client, expression);
+    if (ready) return true;
+    await sleep(250);
+  }
+
+  failures.push(`Chrome did not reach ready state for ${label} within ${Math.round(timeoutMs / 1000)} seconds.`);
+  return false;
+}
+
 async function checkBrowserSurface() {
   let page;
   try {
@@ -343,6 +379,34 @@ async function checkBrowserSurface() {
       `document.body && document.body.innerText.includes("Sippy's Beverage Blog - By Sip Studies")`,
       "Portfolio"
     );
+    await waitForExpression(
+      page.client,
+      `(() => {
+        const rose = [...document.querySelectorAll(".website-preview-screen iframe")]
+          .find((iframe) => (iframe.getAttribute("src") || "").includes("/repo-previews/rose-quartz/"));
+        return rose?.contentDocument?.body?.innerText.includes("Rose Quartz Massage");
+      })()`,
+      "embedded Rose Quartz preview"
+    );
+    await waitForExpression(
+      page.client,
+      `(() => {
+        const coffee = [...document.querySelectorAll(".website-preview-screen iframe")]
+          .find((iframe) => (iframe.getAttribute("src") || "").includes("/repo-previews/coffee-index/"));
+        return coffee?.contentDocument?.body?.innerText.includes("Coffee");
+      })()`,
+      "embedded Coffee Index preview"
+    );
+    await waitForExpression(
+      page.client,
+      `(() => {
+        const zen = [...document.querySelectorAll(".website-preview-screen iframe")]
+          .find((iframe) => (iframe.getAttribute("src") || "").includes("/repo-previews/zen-noise/"));
+        return zen?.contentDocument?.body?.innerText.includes("Zen Noise");
+      })()`,
+      "embedded Zen Noise preview",
+      15_000
+    );
 
     const portfolio = await evaluateJson(
       page.client,
@@ -356,6 +420,21 @@ async function checkBrowserSurface() {
           const cssThumb = getComputedStyle(player).getPropertyValue("--episode-thumb") || "";
           return style.includes("/media/instagram-posters/") || cssThumb.includes("/media/instagram-posters/");
         });
+        const previewIframes = Array.from(document.querySelectorAll(".website-preview-screen iframe"));
+        const sameOriginPreview = (slug) => {
+          const iframe = previewIframes.find((item) => (item.getAttribute("src") || "").includes("/repo-previews/" + slug + "/"));
+          const doc = iframe?.contentDocument;
+          const heroImg = doc?.querySelector(".hero-media img");
+          return {
+            found: Boolean(iframe),
+            loading: iframe?.getAttribute("loading") || "",
+            title: doc?.title || "",
+            text: doc?.body?.innerText || "",
+            cssCount: doc?.styleSheets.length || 0,
+            heroImgWidth: heroImg?.naturalWidth || 0,
+            empty: !(doc?.body?.innerText || "").trim()
+          };
+        };
         return {
           title: document.title,
           spotifyTitle: body.includes("Sippy's Beverage Blog - By Sip Studies"),
@@ -370,6 +449,9 @@ async function checkBrowserSurface() {
           zenPreviewIframes: Array.from(document.querySelectorAll(".website-preview-screen iframe"))
             .map((iframe) => iframe.getAttribute("src") || iframe.src)
             .filter((src) => src.includes("/repo-previews/zen-noise/")),
+          rosePreview: sameOriginPreview("rose-quartz"),
+          coffeePreview: sameOriginPreview("coffee-index"),
+          zenPreview: sameOriginPreview("zen-noise"),
           bodyHas404: body.includes("404 Page Not Found") || body.includes("Page Not Found")
         };
       })())`
@@ -389,6 +471,18 @@ async function checkBrowserSurface() {
     check(portfolioState.instagramPosterPlayers === 8, `Chrome-rendered Portfolio expected 8 local Instagram poster thumbnails, found ${portfolioState.instagramPosterPlayers}.`);
     check(!portfolioState.legacyInstagramEndpoint, "Chrome-rendered Portfolio still includes the broken Instagram /media/?size=l endpoint.");
     check(portfolioState.zenPreviewIframes.length === 1, `Chrome-rendered Portfolio expected one Zen Noise preview iframe, found ${portfolioState.zenPreviewIframes.length}.`);
+    [
+      ["Rose Quartz", portfolioState.rosePreview, "Rose Quartz Massage"],
+      ["Coffee Index", portfolioState.coffeePreview, "Coffee"],
+      ["Zen Noise", portfolioState.zenPreview, "Zen Noise"]
+    ].forEach(([label, state, expectedText]) => {
+      check(state.found, `Chrome-rendered Portfolio is missing the embedded ${label} preview iframe.`);
+      check(state.loading === "eager", `Embedded ${label} preview should load eagerly; found loading="${state.loading}".`);
+      check(!state.empty, `Embedded ${label} preview iframe rendered an empty document.`);
+      check(state.text.includes(expectedText), `Embedded ${label} preview is missing expected text: ${expectedText}.`);
+      check(state.cssCount > 0, `Embedded ${label} preview did not apply any stylesheets.`);
+    });
+    check(portfolioState.rosePreview.heroImgWidth > 0, "Embedded Rose Quartz preview did not load the hero image.");
     check(!portfolioState.bodyHas404, "Chrome-rendered Portfolio includes visible 404/Page Not Found text.");
 
     const zenUrl = urlFor(zenNoisePath);
@@ -420,6 +514,11 @@ async function checkBrowserSurface() {
   } catch (error) {
     failures.push(`Browser runtime check failed: ${error.message}`);
   } finally {
+    try {
+      await page.client.send("Browser.close");
+    } catch {
+      // The browser may close the socket before acknowledging the command.
+    }
     page.client.close();
     await stopHeadlessChrome(page.chrome);
   }

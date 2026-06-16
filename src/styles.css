@@ -509,7 +509,7 @@ a {
 }
 
 .parallax-hero {
-  min-height: clamp(390px, 44vh, 460px);
+  min-height: clamp(330px, 38vh, 420px);
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -573,15 +573,16 @@ a {
 
 .hero-metrics {
   display: grid;
-  grid-template-rows: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(5, auto);
   gap: 10px;
   align-self: stretch;
+  align-content: start;
 }
 
 .metric-card {
-  min-height: 146px;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  min-height: 86px;
+  display: flex;
+  flex-direction: column;
   border: 1px solid rgba(232, 217, 184, 0.24);
   background: rgba(255, 250, 240, 0.92);
   color: var(--ink);
@@ -613,13 +614,15 @@ a {
 }
 
 .metric-card p {
-  margin: 7px 0 10px;
+  margin: 6px 0 8px;
   color: var(--muted);
-  line-height: 1.35;
+  font-size: 0.92rem;
+  line-height: 1.3;
 }
 
 .bar {
-  height: 9px;
+  height: 7px;
+  margin-top: auto;
   border-radius: 999px;
   background: #e6ddd0;
   overflow: hidden;
@@ -798,6 +801,170 @@ a {
   line-height: 1.15;
 }
 
+.commercial-execution-proof {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 0.72fr);
+  gap: 16px;
+  align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(159, 218, 245, 0.14), rgba(255, 253, 250, 0.94)),
+    var(--paper-2);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.commercial-execution-frame {
+  min-width: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: minmax(420px, 1fr) auto;
+  background: rgba(2, 13, 31, 0.88);
+}
+
+.commercial-execution-frame img {
+  width: 100%;
+  height: 100%;
+  max-height: 680px;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.commercial-execution-frame figcaption {
+  margin: 0;
+  border-top: 1px solid rgba(159, 218, 245, 0.2);
+  color: rgba(255, 253, 250, 0.82);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  padding: 10px 12px;
+}
+
+.commercial-execution-copy {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+  padding: 22px;
+}
+
+.commercial-execution-copy h3 {
+  margin: 0;
+  color: var(--teal);
+  font-size: clamp(1.75rem, 3.2vw, 3.35rem);
+  line-height: 1;
+}
+
+.commercial-execution-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.commercial-execution-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.commercial-execution-tags span {
+  border: 1px solid rgba(24, 85, 82, 0.16);
+  border-radius: 8px;
+  background: #f1e7d4;
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 850;
+  line-height: 1.2;
+  padding: 7px 9px;
+  text-transform: uppercase;
+}
+
+.resume-proof-details {
+  display: grid;
+  gap: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(237, 212, 168, 0.18), rgba(255, 253, 250, 0.94)),
+    var(--paper-2);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.resume-proof-details-head {
+  display: grid;
+  max-width: 920px;
+  gap: 6px;
+}
+
+.resume-proof-details-head h3 {
+  margin: 0;
+  color: var(--teal);
+  font-size: clamp(1.45rem, 2.7vw, 2.65rem);
+  line-height: 1;
+}
+
+.resume-proof-details-head p:last-child {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.resume-proof-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.resume-proof-detail-card {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 250, 0.88);
+  padding: 12px;
+}
+
+.resume-proof-detail-card div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.resume-proof-detail-card span {
+  color: var(--coral);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.resume-proof-detail-card strong {
+  color: var(--teal);
+  font-size: 1.05rem;
+}
+
+.resume-proof-detail-card p,
+.resume-proof-detail-card li {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.resume-proof-detail-card p {
+  margin: 0;
+  font-weight: 750;
+}
+
+.resume-proof-detail-card ul {
+  margin: 0;
+  padding-left: 17px;
+}
+
+.resume-proof-detail-card li {
+  margin-bottom: 5px;
+}
+
 .resume-details-deck {
   display: grid;
   gap: 16px;
@@ -867,87 +1034,6 @@ a {
   background:
     linear-gradient(135deg, rgba(245, 151, 116, 0.13), rgba(255, 253, 250, 0.96)),
     var(--paper-2);
-}
-
-.timebox-read {
-  display: grid;
-  gap: 16px;
-  padding: 22px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 250, 240, 0.9);
-  box-shadow: var(--shadow);
-}
-
-.timebox-read {
-  background:
-    linear-gradient(115deg, rgba(0, 36, 44, 0.94), rgba(0, 61, 65, 0.76) 54%, rgba(0, 36, 44, 0.86)),
-    url("/assets/header/hiring-close-hero.png");
-  background-size: cover;
-  background-position: center;
-  color: var(--paper);
-}
-
-.timebox-head {
-  max-width: 920px;
-}
-
-.timebox-head h3 {
-  margin: 0;
-  color: var(--teal);
-  font-size: clamp(2rem, 4vw, 4.4rem);
-  line-height: 0.95;
-}
-
-.timebox-head p:last-child {
-  max-width: 760px;
-  color: var(--muted);
-}
-
-.timebox-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.timebox-card {
-  min-height: 230px;
-  display: grid;
-  align-content: start;
-  gap: 10px;
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(0, 61, 65, 0.72);
-  color: var(--paper);
-}
-
-.timebox-card span {
-  color: var(--sky);
-  font-size: 0.76rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.timebox-card h4 {
-  margin: 0;
-  color: var(--cream);
-  font-size: 1.25rem;
-  line-height: 1.08;
-}
-
-.timebox-card p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.82);
-  line-height: 1.45;
-}
-
-.timebox-card b {
-  display: block;
-  padding-top: 10px;
-  border-top: 1px solid rgba(159, 218, 245, 0.28);
-  color: var(--cream);
-  line-height: 1.35;
 }
 
 .fit-packet-grid {
@@ -2384,18 +2470,6 @@ a {
   text-transform: uppercase;
 }
 
-.matrix-reference {
-  width: fit-content;
-  min-height: 34px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(24, 85, 82, 0.08);
-  color: var(--teal);
-  font-size: 0.78rem;
-  font-weight: 900;
-  padding: 7px 10px;
-}
-
 .proof-matrix {
   display: grid;
   gap: 16px;
@@ -2424,17 +2498,47 @@ a {
 
 .proof-matrix-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
 .proof-matrix-card {
   min-width: 0;
-  min-height: 300px;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+  border-left: 5px solid var(--gold);
+}
+
+.proof-card-image {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #041824;
+}
+
+.proof-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 180ms ease;
+}
+
+.proof-card-image:hover img,
+.proof-card-image:focus-visible img {
+  transform: scale(1.025);
+}
+
+.proof-card-image:focus-visible {
+  outline: 3px solid rgba(159, 218, 245, 0.85);
+  outline-offset: -3px;
+}
+
+.proof-card-body {
   display: grid;
   align-content: start;
   gap: 10px;
-  border-left: 5px solid var(--gold);
   padding: 14px;
 }
 
@@ -2448,18 +2552,31 @@ a {
   margin: 0;
 }
 
-.proof-matrix-card div {
-  display: grid;
-  gap: 5px;
+.proof-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
   margin-top: auto;
+}
+
+.proof-card-tags em {
+  border: 1px solid rgba(24, 85, 82, 0.16);
   border-radius: 8px;
   background: #f1e7d4;
-  padding: 10px;
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 850;
+  line-height: 1.2;
+  padding: 6px 8px;
 }
 
 .matrix-action {
   width: fit-content;
   min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--teal);
@@ -2468,11 +2585,12 @@ a {
   font-size: 0.78rem;
   font-weight: 900;
   padding: 7px 10px;
+  text-decoration: none;
 }
 
-.matrix-reference {
-  display: inline-flex;
-  align-items: center;
+.matrix-action small {
+  color: var(--sky);
+  font-size: 0.68rem;
 }
 
 .matrix-action:hover,
@@ -2480,6 +2598,11 @@ a {
   outline: none;
   border-color: var(--gold);
   background: var(--gold);
+  color: var(--teal);
+}
+
+.matrix-action:hover small,
+.matrix-action:focus-visible small {
   color: var(--teal);
 }
 
@@ -2568,12 +2691,44 @@ a {
     var(--paper-2);
 }
 
+.reference-preview-wrap:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 10px;
+  padding: 14px;
+  border: 0;
+  border-radius: 0;
+  background: #041824;
+}
+
+.reference-preview-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+  border-bottom: 1px solid rgba(129, 121, 133, 0.3);
+  background: rgba(4, 24, 36, 0.72);
+}
+
 .reference-preview {
   display: block;
   width: 100%;
   min-height: 260px;
   border: 0;
   background: var(--white);
+}
+
+.reference-preview-wrap:fullscreen .reference-preview {
+  min-height: 0;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.reference-preview-wrap:fullscreen .reference-preview-toolbar {
+  padding: 0;
+  border-bottom: 0;
+  background: transparent;
 }
 
 .reference-email,
@@ -2618,6 +2773,17 @@ a {
 
 .reference-artifact-action {
   width: fit-content;
+}
+
+.reference-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.reference-fullscreen-action {
+  cursor: pointer;
 }
 
 .systems-map {
@@ -2740,10 +2906,11 @@ a {
 
   .source-check-panel,
   .packet-pdf-rail,
+  .commercial-execution-proof,
+  .resume-proof-detail-grid,
   .resume-details-grid,
   .portfolio-media-proof,
   .resume-lens-panel,
-  .timebox-grid,
   .fit-packet-grid,
   .codex-projects-intro,
   .case-study-head,
@@ -2838,7 +3005,8 @@ a {
   }
 
   .resume-lens-grid,
-  .timebox-grid,
+  .commercial-execution-proof,
+  .resume-proof-detail-grid,
   .fit-packet-grid,
   .case-study-selector,
   .case-study-columns,
@@ -2915,16 +3083,8 @@ a {
     font-size: 2rem;
   }
 
-  .timebox-read {
-    padding: 16px;
-  }
-
-  .timebox-card {
-    min-height: 0;
-  }
-
   .parallax-hero.has-metrics {
-    min-height: 845px;
+    min-height: 690px;
     padding: 20px;
   }
 
@@ -3009,6 +3169,9 @@ body {
 .selected-document-panel,
 .source-check-panel,
 .packet-pdf-rail,
+.commercial-execution-proof,
+.resume-proof-details,
+.resume-proof-detail-card,
 .resume-details-deck,
 .resume-detail-card,
 .portfolio-media-proof,
@@ -3018,8 +3181,6 @@ body {
 .project-index-card,
 .website-preview-board,
 .website-preview-card,
-.timebox-read,
-.timebox-card,
 .resume-head,
 .resume-lens-panel,
 .resume-lens-card,
@@ -3052,14 +3213,6 @@ body {
   background:
     linear-gradient(180deg, rgba(159, 218, 245, 0.08), rgba(237, 212, 168, 0.04)),
     rgba(5, 25, 38, 0.86);
-}
-
-.timebox-read {
-  background:
-    linear-gradient(115deg, rgba(2, 13, 31, 0.96), rgba(11, 54, 58, 0.82) 54%, rgba(37, 28, 23, 0.84)),
-    url("/assets/header/hiring-close-hero.png");
-  background-size: cover;
-  background-position: center;
 }
 
 .identity-media::after {
@@ -3106,8 +3259,6 @@ body {
 .project-index-card h4,
 .website-preview-head h3,
 .website-preview-body h4,
-.timebox-head h3,
-.timebox-card h4,
 .systems-map h3 {
   color: var(--sip-heading);
   text-shadow: 0 0 18px rgba(159, 218, 245, 0.12);
@@ -3115,6 +3266,8 @@ body {
 
 .source-check-panel h3,
 .packet-pdf-rail h3,
+.commercial-execution-copy h3,
+.resume-proof-details-head h3,
 .resume-details-head h3,
 .portfolio-media-proof h3 {
   color: var(--sip-heading);
@@ -3150,9 +3303,9 @@ body {
 .reference-custody b,
 .source-facts-grid b,
 .source-facts-list b,
-.resume-detail-card span,
-.timebox-card span,
-.timebox-card b {
+.commercial-execution-tags span,
+.resume-proof-detail-card span,
+.resume-detail-card span {
   color: var(--sip-cyan);
 }
 
@@ -3170,6 +3323,10 @@ body {
 .source-note,
 .source-check-panel p,
 .packet-pdf-rail p,
+.commercial-execution-copy p,
+.resume-proof-details-head p:last-child,
+.resume-proof-detail-card p,
+.resume-proof-detail-card li,
 .resume-details-head p,
 .portfolio-media-proof p,
 .resume-detail-card p,
@@ -3202,8 +3359,6 @@ body {
 .website-preview-body li,
 .website-project-detail p,
 .website-project-detail li,
-.timebox-head p:last-child,
-.timebox-card p,
 .link-card span,
 .episode-kicker em {
   color: var(--sip-copy-muted);
@@ -3267,7 +3422,6 @@ body {
 .case-study-selector span,
 .case-study-evidence em,
 .case-study-card footer,
-.proof-matrix-card div,
 .reference-custody,
 .reference-preview-wrap,
 .reference-evidence em,
@@ -3289,6 +3443,7 @@ body {
 .credential-badge > span:not(.credential-mark),
 .timeline-item strong,
 .resume-lens-card strong,
+.resume-proof-detail-card strong,
 .project-bridge b,
 .project-index-card strong,
 .proof-matrix-card h4,
@@ -3387,4 +3542,63 @@ body {
     transform: none !important;
   }
 
+}
+
+@media (max-width: 760px) {
+  .shell {
+    display: block;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .rail,
+  .workspace,
+  .identity-card,
+  .identity-media,
+  .mode-list,
+  .rail-pdf-actions,
+  .topbar,
+  .parallax-hero,
+  .source-check-panel,
+  .packet-pdf-rail,
+  .proof-matrix,
+  .commercial-execution-proof,
+  .document-strip,
+  .fit-packet-grid,
+  .references-board,
+  .resume-head {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .rail {
+    padding-inline: 14px;
+  }
+
+  .identity-card {
+    margin-inline: 0;
+    padding: 10px;
+  }
+
+  .identity-thread {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .identity-thread span,
+  .mode-button,
+  .rail-pdf-actions .artifact-link,
+  .artifact-link,
+  .doc-tab {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .portrait-wrap {
+    right: 10px;
+    bottom: 10px;
+    width: min(84px, 26vw);
+  }
 }

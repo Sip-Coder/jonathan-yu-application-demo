@@ -40,13 +40,13 @@ The doctor command builds the site, runs the static validators, starts or reuses
 ## What It Contains
 
 - Four walkthrough steps: Resume, Portfolio, OpenAI Fit, and References.
-- The left rail is the only section navigation, with each walkthrough and packet block rendered as a full-width row instead of sharing a column row; the command center is context and proof only, not a second row of tab controls.
+- The left rail is the only section navigation; each walkthrough is a full-width row, and packet-document actions are held for the OpenAI Fit close instead of repeating across every page.
 - Shareable section hashes for direct walkthrough links, such as `#resume/ai-success`, `#projects/ai-success`, `#fit/ai-success`, and `#references/ai-success`; legacy `#education/...` links are normalized into Portfolio.
 - Shareable packet-document hashes on OpenAI Fit, such as `#fit/ai-success/cover-letter` and `#fit/ai-success/30-60-90`; older `#application/...` links are normalized into the Fit view.
 - Dynamic browser titles and descriptions for shareable views, so direct links identify the active walkthrough step, AI Success application focus, packet document, and focus-mode state.
 - A recruiter-facing proof arc in the stable command center, so Resume, Portfolio, OpenAI Fit, and References keep the same review path without duplicate section buttons.
-- Persistent top-bar links for the AI Success role resume, cover letter, and 30-60-90 plan PDFs, so the full packet is reachable from any walkthrough step.
-- A screen-share focus mode, available from the top bar, the `F` key, or `?focus=1`, that hides the left rail while keeping current-view context and packet links visible.
+- Fit-only packet links for the AI Success role resume, cover letter, and 30-60-90 plan PDFs, so the full packet appears where the role-specific argument is being made.
+- A screen-share focus mode, available from the `F` key or `?focus=1`, that hides the left rail while keeping the active walkthrough context visible.
 - A single AI Success Engineer application focus in the recruiter-facing UI; generated data can still carry broader packet history without asking recruiters to switch between resumes.
 - A Resume-first tab sourced from `Raw Data/Jonathan_Yu_Resume_Master_Edit.xlsx`, with Profile, Experience, Certifications, Skills, Highlights, Market Scale, and Focus + Edu cards tailored to the AI Success Engineer review.
 - A presenter-lens panel inside Resume that tells the viewer what to notice before moving into Portfolio and OpenAI Fit.
@@ -59,10 +59,11 @@ The doctor command builds the site, runs the static validators, starts or reuses
 - A focused Portfolio media proof flow: Codex projects, Sora project placeholders, ChatGPT & Dall-e project proof, AI Winecast videos, the Sippy's Beverage Blog Spotify show, AARP Wine Walk Wednesdays, Sip Studies reels, Somm Support reels, Flavor Blog articles, and public channel links.
 - Sora project video uploads are staged under `public/media/sora-projects/` before being wired into the Portfolio page.
 - Latest four article cards from each Sipopedia Flavor Blog tab: SipStudies.com Blog, Sip Studies Substack, and Daily Sip, with thumbnails for every card.
-- An OpenAI Fit section with a 90-second closer, a fact-checked role-source panel for the current AI Success Engineer posting, OpenAI interview lenses for hiring manager/team/HR/supervisor, packet document tabs, role-proof map, and live interview answer board.
+- A compact Resume hero metric stack for quick scanning, with the fuller metric evidence moved into a lower Resume proof-detail section.
+- An OpenAI Fit section with a fact-checked role-source panel, packet document tabs, a visual proof path that opens the portfolio artifacts and packet files behind the AI Success fit argument, and a lower commercial execution proof block using the 350-case Seagram's display photo.
 - A selected-document panel on OpenAI Fit that keeps the active packet file actionable even when browser PDF previews are unavailable.
 - Accessible OpenAI Fit document tabs with selected-state semantics and arrow/Home/End keyboard movement across Resume, Cover Letter, and 30-60-90.
-- A References section after OpenAI Fit for permissioned third-party proof, with no public placeholder recommendations; linked PDFs or approved email excerpts should be added only after source and permission status are clear.
+- A References section after OpenAI Fit for permissioned third-party proof, with no public placeholder recommendations; linked PDFs include an in-page fullscreen preview control, and approved email excerpts should be added only after source and permission status are clear.
 - An avant-garde parallax hero presentation for client and hiring-team walkthroughs.
 - A signature-forward identity header with a portrait-ready frame and cream transparent Jonathan Yu signature mark.
 - Headshot upload convention: place the file at `public/assets/portrait/jonathan-yu-headshot.jpg`.
@@ -74,7 +75,7 @@ The doctor command builds the site, runs the static validators, starts or reuses
 - Sip Studies palette alignment using the product repo's defined colors: `#d8e6da`, `#185552`, `#edd4a8`, `#817985`, `#8b4513`, and `#9fdaf5`.
 - Local certification logo assets from the old resume page for MIT, SWE, WSET, and CMS credentials.
 - Public channel/social links from the old resume page and Bio Site, including YouTube, Instagram, Facebook, Threads, Substack, Spotify, GPTs, and tasting-group links.
-- Local PDF/DOCX/Markdown links for each role resume, cover letter, and 30-60-90 plan.
+- Local PDF/DOCX/Markdown links for the role packet, staged inside OpenAI Fit rather than repeated throughout the site.
 - Local V4 resume files.
 - Proof pillars for Sip Studies, Sipopedia, Critical On Hand, teaching, commercial outcomes, and generated application packets.
 - A local `validate:presentation` check for source workbook, AI Success default role, tab sequence, generated role data, project scope, role-source facts, packet PDF buttons, reference artifacts, playable media support, Flavor Blog article sections, required documents, and built assets.
@@ -84,4 +85,4 @@ All static documents live under `public/documents/`, including reference PDFs an
 
 ## Presentation Research Notes
 
-The latest presentation pass is based on a simple standard: start with the source-backed resume, move into inspectable portfolio proof, then close with the hiring decision. A busy OpenAI panel should be able to see the AI Success Engineer fit through customer adoption, workflow mapping, technical readiness, KPI framing, value realization, and field-feedback loops. Jonathan Yu is the applicant identity, and every company, product, credential, metric, public channel, and project appears only where it helps explain qualification for the selected role.
+The latest presentation pass is based on a simple standard: start with the source-backed resume, move into inspectable portfolio proof, then show the AI Success fit through evidence. Prospective reviewers should see customer adoption, workflow mapping, technical readiness, KPI framing, value realization, and field-feedback loops in the artifacts themselves. Jonathan Yu is the applicant identity, and every company, product, credential, metric, public channel, and project appears only where it helps explain qualification for the selected role.

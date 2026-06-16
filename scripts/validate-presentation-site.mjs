@@ -21,6 +21,9 @@ const sakeLogoPath = path.join(root, "public", "assets", "logos", "wset-level-2-
 const wsgCswsLogoPath = path.join(root, "public", "assets", "logos", "wsg-lustau-csws.png");
 const ciceroneBeerServerLogoPath = path.join(root, "public", "assets", "logos", "cicerone-certified-beer-server.jpg");
 const architectureDraftingLogoPath = path.join(root, "public", "assets", "logos", "architecture-design-drafting.svg");
+const commercialExecutionProofPath = path.join(root, "public", "assets", "openai-fit", "commercial-execution-seagrams-display.jpg");
+const sanitizedUfcReferencePdfPath = path.join(documentsRoot, "references", "ufc-324-customer-satisfaction-public-summary.pdf");
+const sanitizedUfcReferenceHtmlPath = path.join(documentsRoot, "references", "ufc-324-customer-satisfaction-public-summary.html");
 const workbookPath = path.join(workspaceRoot, "Raw Data", "Jonathan_Yu_Resume_Master_Edit.xlsx");
 
 const masterData = (await import(pathToFileURL(dataPath))).default;
@@ -187,8 +190,8 @@ check(main.includes('application: "fit"'), "Old Application Proof hashes should 
 check(main.includes('education: "projects"'), "Old Teaching Proof hashes should map to Portfolio.");
 check(main.includes('portfolio: "projects"'), "Portfolio alias should map to the Portfolio route.");
 check(main.includes('if (modeId === "application") window.requestAnimationFrame(updateUrlState);'), "Legacy application hashes should be rewritten to Fit hashes after parsing.");
-check(main.includes("What a busy OpenAI panel should remember after the walkthrough."), "OpenAI Fit is missing the 90-second closing thesis.");
-check(main.includes("function renderTimeboxedRead("), "OpenAI Fit tab is missing the timeboxed read renderer.");
+check(main.includes("Four proof surfaces make the fit inspectable."), "OpenAI Fit is missing the visual proof-path section.");
+check(main.includes("Open the work behind the claim"), "OpenAI Fit proof path should explain why the section exists.");
 [
   "renderPresentationCommandCenter",
   "renderRoleContext",
@@ -196,7 +199,9 @@ check(main.includes("function renderTimeboxedRead("), "OpenAI Fit tab is missing
   "renderInterviewerLensPanel",
   "renderInterviewAnswerBoard",
   "presentationMoves",
-  "proofArcItems"
+  "proofArcItems",
+  "renderTimeboxedRead",
+  "timeboxCards"
 ].forEach((text) => {
   check(!main.includes(text), `Redundant walkthrough helper should be removed: ${text}`);
 });
@@ -215,19 +220,108 @@ check(main.includes("const referenceArtifacts = ["), "References tab is missing 
 check(main.includes("function renderReferences()"), "References tab is missing the renderer.");
 check(main.includes("function renderReferenceCard("), "References tab is missing artifact cards.");
 check(main.includes('if (selectedMode === "references") return renderReferences();'), "References mode is not wired into the workspace renderer.");
+check(main.includes("function referenceArtifactFullscreenAction("), "References tab is missing fullscreen action rendering.");
+check(main.includes("data-reference-fullscreen"), "References PDF cards are missing fullscreen buttons.");
+check(main.includes("function toggleReferenceFullscreen("), "References tab is missing fullscreen behavior.");
+check(main.includes("function updateReferenceFullscreenControls("), "References tab is missing fullscreen control state updates.");
+check(main.includes('allow="fullscreen"'), "References PDF previews should allow fullscreen.");
 check(main.includes("References available on request"), "References tab should state that references are available on request.");
 check(main.includes("Permissioned proof only"), "References tab should avoid unfinished placeholder reference claims.");
+check(main.includes("UFC 324 customer satisfaction proof"), "References tab is missing the sanitized UFC 324 customer satisfaction proof.");
+check(main.includes("Sanitized public summary"), "References tab should identify the customer satisfaction proof as a sanitized public summary.");
+check(main.includes("Customer name, email, phone, full headers, and original message text are withheld."), "References tab should explain customer privacy handling.");
+check(fs.existsSync(sanitizedUfcReferencePdfPath), "Sanitized UFC 324 customer satisfaction PDF is missing.");
+check(fs.existsSync(sanitizedUfcReferenceHtmlPath), "Sanitized UFC 324 customer satisfaction HTML source is missing.");
+[
+  "Fw_ Positive Feedback on UFC 324 _Rising Star_ Package and Suggestions.msg",
+  "Screenshot - UFC 324 Customer Letter of Recommendation.png",
+  "Resume References.lnk"
+].forEach((file) => {
+  check(!fs.existsSync(path.join(documentsRoot, "references", file)), `Public references folder should not expose raw/private artifact: ${file}`);
+});
 check(!main.includes("Reference PDF slot"), "References tab should not expose an empty PDF placeholder slot.");
 check(!main.includes("Email reference slot"), "References tab should not expose an empty email placeholder slot.");
 check(!main.includes("Awaiting source artifact"), "References tab should not expose awaiting-source placeholder copy.");
 check(!main.includes("Awaiting approved excerpt"), "References tab should not expose awaiting-excerpt placeholder copy.");
 check(styles.includes(".references-board"), "References tab styling is missing the board.");
 check(styles.includes(".reference-preview"), "References tab styling is missing preview support.");
+check(styles.includes(".reference-preview-wrap:fullscreen"), "References tab styling is missing fullscreen preview support.");
+check(styles.includes(".reference-preview-toolbar"), "References tab styling is missing the PDF preview toolbar.");
+check(styles.includes(".reference-actions"), "References tab styling is missing the reference action row.");
 check(main.includes("function renderFullResume()"), "Missing Resume renderer.");
-check(main.includes("Resume reference"), "Resume tab is missing the source-view framing.");
+check(main.includes("Resume evidence"), "Resume tab is missing the source-view framing.");
 check(main.includes("function renderResumeDetailsDeck()"), "Resume tab is missing the requested resume details deck.");
+check(fs.existsSync(commercialExecutionProofPath), "OpenAI Fit commercial execution proof photo asset is missing.");
+[
+  "function renderCommercialExecutionProof()",
+  "/assets/openai-fit/commercial-execution-seagrams-display.jpg",
+  "Commercial execution proof",
+  "350 cases, field execution, customer context.",
+  "350-case Seagram's vodka display",
+  "350-case vodka display",
+  "350 cases",
+  "Retail execution",
+  "Display strategy",
+  "Supplier coordination",
+  "Market scale"
+].forEach((text) => {
+  check(main.includes(text), `OpenAI Fit commercial execution proof is missing ${text}.`);
+});
+check(/\.commercial-execution-frame img\s*\{[\s\S]*?object-fit:\s*contain;/.test(styles), "Commercial execution photo should use object-fit: contain so the full photo remains visible.");
+check(
+  main.indexOf("${renderProofMatrix()}") > -1 &&
+    main.indexOf("${renderProofMatrix()}") < main.indexOf("${renderCommercialExecutionProof()}") &&
+    main.indexOf("${renderCommercialExecutionProof()}") < main.indexOf('class="document-strip document-strip--fit"'),
+  "OpenAI Fit commercial execution proof should render after the proof path and before packet document tabs."
+);
+[
+  "function resumeProofMetrics()",
+  "function renderResumeProofDetails()",
+  "Resume proof detail",
+  "The headline metrics, with the evidence kept below the fold.",
+  "resume-proof-details",
+  "resume-proof-detail-card"
+].forEach((text) => {
+  check(main.includes(text) || styles.includes(text), `Resume proof details section is missing ${text}.`);
+});
+check(
+  main.indexOf("${renderResumeDetailsDeck()}") > -1 &&
+    main.indexOf("${renderResumeDetailsDeck()}") < main.indexOf("${renderResumeProofDetails()}") &&
+    main.indexOf("${renderResumeProofDetails()}") < main.indexOf("${renderResumeLensPanel()}"),
+  "Resume proof details should move the expanded hero copy below Resume Details and before the presenter lens."
+);
+check(!main.includes("metric-bullet-list"), "Hero metric cards should not render bullet lists.");
+check(!main.includes("metric-timeline-list"), "Hero metric cards should not render the AI usage timeline.");
+check(!styles.includes("metric-bullet-list"), "Metric bullet-list styling should be removed from the hero.");
+check(!styles.includes("metric-timeline-list"), "Metric timeline styling should be removed from the hero.");
 check(main.includes('if (modeId !== "resume") return [];'), "Hero proof metrics should only render on the Resume tab.");
 check(main.includes('const heroClass = metricItems.length ? "parallax-hero has-metrics" : "parallax-hero";'), "Hero should distinguish metric and non-metric layouts.");
+[
+  "Years across beverage sales, account analytics, education, and live events.",
+  "Years Of AI Usage",
+  "WamboArt.ai in 2021",
+  "ChatGPT 3.5 in December 2022",
+  "Artificial Intelligence Implications For Business Strategy",
+  "Established Sip Studies on January 15th, 2024",
+  "Replit and then Codex revolutionized working abilities in 2026",
+  "resume-proof-detail-grid",
+  "Sales Consultant Excellence Award in 2018 and 2026",
+  "Expanded 3,500+ placements",
+  "Increased wine revenue by $2,291,000 in 2018",
+  "95,000 points of distribution in 2025 including Reno, Wendover, and Mesquite",
+  "Built an integrated LMS platform for wine, beer, spirits, coffee, tea, and all other beverages",
+  "Built a video game simulation for beverage lifecycles beginning to end",
+  "Built a professional-friendly, mobile beverage resource map for navigating versatile beverage solutions"
+].forEach((text) => {
+  check(main.includes(text) || styles.includes(text), `Career Range AI usage block is missing ${text}.`);
+});
+const careerMetricIndex = main.indexOf('"Career range"');
+const aiUsageMetricIndex = main.indexOf('"Years Of AI Usage"', careerMetricIndex);
+const commercialLiftMetricIndex = main.indexOf('"Commercial lift"');
+check(
+  careerMetricIndex > -1 && aiUsageMetricIndex > careerMetricIndex && commercialLiftMetricIndex > aiUsageMetricIndex,
+  "Years Of AI Usage should remain between Career Range and Commercial Lift in the resume proof metrics."
+);
 ["Profile", "Experience", "Certifications", "Skills", "Highlights", "Market Scale", "Focus + Edu"].forEach((label) => {
   check(main.includes(label), `Resume details deck is missing ${label}.`);
 });
@@ -319,6 +413,8 @@ check(main.includes("Role bridge for ${selectedRole.title}"), "Portfolio website
 check(main.includes("Live Replit iframe"), "Portfolio website previews are missing live Replit framing.");
 check(main.includes("data-preview-fullscreen"), "Portfolio website previews are missing fullscreen controls.");
 check(main.includes("requestFullscreen"), "Portfolio website previews are missing Fullscreen API support.");
+check(main.includes('const iframeLoading = site.previewHref.startsWith("/") ? "eager" : "lazy";'), "Same-origin repo preview iframes should load eagerly so they are not blank when scrolled into view.");
+check(main.includes('loading="${iframeLoading}"'), "Repo website preview iframes should use the computed loading strategy.");
 check(main.includes("function renderPortfolioMediaProof()"), "Portfolio tab is missing ChatGPT/Dall-e media proof.");
 check(main.includes("ChatGPT & Dall-e Projects"), "Portfolio tab is missing the renamed ChatGPT & Dall-e Projects block.");
 check(main.includes("function renderSoraProjects()"), "Portfolio tab is missing the Sora Projects renderer.");
@@ -436,12 +532,25 @@ check(main.includes("function renderPacketPdfRail("), "Application packet PDF ra
   check(main.includes(call), `Required packet button call is missing: ${call}`);
 });
 check(main.includes("function renderProofMatrix()"), "OpenAI Fit tab is missing the role proof map renderer.");
-check(main.includes("Role proof map"), "OpenAI Fit tab is missing the role proof map section.");
+check(main.includes("Proof path"), "OpenAI Fit tab is missing the proof path section.");
+check(main.includes("Four proof surfaces make the fit inspectable."), "OpenAI Fit proof path should explain the section purpose.");
+[
+  "/assets/header/codex-projects-hero.png",
+  "/repo-previews/rose-quartz/assets/rose-sanctuary-hero-C4LbQw8N.jpg",
+  "/assets/header/resume-still-life.png",
+  "/assets/header/hiring-close-hero.png",
+  'href="${row.href}"',
+  'class="proof-card-image"',
+  "proof-card-tags"
+].forEach((text) => {
+  check(main.includes(text), `OpenAI Fit proof path is missing visual/action support: ${text}`);
+});
+check(!main.includes("matrix-reference"), "OpenAI Fit proof path should not render a non-clickable matrix reference label.");
 check(main.includes("const docSlugByName"), "OpenAI Fit tab is missing packet document hash slugs.");
 check(main.includes('docNameBySlug[docSlug] || "Resume"'), "OpenAI Fit tab is missing packet document hash parsing.");
 check(main.includes('selectedDoc !== "Resume"'), "OpenAI Fit tab is missing optional document hash updates.");
 check(main.includes("function renderSelectedDocumentPanel("), "OpenAI Fit tab is missing the selected-document action panel.");
-check(main.includes("Selected packet document"), "OpenAI Fit tab is missing selected-document panel copy.");
+check(main.includes("Active packet artifact"), "OpenAI Fit tab is missing active packet artifact panel copy.");
 check(main.includes("function docTabId("), "OpenAI Fit document tabs are missing stable tab IDs.");
 check(main.includes('data-doc-tab'), "OpenAI Fit document tabs are missing the keyboard-navigation hook.");
 check(main.includes('role="tab"'), "OpenAI Fit document buttons are missing tab semantics.");
@@ -455,10 +564,10 @@ check(main.includes('event.key === "Home" || event.key === "End"'), "OpenAI Fit 
 check(!main.includes("preview for ${selectedRole.title}"), "OpenAI Fit tab still embeds a brittle PDF preview iframe.");
 check(!main.includes('aria-label="Recruiter proof arc"'), "Redundant global recruiter proof arc should stay removed.");
 [
-  "Source-backed resume facts and credential proof.",
-  "Inspectable projects, media, and shipped work.",
-  "Role-specific close, packet files, and interview proof.",
-  "Third-party PDFs, emails, and source notes."
+  "Career record, credentials, and market-scale evidence.",
+  "Inspectable products, media, and shipped work.",
+  "Role source facts, proof path, and packet close.",
+  "Permissioned third-party proof, staged only when requested."
 ].forEach((text) => {
   check(main.includes(text), `Lighter tab summary is missing: ${text}`);
 });
@@ -475,9 +584,10 @@ check(!main.includes('aria-label="Recruiter proof arc"'), "Redundant global recr
 ].forEach((text) => {
   check(!main.includes(text), `Recruiter-facing UI still contains copy tooling: ${text}`);
 });
-check(main.includes("function railPacketButtons("), "Left rail is missing the packet PDF button row renderer.");
-check(main.includes("rail-pdf-actions"), "Left rail is missing the packet PDF action row.");
-check(main.includes('artifactButton("30-60-90", docs["30-60-90"].pdf, "PDF")'), "Left rail packet actions are missing the 30-60-90 plan PDF link.");
+check(main.includes("function railPacketButtons("), "OpenAI Fit is missing the packet PDF button row renderer.");
+check(main.includes("rail-pdf-actions"), "OpenAI Fit is missing the packet PDF action row.");
+check(main.includes('artifactButton("30-60-90", docs["30-60-90"].pdf, "PDF")'), "OpenAI Fit packet actions are missing the 30-60-90 plan PDF link.");
+check(main.includes('selectedMode === "fit" ? railPacketButtons(selectedRole) : ""'), "Packet PDF rail should render only on OpenAI Fit.");
 check(!main.includes("top-actions"), "Topbar should not render a separate packet action row.");
 check(!main.includes("function focusModeButton()"), "Topbar should not render a visible focus mode button.");
 check(main.includes("function initialFocusMode()"), "Focus mode is missing query-string initialization.");
@@ -543,9 +653,8 @@ check(styles.includes("Sipopedia color system"), "Styles are missing the Sipoped
   ".skip-link",
   ".rail-pdf-actions",
   ".is-focus-mode .rail",
-  ".timebox-read",
+  ".commercial-execution-proof",
   ".fit-packet-grid",
-  "hiring-close-hero.png",
   ".gallery-pause",
   ".selected-document-panel",
   ".selected-document-panel:focus-visible",
@@ -573,7 +682,7 @@ check(
 );
 check(
   /\.rail-pdf-actions\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\);/.test(styles),
-  "Rail packet PDFs should use full-width rows instead of shared columns."
+  "Fit packet PDFs should use full-width rows instead of shared columns."
 );
 check(
   /\.packet-pdf-rail \.doc-actions\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\);/.test(styles),
@@ -600,16 +709,16 @@ check(
   "Resume detail cards should not reserve column-height spacing after switching to stacked rows."
 );
 check(
-  /\.hero-metrics\s*\{[\s\S]*?grid-template-rows:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\);/.test(styles),
-  "Resume hero metric cards should reserve four stable rows."
+  /\.hero-metrics\s*\{[\s\S]*?grid-template-rows:\s*repeat\(5,\s*auto\);[\s\S]*?align-content:\s*start;/.test(styles),
+  "Resume hero metrics should stack five content-sized proof cards without stretching short cards."
 );
 check(
   /\.parallax-hero:not\(\.has-metrics\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\);/.test(styles),
   "Non-resume heroes should collapse to a single-column layout without metric cards."
 );
 check(
-  /@media\s*\(max-width:\s*760px\)[\s\S]*?\.parallax-hero\.has-metrics\s*\{[\s\S]*?min-height:\s*845px;[\s\S]*?\.parallax-hero:not\(\.has-metrics\)\s*\{[\s\S]*?min-height:\s*360px;/.test(styles),
-  "Mobile hero should reserve tall spacing only when Resume metrics are present."
+  /@media\s*\(max-width:\s*760px\)[\s\S]*?\.parallax-hero\.has-metrics\s*\{[\s\S]*?min-height:\s*690px;[\s\S]*?\.parallax-hero:not\(\.has-metrics\)\s*\{[\s\S]*?min-height:\s*360px;/.test(styles),
+  "Mobile Resume hero should reserve compact spacing for scan-level metrics."
 );
 [
   "Skip to presentation content",
@@ -720,13 +829,12 @@ check(readme.includes("recruiter-facing proof arc"), "README does not document t
 check(readme.includes("left rail is the only section navigation"), "README does not document the single-source section navigation rule.");
 check(!readme.includes("copyable role brief"), "README still documents removed copyable role brief UI.");
 check(!readme.includes("Copy confirmations"), "README still documents removed copy confirmation UI.");
-check(readme.includes("Persistent top-bar links"), "README does not document persistent packet links.");
+check(readme.includes("Fit-only packet links"), "README does not document strategic packet links.");
 check(readme.includes("screen-share focus mode"), "README does not document focus mode.");
 check(readme.includes("`F` key"), "README does not document the focus mode keyboard shortcut.");
 check(readme.includes("?focus=1"), "README does not document the focus mode query parameter.");
 check(readme.includes("Codex Projects section"), "README does not document Portfolio Codex Projects previews.");
-check(readme.includes("90-second closer"), "README does not document the OpenAI Fit section.");
-check(readme.includes("role-proof map"), "README does not document the OpenAI Fit proof map.");
+check(readme.includes("visual proof path"), "README does not document the OpenAI Fit proof path.");
 check(readme.includes("selected-document panel"), "README does not document the selected-document panel.");
 
 check(fs.existsSync(path.join(distPath, "index.html")), "Build output is missing dist/index.html.");
@@ -756,8 +864,7 @@ if (latestJs) {
     "Codex Projects",
     "Portfolio proof",
     "Resume details",
-    "What a busy OpenAI panel should remember after the walkthrough.",
-    "Ninety second OpenAI resume read",
+    "Open the work behind the claim",
     "Fact-checked role source",
     "AI-assisted product building",
     "Agentic harnessing",
@@ -778,22 +885,29 @@ if (latestJs) {
     "SipStudies.com Blog",
     "Sip Studies Substack",
     "Daily Sip",
-    "Role proof map",
-    "Open the next artifact only when it helps the hiring decision.",
+    "Resume proof detail",
+    "The headline metrics, with the evidence kept below the fold.",
+    "Commercial execution proof",
+    "350 cases, field execution, customer context.",
+    "350-case vodka display",
+    "/assets/openai-fit/commercial-execution-seagrams-display.jpg",
+    "Proof path",
+    "Four proof surfaces make the fit inspectable.",
     "cover-letter",
-    "Selected packet document",
+    "Active packet artifact",
     "Application focus:",
     "Active packet document:",
-    "Source-backed resume facts and credential proof.",
-    "Inspectable projects, media, and shipped work.",
-    "Role-specific close, packet files, and interview proof.",
-    "Third-party PDFs, emails, and source notes.",
+    "Career record, credentials, and market-scale evidence.",
+    "Inspectable products, media, and shipped work.",
+    "Role source facts, proof path, and packet close.",
+    "Permissioned third-party proof, staged only when requested.",
     "Focus",
-    "Resume reference",
+    "Resume evidence",
     "References on request",
     "References available on request",
     "Permissioned proof only",
     "Source standard",
+    "data-reference-fullscreen",
     "WSET Level 2 Sake",
     "Wine Scholar Guild / Lustau",
     "Cicerone - Certified Beer Server L1",
@@ -843,7 +957,15 @@ if (latestJs) {
     "Proof arc",
     "Resume evidence / portfolio proof / OpenAI fit / references.",
     "Live interview answer board",
-    "Keep the conversation anchored to the right proof."
+    "Keep the conversation anchored to the right proof.",
+    "What a busy OpenAI panel should remember after the walkthrough.",
+    "Open the next artifact only when it helps the hiring decision.",
+    "The selected role defines the claim",
+    "Evidence to cite",
+    "Use these when the interviewer",
+    "Use this when the interviewer",
+    "Why the selected role makes sense",
+    "matrix-reference"
   ].forEach((text) => {
     check(!builtJs.includes(text), `Built JS still contains retired presentation text: ${text}`);
   });
@@ -872,9 +994,10 @@ if (latestCss) {
     ".article-card",
     ".rail-pdf-actions",
     ".is-focus-mode .rail",
-    ".timebox-read",
+    ".resume-proof-details",
+    ".resume-proof-detail-card",
+    ".commercial-execution-proof",
     ".fit-packet-grid",
-    "hiring-close-hero.png",
     ".gallery-pause",
     ".selected-document-panel",
     ".selected-document-panel:focus-visible",
@@ -882,8 +1005,13 @@ if (latestCss) {
     ".reference-grid",
     ".reference-card",
     ".reference-preview",
+    ".reference-preview-wrap:fullscreen",
+    ".reference-preview-toolbar",
+    ".reference-actions",
     ".credential-text-link",
     ".proof-matrix",
+    ".proof-card-image",
+    ".proof-card-tags",
     ".website-preview-board",
     ".website-preview-screen",
     ".website-screen-button",

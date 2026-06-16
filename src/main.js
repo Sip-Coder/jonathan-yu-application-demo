@@ -47,24 +47,31 @@ const modes = [
   {
     id: "resume",
     label: "01 Resume",
-    summary: "Source-backed resume facts and credential proof."
+    summary: "Career record, credentials, and market-scale evidence."
   },
   {
     id: "projects",
     label: "02 Portfolio",
-    summary: "Inspectable projects, media, and shipped work."
+    summary: "Inspectable products, media, and shipped work."
   },
   {
     id: "fit",
     label: "03 OpenAI Fit",
-    summary: "Role-specific close, packet files, and interview proof."
+    summary: "Role source facts, proof path, and packet close."
   },
   {
     id: "references",
     label: "04 References",
-    summary: "Third-party PDFs, emails, and source notes."
+    summary: "Permissioned third-party proof, staged only when requested."
   }
 ];
+
+const modeEyebrows = {
+  resume: "Resume evidence",
+  projects: "Portfolio evidence",
+  fit: "OpenAI Fit argument",
+  references: "Permissioned references"
+};
 
 const publicLinks = [
   { label: "Bio Site", handle: "SipStudies link tree", href: "https://bio.site/SipStudies" },
@@ -86,6 +93,17 @@ const mediaLinks = [
 ];
 
 const referenceArtifacts = [
+  {
+    id: "ufc-324-customer-satisfaction",
+    type: "PDF",
+    title: "UFC 324 customer satisfaction proof",
+    source: `${referencesBase}/ufc-324-customer-satisfaction-public-summary.pdf`,
+    status: "Sanitized public summary",
+    summary: "A privacy-safe customer satisfaction summary from the UFC 324 Rising Star package, focused on premium guest service, responsiveness, hospitality, and event execution.",
+    href: `${referencesBase}/ufc-324-customer-satisfaction-public-summary.pdf`,
+    body: "Customer name, email, phone, full headers, and original message text are withheld. The private source email remains in Raw Data/Resume References.",
+    evidence: ["Customer satisfaction", "Premium guest service", "Service recovery", "Live-event execution"]
+  },
   {
     id: "references-available-on-request",
     type: "Reference",
@@ -834,25 +852,75 @@ const flavorBlogCollections = [
   }
 ];
 
-function proofMetric(label, value, detail, scale = 76) {
+function proofMetric(label, value, detail, scale = 76, items = []) {
   return {
     label,
     value,
     detail,
     scale,
+    items,
     max: 100
   };
 }
 
+function resumeProofMetrics() {
+  return [
+    proofMetric(
+      "Career range",
+      "10+",
+      "Beverage sales, account analytics, education, and live events.",
+      82,
+      ["Years across beverage sales, account analytics, education, and live events."]
+    ),
+    proofMetric(
+      "Years Of AI Usage",
+      "2021+",
+      "From early generative tools to Codex-driven product and workflow builds.",
+      76,
+      [
+      "Started using WamboArt.ai in 2021.",
+      "Then ChatGPT 3.5 in December 2022.",
+      'Enrolled in "Artificial Intelligence Implications For Business Strategy" online with MIT in August 2023.',
+      "Established Sip Studies on January 15th, 2024.",
+      "Replit and then Codex revolutionized working abilities in 2026."
+      ]
+    ),
+    proofMetric(
+      "Commercial lift",
+      "$2.291M",
+      "Wine revenue lift, 3,500+ expanded placements, and field execution scale.",
+      88,
+      [
+        "Sales Consultant Excellence Award in 2018 and 2026.",
+        "Expanded 3,500+ placements.",
+        "Increased wine revenue by $2,291,000 in 2018.",
+        "Grew and supported the team by monitoring 3,800 SKUs, with over 95,000 points of distribution in 2025 including Reno, Wendover, and Mesquite."
+      ]
+    ),
+    proofMetric(
+      "Founder platform",
+      "20,000",
+      "Sipopedia terminology rows with citation and review metadata.",
+      80,
+      [
+        "Built an integrated LMS platform for wine, beer, spirits, coffee, tea, and all other beverages.",
+        "Built a video game simulation for beverage lifecycles beginning to end.",
+        "Built a professional-friendly, mobile beverage resource map for navigating versatile beverage solutions."
+      ]
+    ),
+    proofMetric(
+      "Credential stack",
+      `${resume.certs.length}`,
+      "AI strategy, wine, spirits, sake, beer, and sommelier credentials.",
+      72,
+      ["AI strategy, wine, spirits, sake, beer, and sommelier credentials represented in the resume."]
+    )
+  ];
+}
+
 function heroMetricsFor(modeId) {
   if (modeId !== "resume") return [];
-
-  return [
-    proofMetric("Career range", "10+", "Years across beverage sales, account analytics, education, live events, and AI-enabled product building.", 82),
-    proofMetric("Commercial lift", "$2.291M", "Wine revenue increase at Lee's Liquor alongside 3,500+ expanded placements.", 88),
-    proofMetric("Founder platform", "20,000", "Sipopedia terminology pipeline rows with citation and review metadata.", 80),
-    proofMetric("Credential stack", `${resume.certs.length}`, "AI strategy, wine, spirits, sake, beer, and sommelier credentials represented in the resume.", 72)
-  ];
+  return resumeProofMetrics().map(({ label, value, detail, scale, max }) => proofMetric(label, value, detail, scale, [], max));
 }
 
 const app = document.querySelector("#app");
@@ -969,7 +1037,7 @@ function navButton(mode) {
 function railPacketButtons(role = selectedRole) {
   const docs = docsFor(role);
   return `
-    <div class="rail-pdf-actions" aria-label="Download packet PDFs">
+    <div class="rail-pdf-actions" aria-label="OpenAI Fit packet PDFs">
       ${artifactButton("Resume", docs.Resume.pdf, "PDF")}
       ${artifactButton("Cover Letter", docs["Cover Letter"].pdf, "PDF")}
       ${artifactButton("30-60-90", docs["30-60-90"].pdf, "PDF")}
@@ -1177,112 +1245,65 @@ function projectCaseStudyCard(study, index) {
   `;
 }
 
-function timeboxCards(role) {
-  return [
-    {
-      mark: "0:00",
-      title: "Decision thesis",
-      body: role.headline,
-      proof: role.fit
-    },
-    {
-      mark: "0:30",
-      title: "Portfolio proof",
-      body: role.strengths?.[0] || role.proof?.[0] || role.resumeSummary,
-      proof: role.proof?.[0] || role.talkTrack
-    },
-    {
-      mark: "1:00",
-      title: "Adoption proof",
-      body: role.talkTrack,
-      proof: role.strengths?.[1] || role.planTheme
-    },
-    {
-      mark: "1:30",
-      title: "Packet evidence",
-      body: "The role resume, cover letter, and 30-60-90 plan support the same adoption story after the fit is clear.",
-      proof: role.planTheme || role.demoMove
-    }
-  ];
-}
-
-function renderTimeboxedRead() {
-  return `
-    <section class="timebox-read" aria-label="Ninety second OpenAI resume read">
-      <div class="timebox-head">
-        <p class="eyebrow">90-second closer</p>
-        <h3>What a busy OpenAI panel should remember after the walkthrough.</h3>
-        <p>The resume and portfolio have already shown the source facts. This closer compresses the hiring argument: why the AI Success pivot makes sense, which proof is strongest, and how the packet supports the decision.</p>
-      </div>
-      <div class="timebox-grid">
-        ${timeboxCards(selectedRole)
-          .map(
-            (card) => `
-              <article class="timebox-card">
-                <span>${card.mark}</span>
-                <h4>${presentationText(card.title)}</h4>
-                <p>${presentationText(card.body)}</p>
-                <b>${presentationText(card.proof)}</b>
-              </article>
-            `
-          )
-          .join("")}
-      </div>
-    </section>
-  `;
-}
-
 function proofMatrixRows(role) {
+  const docs = docsFor(role);
   return [
     {
-      label: "Role requirement",
-      focus: role.fit,
-      proof: role.strengths?.[0] || role.proof?.[0] || role.resumeSummary,
-      artifact: "Resume",
-      action: "Packet Resume",
-      doc: "Resume"
+      label: "Adoption platform",
+      artifact: "Sipopedia / Codex Projects",
+      image: "/assets/header/codex-projects-hero.png",
+      focus: "Inspectable product surfaces for learning, terminology, workflow design, paid access, and customer education.",
+      proof: ["AI-assisted product building", "Workflow translation", "Source-backed project detail"],
+      href: "#projects/ai-success",
+      action: "View Portfolio",
+      kind: "PORTFOLIO"
     },
     {
-      label: "Narrative fit",
-      focus: role.coverFocus || role.resumeSummary,
-      proof: role.talkTrack || role.demoMove,
-      artifact: "Cover Letter",
-      action: "Packet Cover Letter",
-      doc: "Cover Letter"
+      label: "Client implementation",
+      artifact: "Rose Quartz Massage",
+      image: "/repo-previews/rose-quartz/assets/rose-sanctuary-hero-C4LbQw8N.jpg",
+      focus: "A client-ready website with booking, intake, service positioning, launch documentation, and trust-building UX.",
+      proof: ["Client experience", "Booking workflow", "Launch readiness"],
+      href: "/repo-previews/rose-quartz/index.html",
+      action: "Open Preview",
+      kind: "SITE"
     },
     {
-      label: "First-quarter execution",
-      focus: role.planTheme || role.fit,
-      proof: role.strengths?.[1] || role.proof?.[1] || role.talkTrack,
-      artifact: "30-60-90 Plan",
-      action: "Packet Plan",
-      doc: "30-60-90"
+      label: "Operating proof",
+      artifact: "Critical On Hand",
+      image: "/assets/header/resume-still-life.png",
+      focus: "Account workflows, inventory gaps, incentives, KPI baselines, and weekly decisions translated into action.",
+      proof: ["Customer workflow mapping", "KPI framing", "Value evidence"],
+      href: docs.Resume.pdf,
+      action: "Open Resume",
+      kind: "PDF"
     },
     {
-      label: "Portfolio proof",
-      focus: "Shipped work that can be inspected and discussed beyond the packet.",
-      proof: role.proof?.[0] || role.strengths?.[0] || "Codex Projects, Sip Studies, Sipopedia, and Critical On Hand proof.",
-      artifact: "Codex Projects",
-      action: "Portfolio proof"
+      label: "First-quarter plan",
+      artifact: "30-60-90 Adoption Plan",
+      image: "/assets/header/hiring-close-hero.png",
+      focus: "A concrete path from discovery to workflow maps, enablement assets, readiness reviews, and value reporting.",
+      proof: ["Discovery", "Technical readiness", "Value realization"],
+      href: docs["30-60-90"].pdf,
+      action: "Open Plan",
+      kind: "PDF"
     }
   ];
 }
 
 function proofMatrixCard(row, index) {
-  const action = row.doc
-    ? `<button class="matrix-action" data-doc="${row.doc}" type="button">${presentationText(row.action)}</button>`
-    : `<span class="matrix-reference">${presentationText(row.action)}</span>`;
-
   return `
     <article class="proof-matrix-card">
-      <span>${String(index + 1).padStart(2, "0")} ${presentationText(row.label)}</span>
-      <h4>${presentationText(row.artifact)}</h4>
-      <p>${presentationText(row.focus)}</p>
-      <div>
-        <b>Evidence to cite</b>
-        <p>${presentationText(row.proof)}</p>
+      <a class="proof-card-image" href="${row.href}" ${row.href.startsWith("#") ? "" : 'target="_blank" rel="noreferrer"'} aria-label="${attributeText(row.action)}: ${attributeText(row.artifact)}">
+        <img src="${row.image}" alt="${attributeText(row.artifact)} preview" loading="lazy" />
+      </a>
+      <div class="proof-card-body">
+        <span>${String(index + 1).padStart(2, "0")} ${presentationText(row.label)}</span>
+        <h4>${presentationText(row.artifact)}</h4>
+        <p>${presentationText(row.focus)}</p>
+        <div class="proof-card-tags">${row.proof.map((item) => `<em>${presentationText(item)}</em>`).join("")}</div>
+        <a class="matrix-action" href="${row.href}" ${row.href.startsWith("#") ? "" : 'target="_blank" rel="noreferrer"'}>${presentationText(row.action)} <small>${row.kind}</small></a>
       </div>
-      ${action}
     </article>
   `;
 }
@@ -1291,13 +1312,13 @@ function renderProofMatrix() {
   const rows = proofMatrixRows(selectedRole);
 
   return `
-    <section class="proof-matrix" aria-label="Role proof map">
+    <section class="proof-matrix" aria-label="Evidence map">
       <div class="proof-matrix-head">
         <div>
-          <p class="eyebrow">Role proof map</p>
-          <h3>Open the next artifact only when it helps the hiring decision.</h3>
+          <p class="eyebrow">Proof path</p>
+          <h3>Four proof surfaces make the fit inspectable.</h3>
         </div>
-        <p>The selected role defines the claim, the proof to cite, and the next file or tab to open. The packet supports the argument instead of becoming the argument.</p>
+        <p>Open the work behind the claim: product systems, client implementation, operating evidence, and a first-quarter adoption plan.</p>
       </div>
       <div class="proof-matrix-grid">
         ${rows.map(proofMatrixCard).join("")}
@@ -1308,9 +1329,9 @@ function renderProofMatrix() {
 
 function selectedDocumentSummary(name) {
   const summaries = {
-    Resume: "Use this when the interviewer wants the role-shaped version of the full resume facts.",
-    "Cover Letter": "Use this when the conversation turns to motivation, narrative fit, and why this role is the right transition.",
-    "30-60-90": "Use this when the interviewer asks how the first quarter would turn into discovery, artifacts, enablement, and measurable outcomes."
+    Resume: "The concise application resume: source-backed experience, credentials, adoption metrics, and project evidence.",
+    "Cover Letter": "The transition story: why customer adoption, product fluency, and education make this role coherent.",
+    "30-60-90": "A first-quarter operating plan for discovery, workflow mapping, readiness reviews, and value reporting."
   };
 
   return summaries[name] || summaries.Resume;
@@ -1325,7 +1346,7 @@ function renderSelectedDocumentPanel(name, doc) {
       aria-labelledby="${docTabId(name)}"
       tabindex="0"
     >
-      <p class="eyebrow">Selected packet document</p>
+      <p class="eyebrow">Active packet artifact</p>
       <h3>${presentationText(name)}</h3>
       <p>${presentationText(selectedDocumentSummary(name))}</p>
       <div>
@@ -1472,6 +1493,8 @@ function repoWebsiteFrame(site) {
     `;
   }
 
+  const iframeLoading = site.previewHref.startsWith("/") ? "eager" : "lazy";
+
   return `
     <div class="website-preview-screen" data-website-preview>
       <div class="website-browser-bar">
@@ -1489,7 +1512,7 @@ function repoWebsiteFrame(site) {
       <iframe
         title="${presentationText(site.title)} interactive website preview"
         src="${site.previewHref}"
-        loading="lazy"
+        loading="${iframeLoading}"
         referrerpolicy="no-referrer-when-downgrade"
         allow="clipboard-write; fullscreen; web-share"
         allowfullscreen
@@ -1686,6 +1709,59 @@ function renderResumeLensPanel() {
   `;
 }
 
+function renderCommercialExecutionProof() {
+  return `
+    <section class="commercial-execution-proof" aria-label="Commercial execution proof photo">
+      <figure class="commercial-execution-frame">
+        <img src="/assets/openai-fit/commercial-execution-seagrams-display.jpg" alt="Jonathan Yu on a large Seagram's vodka retail display in a beverage store" loading="lazy" />
+        <figcaption>350-case Seagram's vodka display, retail execution proof from beverage sales work.</figcaption>
+      </figure>
+      <div class="commercial-execution-copy">
+        <p class="eyebrow">Commercial execution proof</p>
+        <h3>350 cases, field execution, customer context.</h3>
+        <p>A 350-case vodka display shows the account-side work behind adoption: coordinating supplier priorities, retail execution, field teams, and measurable market movement.</p>
+        <div class="commercial-execution-tags" aria-label="Commercial execution context">
+          <span>350 cases</span>
+          <span>Retail execution</span>
+          <span>Display strategy</span>
+          <span>Supplier coordination</span>
+          <span>Market scale</span>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderResumeProofDetails() {
+  return `
+    <section class="resume-proof-details" aria-label="Resume proof details">
+      <div class="resume-proof-details-head">
+        <p class="eyebrow">Resume proof detail</p>
+        <h3>The headline metrics, with the evidence kept below the fold.</h3>
+        <p>The hero keeps the quick scan. These cards preserve the fuller context for reviewers who want to inspect the commercial lift, AI adoption timeline, platform build, and credential base.</p>
+      </div>
+      <div class="resume-proof-detail-grid">
+        ${resumeProofMetrics()
+          .map(
+            (metric) => `
+              <article class="resume-proof-detail-card">
+                <div>
+                  <span>${presentationText(metric.label)}</span>
+                  <strong>${metric.value}</strong>
+                </div>
+                <p>${presentationText(metric.detail)}</p>
+                <ul>
+                  ${metric.items.map((item) => `<li>${presentationText(item)}</li>`).join("")}
+                </ul>
+              </article>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
 function resumeDetailCards() {
   const experienceHighlights = resume.experience
     .map((job) => job.bullets?.[0])
@@ -1807,7 +1883,7 @@ function renderHero(title, subtitle, image = heroImages.resume, metricItems = he
     <section class="${heroClass}" style="--hero-image:url('${image}')">
       <div class="hero-image" data-parallax-depth="-0.08"></div>
       <div class="hero-copy" data-parallax-depth="0.04">
-        <p class="eyebrow">OpenAI AI Success application proof page</p>
+        <p class="eyebrow">${modeEyebrows[selectedMode] || "Application proof"}</p>
         <h2>${title}</h2>
         <p>${subtitle}</p>
       </div>
@@ -1822,7 +1898,7 @@ function renderAiSuccessSourceCheck() {
       <div>
         <p class="eyebrow">Fact-checked role source</p>
         <h3>${aiSuccessPostingFacts.title}</h3>
-        <p>Verified against the live OpenAI careers page on ${aiSuccessPostingFacts.verifiedDate}. The closer should stay anchored to post-sales ownership, workflow mapping, technical readiness, adoption velocity, KPIs, and measurable customer value.</p>
+        <p>Verified against the live OpenAI careers page on ${aiSuccessPostingFacts.verifiedDate}. The ask is post-sales ownership, workflow mapping, technical readiness, adoption velocity, KPIs, and measurable customer value.</p>
         <a class="artifact-link" href="${aiSuccessPostingFacts.sourceUrl}" target="_blank" rel="noreferrer">Open posting <span>OPENAI</span></a>
       </div>
       <div class="source-facts-grid">
@@ -1831,9 +1907,9 @@ function renderAiSuccessSourceCheck() {
         <span><b>Compensation</b>${aiSuccessPostingFacts.payRange}</span>
       </div>
       <div class="source-facts-list">
-        <b>Role facts to mirror</b>
-        <ul>${aiSuccessPostingFacts.roleFacts.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
-        <div>${aiSuccessPostingFacts.successSignals.map((item) => `<em>${presentationText(item)}</em>`).join("")}</div>
+        <b>What the posting asks to see</b>
+        <ul>${aiSuccessPostingFacts.successSignals.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
+        <div>${["Post-sales ownership", "Workflow mapping", "Technical readiness", "KPI/value proof"].map((item) => `<em>${presentationText(item)}</em>`).join("")}</div>
       </div>
     </section>
   `;
@@ -1863,9 +1939,9 @@ function renderPacketPdfRail(role = selectedRole) {
   return `
     <section class="packet-pdf-rail" aria-label="Downloadable application packet PDFs">
       <div>
-        <p class="eyebrow">Download packet PDFs</p>
-        <h3>Resume, Cover Letter, and 30-60-90 Plan.</h3>
-        <p>Use these when the interviewer asks for the formal artifact behind the walkthrough.</p>
+        <p class="eyebrow">OpenAI Fit packet</p>
+        <h3>Three documents stay together here.</h3>
+        <p>The resume, cover letter, and first-quarter plan belong in the Fit view because they close the role-specific argument instead of repeating across every tab.</p>
       </div>
       <div class="doc-actions">
         ${artifactButton("Resume", docs.Resume.pdf, "PDF")}
@@ -1924,9 +2000,24 @@ function referenceArtifactAction(artifact) {
   return `<a class="artifact-link reference-artifact-action" href="${artifact.href}" target="_blank" rel="noreferrer">${actionLabel} <span>${presentationText(artifact.type)}</span></a>`;
 }
 
+function referenceArtifactFullscreenAction(artifact) {
+  if (!artifact.href || artifact.type !== "PDF") return "";
+
+  return `
+    <button class="artifact-link reference-fullscreen-action" type="button" data-reference-fullscreen data-reference-href="${artifact.href}" aria-pressed="false">
+      Full screen <span>PDF</span>
+    </button>
+  `;
+}
+
 function referenceArtifactPreview(artifact) {
   if (artifact.href && artifact.type === "PDF") {
-    return `<iframe class="reference-preview" src="${artifact.href}" title="${presentationText(artifact.title)}"></iframe>`;
+    return `
+      <div class="reference-preview-toolbar">
+        ${referenceArtifactFullscreenAction(artifact)}
+      </div>
+      <iframe class="reference-preview" src="${artifact.href}" title="${presentationText(artifact.title)}" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+    `;
   }
 
   if (artifact.body) {
@@ -1945,7 +2036,7 @@ function renderReferenceCard(artifact) {
       </div>
       <h3>${presentationText(artifact.title)}</h3>
       <p>${presentationText(artifact.summary)}</p>
-      <div class="reference-preview-wrap">
+      <div class="reference-preview-wrap" ${artifact.href && artifact.type === "PDF" ? 'data-reference-preview' : ""}>
         ${referenceArtifactPreview(artifact)}
       </div>
       <div class="reference-evidence">
@@ -1953,7 +2044,9 @@ function renderReferenceCard(artifact) {
       </div>
       <footer>
         <b>${presentationText(artifact.source)}</b>
-        ${referenceArtifactAction(artifact)}
+        <div class="reference-actions">
+          ${referenceArtifactAction(artifact)}
+        </div>
       </footer>
     </article>
   `;
@@ -1961,17 +2054,17 @@ function renderReferenceCard(artifact) {
 
 function renderReferences() {
   return `
-    ${renderHero("References", "Reference handling for approved third-party proof without unfinished placeholders.", heroImages.references)}
+    ${renderHero("References", "A controlled place for PDFs, emails, and source notes when reviewers ask for third-party confirmation.", heroImages.references)}
     <section class="references-board" aria-label="Reference artifacts">
       <div class="references-board-head">
         <div>
           <p class="eyebrow">References on request</p>
           <h3>Keep third-party proof source-backed and permissioned.</h3>
-          <p>Use this step when the hiring team wants reference letters, source emails, or third-party proof after the AI Success fit conversation.</p>
+          <p>This tab stays quiet until the hiring team asks for reference letters, source emails, or third-party context. Nothing here should read like a placeholder claim.</p>
         </div>
         <div class="reference-custody">
           <b>Source standard</b>
-          <p>Every reference artifact should keep a clear source, permission status, and interview use.</p>
+          <p>Every artifact needs a clear source, permission status, and interview use before it appears.</p>
         </div>
       </div>
       <div class="reference-grid">
@@ -1986,10 +2079,11 @@ function renderRoleFit() {
   const activeDoc = docs[selectedDoc];
 
   return `
-    ${renderHero("OpenAI Fit", "Role facts, strongest proof, and the packet files for the final hiring discussion.", heroImages.fit)}
+    ${renderHero("OpenAI Fit", "A reviewer-facing case for AI Success: source facts, inspectable work, commercial execution, and the packet close.", heroImages.fit)}
     ${renderAiSuccessSourceCheck()}
     ${renderPacketPdfRail(selectedRole)}
-    ${renderTimeboxedRead()}
+    ${renderProofMatrix()}
+    ${renderCommercialExecutionProof()}
     <section class="document-strip document-strip--fit" aria-label="Role packet documents">
       <div class="doc-tabs" role="tablist" aria-label="Role packet documents">
         ${Object.keys(docs)
@@ -2022,20 +2116,19 @@ function renderRoleFit() {
     <section class="fit-packet-grid">
       ${renderSelectedDocumentPanel(selectedDoc, activeDoc)}
       <div class="proof-stack">
-        <h3>Why the selected role makes sense</h3>
+        <h3>Fit evidence at a glance</h3>
         <ul>${selectedRole.proof.map((item) => `<li>${presentationText(item)}</li>`).join("")}</ul>
       </div>
     </section>
-    ${renderProofMatrix()}
   `;
 }
 
 function renderFullResume() {
   return `
-    ${renderHero("Resume reference", "The source-backed chronology, credentials, and downloadable resume files.", heroImages.resume)}
+    ${renderHero("Resume evidence", "The career record behind the application: commercial lift, credentials, customer work, and the source-backed chronology.", heroImages.resume)}
     <section class="resume-head">
       <div>
-        <p class="eyebrow">Resume reference view</p>
+        <p class="eyebrow">Resume record</p>
         <h2>${resume.name}</h2>
         <strong>${resume.headline}</strong>
         <p>${resume.contact}</p>
@@ -2048,6 +2141,7 @@ function renderFullResume() {
       </div>
     </section>
     ${renderResumeDetailsDeck()}
+    ${renderResumeProofDetails()}
     ${renderResumeLensPanel()}
     <section class="resume-grid">
       <aside class="resume-sidebar">
@@ -2106,12 +2200,12 @@ function renderFullResume() {
 
 function renderProjects() {
   return `
-    ${renderHero("Portfolio proof", "Inspectable products, project work, public teaching, and media proof.", heroImages.projects)}
+    ${renderHero("Portfolio proof", "Inspectable products, client sites, media, and public teaching that show how the work behaves outside a resume.", heroImages.projects)}
     <section class="codex-projects-intro">
       <div>
         <p class="eyebrow">Portfolio lane</p>
-        <h3>The portfolio is the proof layer between the resume and OpenAI fit.</h3>
-        <p>Each project is treated as a client-facing artifact: what was built, what evidence exists, and why the work matters for AI Success Engineer adoption work.</p>
+        <h3>Open the work, then judge the claim.</h3>
+        <p>Each project is treated as a client-facing artifact: what was built, what evidence exists, and how the output turns ambiguity into a usable workflow.</p>
       </div>
       <div class="codex-projects-tags">
         <span>Codex-assisted builds</span>
@@ -2230,10 +2324,17 @@ function renderEducationMediaSections() {
         </div>
       </article>
       <article>
-        <p class="eyebrow">Application translation</p>
-        <h3>${selectedRole.title}</h3>
-        <p>${presentationText(selectedRole.talkTrack)}</p>
-        <div class="tag-cloud">${selectedRole.skills.slice(0, 8).map((skill) => `<span>${presentationText(skill)}</span>`).join("")}</div>
+        <p class="eyebrow">Portfolio takeaway</p>
+        <h3>Public work that can be inspected, played, or opened.</h3>
+        <p>These media surfaces matter because they show audience-facing translation: technical ideas become lessons, tools, demos, and public artifacts.</p>
+        <div class="tag-cloud">
+          <span>Inspectable artifacts</span>
+          <span>Audience translation</span>
+          <span>Learning products</span>
+          <span>Public proof</span>
+          <span>Workflow storytelling</span>
+          <span>Media cadence</span>
+        </div>
       </article>
     </section>
   `;
@@ -2300,7 +2401,7 @@ function render() {
             <img class="signature-mark" src="/assets/signature-jonathan-yu-cream.png" alt="Jonathan Yu signature" />
           </div>
           <div class="identity-block">
-            <p>OpenAI AI Success application proof page</p>
+            <p>Jonathan Yu application portfolio</p>
             <h1>Jonathan Yu</h1>
             <span>AI Success Engineer candidate proof: adoption, workflow mapping, technical enablement, and measurable customer value.</span>
           </div>
@@ -2313,12 +2414,12 @@ function render() {
         <nav class="mode-list" aria-label="AI Success application proof sections">
           ${modes.map(navButton).join("")}
         </nav>
-        ${railPacketButtons(selectedRole)}
+        ${selectedMode === "fit" ? railPacketButtons(selectedRole) : ""}
       </aside>
       <section class="workspace" id="presentation-content" tabindex="-1">
         <header class="topbar">
           <div>
-            <p class="eyebrow">OpenAI AI Success Engineer application proof page</p>
+            <p class="eyebrow">${modeEyebrows[selectedMode] || "Application proof"}</p>
             <h2>${activeMode.label}</h2>
             <p class="topbar-summary">${activeMode.summary}</p>
           </div>
@@ -2395,6 +2496,12 @@ function bindEvents() {
     });
   });
 
+  document.querySelectorAll("[data-reference-fullscreen]").forEach((button) => {
+    button.addEventListener("click", () => {
+      toggleReferenceFullscreen(button);
+    });
+  });
+
   document.querySelectorAll("[data-episode-load]").forEach((button) => {
     button.addEventListener("click", () => {
       loadEpisodeEmbed(button);
@@ -2461,12 +2568,47 @@ async function toggleWebsitePreviewFullscreen(button) {
   }
 }
 
+async function toggleReferenceFullscreen(button) {
+  const card = button.closest(".reference-card");
+  const preview = card?.querySelector("[data-reference-preview]");
+  if (!preview) return;
+
+  try {
+    if (document.fullscreenElement === preview) {
+      await document.exitFullscreen();
+      return;
+    }
+
+    if (preview.requestFullscreen) {
+      await preview.requestFullscreen();
+      return;
+    }
+  } catch {
+    // Fall back to the PDF tab when embedded fullscreen is unavailable.
+  }
+
+  if (button.dataset.referenceHref) {
+    window.open(button.dataset.referenceHref, "_blank", "noopener,noreferrer");
+  }
+}
+
 function updateWebsiteFullscreenControls() {
   const activePreview = document.fullscreenElement;
   document.querySelectorAll("[data-preview-fullscreen]").forEach((button) => {
     const preview = button.closest("[data-website-preview]");
     const active = Boolean(preview && activePreview === preview);
     button.textContent = active ? "Exit full screen" : "Full screen";
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+}
+
+function updateReferenceFullscreenControls() {
+  const activePreview = document.fullscreenElement;
+  document.querySelectorAll("[data-reference-fullscreen]").forEach((button) => {
+    const card = button.closest(".reference-card");
+    const preview = card?.querySelector("[data-reference-preview]");
+    const active = Boolean(preview && activePreview === preview);
+    button.innerHTML = `${active ? "Exit full screen" : "Full screen"} <span>PDF</span>`;
     button.setAttribute("aria-pressed", active ? "true" : "false");
   });
 }
@@ -2574,7 +2716,10 @@ window.addEventListener("hashchange", () => {
   applyHashState();
   render();
 });
-document.addEventListener("fullscreenchange", updateWebsiteFullscreenControls);
+document.addEventListener("fullscreenchange", () => {
+  updateWebsiteFullscreenControls();
+  updateReferenceFullscreenControls();
+});
 document.addEventListener("keydown", (event) => {
   if (galleryOpen) {
     if (event.key === "Escape") {
