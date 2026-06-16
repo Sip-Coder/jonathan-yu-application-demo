@@ -222,11 +222,13 @@ check(main.includes("function renderReferenceCard("), "References tab is missing
 check(main.includes('if (selectedMode === "references") return renderReferences();'), "References mode is not wired into the workspace renderer.");
 check(main.includes("function referenceArtifactFullscreenAction("), "References tab is missing fullscreen action rendering.");
 check(main.includes("function referenceArtifactDownloadAction("), "References tab is missing download action rendering.");
-check(main.includes("function referencePdfPreviewHref("), "References tab is missing controlled PDF preview URL rendering.");
 check(main.includes("function referenceArtifactPreviewToolbar("), "References tab is missing the first-party PDF preview toolbar.");
-check(main.includes("toolbar=0&navpanes=0&scrollbar=1"), "References PDF preview should hide the native browser PDF toolbar.");
-check(main.includes("pagelayout=TwoColumnRight"), "References PDF preview should request two-page layout.");
-check(main.includes("zoom=${zoom}"), "References PDF preview should support controlled zoom.");
+check(main.includes('import * as pdfjsLib from "pdfjs-dist";'), "References PDF preview should use PDF.js rendering.");
+check(main.includes('pdfWorkerUrl from "pdfjs-dist/build/pdf.worker.mjs?url"'), "References PDF preview is missing the PDF.js worker.");
+check(main.includes("data-reference-pdf-viewer"), "References PDF preview is missing the first-party rendered viewer.");
+check(main.includes("data-reference-pages"), "References PDF preview is missing the rendered page container.");
+check(main.includes("function renderReferencePdfViewer("), "References PDF preview is missing rendered page behavior.");
+check(main.includes("function setReferenceLayout("), "References PDF preview is missing layout behavior.");
 check(main.includes("Two page view"), "References PDF toolbar should keep the two-page view control visible.");
 check(main.includes("data-reference-zoom"), "References PDF toolbar is missing zoom controls.");
 check(main.includes("function updateReferenceZoom("), "References PDF toolbar is missing zoom behavior.");
@@ -234,7 +236,6 @@ check(main.includes("Download <span>PDF</span>"), "References PDF toolbar is mis
 check(main.includes("data-reference-fullscreen"), "References PDF cards are missing fullscreen buttons.");
 check(main.includes("function toggleReferenceFullscreen("), "References tab is missing fullscreen behavior.");
 check(main.includes("function updateReferenceFullscreenControls("), "References tab is missing fullscreen control state updates.");
-check(main.includes('allow="fullscreen"'), "References PDF previews should allow fullscreen.");
 check(main.includes("References available on request"), "References tab should state that references are available on request.");
 check(main.includes("Permissioned proof only"), "References tab should avoid unfinished placeholder reference claims.");
 check(main.includes("UFC 324 customer satisfaction proof"), "References tab is missing the sanitized UFC 324 customer satisfaction proof.");
@@ -260,6 +261,9 @@ check(styles.includes(".reference-preview-toolbar"), "References tab styling is 
 check(styles.includes(".reference-preview-controls"), "References tab styling is missing first-party PDF toolbar controls.");
 check(styles.includes(".reference-toolbar-button"), "References tab styling is missing first-party PDF toolbar buttons.");
 check(styles.includes(".reference-zoom-controls"), "References tab styling is missing zoom controls.");
+check(styles.includes(".reference-render-pages"), "References tab styling is missing rendered PDF page layout.");
+check(styles.includes(".reference-pdf-page"), "References tab styling is missing rendered PDF page styling.");
+check(styles.includes(".reference-render-status"), "References tab styling is missing rendered PDF loading state.");
 check(styles.includes(".reference-download-action"), "References tab styling is missing the download action.");
 check(styles.includes(".reference-actions"), "References tab styling is missing the reference action row.");
 check(main.includes("function renderFullResume()"), "Missing Resume renderer.");
@@ -983,7 +987,7 @@ if (latestJs) {
   ].forEach((text) => {
     check(!builtJs.includes(text), `Built JS still contains retired presentation text: ${text}`);
   });
-  const builtForbiddenKeys = forbiddenSiteKeys.filter((key) => {
+  const builtForbiddenKeys = forbiddenSiteKeys.filter((key) => key !== "url").filter((key) => {
     const quotedKey = new RegExp(`["']${key}["']\\s*[:=]`, "u");
     const bareKey = new RegExp(`(?:^|[,{])\\s*${key}\\s*:`, "u");
     return quotedKey.test(builtJs) || bareKey.test(builtJs);

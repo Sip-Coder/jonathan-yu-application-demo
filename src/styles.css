@@ -2778,20 +2778,66 @@ a {
 
 .reference-preview-mode {
   color: #d8e6da;
-  cursor: default;
+  cursor: pointer;
+}
+
+.reference-preview-mode[aria-pressed="true"] {
+  border-color: rgba(159, 218, 245, 0.5);
+  background: rgba(159, 218, 245, 0.16);
+  color: #fffdfa;
 }
 
 .reference-preview {
-  display: block;
+  display: grid;
+  align-content: start;
   width: 100%;
   min-height: 260px;
+  max-height: 420px;
+  overflow: auto;
   border: 0;
+  background: #f7f1e4;
+  padding: 10px;
+}
+
+.reference-render-status {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-weight: 850;
+  text-align: center;
+}
+
+.reference-render-status[hidden] {
+  display: none;
+}
+
+.reference-render-pages {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.reference-render-pages.is-two-page {
+  min-width: max-content;
+}
+
+.reference-pdf-page {
+  flex: 0 0 auto;
+  display: block;
+  border: 1px solid rgba(5, 49, 59, 0.18);
+  border-radius: 4px;
   background: var(--white);
+  box-shadow: 0 8px 18px rgba(2, 13, 31, 0.2);
 }
 
 .reference-preview-wrap:fullscreen .reference-preview {
   min-height: 0;
   height: 100%;
+  max-height: none;
   border-radius: 8px;
 }
 

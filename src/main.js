@@ -1,6 +1,10 @@
 import "./styles.css";
+import * as pdfjsLib from "pdfjs-dist";
+import pdfWorkerUrl from "pdfjs-dist/build/pdf.worker.mjs?url";
 import masterData from "./master-resume-data.js";
 import portraitGallery from "./portrait-gallery.js";
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
 
 const base = "/documents/openai-2026-06-02";
 const resumeBase = "/documents/resume";
@@ -18,6 +22,7 @@ const { roles, resume } = masterData;
 const resumeSource = masterData.source;
 const primaryRoleId = "ai-success";
 const primaryRole = roles.find((role) => role.id === primaryRoleId) || roles[0];
+const referencePdfDocuments = new Map();
 
 const aiSuccessPostingFacts = {
   title: "AI Success Engineer - US Remote",
@@ -2020,19 +2025,14 @@ function referenceArtifactDownloadAction(artifact) {
   `;
 }
 
-function referencePdfPreviewHref(href, zoom = 100) {
-  const separator = href.includes("#") ? "&" : "#";
-  return `${href}${separator}toolbar=0&navpanes=0&scrollbar=1&pagelayout=TwoColumnRight&zoom=${zoom}`;
-}
-
 function referenceArtifactPreviewToolbar(artifact) {
   return `
     <div class="reference-preview-toolbar" aria-label="PDF preview controls">
       <div class="reference-preview-status">
-        <span class="reference-page-indicator">1 / 2</span>
+        <span class="reference-page-indicator" data-reference-page-indicator>1-2 / 2</span>
       </div>
       <div class="reference-preview-controls">
-        <span class="reference-toolbar-button reference-preview-mode" aria-current="true">Two page view</span>
+        <button class="reference-toolbar-button reference-preview-mode" type="button" data-reference-layout="two" aria-pressed="true">Two page view</button>
         <div class="reference-zoom-controls" aria-label="PDF zoom controls">
           <button class="reference-toolbar-button reference-zoom-button" type="button" data-reference-zoom="out" data-reference-href="${artifact.href}" aria-label="Zoom out">-</button>
           <span class="reference-toolbar-button reference-zoom-level" data-reference-zoom-label>100%</span>
@@ -2049,7 +2049,10 @@ function referenceArtifactPreview(artifact) {
   if (artifact.href && artifact.type === "PDF") {
     return `
       ${referenceArtifactPreviewToolbar(artifact)}
-      <iframe class="reference-preview" src="${referencePdfPreviewHref(artifact.href)}" data-reference-pdf-frame data-reference-zoom-level="100" title="${presentationText(artifact.title)}" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+      <div class="reference-preview" data-reference-pdf-viewer data-reference-pdf-src="${attributeText(artifact.href)}" data-reference-zoom-level="100" data-reference-layout="two" role="region" aria-label="${attributeText(`${artifact.title} preview`)}">
+        <div class="reference-render-status" data-reference-render-status>Loading PDF preview...</div>
+        <div class="reference-render-pages" data-reference-pages></div>
+      </div>
     `;
   }
 
@@ -2465,6 +2468,7 @@ function render() {
 
   document.body.classList.toggle("is-focus-mode", focusMode);
   bindEvents();
+  initializeReferencePdfPreviews();
   updateParallax();
   updatePortraitModal();
 }
@@ -2538,6 +2542,12 @@ function bindEvents() {
   document.querySelectorAll("[data-reference-zoom]").forEach((button) => {
     button.addEventListener("click", () => {
       updateReferenceZoom(button);
+    });
+  });
+
+  document.querySelectorAll("[data-reference-layout]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setReferenceLayout(button);
     });
   });
 
@@ -2631,20 +2641,138 @@ async function toggleReferenceFullscreen(button) {
   }
 }
 
+function referencePdfDocument(src) {
+  if (!referencePdfDocuments.has(src)) {
+    referencePdfDocuments.set(src, pdfjsLib.getDocument(src).promise);
+  }
+  return referencePdfDocuments.get(src);
+}
+
+function referenceViewerForControl(control) {
+  const preview = control.closest("[data-reference-preview]");
+  return preview?.querySelector("[data-reference-pdf-viewer]");
+}
+
+function referencePageNumbers(pdf, layout) {
+  if (layout === "two") {
+    return [1, 2].filter((pageNumber) => pageNumber <= pdf.numPages);
+  }
+  return [1];
+}
+
+function updateReferencePageIndicator(viewer, pageNumbers, totalPages) {
+  const preview = viewer.closest("[data-reference-preview]");
+  const indicator = preview?.querySelector("[data-reference-page-indicator]");
+  if (!indicator) return;
+
+  indicator.textContent =
+    pageNumbers.length > 1
+      ? `${pageNumbers[0]}-${pageNumbers[pageNumbers.length - 1]} / ${totalPages}`
+      : `${pageNumbers[0]} / ${totalPages}`;
+}
+
+async function renderReferencePdfViewer(viewer) {
+  const src = viewer.dataset.referencePdfSrc;
+  const pages = viewer.querySelector("[data-reference-pages]");
+  const status = viewer.querySelector("[data-reference-render-status]");
+  if (!src || !pages) return;
+
+  const renderToken = `${Date.now()}-${Math.random()}`;
+  viewer.dataset.referenceRenderToken = renderToken;
+  viewer.classList.add("is-loading");
+  if (status) {
+    status.hidden = false;
+    status.textContent = "Loading PDF preview...";
+  }
+
+  try {
+    const pdf = await referencePdfDocument(src);
+    if (viewer.dataset.referenceRenderToken !== renderToken) return;
+
+    const zoom = Number.parseInt(viewer.dataset.referenceZoomLevel || "100", 10) / 100;
+    const layout = viewer.dataset.referenceLayout || "two";
+    const pageNumbers = referencePageNumbers(pdf, layout);
+    const firstPage = await pdf.getPage(pageNumbers[0]);
+    const baseViewport = firstPage.getViewport({ scale: 1 });
+    const gap = 14;
+    const availableWidth = Math.max(260, pages.clientWidth || viewer.clientWidth || 320);
+    const fitScale = Math.max(
+      0.28,
+      Math.min(1.25, (availableWidth - gap * (pageNumbers.length - 1) - 24) / (baseViewport.width * pageNumbers.length))
+    );
+    const renderScale = fitScale * zoom;
+    const outputScale = Math.min(window.devicePixelRatio || 1, 2);
+
+    pages.innerHTML = "";
+    pages.classList.toggle("is-two-page", pageNumbers.length > 1);
+
+    for (const pageNumber of pageNumbers) {
+      if (viewer.dataset.referenceRenderToken !== renderToken) return;
+      const page = pageNumber === pageNumbers[0] ? firstPage : await pdf.getPage(pageNumber);
+      const viewport = page.getViewport({ scale: renderScale });
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+      if (!context) throw new Error("Canvas rendering is unavailable.");
+      canvas.className = "reference-pdf-page";
+      canvas.dataset.referencePage = String(pageNumber);
+      canvas.width = Math.floor(viewport.width * outputScale);
+      canvas.height = Math.floor(viewport.height * outputScale);
+      canvas.style.width = `${Math.floor(viewport.width)}px`;
+      canvas.style.height = `${Math.floor(viewport.height)}px`;
+      context.setTransform(outputScale, 0, 0, outputScale, 0, 0);
+      pages.appendChild(canvas);
+      await page.render({ canvasContext: context, viewport }).promise;
+      if (viewer.dataset.referenceRenderToken !== renderToken) return;
+    }
+
+    if (viewer.dataset.referenceRenderToken !== renderToken) return;
+    updateReferencePageIndicator(viewer, pageNumbers, pdf.numPages);
+    if (status) status.hidden = true;
+    viewer.classList.remove("is-loading");
+  } catch (error) {
+    if (viewer.dataset.referenceRenderToken !== renderToken) return;
+    pages.innerHTML = "";
+    viewer.classList.remove("is-loading");
+    if (status) {
+      status.hidden = false;
+      status.textContent = "PDF preview unavailable. Use Download PDF or Open reference.";
+    }
+    console.warn("Reference PDF preview failed", error);
+  }
+}
+
+function initializeReferencePdfPreviews() {
+  document.querySelectorAll("[data-reference-pdf-viewer]").forEach((viewer) => {
+    renderReferencePdfViewer(viewer);
+  });
+}
+
+function setReferenceLayout(button) {
+  const viewer = referenceViewerForControl(button);
+  if (!viewer) return;
+
+  viewer.dataset.referenceLayout = button.dataset.referenceLayout || "two";
+  const preview = button.closest("[data-reference-preview]");
+  preview?.querySelectorAll("[data-reference-layout]").forEach((layoutButton) => {
+    const active = layoutButton.dataset.referenceLayout === viewer.dataset.referenceLayout;
+    layoutButton.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+  renderReferencePdfViewer(viewer);
+}
+
 function updateReferenceZoom(button) {
   const preview = button.closest("[data-reference-preview]");
-  const iframe = preview?.querySelector("[data-reference-pdf-frame]");
-  const href = button.dataset.referenceHref;
-  if (!preview || !iframe || !href) return;
+  const viewer = referenceViewerForControl(button);
+  if (!preview || !viewer) return;
 
-  const currentZoom = Number.parseInt(iframe.dataset.referenceZoomLevel || "100", 10);
+  const currentZoom = Number.parseInt(viewer.dataset.referenceZoomLevel || "100", 10);
   const direction = button.dataset.referenceZoom === "in" ? 1 : -1;
   const nextZoom = Math.min(200, Math.max(50, currentZoom + direction * 25));
-  iframe.dataset.referenceZoomLevel = String(nextZoom);
-  iframe.src = referencePdfPreviewHref(href, nextZoom);
+  viewer.dataset.referenceZoomLevel = String(nextZoom);
   preview.querySelectorAll("[data-reference-zoom-label]").forEach((label) => {
     label.textContent = `${nextZoom}%`;
   });
+  renderReferencePdfViewer(viewer);
 }
 
 function updateWebsiteFullscreenControls() {
@@ -2774,6 +2902,7 @@ window.addEventListener("hashchange", () => {
 document.addEventListener("fullscreenchange", () => {
   updateWebsiteFullscreenControls();
   updateReferenceFullscreenControls();
+  window.setTimeout(initializeReferencePdfPreviews, 50);
 });
 document.addEventListener("keydown", (event) => {
   if (galleryOpen) {
