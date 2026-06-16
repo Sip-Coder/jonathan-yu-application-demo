@@ -2727,6 +2727,12 @@ a {
   gap: 8px;
 }
 
+.reference-zoom-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .reference-page-indicator,
 .reference-toolbar-button {
   min-height: 32px;
@@ -2751,6 +2757,17 @@ a {
   color: #fffdfa;
   padding: 0 10px;
   text-decoration: none;
+}
+
+.reference-zoom-button {
+  min-width: 32px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.reference-zoom-level {
+  min-width: 54px;
+  color: #d8e6da;
 }
 
 .reference-toolbar-button span {
@@ -2835,12 +2852,17 @@ a {
   justify-content: flex-end;
 }
 
-.reference-fullscreen-action {
+.reference-fullscreen-action,
+.reference-download-action {
   cursor: pointer;
 }
 
 .reference-fullscreen-action:hover,
-.reference-fullscreen-action:focus-visible {
+.reference-fullscreen-action:focus-visible,
+.reference-download-action:hover,
+.reference-download-action:focus-visible,
+.reference-zoom-button:hover,
+.reference-zoom-button:focus-visible {
   border-color: rgba(159, 218, 245, 0.7);
   background: rgba(159, 218, 245, 0.16);
 }

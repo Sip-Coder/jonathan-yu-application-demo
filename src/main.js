@@ -2010,9 +2010,19 @@ function referenceArtifactFullscreenAction(artifact) {
   `;
 }
 
-function referencePdfPreviewHref(href) {
+function referenceArtifactDownloadAction(artifact) {
+  if (!artifact.href || artifact.type !== "PDF") return "";
+
+  return `
+    <a class="reference-toolbar-button reference-download-action" href="${artifact.href}" download target="_blank" rel="noreferrer">
+      Download <span>PDF</span>
+    </a>
+  `;
+}
+
+function referencePdfPreviewHref(href, zoom = 100) {
   const separator = href.includes("#") ? "&" : "#";
-  return `${href}${separator}toolbar=0&navpanes=0&scrollbar=1&view=FitH&pagelayout=TwoColumnRight`;
+  return `${href}${separator}toolbar=0&navpanes=0&scrollbar=1&pagelayout=TwoColumnRight&zoom=${zoom}`;
 }
 
 function referenceArtifactPreviewToolbar(artifact) {
@@ -2023,6 +2033,12 @@ function referenceArtifactPreviewToolbar(artifact) {
       </div>
       <div class="reference-preview-controls">
         <span class="reference-toolbar-button reference-preview-mode" aria-current="true">Two page view</span>
+        <div class="reference-zoom-controls" aria-label="PDF zoom controls">
+          <button class="reference-toolbar-button reference-zoom-button" type="button" data-reference-zoom="out" data-reference-href="${artifact.href}" aria-label="Zoom out">-</button>
+          <span class="reference-toolbar-button reference-zoom-level" data-reference-zoom-label>100%</span>
+          <button class="reference-toolbar-button reference-zoom-button" type="button" data-reference-zoom="in" data-reference-href="${artifact.href}" aria-label="Zoom in">+</button>
+        </div>
+        ${referenceArtifactDownloadAction(artifact)}
         ${referenceArtifactFullscreenAction(artifact)}
       </div>
     </div>
@@ -2033,7 +2049,7 @@ function referenceArtifactPreview(artifact) {
   if (artifact.href && artifact.type === "PDF") {
     return `
       ${referenceArtifactPreviewToolbar(artifact)}
-      <iframe class="reference-preview" src="${referencePdfPreviewHref(artifact.href)}" title="${presentationText(artifact.title)}" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+      <iframe class="reference-preview" src="${referencePdfPreviewHref(artifact.href)}" data-reference-pdf-frame data-reference-zoom-level="100" title="${presentationText(artifact.title)}" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
     `;
   }
 
@@ -2519,6 +2535,12 @@ function bindEvents() {
     });
   });
 
+  document.querySelectorAll("[data-reference-zoom]").forEach((button) => {
+    button.addEventListener("click", () => {
+      updateReferenceZoom(button);
+    });
+  });
+
   document.querySelectorAll("[data-episode-load]").forEach((button) => {
     button.addEventListener("click", () => {
       loadEpisodeEmbed(button);
@@ -2607,6 +2629,22 @@ async function toggleReferenceFullscreen(button) {
   if (button.dataset.referenceHref) {
     window.open(button.dataset.referenceHref, "_blank", "noopener,noreferrer");
   }
+}
+
+function updateReferenceZoom(button) {
+  const preview = button.closest("[data-reference-preview]");
+  const iframe = preview?.querySelector("[data-reference-pdf-frame]");
+  const href = button.dataset.referenceHref;
+  if (!preview || !iframe || !href) return;
+
+  const currentZoom = Number.parseInt(iframe.dataset.referenceZoomLevel || "100", 10);
+  const direction = button.dataset.referenceZoom === "in" ? 1 : -1;
+  const nextZoom = Math.min(200, Math.max(50, currentZoom + direction * 25));
+  iframe.dataset.referenceZoomLevel = String(nextZoom);
+  iframe.src = referencePdfPreviewHref(href, nextZoom);
+  preview.querySelectorAll("[data-reference-zoom-label]").forEach((label) => {
+    label.textContent = `${nextZoom}%`;
+  });
 }
 
 function updateWebsiteFullscreenControls() {

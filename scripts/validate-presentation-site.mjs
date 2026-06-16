@@ -221,11 +221,16 @@ check(main.includes("function renderReferences()"), "References tab is missing t
 check(main.includes("function renderReferenceCard("), "References tab is missing artifact cards.");
 check(main.includes('if (selectedMode === "references") return renderReferences();'), "References mode is not wired into the workspace renderer.");
 check(main.includes("function referenceArtifactFullscreenAction("), "References tab is missing fullscreen action rendering.");
+check(main.includes("function referenceArtifactDownloadAction("), "References tab is missing download action rendering.");
 check(main.includes("function referencePdfPreviewHref("), "References tab is missing controlled PDF preview URL rendering.");
 check(main.includes("function referenceArtifactPreviewToolbar("), "References tab is missing the first-party PDF preview toolbar.");
 check(main.includes("toolbar=0&navpanes=0&scrollbar=1"), "References PDF preview should hide the native browser PDF toolbar.");
 check(main.includes("pagelayout=TwoColumnRight"), "References PDF preview should request two-page layout.");
+check(main.includes("zoom=${zoom}"), "References PDF preview should support controlled zoom.");
 check(main.includes("Two page view"), "References PDF toolbar should keep the two-page view control visible.");
+check(main.includes("data-reference-zoom"), "References PDF toolbar is missing zoom controls.");
+check(main.includes("function updateReferenceZoom("), "References PDF toolbar is missing zoom behavior.");
+check(main.includes("Download <span>PDF</span>"), "References PDF toolbar is missing the download control.");
 check(main.includes("data-reference-fullscreen"), "References PDF cards are missing fullscreen buttons.");
 check(main.includes("function toggleReferenceFullscreen("), "References tab is missing fullscreen behavior.");
 check(main.includes("function updateReferenceFullscreenControls("), "References tab is missing fullscreen control state updates.");
@@ -254,6 +259,8 @@ check(styles.includes(".reference-preview-wrap:fullscreen"), "References tab sty
 check(styles.includes(".reference-preview-toolbar"), "References tab styling is missing the PDF preview toolbar.");
 check(styles.includes(".reference-preview-controls"), "References tab styling is missing first-party PDF toolbar controls.");
 check(styles.includes(".reference-toolbar-button"), "References tab styling is missing first-party PDF toolbar buttons.");
+check(styles.includes(".reference-zoom-controls"), "References tab styling is missing zoom controls.");
+check(styles.includes(".reference-download-action"), "References tab styling is missing the download action.");
 check(styles.includes(".reference-actions"), "References tab styling is missing the reference action row.");
 check(main.includes("function renderFullResume()"), "Missing Resume renderer.");
 check(main.includes("Resume evidence"), "Resume tab is missing the source-view framing.");
