@@ -2004,19 +2004,36 @@ function referenceArtifactFullscreenAction(artifact) {
   if (!artifact.href || artifact.type !== "PDF") return "";
 
   return `
-    <button class="artifact-link reference-fullscreen-action" type="button" data-reference-fullscreen data-reference-href="${artifact.href}" aria-pressed="false">
+    <button class="reference-toolbar-button reference-fullscreen-action" type="button" data-reference-fullscreen data-reference-href="${artifact.href}" aria-pressed="false">
       Full screen <span>PDF</span>
     </button>
+  `;
+}
+
+function referencePdfPreviewHref(href) {
+  const separator = href.includes("#") ? "&" : "#";
+  return `${href}${separator}toolbar=0&navpanes=0&scrollbar=1&view=FitH&pagelayout=TwoColumnRight`;
+}
+
+function referenceArtifactPreviewToolbar(artifact) {
+  return `
+    <div class="reference-preview-toolbar" aria-label="PDF preview controls">
+      <div class="reference-preview-status">
+        <span class="reference-page-indicator">1 / 2</span>
+      </div>
+      <div class="reference-preview-controls">
+        <span class="reference-toolbar-button reference-preview-mode" aria-current="true">Two page view</span>
+        ${referenceArtifactFullscreenAction(artifact)}
+      </div>
+    </div>
   `;
 }
 
 function referenceArtifactPreview(artifact) {
   if (artifact.href && artifact.type === "PDF") {
     return `
-      <div class="reference-preview-toolbar">
-        ${referenceArtifactFullscreenAction(artifact)}
-      </div>
-      <iframe class="reference-preview" src="${artifact.href}" title="${presentationText(artifact.title)}" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+      ${referenceArtifactPreviewToolbar(artifact)}
+      <iframe class="reference-preview" src="${referencePdfPreviewHref(artifact.href)}" title="${presentationText(artifact.title)}" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
     `;
   }
 
