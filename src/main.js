@@ -2751,10 +2751,13 @@ function setReferenceLayout(button) {
   const viewer = referenceViewerForControl(button);
   if (!viewer) return;
 
-  viewer.dataset.referenceLayout = button.dataset.referenceLayout || "two";
+  const targetLayout = button.dataset.referenceLayout || "two";
+  const currentLayout = viewer.dataset.referenceLayout || "single";
+  const nextLayout = currentLayout === targetLayout ? "single" : targetLayout;
+  viewer.dataset.referenceLayout = nextLayout;
   const preview = button.closest("[data-reference-preview]");
   preview?.querySelectorAll("[data-reference-layout]").forEach((layoutButton) => {
-    const active = layoutButton.dataset.referenceLayout === viewer.dataset.referenceLayout;
+    const active = layoutButton.dataset.referenceLayout === nextLayout;
     layoutButton.setAttribute("aria-pressed", active ? "true" : "false");
   });
   renderReferencePdfViewer(viewer);

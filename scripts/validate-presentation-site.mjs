@@ -229,6 +229,7 @@ check(main.includes("data-reference-pdf-viewer"), "References PDF preview is mis
 check(main.includes("data-reference-pages"), "References PDF preview is missing the rendered page container.");
 check(main.includes("function renderReferencePdfViewer("), "References PDF preview is missing rendered page behavior.");
 check(main.includes("function setReferenceLayout("), "References PDF preview is missing layout behavior.");
+check(main.includes('currentLayout === targetLayout ? "single" : targetLayout'), "References two-page control should toggle back to single-page layout.");
 check(main.includes("Two page view"), "References PDF toolbar should keep the two-page view control visible.");
 check(main.includes("data-reference-zoom"), "References PDF toolbar is missing zoom controls.");
 check(main.includes("function updateReferenceZoom("), "References PDF toolbar is missing zoom behavior.");
