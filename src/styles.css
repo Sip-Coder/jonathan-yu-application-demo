@@ -1233,14 +1233,6 @@ a {
   color: var(--gold);
 }
 
-.source-note {
-  max-width: 680px;
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 0.86rem;
-  line-height: 1.45;
-}
-
 .resume-lens-panel {
   display: grid;
   grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
@@ -2444,7 +2436,6 @@ a {
 
 .proof-matrix-head h3,
 .proof-matrix-card h4,
-.references-board-head h3,
 .reference-card h3 {
   margin: 7px 0 10px;
   color: var(--teal);
@@ -2452,9 +2443,7 @@ a {
 
 .proof-matrix-head p,
 .proof-matrix-card p,
-.references-board-head p,
-.reference-card p,
-.reference-custody p {
+.reference-card p {
   color: var(--muted);
   line-height: 1.55;
 }
@@ -2613,38 +2602,6 @@ a {
   background:
     linear-gradient(135deg, rgba(237, 212, 168, 0.22), rgba(255, 253, 250, 0.94)),
     var(--paper-2);
-}
-
-.references-board-head {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.52fr);
-  gap: 16px;
-  align-items: end;
-}
-
-.references-board-head h3 {
-  max-width: 820px;
-  font-size: clamp(1.55rem, 3vw, 3.2rem);
-  line-height: 1;
-}
-
-.references-board-head p:last-child {
-  margin: 0;
-}
-
-.reference-custody {
-  border-left: 5px solid var(--coral);
-  border-radius: 8px;
-  background: #f1e7d4;
-  padding: 12px;
-}
-
-.reference-custody b {
-  display: block;
-  color: var(--coral);
-  font-size: 0.72rem;
-  font-weight: 900;
-  text-transform: uppercase;
 }
 
 .reference-grid {
@@ -3055,7 +3012,6 @@ a {
   .parallax-hero,
   .proof-matrix-head,
   .proof-matrix-grid,
-  .references-board-head,
   .reference-grid,
   .resume-grid,
   .systems-map {
@@ -3149,7 +3105,6 @@ a {
   .episode-kicker,
   .proof-matrix-head,
   .proof-matrix-grid,
-  .references-board-head,
   .reference-grid {
     grid-template-columns: 1fr;
   }
@@ -3374,7 +3329,6 @@ body {
 .case-study-main h4,
 .proof-matrix-head h3,
 .proof-matrix-card h4,
-.references-board-head h3,
 .reference-card h3,
 .media-showcase h3,
 .episode-body h3,
@@ -3427,7 +3381,6 @@ body {
 .proof-matrix-card b,
 .reference-card-head span,
 .reference-card-head strong,
-.reference-custody b,
 .source-facts-grid b,
 .source-facts-list b,
 .commercial-execution-tags span,
@@ -3447,7 +3400,6 @@ body {
 .resume-role-bridge p,
 .resume-lens-panel p,
 .resume-lens-card p,
-.source-note,
 .source-check-panel p,
 .packet-pdf-rail p,
 .commercial-execution-copy p,
@@ -3467,9 +3419,7 @@ body {
 .case-study-ownership p,
 .proof-matrix-head p,
 .proof-matrix-card p,
-.references-board-head p,
 .reference-card p,
-.reference-custody p,
 .reference-email,
 .reference-empty,
 .media-showcase p,
@@ -3549,7 +3499,6 @@ body {
 .case-study-selector span,
 .case-study-evidence em,
 .case-study-card footer,
-.reference-custody,
 .reference-preview-wrap,
 .reference-evidence em,
 .reference-state,

@@ -112,7 +112,6 @@ check(main.includes('$234K-$260K + equity'), "Site should expose the verified AI
   "Replit and then Codex revolutionized working abilities in 2026",
   "References available on request",
   "Permissioned proof only",
-  "References on request",
   "UFC 324 customer satisfaction proof",
   "Sanitized public summary"
 ].forEach((phrase) => {

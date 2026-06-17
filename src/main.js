@@ -7,7 +7,6 @@ import portraitGallery from "./portrait-gallery.js";
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
 
 const base = "/documents/openai-2026-06-02";
-const resumeBase = "/documents/resume";
 const referencesBase = "/documents/references";
 const logoBase = "/assets/logos";
 const heroImages = {
@@ -19,7 +18,6 @@ const heroImages = {
 };
 
 const { roles, resume } = masterData;
-const resumeSource = masterData.source;
 const primaryRoleId = "ai-success";
 const primaryRole = roles.find((role) => role.id === primaryRoleId) || roles[0];
 const referencePdfDocuments = new Map();
@@ -2092,17 +2090,6 @@ function renderReferences() {
   return `
     ${renderHero("References", "A controlled place for PDFs, emails, and source notes when reviewers ask for third-party confirmation.", heroImages.references)}
     <section class="references-board" aria-label="Reference artifacts">
-      <div class="references-board-head">
-        <div>
-          <p class="eyebrow">References on request</p>
-          <h3>Keep third-party proof source-backed and permissioned.</h3>
-          <p>This tab stays quiet until the hiring team asks for reference letters, source emails, or third-party context. Nothing here should read like a placeholder claim.</p>
-        </div>
-        <div class="reference-custody">
-          <b>Source standard</b>
-          <p>Every artifact needs a clear source, permission status, and interview use before it appears.</p>
-        </div>
-      </div>
       <div class="reference-grid">
         ${referenceArtifacts.map(renderReferenceCard).join("")}
       </div>
@@ -2168,12 +2155,6 @@ function renderFullResume() {
         <h2>${resume.name}</h2>
         <strong>${resume.headline}</strong>
         <p>${resume.contact}</p>
-        <p class="source-note">Sourced from ${resumeSource}. Workbook edits regenerate this presentation data.</p>
-      </div>
-      <div class="doc-actions">
-        ${artifactButton("One-page PDF", `${resumeBase}/JONATHAN_YU_SIP_STUDIES_COMBINED_RESUME_V4_CRITICAL_ON_HAND_2026-06-02.pdf`)}
-        ${artifactButton("Word", `${resumeBase}/JONATHAN_YU_SIP_STUDIES_COMBINED_RESUME_V4_CRITICAL_ON_HAND_2026-06-02.docx`, "DOCX")}
-        ${artifactButton("Markdown", `${resumeBase}/JONATHAN_YU_SIP_STUDIES_COMBINED_RESUME_V4_CRITICAL_ON_HAND_2026-06-02.md`, "MD")}
       </div>
     </section>
     ${renderResumeDetailsDeck()}

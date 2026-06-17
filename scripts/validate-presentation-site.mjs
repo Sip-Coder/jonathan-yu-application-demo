@@ -239,6 +239,9 @@ check(main.includes("function toggleReferenceFullscreen("), "References tab is m
 check(main.includes("function updateReferenceFullscreenControls("), "References tab is missing fullscreen control state updates.");
 check(main.includes("References available on request"), "References tab should state that references are available on request.");
 check(main.includes("Permissioned proof only"), "References tab should avoid unfinished placeholder reference claims.");
+check(!main.includes("Keep third-party proof source-backed and permissioned."), "References tab should not render the removed explanatory intro headline.");
+check(!main.includes("This tab stays quiet until"), "References tab should not render the removed explanatory intro copy.");
+check(!main.includes("Source standard"), "References tab should not render the removed source-standard callout.");
 check(main.includes("UFC 324 customer satisfaction proof"), "References tab is missing the sanitized UFC 324 customer satisfaction proof.");
 check(main.includes("Sanitized public summary"), "References tab should identify the customer satisfaction proof as a sanitized public summary.");
 check(main.includes("Customer name, email, phone, full headers, and original message text are withheld."), "References tab should explain customer privacy handling.");
@@ -922,10 +925,8 @@ if (latestJs) {
     "Permissioned third-party proof, staged only when requested.",
     "Focus",
     "Resume evidence",
-    "References on request",
     "References available on request",
     "Permissioned proof only",
-    "Source standard",
     "data-reference-fullscreen",
     "WSET Level 2 Sake",
     "Wine Scholar Guild / Lustau",
