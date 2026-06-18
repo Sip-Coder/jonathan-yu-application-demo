@@ -2431,7 +2431,7 @@ function render() {
         <nav class="mode-list" aria-label="AI Success application proof sections">
           ${modes.map(navButton).join("")}
         </nav>
-        ${selectedMode === "fit" ? railPacketButtons(selectedRole) : ""}
+        ${railPacketButtons(selectedRole)}
       </aside>
       <section class="workspace" id="presentation-content" tabindex="-1">
         <header class="topbar">

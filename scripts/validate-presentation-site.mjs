@@ -546,6 +546,8 @@ check(main.includes("roleTeam"), "Role source facts should avoid generic posting
 check(main.includes("roleLocation"), "Role source facts should avoid generic posting metadata keys.");
 check(main.includes("payRange"), "Role source facts should avoid generic posting metadata keys.");
 check(main.includes("function renderPacketPdfRail("), "Application packet PDF rail is missing.");
+check(main.includes("${railPacketButtons(selectedRole)}"), "Application packet PDF buttons should render in the shared rail on every tab.");
+check(!main.includes('selectedMode === "fit" ? railPacketButtons'), "Application packet PDF buttons should not be limited to the OpenAI Fit tab.");
 [
   'artifactButton("Resume", docs.Resume.pdf, "PDF")',
   'artifactButton("Cover Letter", docs["Cover Letter"].pdf, "PDF")',
@@ -609,7 +611,7 @@ check(!main.includes('aria-label="Recruiter proof arc"'), "Redundant global recr
 check(main.includes("function railPacketButtons("), "OpenAI Fit is missing the packet PDF button row renderer.");
 check(main.includes("rail-pdf-actions"), "OpenAI Fit is missing the packet PDF action row.");
 check(main.includes('artifactButton("30-60-90", docs["30-60-90"].pdf, "PDF")'), "OpenAI Fit packet actions are missing the 30-60-90 plan PDF link.");
-check(main.includes('selectedMode === "fit" ? railPacketButtons(selectedRole) : ""'), "Packet PDF rail should render only on OpenAI Fit.");
+check(main.includes("${railPacketButtons(selectedRole)}"), "Packet PDF rail should render from the shared rail on every tab.");
 check(!main.includes("top-actions"), "Topbar should not render a separate packet action row.");
 check(!main.includes("function focusModeButton()"), "Topbar should not render a visible focus mode button.");
 check(main.includes("function initialFocusMode()"), "Focus mode is missing query-string initialization.");
